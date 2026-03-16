@@ -66,19 +66,29 @@ document.addEventListener('DOMContentLoaded', () => {
         // — Proof numbers count-up —
         document.querySelectorAll('.proof-number').forEach(el => {
             const rawText  = el.textContent.trim();
-            const numMatch = rawText.match(/[\d,]+/);
+            // Match any float/int including decimals
+            const numMatch = rawText.match(/[\d.]+/);
             if (!numMatch) return;
-            const numStr   = numMatch[0].replace(/,/g, '');
-            const num      = parseInt(numStr, 10);
-            const prefix   = rawText.slice(0, rawText.indexOf(numMatch[0]));
-            const suffix   = rawText.slice(rawText.indexOf(numMatch[0]) + numMatch[0].length);
-            const fmt = v => v >= 1000 ? v.toLocaleString() : v;
-            gsap.from({ val: 0 }, {
-                val: num,
-                duration: 1.8,
+            
+            const numStr    = numMatch[0];
+            const num       = parseFloat(numStr);
+            const isDecimal = numStr.includes('.');
+            
+            const prefix    = rawText.slice(0, rawText.indexOf(numStr));
+            const suffix    = rawText.slice(rawText.indexOf(numStr) + numStr.length);
+            
+            const fmt = v => {
+                if (isDecimal) return v.toFixed(1);
+                return v >= 1000 ? Math.floor(v).toLocaleString() : Math.floor(v);
+            };
+
+            gsap.fromTo({ val: 0 }, { val: num }, {
+                duration: 2,
                 ease: 'power2.out',
-                onUpdate: function () { el.textContent = prefix + fmt(Math.round(this.targets()[0].val)) + suffix; },
-                scrollTrigger: { trigger: el, start: 'top 80%', once: true }
+                onUpdate: function () { 
+                    el.textContent = prefix + fmt(this.targets()[0].val) + suffix; 
+                },
+                scrollTrigger: { trigger: el, start: 'top 90%', once: true }
             });
         });
 
@@ -114,18 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // — Wisdom quotes — 
-        gsap.utils.toArray('.scroll-item').forEach(el => {
-            gsap.from(el, {
-                opacity: 0, scale: 0.96, duration: 0.8, ease: 'power3.out',
-                scrollTrigger: { trigger: el, start: 'top 82%', once: true }
+        // — General reveal for everything else (Contact, etc) —
+        gsap.utils.toArray('.scroll-reveal').forEach(el => {
+            gsap.to(el, {
+                opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+                onStart: () => el.classList.remove('js-hidden')
             });
-        });
-
-        // — Lead Magnet — 
-        gsap.from('.lead-magnet-section', {
-            opacity: 0, y: 40, duration: 0.9, ease: 'power3.out',
-            scrollTrigger: { trigger: '.lead-magnet-section', start: 'top 80%', once: true }
         });
     } else {
         // Fallback – plain intersection observer
@@ -133,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    entry.target.classList.remove('js-hidden');
                     observer.unobserve(entry.target);
                 }
             });
@@ -141,34 +147,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================================
-       5. MAGNETIC CURSOR
+       5. WIZARDLY SPARKLE CURSOR
     ========================================================= */
-    const cursor     = document.createElement('div');
-    cursor.id        = 'magic-cursor';
-    const cursorDot  = document.createElement('div');
-    cursorDot.id     = 'magic-cursor-dot';
+    const cursor = document.createElement('div');
+    cursor.id = 'magic-cursor';
     document.body.appendChild(cursor);
-    document.body.appendChild(cursorDot);
 
     let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+    
+    // Sparkle trail logic
+    const createSparkle = (x, y) => {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        const size = Math.random() * 8 + 4;
+        sparkle.style.width = size + 'px';
+        sparkle.style.height = size + 'px';
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        
+        // Random movement
+        const destinationX = x + (Math.random() - 0.5) * 60;
+        const destinationY = y + (Math.random() - 0.5) * 60;
+        
+        document.body.appendChild(sparkle);
+        
+        gsap.to(sparkle, {
+            x: (Math.random() - 0.5) * 40,
+            y: (Math.random() - 0.5) * 40,
+            opacity: 0,
+            scale: 0,
+            rotation: Math.random() * 180,
+            duration: 0.6 + Math.random() * 0.4,
+            ease: 'power2.out',
+            onComplete: () => sparkle.remove()
+        });
+    };
+
     document.addEventListener('mousemove', e => {
-        mouseX = e.clientX; mouseY = e.clientY;
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top  = mouseY + 'px';
+        mouseX = e.clientX; 
+        mouseY = e.clientY;
+        if (Math.random() > 0.6) createSparkle(mouseX, mouseY);
     });
+
     const animateCursor = () => {
-        cursorX += (mouseX - cursorX) * 0.12;
-        cursorY += (mouseY - cursorY) * 0.12;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top  = cursorY + 'px';
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
         requestAnimationFrame(animateCursor);
     };
     animateCursor();
 
-    // Expand on hover over links / buttons
     const magneticTargets = document.querySelectorAll('a, button, .btn, .spell-card, .featured-card');
     magneticTargets.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+            for(let i=0; i<5; i++) createSparkle(mouseX, mouseY);
+        });
         el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
     });
 
