@@ -500,9 +500,10 @@ footer {
 .footer-logo { font-size: 1.8rem; color: var(--ink-dark); margin-bottom: 1rem; font-weight: 900; letter-spacing: 3px; }
 footer p { font-family: 'IM Fell English', serif; color: var(--ink-dark); opacity: 0.6; font-size: 0.96rem; }
 
-/* ─── Scroll Reveal Fallback ─────────────────── */
-.scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-.scroll-reveal.active { opacity: 1; transform: translateY(0); }
+/* ─── Scroll Reveal (Graceful Degradation) ─────────────────── */
+.scroll-reveal { opacity: 1; transform: none; transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+.scroll-reveal.js-hidden { opacity: 0; transform: translateY(24px); }
+.scroll-reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
 
 /* ─── Responsive ─────────────────────────────── */
 @media screen and (max-width: 768px) {

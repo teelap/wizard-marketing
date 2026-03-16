@@ -5,11 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
        1. LENIS SMOOTH SCROLLING
     ========================================================= */
     let lenis;
-    if (typeof Lenis !== 'undefined') {
-        lenis = new Lenis({ lerp: 0.08, duration: 1.4 });
-        lenis.on('scroll', ScrollTrigger ? ScrollTrigger.update : null);
-        const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
-        requestAnimationFrame(raf);
+    try {
+        if (typeof Lenis !== 'undefined') {
+            lenis = new Lenis({ lerp: 0.08, duration: 1.4 });
+            lenis.on('scroll', () => {
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
+            });
+            const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+            requestAnimationFrame(raf);
+        }
+    } catch (e) {
+        console.warn("Lenis failed to initialize:", e);
     }
 
     /* =========================================================
@@ -39,11 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // — Hero staggered entrance —
+        // — Initial state: Hide elements ONLY if GSAP is here to reveal them —
         gsap.set(['.jake-portrait', '.hero-content .subtitle', '.hero-content .title',
                    '.hero-content .tagline', '.hero-content .description', '.hero-content .cta-buttons',
                    '.hero-content .hero-secondary-link'], { opacity: 0, y: 40 });
+        
+        // Hide scroll-reveal elements manually via class to ensure fallback
+        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('js-hidden'));
 
+        // — Hero staggered entrance —
         gsap.timeline({ delay: 0.3 })
             .to('.jake-portrait',              { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' })
             .to('.hero-content .subtitle',     { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
