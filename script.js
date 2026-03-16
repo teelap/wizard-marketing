@@ -46,22 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
 
         // — Initial state: Hide elements ONLY if GSAP is here to reveal them —
-        gsap.set(['.jake-portrait', '.hero-content .subtitle', '.hero-content .title',
-                   '.hero-content .tagline', '.hero-content .description', '.hero-content .cta-buttons',
-                   '.hero-content .hero-secondary-link'], { opacity: 0, y: 40 });
+        // gsap.set(['.floating-artifact', '.massive-title .word1', '.massive-title .word2', '.hero-footer'], { opacity: 0 });
         
         // Hide scroll-reveal elements manually via class to ensure fallback
         document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('js-hidden'));
 
-        // — Hero staggered entrance —
-        gsap.timeline({ delay: 0.3 })
-            .to('.jake-portrait',              { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' })
-            .to('.hero-content .subtitle',     { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-            .to('.hero-content .title',        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.5')
-            .to('.hero-content .tagline',      { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-            .to('.hero-content .description',  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
-            .to('.hero-content .cta-buttons',  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
-            .to('.hero-content .hero-secondary-link', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3');
+        // — V6: Graffico Hero Animations —
+        const tlHero = gsap.timeline();
+        
+        // Staggered reveal of massive text and footer using from() for stability
+        tlHero.from('.massive-title .word1', { opacity: 0, x: -100, duration: 1.2, ease: 'power3.out' }, "+=0.2")
+              .from('.massive-title .word2', { opacity: 0, x: 100, duration: 1.2, ease: 'power3.out' }, "-=0.8")
+              .from('.hero-footer', { opacity: 0, y: 30, duration: 1, ease: 'power2.out' }, "-=0.5")
+              .from('.floating-artifact', { opacity: 0, y: 50, duration: 2, ease: 'power2.out', stagger: 0.2 }, "-=1");
+
+        // Parallax effects on scroll
+        gsap.to('.massive-title', {
+            y: 200, opacity: 0,
+            scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: true }
+        });
+        
+        gsap.to('.a1', { y: -150, rotation: 10, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1 } });
+        gsap.to('.a2', { y: -250, rotation: -15, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1.5 } });
+        gsap.to('.a3', { y: -100, x: 50, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 2 } });
+        gsap.to('.a4', { y: -300, rotation: -20, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1.2 } });
 
         // — Proof numbers count-up —
         document.querySelectorAll('.proof-number').forEach(el => {
@@ -147,63 +155,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================================
-       5. WIZARDLY SPARKLE CURSOR
+       5. PREMIUM CUSTOM CURSOR
     ========================================================= */
     const cursor = document.createElement('div');
     cursor.id = 'magic-cursor';
     document.body.appendChild(cursor);
 
-    let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-    
-    // Sparkle trail logic
-    const createSparkle = (x, y) => {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        const size = Math.random() * 8 + 4;
-        sparkle.style.width = size + 'px';
-        sparkle.style.height = size + 'px';
-        sparkle.style.left = x + 'px';
-        sparkle.style.top = y + 'px';
-        
-        // Random movement
-        const destinationX = x + (Math.random() - 0.5) * 60;
-        const destinationY = y + (Math.random() - 0.5) * 60;
-        
-        document.body.appendChild(sparkle);
-        
-        gsap.to(sparkle, {
-            x: (Math.random() - 0.5) * 40,
-            y: (Math.random() - 0.5) * 40,
-            opacity: 0,
-            scale: 0,
-            rotation: Math.random() * 180,
-            duration: 0.6 + Math.random() * 0.4,
-            ease: 'power2.out',
-            onComplete: () => sparkle.remove()
-        });
-    };
+    const cursorDot = document.createElement('div');
+    cursorDot.id = 'magic-cursor-dot';
+    document.body.appendChild(cursorDot);
 
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let cursorX = mouseX, cursorY = mouseY;
+    
     document.addEventListener('mousemove', e => {
         mouseX = e.clientX; 
         mouseY = e.clientY;
-        if (Math.random() > 0.6) createSparkle(mouseX, mouseY);
+        // Dot follows instantly
+        cursorDot.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
     });
 
     const animateCursor = () => {
+        // Ring follows smoothly with a slight lag
         cursorX += (mouseX - cursorX) * 0.15;
         cursorY += (mouseY - cursorY) * 0.15;
-        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        cursor.style.transform = `translate3d(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%), 0)`;
         requestAnimationFrame(animateCursor);
     };
     animateCursor();
 
-    const magneticTargets = document.querySelectorAll('a, button, .btn, .spell-card, .featured-card');
+    const magneticTargets = document.querySelectorAll('a, button, .btn, .arsenal-card, .featured-card');
     magneticTargets.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.classList.add('cursor-hover');
-            for(let i=0; i<5; i++) createSparkle(mouseX, mouseY);
         });
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+        });
     });
 
     // Hide on touch screens

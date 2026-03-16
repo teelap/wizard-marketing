@@ -68,57 +68,54 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=5.0">
+    <link rel="stylesheet" href="styles.css?v=6.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="parchment-theme">
 
-    <!-- V4: Announcement Bar -->
-    <div class="announcement-bar">
-        <div class="announcement-content">
-            <span class="announcement-badge">NEW</span>
-            <span>The Marketing Messaging Matrix — Jake's framework, now becoming a book. <a href="#lead-magnet">Get early access &rarr;</a></span>
-        </div>
-    </div>
-    
-    <nav id="navbar">
+    <!-- V6: Graffico-style Floating Pill Nav -->
+    <nav id="navbar" class="pill-nav">
         <div class="nav-content">
-            <div class="logo">The Wizard</div>
+            <div class="logo"><img src="dev_assets/Bat.png" alt="Wizard Logo" class="nav-logo-icon"> THE WIZARD</div>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#origin">The Truth</a></li>
-                <li><a href="#arsenal">Arsenal</a></li>
-                <li><a href="#journey">Trenches</a></li>
-                <li><a href="#featured">Featured</a></li>
-                <li><a href="#contact">Speak</a></li>
+                <li><a href="#hero" class="magnetic-btn">Home</a></li>
+                <li><a href="#origin" class="magnetic-btn">The Truth</a></li>
+                <li><a href="#arsenal" class="magnetic-btn">Arsenal</a></li>
+                <li><a href="#journey" class="magnetic-btn">Trenches</a></li>
+                <li><a href="#featured" class="magnetic-btn">Featured</a></li>
+                <li><a href="#contact" class="magnetic-btn">Speak</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
+    <main class="content-wrapper">
+        <!-- V6: Giant Typography Hero Section (Night Theme) -->
+        <section id="hero" class="hero-section dark-theme-section">
+            <div class="hero-parallax-bg">
+                <!-- Floating mystical elements from dev_assets -->
+                <img src="dev_assets/castel 1.png" class="floating-artifact a1" alt="">
+                <img src="dev_assets/Hat.png" class="floating-artifact a2" alt="">
+                <!-- Removed non-transparent portrait -->
+                <img src="dev_assets/Bat.png" class="floating-artifact a4" alt="" style="position:absolute; top: 15%; right: 20%; width: 120px; opacity: 0.7; transform: rotate(15deg);">
+                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="">
+            </div>
+            
             <div class="hero-content">
-                <img src="https://thewizard.marketing/wp-content/uploads/2024/09/foot-2nd-section.gif" class="magic-footsteps-gif hero-gif" alt="Animated magical footsteps graphic">
-
-                <img src="https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/043687eda7d4e82374754bd7d52ae6fb~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=c6e650bb&x-expires=1773856800&x-signature=XDwBhdB57IWRbE2zDiWd6gLdgcQ%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8" alt="Jake Tlapek Portrait" class="jake-portrait">
-
-                <p class="subtitle ink-text">No fluff. No theory. Just what works.</p>
-                <h1 class="title ink-stamp">Jake Tlapek</h1>
-                <p class="tagline">The Wizard of Marketing</p>
-                <p class="description">Founder. Chief Evangelist at Finch. Creator of the Marketing Messaging Matrix. Board game designer. Air Force veteran.<br>If your marketing isn't driving revenue, it's just noise.</p>
+                <h1 class="massive-title parallax-text">
+                    <span class="word1">JAKE</span><br>
+                    <span class="word2">TLAPEK</span>
+                </h1>
                 
-                <!-- V4: Single dominant CTA -->
-                <div class="cta-buttons">
-                    <a href="#lead-magnet" class="btn btn-primary">Get the Framework Free</a>
+                <div class="hero-footer">
+                    <p class="hero-subtitle ink-text text-night">We craft digital revenue<br>through marketing magic.</p>
+                    <div class="scroll-indicator ink-stamp text-night">Scroll to discover</div>
                 </div>
-                <a href="#arsenal" class="hero-secondary-link">Or explore the arsenal &darr;</a>
             </div>
         </section>
 
@@ -152,70 +149,72 @@
             </div>
         </section>
 
-        <!-- Origin Story Section -->
+        <!-- V6: The Truth (Asymmetrical Layout) -->
         <section id="origin" class="section padding-section">
             <div class="container">
-                <h2 class="section-title ink-stamp">The Brutal Truth About Scaling</h2>
-                
-                <div class="content-grid">
-                    <div class="origin-content scroll-reveal">
-                        <div class="parchment-box ink-text">
-                            <p>I didn't learn marketing in a classroom. I learned it in the trenches, making mistakes that cost real money and figuring out what actually drives revenue. I started in the Air Force as an IT Tech—learning the raw architecture of systems. But the real game is human psychology.</p>
-                            <p>I built Wizard Marketing from zero to a million-dollar agency, then sold it. It was acquired by <strong>Finch</strong>, where I now serve as <strong>Chief Evangelist</strong>. Along the way, I created the <strong>Marketing Messaging Matrix</strong>—the framework behind my upcoming book—and co-designed the board game <em>Grifters</em>, which sold over 300,000 copies.</p>
-                            <p>I've generated over <strong>$100 million in measurable revenue</strong> for clients spanning Fortune 500 companies on three continents. If you want honest strategy from someone who's earned their insights through bruises—not blog posts—you've found the right place.</p>
-                        </div>
+                <div class="asymmetric-grid">
+                    <div class="asymmetric-left scroll-reveal">
+                        <h2 class="massive-section-title">THE<br>BRUTAL<br>TRUTH.</h2>
+                        <img src="dev_assets/member 1.png" alt="Wizard Graphic" class="floating-inline-graphic">
                     </div>
                     
-                    <div class="origin-image scroll-reveal" style="transition-delay: 200ms;">
-                        <img src="https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/977d24caafa44b139daef52f3b6df9ba~tplv-tiktokx-dmt-logom:tos-useast5-i-0068-tx/c720f134f6d74863a67c7c07017749a5.image?dr=9634&x-expires=1773705600&x-signature=PbqiESyeShDkB4UXmLD1Ysueb%2Bw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Jake Tlapek speaking on stage at a marketing event" class="jake-action-shot">
+                    <div class="asymmetric-right scroll-reveal" style="transition-delay: 200ms;">
+                        <div class="ink-text body-copy-large">
+                            <p>I didn't learn marketing in a classroom. I learned it in the trenches, making mistakes that cost real money and figuring out what actually drives revenue. I started in the Air Force as an IT Tech—learning the raw architecture of systems. But the real game is human psychology.</p>
+                            <p>I built Wizard Marketing from zero to a million-dollar agency, then sold it. It was acquired by <strong>Finch</strong>, where I now serve as <strong>Chief Evangelist</strong>. Along the way, I created the <strong>Marketing Messaging Matrix</strong>—the framework behind my upcoming book.</p>
+                            <p>I've generated over <strong>$100 million in measurable revenue</strong> for clients spanning Fortune 500 companies on three continents. If you want honest strategy from someone who's earned their insights through bruises—not blog posts—you've found the right place.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- The Arsenal Section -->
-        <section id="arsenal" class="section padding-section">
+        <!-- V6: The Arsenal (Staggered Grid) -->
+        <section id="arsenal" class="section padding-section dark-theme-section">
             <div class="container">
-                <h2 class="section-title ink-stamp">The Arsenal</h2>
-                <div class="card-grid">
-                    <div class="spell-card scroll-reveal">
+                <h2 class="section-title ink-stamp text-night">THE ARSENAL</h2>
+                <div class="staggered-grid">
+                    <div class="arsenal-card scroll-reveal">
                         <div class="card-inner">
                             <i class="fas fa-search magic-icon"></i>
-                            <h3 class="ink-stamp">Total Search</h3>
-                            <p>I deliver SEO that outperforms industry benchmarks by 2.5× on average. Google didn't punish your site. Your strategy was just never built to win.</p>
+                            <h3 class="card-title">Total Search</h3>
+                            <p class="ink-text text-night">I deliver SEO that outperforms industry benchmarks by 2.5× on average. Google didn't punish your site. Your strategy was just never built to win.</p>
                         </div>
                     </div>
-                    <div class="spell-card scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="arsenal-card scroll-reveal offset-card">
                         <div class="card-inner">
                             <i class="fas fa-fire magic-icon"></i>
-                            <h3 class="ink-stamp">Demand Generation</h3>
-                            <p>DSP-driven omnichannel campaigns designed to do one thing: turn attention into qualified pipeline. I've generated $100M+ in revenue doing exactly this.</p>
+                            <h3 class="card-title">Demand Gen</h3>
+                            <p class="ink-text text-night">DSP-driven omnichannel campaigns designed to do one thing: turn attention into pipeline. I've generated $100M+ in revenue doing exactly this.</p>
                         </div>
                     </div>
-                    <div class="spell-card scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="arsenal-card scroll-reveal">
                         <div class="card-inner">
                             <i class="fas fa-hammer magic-icon"></i>
-                            <h3 class="ink-stamp">Conversion Architecture</h3>
-                            <p>Traffic means nothing if your site bleeds leads. I find the friction, rebuild the UX, and deliver measurable conversion lifts. Data over opinions.</p>
+                            <h3 class="card-title">Conversion UI</h3>
+                            <p class="ink-text text-night">Traffic means nothing if your site bleeds leads. I find the friction, rebuild the UX, and deliver measurable conversion lifts.</p>
                         </div>
                     </div>
-                    <div class="spell-card scroll-reveal" style="transition-delay: 300ms;">
+                    <div class="arsenal-card scroll-reveal offset-card">
                         <div class="card-inner">
                             <i class="fas fa-book-open magic-icon"></i>
-                            <h3 class="ink-stamp">The Messaging Matrix</h3>
-                            <p>My proprietary framework for diagnosing why your marketing message isn't landing. It's the basis for my upcoming book—and the reason agencies hire me.</p>
+                            <h3 class="card-title">Messaging</h3>
+                            <p class="ink-text text-night">My proprietary framework for diagnosing why your marketing message isn't landing. It's the basis for my upcoming book.</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Parallax artifact -->
+            <img src="dev_assets/Cards.png" class="floating-artifact a5" alt="" style="position:absolute; bottom:5%; right:2%; width:150px; opacity:0.3; filter:invert(1);">
         </section>
 
-        <!-- V4: Lead Magnet Section -->
+        <!-- V6: Lead Magnet Section (Fixed Contrast) -->
         <section id="lead-magnet" class="section padding-section lead-magnet-section">
             <div class="container center-text">
-                <span class="lead-magnet-badge">FREE FRAMEWORK</span>
+                <span class="lead-magnet-badge" style="background:#b02a2a; color:#f4eee0;">FREE FRAMEWORK</span>
                 <h2 class="section-title ink-stamp">The Marketing Messaging Matrix</h2>
-                <p class="description">The framework I built after generating $100M+ in revenue for clients across three continents. It's the foundation of my upcoming book—and I'm giving away the core playbook for free.</p>
+                <p class="description" style="opacity: 0.9; font-family:'IM Fell English', serif;">The framework I built after generating $100M+ in revenue for clients across three continents. It's the foundation of my upcoming book—and I'm giving away the core playbook for free.</p>
                 <p class="ink-text" style="margin-bottom: 2rem;">Stop guessing why your messaging doesn't land. The Matrix shows you exactly where the gaps are.</p>
                 
                 <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="lead-magnet-form">
@@ -352,65 +351,65 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section padding-section">
+        <!-- V6: Contact Section (Dark Theme Asymmetrical) -->
+        <section id="contact" class="section padding-section dark-theme-section">
             <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info scroll-reveal">
-                        <img src="https://thewizard.marketing/wp-content/uploads/2024/09/foot-2nd-section.gif" class="magic-footsteps-gif" style="top: -20px; left: -20px;" alt="Animated magical footsteps graphic">
-                        <h2 class="section-title ink-stamp">Summon the Wizard</h2>
-                        <div class="ink-text">
+                <div class="asymmetric-grid">
+                    <div class="asymmetric-left scroll-reveal">
+                        <h2 class="massive-section-title">SUMMON<br>THE<br>WIZARD.</h2>
+                        <div class="social-links-large" style="margin-top: 2rem;">
+                            <a href="https://www.tiktok.com/@thewizardmarketing" class="text-night dark-border" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" class="text-night dark-border" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UC26G_o-cTFCcPo-CyGf_3YA" class="text-night dark-border" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/thewizardmarketing/" class="text-night dark-border" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/JakeTtheWizard" class="text-night dark-border" target="_blank" aria-label="X Profile"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="asymmetric-right scroll-reveal" style="transition-delay: 200ms;">
+                        <div class="ink-text body-copy-large text-night">
                             <p>Tired of theory? Tell me what's broken in your business. Be specific. Include numbers, costs, and consequences. I'll tell you straight up if I can fix it.</p>
                         </div>
                         
-                        <div class="social-links-large">
-                            <a href="https://www.tiktok.com/@thewizardmarketing" target="_blank" aria-label="TikTok Profile" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                            <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.youtube.com/channel/UC26G_o-cTFCcPo-CyGf_3YA" target="_blank" aria-label="YouTube Channel" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.instagram.com/thewizardmarketing/" target="_blank" aria-label="Instagram Profile" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://twitter.com/JakeTtheWizard" target="_blank" aria-label="X Profile" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                        <div class="contact-form-container" style="margin-top: 3rem;">
+                            <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="magic-form">
+                                <div class="form-group">
+                                    <label for="name" class="text-night">Who are you?</label>
+                                    <input type="text" id="name" name="name" class="text-night dark-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="text-night">Where do I reply?</label>
+                                    <input type="email" id="email" name="email" class="text-night dark-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" class="text-night">What's broken? Give me specifics.</label>
+                                    <textarea id="message" name="message" rows="5" class="text-night dark-input" required></textarea>
+                                </div>
+                                <input type="hidden" name="_subject" value="New missive from your portfolio site!">
+                                <button type="submit" class="btn btn-primary w-100" style="margin-top: 1rem;">Send Truth</button>
+                            </form>
                         </div>
-                        <p class="website-link"><a href="https://thewizard.marketing" target="_blank">Visit thewizard.marketing</a></p>
-                    </div>
-                    
-                    <div class="contact-form-container scroll-reveal" style="transition-delay: 200ms;">
-                        <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="magic-form">
-                            <div class="form-group">
-                                <label for="name">Who are you?</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Where do I reply?</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">What's broken? Give me specifics.</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <input type="hidden" name="_subject" value="New missive from your portfolio site!">
-                            <button type="submit" class="btn btn-primary w-100">Send Truth</button>
-                        </form>
                     </div>
                 </div>
                 
                 <!-- Newsletter Section -->
-                <div class="newsletter-section scroll-reveal center-text">
-                    <h2 class="section-title ink-stamp">Join the Order</h2>
-                    <p class="ink-text">Get the book launch announcement and weekly truths on scaling.<br>No corporate-speak. Just what works.</p>
+                <div class="newsletter-section scroll-reveal center-text" style="border-top-color: rgba(255,255,255,0.1);">
+                    <h2 class="section-title ink-stamp text-night" style="border-bottom:none;">Join the Order</h2>
+                    <p class="ink-text text-night">Get the book launch announcement and weekly truths on scaling.<br>No corporate-speak. Just what works.</p>
                     <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="newsletter-form">
-                        <input type="email" name="newsletter_email" placeholder="Your best email" required>
+                        <input type="email" name="newsletter_email" placeholder="Your best email" class="text-night dark-input" required>
                         <input type="hidden" name="_subject" value="New Newsletter Signup!">
-                        <button type="submit" class="btn btn-secondary w-100">Subscribe</button>
+                        <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem;">Subscribe</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="dark-theme-section">
         <div class="container center-text">
-            <div class="footer-logo ink-stamp">The Wizard</div>
-            <p>&copy; 2024 Jake Tlapek. Built with scars.</p>
+            <div class="footer-logo ink-stamp text-night">The Wizard</div>
+            <p class="text-night" style="opacity: 0.5;">&copy; 2024 Jake Tlapek. Built with scars.</p>
         </div>
     </footer>
 
