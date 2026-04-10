@@ -48,36 +48,6 @@ body.parchment-theme {
     color: var(--text-day);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none; 
-}
-
-/* ─── Custom Premium Cursor ──────────────────── */
-#magic-cursor {
-    position: fixed; top: 0; left: 0; width: 40px; height: 40px;
-    border: 1.5px solid #fff;
-    border-radius: 50%;
-    pointer-events: none; z-index: 10000;
-    transition: width 0.3s, height 0.3s, background 0.3s, transform 0.1s ease-out;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-}
-#magic-cursor-dot {
-    position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-    background: #fff;
-    border-radius: 50%;
-    pointer-events: none; z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
-    mix-blend-mode: difference;
-}
-#magic-cursor.cursor-hover { 
-    width: 60px; height: 60px; 
-    background: rgba(255,255,255,0.1); 
-    border-color: transparent;
-}
-@media (hover: none) {
-    #magic-cursor, #magic-cursor-dot { display: none; }
-    body.parchment-theme { cursor: auto; }
 }
 
 /* ─── Headings & Typography ──────────────────── */
@@ -206,6 +176,17 @@ a:hover { color: var(--gold); }
 .massive-title .word1 { display: block; margin-left: -5vw; text-shadow: 0 10px 30px rgba(0,0,0,0.6); }
 .massive-title .word2 { display: block; margin-left: 5vw; text-shadow: 0 10px 30px rgba(0,0,0,0.6); }
 
+.hero-role {
+    font-family: var(--font-accent);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--text-night);
+    text-align: center;
+    margin-top: 1.5rem;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    z-index: 10;
+}
+
 .hero-footer {
     display: flex; justify-content: space-between; align-items: flex-end;
     width: 100%; padding: 0 2rem; position: absolute; bottom: 2rem;
@@ -221,7 +202,7 @@ a:hover { color: var(--gold); }
     text-transform: uppercase; letter-spacing: 2.5px;
     font-size: 0.85rem;
     transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
-    cursor: none;
+    cursor: pointer;
     border: 2px solid var(--ink-dark);
     position: relative; overflow: hidden;
 }
@@ -277,8 +258,8 @@ a:hover { color: var(--gold); }
 
 /* ─── Sections ───────────────────────────────── */
 .section { position: relative; z-index: 10; }
-.padding-section { padding: clamp(100px, 12vw, 160px) var(--space-md); }
-@media (min-width: 768px) { .padding-section { padding: clamp(120px, 15vw, 180px) var(--space-md); } }
+.padding-section { padding: clamp(48px, 6vw, 80px) var(--space-md); }
+@media (min-width: 768px) { .padding-section { padding: clamp(60px, 8vw, 100px) var(--space-md); } }
 .container { max-width: 1200px; margin: 0 auto; position: relative; padding: 0 2rem; }
 
 /* ─── V6: Asymmetrical Section Titles ────────────────────────── */
@@ -298,11 +279,12 @@ a:hover { color: var(--gold); }
     position: relative;
 }
 @media (min-width: 900px) {
-    .asymmetric-grid { flex-direction: row; align-items: flex-start; gap: 6vw; }
-    .asymmetric-left { flex: 0 0 40%; position: sticky; top: 120px; }
-    .asymmetric-right { flex: 1; margin-top: 15vh; }
+    .asymmetric-grid { flex-direction: row; align-items: flex-start; gap: 4vw; overflow-x: hidden; }
+    .asymmetric-left { flex: 0 0 35%; position: sticky; top: 120px; }
+    .asymmetric-right { flex: 1; margin-top: 10vh; }
 }
 .floating-inline-graphic { width: 100%; max-width: 350px; margin-top: -2rem; mix-blend-mode: multiply; opacity: 0.8; filter: sepia(0.5); }
+.jake-bio-photo { width: 100%; max-width: 350px; margin-top: 2rem; border-radius: var(--radius-md); filter: grayscale(0.2); }
 .body-copy-large p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; color: var(--text-day); opacity: 0.85; }
 
 /* ─── V6: Staggered Arsenal Grid ────────────────────────────── */
@@ -424,6 +406,7 @@ a:hover { color: var(--gold); }
 .timeline-item:hover .timeline-dot { transform: scale(1.4); box-shadow: 0 0 0 6px rgba(192,36,46,0.15); }
 .timeline-item:nth-child(even) .timeline-dot { left: -7px; }
 .timeline-content { padding: 0; }
+.timeline-year { display: block; font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--wax-red); opacity: 0.6; margin-bottom: 0.3rem; }
 .timeline-content h3 { color: var(--wax-red); margin-bottom: 0.4rem; font-size: 1.2rem; }
 .timeline-content p { font-family: 'IM Fell English', serif; font-size: 1.05rem; line-height: 1.7; }
 
@@ -500,9 +483,9 @@ footer {
 footer p { font-family: 'IM Fell English', serif; color: var(--ink-dark); opacity: 0.6; font-size: 0.96rem; }
 
 /* ─── Scroll Reveal (Graceful Degradation) ─────────────────── */
-.scroll-reveal { opacity: 1; transform: none; transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-.scroll-reveal.js-hidden { opacity: 0; transform: translateY(24px); }
-.scroll-reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
+/* Elements only hidden when JS confirms GSAP+ScrollTrigger are functional */
+body.js-ready .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+body.js-ready .scroll-reveal.active { opacity: 1; transform: translateY(0); }
 
 /* ─── Responsive ─────────────────────────────── */
 @media screen and (max-width: 768px) {

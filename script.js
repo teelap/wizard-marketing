@@ -2,23 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================================
-       1. LENIS SMOOTH SCROLLING
-    ========================================================= */
-    let lenis;
-    try {
-        if (typeof Lenis !== 'undefined') {
-            lenis = new Lenis({ lerp: 0.08, duration: 1.4 });
-            lenis.on('scroll', () => {
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
-            });
-            const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
-            requestAnimationFrame(raf);
-        }
-    } catch (e) {
-        console.warn("Lenis failed to initialize:", e);
-    }
-
-    /* =========================================================
        2. MOBILE MENU
     ========================================================= */
     const mobileMenu = document.getElementById('mobile-menu');
@@ -42,14 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================================
        4. GSAP ANIMATIONS
     ========================================================= */
-    if (typeof gsap !== 'undefined') {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // — Initial state: Hide elements ONLY if GSAP is here to reveal them —
-        // gsap.set(['.floating-artifact', '.massive-title .word1', '.massive-title .word2', '.hero-footer'], { opacity: 0 });
-        
-        // Hide scroll-reveal elements manually via class to ensure fallback
-        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('js-hidden'));
+        // Confirm JS animations are functional before hiding elements
+        document.body.classList.add('js-ready');
 
         // — V6: Graffico Hero Animations —
         const tlHero = gsap.timeline();
@@ -137,68 +117,21 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(el, {
                 opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
                 scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-                onStart: () => el.classList.remove('js-hidden')
+                onStart: () => el.classList.add('active')
             });
         });
     } else {
-        // Fallback – plain intersection observer
+        // Fallback – plain intersection observer (no js-ready class added, so content stays visible)
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    entry.target.classList.remove('js-hidden');
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
     }
-
-    /* =========================================================
-       5. PREMIUM CUSTOM CURSOR
-    ========================================================= */
-    const cursor = document.createElement('div');
-    cursor.id = 'magic-cursor';
-    document.body.appendChild(cursor);
-
-    const cursorDot = document.createElement('div');
-    cursorDot.id = 'magic-cursor-dot';
-    document.body.appendChild(cursorDot);
-
-    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-    let cursorX = mouseX, cursorY = mouseY;
-    
-    document.addEventListener('mousemove', e => {
-        mouseX = e.clientX; 
-        mouseY = e.clientY;
-        // Dot follows instantly
-        cursorDot.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-    });
-
-    const animateCursor = () => {
-        // Ring follows smoothly with a slight lag
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
-        cursor.style.transform = `translate3d(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%), 0)`;
-        requestAnimationFrame(animateCursor);
-    };
-    animateCursor();
-
-    const magneticTargets = document.querySelectorAll('a, button, .btn, .arsenal-card, .featured-card');
-    magneticTargets.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-hover');
-        });
-    });
-
-    // Hide on touch screens
-    window.addEventListener('touchstart', () => {
-        cursor.style.display = 'none';
-        cursorDot.style.display = 'none';
-    }, { once: true });
 
     /* =========================================================
        6. PARTICLE CANVAS
