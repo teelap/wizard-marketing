@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jake Tlapek - The Wizard of Marketing</title>
-    <meta name="description" content="Jake Tlapek has generated $100M+ in revenue as a marketer. No fluff, just results. Creator of the Marketing Messaging Matrix.">
+    <title>Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.</title>
+    <meta name="description" content="Jake Tlapek has generated $100M+ in revenue as a marketer. Author of Eight Dominoes — a messaging framework that compounds. No fluff, just the sequence.">
     <meta name="author" content="Jake Tlapek">
     <link rel="canonical" href="https://www.jakethewizard.com/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/Bat.png">
@@ -13,16 +13,16 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.jakethewizard.com/">
-    <meta property="og:title" content="Jake Tlapek - The Wizard of Marketing">
-    <meta property="og:description" content="Jake Tlapek has generated $100M+ in revenue as a marketer. No fluff, just results. Creator of the Marketing Messaging Matrix.">
-    <meta property="og:image" content="https://www.jakethewizard.com/dev_assets/jake headshot.png">
+    <meta property="og:title" content="Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.">
+    <meta property="og:description" content="Your product isn't the problem. Your sequence is. Eight Dominoes is the messaging framework Jake uses to turn invisible businesses into category leaders.">
+    <meta property="og:image" content="https://www.jakethewizard.com/dev_assets/jake-headshot.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.jakethewizard.com/">
-    <meta property="twitter:title" content="Jake Tlapek - The Wizard of Marketing">
-    <meta property="twitter:description" content="Jake Tlapek has generated $100M+ in revenue as a marketer. No fluff, just results. Creator of the Marketing Messaging Matrix.">
-    <meta property="twitter:image" content="https://www.jakethewizard.com/dev_assets/jake headshot.png">
+    <meta property="twitter:title" content="Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.">
+    <meta property="twitter:description" content="Your product isn't the problem. Your sequence is. Eight Dominoes — coming soon.">
+    <meta property="twitter:image" content="https://www.jakethewizard.com/dev_assets/jake-headshot.png">
 
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -32,7 +32,7 @@
       "name": "Jake Tlapek",
       "alternateName": "The Wizard of Marketing",
       "url": "https://www.jakethewizard.com/",
-      "image": "https://www.jakethewizard.com/dev_assets/jake headshot.png",
+      "image": "https://www.jakethewizard.com/dev_assets/jake-headshot.png",
       "jobTitle": "Chief Evangelist",
       "worksFor": {
         "@type": "Organization",
@@ -55,24 +55,19 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Offer",
-      "name": "The Marketing Messaging Matrix",
-      "description": "A proprietary framework for diagnosing why your marketing message isn't landing.",
-      "url": "https://www.jakethewizard.com/#lead-magnet",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Person",
-        "name": "Jake Tlapek"
-      }
+      "@type": "Book",
+      "name": "Eight Dominoes: A Messaging Framework That Compounds",
+      "author": { "@type": "Person", "name": "Jake Tlapek" },
+      "description": "The eight-part messaging framework Jake Tlapek uses to turn invisible businesses into category leaders — without changing the product, team, or price.",
+      "url": "https://www.jakethewizard.com/#eight-dominoes",
+      "bookFormat": "https://schema.org/Paperback"
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=6.0">
+    <link rel="stylesheet" href="styles.css?v=7.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="parchment-theme">
@@ -81,13 +76,13 @@
     <nav id="navbar" class="pill-nav">
         <div class="nav-content">
             <div class="logo"><img src="dev_assets/Bat.png" alt="Wizard Logo" class="nav-logo-icon"> THE WIZARD</div>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul id="primary-nav" class="nav-links">
                 <li><a href="#hero" class="magnetic-btn">Home</a></li>
                 <li><a href="#origin" class="magnetic-btn">The Truth</a></li>
-                <li><a href="#arsenal" class="magnetic-btn">Arsenal</a></li>
+                <li><a href="#eight-dominoes" class="magnetic-btn">The Book</a></li>
                 <li><a href="#journey" class="magnetic-btn">Trenches</a></li>
                 <li><a href="#featured" class="magnetic-btn">Featured</a></li>
                 <li><a href="#contact" class="magnetic-btn">Speak</a></li>
@@ -100,11 +95,10 @@
         <section id="hero" class="hero-section dark-theme-section">
             <div class="hero-parallax-bg">
                 <!-- Floating mystical elements from dev_assets -->
-                <img src="dev_assets/castel 1.png" class="floating-artifact a1" alt="">
-                <img src="dev_assets/Hat.png" class="floating-artifact a2" alt="">
-                <!-- Removed non-transparent portrait -->
-                <img src="dev_assets/Bat.png" class="floating-artifact a4" alt="" style="position:absolute; top: 15%; right: 20%; width: 120px; opacity: 0.7; transform: rotate(15deg);">
-                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="">
+                <img src="dev_assets/castel 1.png" class="floating-artifact a1" alt="" aria-hidden="true">
+                <img src="dev_assets/Hat.png" class="floating-artifact a2" alt="" aria-hidden="true">
+                <img src="dev_assets/Bat.png" class="floating-artifact a4" alt="" aria-hidden="true">
+                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="" aria-hidden="true">
             </div>
             
             <div class="hero-content">
@@ -114,39 +108,34 @@
                 </h1>
                 <p class="hero-role text-night">Chief Evangelist at Finch &nbsp;|&nbsp; $100M+ in Revenue Generated</p>
 
+                <div class="hero-ctas">
+                    <a href="#eight-dominoes" class="btn btn-primary">Get First Access</a>
+                    <a href="#origin" class="btn btn-ghost-light">Read Jake's Story</a>
+                </div>
+
                 <div class="hero-footer">
-                    <p class="hero-subtitle ink-text text-night">We craft digital revenue<br>through marketing magic.</p>
+                    <p class="hero-subtitle ink-text text-night">Author of <em>Eight Dominoes</em>.<br>A messaging framework that compounds.</p>
                     <div class="scroll-indicator ink-stamp text-night">Scroll to discover</div>
                 </div>
             </div>
         </section>
 
-        <!-- V4: Social Proof Strip -->
-        <section class="proof-strip">
+        <!-- Social Proof Strip (3 qualified claims) -->
+        <section class="proof-strip" aria-label="Jake's track record">
             <div class="proof-strip-inner">
                 <div class="proof-item">
                     <span class="proof-number">$100M+</span>
-                    <span class="proof-label">Revenue Generated</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">100K+</span>
-                    <span class="proof-label">Online Followers</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">F500</span>
-                    <span class="proof-label">Clients, 3 Continents</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">2.5×</span>
-                    <span class="proof-label">SEO vs Industry Avg</span>
+                    <span class="proof-label">Generated for F500 clients across 3 continents</span>
                 </div>
                 <div class="proof-divider"></div>
                 <div class="proof-item">
                     <span class="proof-number">300K</span>
-                    <span class="proof-label">Board Games Sold</span>
+                    <span class="proof-label">Copies of Grifters sold &mdash; the card game Jake co-designed</span>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <span class="proof-number">100K+</span>
+                    <span class="proof-label">Followers who stayed for the truth, not the pitch</span>
                 </div>
             </div>
         </section>
@@ -157,75 +146,105 @@
                 <div class="asymmetric-grid">
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">THE<br>BRUTAL<br>TRUTH.</h2>
-                        <img src="dev_assets/jake headshot.png" alt="Jake Tlapek" class="jake-bio-photo">
+                        <img src="dev_assets/jake-headshot.png" alt="Jake Tlapek, The Wizard of Marketing" class="jake-bio-photo" loading="lazy" decoding="async">
                     </div>
                     
                     <div class="asymmetric-right scroll-reveal" style="transition-delay: 200ms;">
                         <div class="ink-text body-copy-large">
-                            <p>I didn't learn marketing in a classroom. I learned it in the trenches, making mistakes that cost real money and figuring out what actually drives revenue. I started in the Air Force as an IT Tech—learning the raw architecture of systems. But the real game is human psychology.</p>
-                            <p>I built Wizard Marketing from zero to a million-dollar agency, then sold it. It was acquired by <strong>Finch</strong>, where I now serve as <strong>Chief Evangelist</strong>. Along the way, I created the <strong>Marketing Messaging Matrix</strong>—the framework behind my upcoming book.</p>
-                            <p>I've generated over <strong>$100 million in measurable revenue</strong> for clients spanning Fortune 500 companies on three continents. If you want honest strategy from someone who's earned their insights through bruises—not blog posts—you've found the right place.</p>
+                            <p>I didn't learn marketing in a classroom. I learned it in the trenches &mdash; making mistakes that cost real money and figuring out what actually drives revenue. I started in the Air Force as an IT Tech, learning the raw architecture of systems. But the real game is human psychology.</p>
+                            <p>I built Wizard Marketing from zero to a million-dollar agency, then sold it. It was acquired by <strong>Finch</strong>, where I now serve as <strong>Chief Evangelist</strong>. Along the way I watched the same pattern play out across every industry I touched &mdash; good businesses losing to worse ones because the sequence of their message was wrong. That pattern became <strong><em>Eight Dominoes</em></strong>, my upcoming book.</p>
+                            <p>I've generated over <strong>$100 million in measurable revenue</strong> for clients spanning Fortune 500 companies on three continents. If you want honest strategy from someone who's earned his insights through bruises &mdash; not blog posts &mdash; you've found the right place.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Arsenal Section -->
-        <!-- V6: The Arsenal (Staggered Grid) -->
-        <section id="arsenal" class="section padding-section dark-theme-section">
+        <!-- Eight Dominoes Book Section (replaces Arsenal + Matrix lead magnet) -->
+        <section id="eight-dominoes" class="section padding-section dominoes-section">
             <div class="container">
-                <h2 class="section-title ink-stamp text-night">THE ARSENAL</h2>
-                <div class="staggered-grid">
-                    <div class="arsenal-card scroll-reveal">
-                        <div class="card-inner">
-                            <i class="fas fa-search magic-icon"></i>
-                            <h3 class="card-title">Total Search</h3>
-                            <p class="ink-text text-night">I deliver SEO that outperforms industry benchmarks by 2.5× on average. Google didn't punish your site. Your strategy was just never built to win.</p>
-                        </div>
-                    </div>
-                    <div class="arsenal-card scroll-reveal offset-card">
-                        <div class="card-inner">
-                            <i class="fas fa-fire magic-icon"></i>
-                            <h3 class="card-title">Demand Gen</h3>
-                            <p class="ink-text text-night">DSP-driven omnichannel campaigns designed to do one thing: turn attention into pipeline. I've generated $100M+ in revenue doing exactly this.</p>
-                        </div>
-                    </div>
-                    <div class="arsenal-card scroll-reveal">
-                        <div class="card-inner">
-                            <i class="fas fa-hammer magic-icon"></i>
-                            <h3 class="card-title">Conversion UI</h3>
-                            <p class="ink-text text-night">Traffic means nothing if your site bleeds leads. I find the friction, rebuild the UX, and deliver measurable conversion lifts.</p>
-                        </div>
-                    </div>
-                    <div class="arsenal-card scroll-reveal offset-card">
-                        <div class="card-inner">
-                            <i class="fas fa-book-open magic-icon"></i>
-                            <h3 class="card-title">Messaging</h3>
-                            <p class="ink-text text-night">My proprietary framework for diagnosing why your marketing message isn't landing. It's the basis for my upcoming book.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Parallax artifact -->
-            <img src="dev_assets/Cards.png" class="floating-artifact a5" alt="" style="position:absolute; bottom:5%; right:2%; width:150px; opacity:0.3; filter:invert(1);">
-        </section>
+                <header class="dominoes-header scroll-reveal">
+                    <span class="eyebrow">The Upcoming Book</span>
+                    <h2 class="massive-section-title">EIGHT<br>DOMINOES.</h2>
+                    <p class="dominoes-tagline">A messaging framework that compounds.</p>
+                </header>
 
-        <!-- V6: Lead Magnet Section (Fixed Contrast) -->
-        <section id="lead-magnet" class="section padding-section lead-magnet-section">
-            <div class="container center-text">
-                <span class="lead-magnet-badge" style="background:#b02a2a; color:#f4eee0;">FREE FRAMEWORK</span>
-                <h2 class="section-title ink-stamp">The Marketing Messaging Matrix</h2>
-                <p class="description" style="opacity: 0.9; font-family:'IM Fell English', serif;">The framework I built after generating $100M+ in revenue for clients across three continents. It's the foundation of my upcoming book—and I'm giving away the core playbook for free.</p>
-                <p class="ink-text" style="margin-bottom: 2rem;">Stop guessing why your messaging doesn't land. The Matrix shows you exactly where the gaps are.</p>
-                
-                <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="lead-magnet-form">
-                    <input type="email" name="email" placeholder="Your best email" required>
-                    <input type="hidden" name="_subject" value="Lead Magnet: Marketing Messaging Matrix">
-                    <input type="hidden" name="_form_type" value="lead_magnet">
-                    <button type="submit" class="btn btn-primary">Send Me the Matrix</button>
-                </form>
-                <p class="fine-print">No spam. Just the framework. Unsubscribe anytime.</p>
+                <div class="dominoes-hook scroll-reveal">
+                    <p class="dominoes-lead">Your product isn't the problem. Your sequence is.</p>
+                    <p class="dominoes-body">A precisely placed domino topples another fifty percent larger than itself. Twenty-nine bring down the Empire State Building. Marketing works the same way &mdash; when the elements are in the right order.</p>
+                </div>
+
+                <ol class="dominoes-list">
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">01</span>
+                        <div class="domino-content">
+                            <h3>Core Attraction</h3>
+                            <p>The emotion your customer is actually buying.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">02</span>
+                        <div class="domino-content">
+                            <h3>Attention Catalyst</h3>
+                            <p>The hook that earns the first three seconds.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">03</span>
+                        <div class="domino-content">
+                            <h3>Value Proposition</h3>
+                            <p>The promise that earns the next sixty.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">04</span>
+                        <div class="domino-content">
+                            <h3>Impact Chain</h3>
+                            <p>The stakes that make inaction feel unbearable.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">05</span>
+                        <div class="domino-content">
+                            <h3>Mechanism</h3>
+                            <p>The named system that makes you unreplicable.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">06</span>
+                        <div class="domino-content">
+                            <h3>Barrier Breakdown</h3>
+                            <p>The objections that quietly kill deals.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">07</span>
+                        <div class="domino-content">
+                            <h3>Embracing Limitations</h3>
+                            <p>Turning your weakness into proof.</p>
+                        </div>
+                    </li>
+                    <li class="domino scroll-reveal">
+                        <span class="domino-num">08</span>
+                        <div class="domino-content">
+                            <h3>New Opportunity</h3>
+                            <p>Replacing the category instead of competing in it.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="dominoes-capture scroll-reveal">
+                    <h3 class="ink-stamp">Join The Order</h3>
+                    <p class="dominoes-capture-copy">First access when the book ships. Weekly truths in the meantime.<br>No fluff. No drip sequence.</p>
+                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="dominoes-form">
+                        <label for="dominoes-email" class="visually-hidden">Your email address</label>
+                        <input id="dominoes-email" type="email" name="email" placeholder="Your best email" required>
+                        <input type="hidden" name="_subject" value="Eight Dominoes &mdash; First Access Signup">
+                        <input type="hidden" name="_form_type" value="eight_dominoes">
+                        <button type="submit" class="btn btn-primary">Join The Order</button>
+                    </form>
+                    <p class="fine-print">No spam. One email a week. Unsubscribe anytime.</p>
+                </div>
             </div>
         </section>
 
@@ -295,24 +314,6 @@
             </div>
         </section>
 
-        <!-- The Wizard's Wisdom Section -->
-        <section class="section padding-section">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Burn These Into Your Brain</h2>
-                <div class="wisdom-scrolls">
-                    <div class="scroll-item scroll-reveal">
-                        <blockquote>If your content's not converting, it's not content—it's noise.</blockquote>
-                    </div>
-                    <div class="scroll-item scroll-reveal" style="transition-delay: 150ms;">
-                        <blockquote>You're not building a brand. You're decorating a ghost town.</blockquote>
-                    </div>
-                    <div class="scroll-item scroll-reveal" style="transition-delay: 300ms;">
-                        <blockquote>Sales isn't your problem. Trust is.</blockquote>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- V4: Featured In / Podcasts Section (Replaced the Grimoire) -->
         <section id="featured" class="section padding-section">
             <div class="container">
@@ -332,13 +333,7 @@
                         <p>"The One Metric Most Business Owners Overlook"</p>
                         <span class="featured-host">Share of Brand Voice</span>
                     </a>
-                    <div class="featured-card scroll-reveal" style="transition-delay: 200ms;">
-                        <i class="fas fa-newspaper featured-icon"></i>
-                        <h3>Is SEO Dead?</h3>
-                        <p>"Navigating the New Marketing Battlefield"</p>
-                        <span class="featured-host">Coming Soon</span>
-                    </div>
-                    <a href="https://www.youtube.com/@thewizardmarketing" target="_blank" class="featured-card scroll-reveal" style="transition-delay: 300ms;">
+                    <a href="https://www.youtube.com/@thewizardmarketing" target="_blank" class="featured-card scroll-reveal" style="transition-delay: 200ms;">
                         <i class="fas fa-headset featured-icon"></i>
                         <h3>Hold My Beard Podcast</h3>
                         <p>Jake's own show. Raw marketing truths, live.</p>
@@ -367,7 +362,7 @@
                 <div class="asymmetric-grid">
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">SUMMON<br>THE<br>WIZARD.</h2>
-                        <div class="social-links-large" style="margin-top: 2rem;">
+                        <div class="social-links-large">
                             <a href="https://www.tiktok.com/@thewizardmarketing" class="text-night dark-border" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" class="text-night dark-border" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="https://www.youtube.com/channel/UC26G_o-cTFCcPo-CyGf_3YA" class="text-night dark-border" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -378,41 +373,30 @@
                     
                     <div class="asymmetric-right scroll-reveal" style="transition-delay: 200ms;">
                         <div class="ink-text body-copy-large text-night">
-                            <p>Tired of theory? Tell me what's broken in your business. Be specific. Include numbers, costs, and consequences. I'll tell you straight up if I can fix it.</p>
+                            <p>Tired of theory? Tell me what's broken in your business. Be specific &mdash; numbers, costs, consequences. I'll tell you straight up if I can fix it.</p>
                         </div>
-                        
-                        <div class="contact-form-container" style="margin-top: 3rem;">
+
+                        <div class="contact-form-container">
                             <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="magic-form">
                                 <input type="hidden" name="_form_type" value="contact">
                                 <div class="form-group">
                                     <label for="name" class="text-night">Who are you?</label>
-                                    <input type="text" id="name" name="name" class="text-night dark-input" required>
+                                    <input type="text" id="name" name="name" class="text-night dark-input" autocomplete="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="text-night">Where do I reply?</label>
-                                    <input type="email" id="email" name="email" class="text-night dark-input" required>
+                                    <input type="email" id="email" name="email" class="text-night dark-input" autocomplete="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="message" class="text-night">What's broken? Give me specifics.</label>
                                     <textarea id="message" name="message" rows="5" class="text-night dark-input" required></textarea>
                                 </div>
                                 <input type="hidden" name="_subject" value="New missive from your portfolio site!">
-                                <button type="submit" class="btn btn-primary w-100" style="margin-top: 1rem;">Send Truth</button>
+                                <button type="submit" class="btn btn-primary w-100">Send Truth</button>
                             </form>
+                            <p class="contact-sla text-night">Jake personally reads every message. Expect a reply within <strong>48 hours</strong>.</p>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Newsletter Section -->
-                <div class="newsletter-section scroll-reveal center-text" style="border-top-color: rgba(255,255,255,0.1);">
-                    <h2 class="section-title ink-stamp text-night" style="border-bottom:none;">Join the Order</h2>
-                    <p class="ink-text text-night">Get the book launch announcement and weekly truths on scaling.<br>No corporate-speak. Just what works.</p>
-                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="newsletter-form">
-                        <input type="email" name="newsletter_email" placeholder="Your best email" class="text-night dark-input" required>
-                        <input type="hidden" name="_subject" value="New Newsletter Signup!">
-                        <input type="hidden" name="_form_type" value="newsletter">
-                        <button type="submit" class="btn btn-secondary text-night" style="padding: 1rem 3rem; border-color: rgba(255,255,255,0.3);">Subscribe</button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -421,13 +405,13 @@
     <footer class="dark-theme-section">
         <div class="container center-text">
             <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night" style="opacity: 0.5;">&copy; <script>document.write(new Date().getFullYear())</script> Jake Tlapek. Built with scars.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Jake Tlapek. Built with scars.</p>
         </div>
     </footer>
 
     <!-- Animation Libraries (defer to avoid render-blocking) -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script defer src="script.js?v=6.1"></script>
+    <script defer src="script.js?v=7.0"></script>
 </body>
 </html>

@@ -6,26 +6,106 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================================================= */
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks   = document.querySelector('.nav-links');
-    mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
+    const setMenuOpen = (open) => {
+        navLinks.classList.toggle('active', open);
+        mobileMenu.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobileMenu.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    };
+    mobileMenu.addEventListener('click', () => setMenuOpen(!navLinks.classList.contains('active')));
     document.querySelectorAll('.nav-links a').forEach(link =>
-        link.addEventListener('click', () => navLinks.classList.remove('active'))
+        link.addEventListener('click', () => setMenuOpen(false))
     );
 
     /* =========================================================
-       3. NAVBAR SCROLL BEHAVIOUR
+       2.5 IN-PAGE FORM SUBMISSION (Formspree with AJAX)
+    ========================================================= */
+    document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalLabel = submitBtn.textContent;
+            const formType = form.querySelector('input[name="_form_type"]')?.value || 'contact';
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sealing the scroll\u2026';
+            form.querySelector('.form-error')?.remove();
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    renderFormSuccess(form, formType);
+                } else {
+                    renderFormError(form, submitBtn, originalLabel);
+                }
+            } catch (err) {
+                renderFormError(form, submitBtn, originalLabel);
+            }
+        });
+    });
+
+    function renderFormSuccess(form, formType) {
+        const host = form.parentElement;
+        const isDominoes = formType === 'eight_dominoes';
+
+        const success = document.createElement('div');
+        success.className = 'form-success' + (isDominoes ? '' : ' form-success-dark');
+        success.setAttribute('role', 'status');
+        success.setAttribute('aria-live', 'polite');
+
+        if (isDominoes) {
+            success.innerHTML = `
+                <h3 class="form-success-title">You're on the list.</h3>
+                <p class="form-success-body">The first domino falls when the book ships. Check your inbox to confirm your email.</p>
+                <p class="form-success-secondary">In the meantime, follow Jake on <a href="https://www.tiktok.com/@thewizardmarketing" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+            `;
+        } else {
+            success.innerHTML = `
+                <h3 class="form-success-title">Message received.</h3>
+                <p class="form-success-body">Jake personally reads every one. Expect a reply within 48 hours.</p>
+            `;
+        }
+
+        form.replaceWith(success);
+        host.querySelector('.fine-print')?.remove();
+        host.querySelector('.contact-sla')?.remove();
+        success.focus?.();
+    }
+
+    function renderFormError(form, btn, originalLabel) {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        const err = document.createElement('p');
+        err.className = 'form-error';
+        err.setAttribute('role', 'alert');
+        err.textContent = 'The owl got lost on the way. Give it another try in a moment.';
+        form.appendChild(err);
+    }
+
+    /* =========================================================
+       3. NAVBAR SCROLL BEHAVIOUR (class toggle, rAF throttled)
     ========================================================= */
     const navbar = document.getElementById('navbar');
+    let navTicking = false;
     window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY > 50;
-        navbar.style.background = scrolled ? 'rgba(244, 237, 216, 0.97)' : 'transparent';
-        navbar.style.boxShadow  = scrolled ? '0 2px 20px rgba(44, 30, 22, 0.12)' : 'none';
-        navbar.style.backdropFilter = scrolled ? 'blur(12px)' : 'none';
+        if (navTicking) return;
+        navTicking = true;
+        requestAnimationFrame(() => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            navTicking = false;
+        });
     }, { passive: true });
 
     /* =========================================================
-       4. GSAP ANIMATIONS
+       4. GSAP ANIMATIONS (gated by prefers-reduced-motion)
     ========================================================= */
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
         // Confirm JS animations are functional before hiding elements
@@ -89,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // — Staggered cards —
-        gsap.utils.toArray('.spell-card, .featured-card, .timeline-item').forEach((el, i) => {
+        gsap.utils.toArray('.featured-card, .timeline-item, .domino').forEach((el, i) => {
             gsap.from(el, {
                 opacity: 0, y: 50, duration: 0.7, delay: (i % 4) * 0.12, ease: 'power3.out',
                 scrollTrigger: { trigger: el, start: 'top 88%', once: true }
@@ -133,69 +213,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
     }
 
-    /* =========================================================
-       6. PARTICLE CANVAS
-    ========================================================= */
-    const canvas = document.getElementById('starsCanvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-
-        function initCanvas() {
-            width  = canvas.width  = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x     = Math.random() * width;
-                this.y     = Math.random() * height;
-                this.baseY = this.y;
-                this.size  = Math.random() * 1.5 + 0.3;
-                const colors = ['rgba(195,43,57,0.5)', 'rgba(44,30,22,0.3)', 'rgba(184,134,11,0.5)'];
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.speed = Math.random() * 0.4 + 0.05;
-                this.angle = Math.random() * Math.PI * 2;
-                this.spin  = (Math.random() - 0.5) * 0.015;
-            }
-            update(scrollY) {
-                this.angle += this.spin;
-                this.x += Math.cos(this.angle) * 0.15;
-                let ny = this.baseY - scrollY * this.speed;
-                if (ny < -10) this.baseY += height + 20;
-                else if (ny > height + 10) this.baseY -= height + 20;
-                this.y = ny;
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle  = this.color;
-                ctx.shadowBlur = this.size * 4;
-                ctx.shadowColor = this.color;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-        }
-
-        function createParticles() {
-            particles = [];
-            const count = Math.min(Math.round(window.innerWidth / 7), 180);
-            for (let i = 0; i < count; i++) particles.push(new Particle());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            const scrollY = window.scrollY;
-            particles.forEach(p => { p.update(scrollY); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-
-        initCanvas();
-        createParticles();
-        animate();
-        window.addEventListener('resize', () => { initCanvas(); createParticles(); }, { passive: true });
-    }
 });
