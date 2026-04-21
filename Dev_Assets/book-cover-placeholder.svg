@@ -1,0 +1,47 @@
+<svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="bc-spine" x1="0" x2="1">
+      <stop offset="0" stop-color="#0e0a08"/>
+      <stop offset="0.5" stop-color="#2a201b"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </linearGradient>
+    <linearGradient id="bc-cover" x1="0" x2="1">
+      <stop offset="0" stop-color="#181412"/>
+      <stop offset="0.4" stop-color="#221a15"/>
+      <stop offset="1" stop-color="#181412"/>
+    </linearGradient>
+    <linearGradient id="bc-shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <!-- soft floor shadow -->
+  <ellipse cx="160" cy="412" rx="140" ry="6" fill="#000" opacity="0.28"/>
+  <!-- spine -->
+  <rect x="14" y="12" width="22" height="388" fill="url(#bc-spine)"/>
+  <!-- cover -->
+  <rect x="36" y="12" width="254" height="388" fill="url(#bc-cover)"/>
+  <!-- cover sheen -->
+  <rect x="36" y="12" width="254" height="388" fill="url(#bc-shine)"/>
+  <!-- inner gold border -->
+  <rect x="50" y="30" width="226" height="352" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.7"/>
+  <!-- wax-red rule -->
+  <rect x="60" y="80" width="206" height="2" fill="#c32b39"/>
+  <!-- title lockup -->
+  <text x="163" y="148" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="900" font-style="italic" fill="#F4EEE0" letter-spacing="1">EIGHT</text>
+  <text x="163" y="188" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="900" font-style="italic" fill="#F4EEE0" letter-spacing="1">DOMINOES</text>
+  <!-- subtitle -->
+  <text x="163" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#b8860b" letter-spacing="2.5">A MESSAGING FRAMEWORK</text>
+  <text x="163" y="244" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#b8860b" letter-spacing="2.5">THAT COMPOUNDS</text>
+  <!-- domino dots motif -->
+  <g fill="#c32b39">
+    <circle cx="143" cy="298" r="4"/>
+    <circle cx="163" cy="298" r="4"/>
+    <circle cx="183" cy="298" r="4"/>
+  </g>
+  <!-- author -->
+  <text x="163" y="358" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#F4EEE0" letter-spacing="3.5">JAKE TLAPEK</text>
+  <!-- replace hint -->
+  <text x="163" y="408" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#6b5c52" letter-spacing="1.5">[ COVER MOCKUP — REPLACE ]</text>
+</svg>

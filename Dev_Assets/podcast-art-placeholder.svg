@@ -1,0 +1,23 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <radialGradient id="pa-bg" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#2a201b"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#pa-bg)"/>
+  <!-- corner tick marks -->
+  <g stroke="#b8860b" stroke-width="1" opacity="0.5" fill="none">
+    <path d="M10 10 L10 24 M10 10 L24 10"/>
+    <path d="M190 10 L190 24 M190 10 L176 10"/>
+    <path d="M10 190 L10 176 M10 190 L24 190"/>
+    <path d="M190 190 L190 176 M190 190 L176 190"/>
+  </g>
+  <!-- record rings -->
+  <circle cx="100" cy="95" r="58" fill="none" stroke="#c32b39" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="100" cy="95" r="44" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.55"/>
+  <circle cx="100" cy="95" r="28" fill="none" stroke="#F4EEE0" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="95" r="7" fill="#c32b39"/>
+  <!-- label -->
+  <text x="100" y="175" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#6b5c52" letter-spacing="3" font-style="italic">[ SHOW ART ]</text>
+</svg>
