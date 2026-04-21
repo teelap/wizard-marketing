@@ -119,28 +119,33 @@ a:hover { color: var(--gold); }
 /* ─── Pill Navbar ─────────────────────────────────── */
 .pill-nav {
     position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 880px;
+    width: 94%; max-width: 960px;
     background: rgba(244, 238, 224, 0.92);
     backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(24, 20, 18, 0.08);
     border-radius: var(--radius-pill);
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     z-index: 1010;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 12px rgba(24, 20, 18, 0.04);
 }
 .pill-nav.scrolled {
-    width: 94%; top: 1rem;
+    top: 1rem;
     background: rgba(244, 238, 224, 0.96);
     box-shadow: 0 4px 18px rgba(24, 20, 18, 0.08);
 }
-.nav-content { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.1rem; font-weight: 900; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
-.nav-logo-icon { width: 24px; height: 24px; object-fit: contain; filter: invert(0.9) sepia(1) hue-rotate(340deg) saturate(3); }
-.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo {
+    font-size: 1rem; font-weight: 900; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+}
+.nav-logo-icon { width: 22px; height: 22px; object-fit: contain; filter: invert(0.9) sepia(1) hue-rotate(340deg) saturate(3); }
+.nav-links { list-style: none; display: flex; gap: 1.25rem; }
 .nav-links li a {
-    color: var(--text-day); font-size: 0.95rem; font-family: var(--font-body);
-    text-transform: uppercase; font-weight: 800; letter-spacing: 1.5px;
+    color: var(--text-day); font-size: 0.78rem; font-family: var(--font-body);
+    text-transform: uppercase; font-weight: 800; letter-spacing: 0.75px;
+    white-space: nowrap;
     transition: color 0.3s;
 }
 .nav-links li a:hover { color: var(--wax-red); }
@@ -201,26 +206,36 @@ a:hover { color: var(--gold); }
     max-width: 100%;
 }
 .massive-title {
-    font-size: clamp(3.5rem, 15vw, 15rem);
-    line-height: 0.8; margin: 0; text-align: center;
+    font-size: clamp(3rem, 11vw, 11rem);
+    line-height: 0.95; margin: 0; text-align: center;
     color: var(--bg-day); /* Ensures visibility on dark bg */
     mix-blend-mode: normal; /* Better contrast without portrait */
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     width: 100%;
     z-index: 10;
+    text-wrap: balance;
 }
-.massive-title .word1 { display: block; margin-left: -5vw; text-shadow: 0 4px 14px rgba(0,0,0,0.35); }
-.massive-title .word2 { display: block; margin-left: 5vw; text-shadow: 0 4px 14px rgba(0,0,0,0.35); }
+.massive-title .word1,
+.massive-title .word2 {
+    text-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    white-space: nowrap;
+}
+@media (max-width: 767px) {
+    .massive-title { line-height: 1; font-size: clamp(3rem, 15vw, 5.5rem); }
+    .massive-title .word1,
+    .massive-title .word2 { display: block; }
+}
 
 .hero-role {
     font-family: var(--font-accent);
     font-size: clamp(1rem, 2vw, 1.4rem);
     color: var(--text-night);
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     letter-spacing: 1px;
     opacity: 0.85;
     z-index: 10;
+    position: relative;
 }
 
 .hero-footer {
@@ -877,8 +892,8 @@ footer p { font-family: var(--font-accent); color: var(--parchment-dark); font-s
 body.js-ready .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
 body.js-ready .scroll-reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ─── Responsive (mobile, <768px) ─────────────────────────────── */
-@media screen and (max-width: 767px) {
+/* ─── Responsive nav: hamburger below desktop (<1024px) ─────────── */
+@media screen and (max-width: 1023px) {
     #navbar { padding: 0.7rem 1rem; }
     .nav-links {
         display: none; flex-direction: column; width: 100%;
@@ -893,6 +908,10 @@ body.js-ready .scroll-reveal.active { opacity: 1; transform: translateY(0); }
     .nav-links li      { text-align: center; padding: 0.9rem 0; border-bottom: 1px dashed rgba(30,18,8,0.12); }
     .nav-links li:last-child { border-bottom: none; }
     .menu-toggle       { display: inline-flex; }
+}
+
+/* ─── Responsive layout: mobile only (<768px) ─────────────────────── */
+@media screen and (max-width: 767px) {
     .proof-item        { max-width: none; }
     .timeline::after   { left: 14px; }
     .timeline-item     { width: 100%; padding-left: 44px; padding-right: 0; }
@@ -901,5 +920,4 @@ body.js-ready .scroll-reveal.active { opacity: 1; transform: translateY(0); }
     .timeline-dot      { left: 7px !important; right: auto; }
     .dominoes-form     { flex-direction: column; }
     .dominoes-form .btn { width: 100%; }
-    .massive-title .word1, .massive-title .word2 { margin-left: 0; }
 }
