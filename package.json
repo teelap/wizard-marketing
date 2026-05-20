@@ -1,0 +1,37 @@
+{
+  "name": "wizard-marketing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for Jake Tlapek (The Wizard of Marketing) with build-time injection of the latest YouTube and TikTok embeds.",
+  "main": "build.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "build:strict": "STRICT=1 node build.js",
+    "serve": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');const port=process.env.PORT||4173;const types={'.html':'text/html','.css':'text/css','.js':'application/javascript','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon','.webp':'image/webp','.json':'application/json'};http.createServer((req,res)=>{let p=decodeURIComponent(req.url.split('?')[0]);if(p==='/')p='/index.html';const fp=path.join(process.cwd(),p);if(!fp.startsWith(process.cwd())){res.writeHead(403);return res.end('forbidden');}fs.readFile(fp,(e,d)=>{if(e){res.writeHead(404);return res.end('not found');}res.writeHead(200,{'Content-Type':types[path.extname(fp)]||'application/octet-stream'});res.end(d);}).on('error',()=>{});}).listen(port,()=>console.log('serving on http://localhost:'+port));\"",
+    "validate": "node -e \"const fs=require('fs');const h=fs.readFileSync('index.html','utf8');const must=['<title>','<meta name=\\\"description\\\"','og:title','twitter:card','application/ld+json'];const missing=must.filter(m=>!h.includes(m));if(missing.length){console.error('index.html missing:',missing);process.exit(1);}console.log('index.html validation: OK');\"",
+    "test": "npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teelap/wizard-marketing.git"
+  },
+  "keywords": [
+    "marketing",
+    "static-site",
+    "portfolio"
+  ],
+  "author": "Jake Tlapek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teelap/wizard-marketing/issues"
+  },
+  "homepage": "https://github.com/teelap/wizard-marketing#readme",
+  "dependencies": {
+    "axios": "^1.16.1",
+    "xml2js": "^0.6.2"
+  }
+}

@@ -1,6 +1,14 @@
 node_modules/
 .DS_Store
 .env
+.env.local
+.env.*.local
 .vercel/
-
 .vercel
+dist/
+build/
+*.log
+npm-debug.log*
+.idea/
+.vscode/
+Thumbs.db

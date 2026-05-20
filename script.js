@@ -2,6 +2,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================================
+       1. FOOTER YEAR (replaces inline document.write)
+    ========================================================= */
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+    /* =========================================================
        2. MOBILE MENU
     ========================================================= */
     const mobileMenu = document.getElementById('mobile-menu');
