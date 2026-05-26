@@ -35,6 +35,12 @@ const CONFIG = {
 
 const PUBLIC_FILES = [
     'index.html',
+    'links.html',
+    'consulting.html',
+    'mastermind.html',
+    'book.html',
+    'podcast-guest.html',
+    'tools.html',
     'styles.css',
     'script.js',
     'parchment-bg-v4.jpg',
