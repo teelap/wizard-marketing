@@ -1,0 +1,62 @@
+/* =====================================================================
+   THE WIZARD'S DESK — Lo-Fi looping hero for index.html
+   A calm, always-looping scene (a video loop) as the full-viewport hero.
+   Navigation is the top pill-nav only — the scene has NO hover/click
+   targets. Pairs with scene.js. Lives above the existing content
+   (hybrid scroll), so it is a 100vh hero block, not a fixed stage.
+   ===================================================================== */
+
+#scene-hero{
+  position:relative;
+  width:100%;
+  height:100vh;            /* fallback */
+  height:100svh;           /* mobile-chrome aware */
+  margin:0;
+  overflow:hidden;
+  background:#0c0908;
+  isolation:isolate;
+}
+
+/* the diorama: a 16:9 frame, cover-cropped + centered */
+#scene-hero .scene{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:max(100vw,calc(100vh*16/9));
+  aspect-ratio:16/9;
+}
+/* the looping video (and the still poster fallback) fill the scene */
+#scene-hero .room,
+#scene-hero #scene-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+
+/* soft foreground framing so the edges sink into the page */
+#scene-hero .scene-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
+  box-shadow:inset 0 0 13vw 4vw rgba(12,8,6,.42)}
+
+/* ---------- HERO OVERLAY UI (scoped to the hero) ---------- */
+.scene-ui{position:absolute;z-index:6}
+#scene-ctl{top:max(1rem,calc(env(safe-area-inset-top) + .9rem));right:1.1rem;display:flex;gap:9px;align-items:center}
+.scene-btn{font-family:'Playfair Display',Georgia,serif;font-size:.8rem;cursor:pointer;color:#F4EEE0;
+  background:rgba(20,14,11,.5);border:1px solid rgba(244,238,224,.28);padding:.5em;border-radius:50px;
+  width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);transition:background .2s,transform .2s,border-color .2s}
+.scene-btn:hover{background:rgba(20,14,11,.7);transform:translateY(-1px);border-color:rgba(244,238,224,.5)}
+
+/* scroll affordance — "the story continues" */
+#scene-scroll{left:50%;bottom:1.4rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;
+  gap:5px;color:#F4EEE0;background:none;border:none;cursor:pointer;font-family:'IM Fell English',Georgia,serif;
+  font-style:italic;font-size:.92rem;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.9);opacity:.88;
+  transition:opacity .3s,transform .3s}
+#scene-scroll:hover{opacity:1;transform:translateX(-50%) translateY(2px)}
+#scene-scroll .chev{font-size:.95rem;animation:scenebob 2.6s ease-in-out infinite}
+@keyframes scenebob{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(5px);opacity:1}}
+
+/* ---------- REDUCED MOTION + MOBILE ---------- */
+@media (prefers-reduced-motion:reduce){
+  #scene-scroll .chev{animation:none}
+}
+@media (max-width:760px){
+  #scene-hero{height:62vh;height:62svh}
+  #scene-scroll{font-size:.82rem;bottom:1rem}
+}

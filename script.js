@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             success.innerHTML = `
                 <h3 class="form-success-title">You're on the list.</h3>
                 <p class="form-success-body">The first domino falls when the book ships. Check your inbox to confirm your email.</p>
-                <p class="form-success-secondary">In the meantime, follow Jake on <a href="https://www.tiktok.com/@thewizardmarketing" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+                <p class="form-success-secondary">In the meantime, follow Jake on <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener">LinkedIn</a>.</p>
             `;
         } else {
             success.innerHTML = `
@@ -117,25 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Confirm JS animations are functional before hiding elements
         document.body.classList.add('js-ready');
 
-        // — V6: Graffico Hero Animations —
-        const tlHero = gsap.timeline();
-        
-        // Staggered reveal of massive text and footer using from() for stability
-        tlHero.from('.massive-title .word1', { opacity: 0, x: -100, duration: 1.2, ease: 'power3.out' }, "+=0.2")
-              .from('.massive-title .word2', { opacity: 0, x: 100, duration: 1.2, ease: 'power3.out' }, "-=0.8")
-              .from('.hero-footer', { opacity: 0, y: 30, duration: 1, ease: 'power2.out' }, "-=0.5")
-              .from('.floating-artifact', { opacity: 0, y: 50, duration: 2, ease: 'power2.out', stagger: 0.2 }, "-=1");
-
-        // Parallax effects on scroll
-        gsap.to('.massive-title', {
-            y: 200, opacity: 0,
-            scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: true }
-        });
-        
-        gsap.to('.a1', { y: -150, rotation: 10, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1 } });
-        gsap.to('.a2', { y: -250, rotation: -15, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1.5 } });
-        gsap.to('.a3', { y: -100, x: 50, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 2 } });
-        gsap.to('.a4', { y: -300, rotation: -20, scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 1.2 } });
+        // — Homepage hero is now the interactive Lo-Fi scene (see scene.js).
+        //   The old giant-typography hero + floating-artifact parallax was
+        //   removed in the main-menu pivot; its animations lived here. —
 
         // — Proof numbers count-up —
         document.querySelectorAll('.proof-number').forEach(el => {

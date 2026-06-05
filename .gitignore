@@ -13,3 +13,7 @@ npm-debug.log*
 .idea/
 .vscode/
 Thumbs.db
+
+# dev scratch, scratch previews & worktrees (never deploy)
+.cc-worktrees/
+/_*

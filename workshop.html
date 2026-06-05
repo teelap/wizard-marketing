@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Wizard's Workshop — Jake Tlapek</title>
+<meta name="description" content="Step inside the Wizard's Workshop — a point-and-click corner of jakethewizard.com.">
+<meta name="theme-color" content="#181412">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="dev_assets/Bat.png">
+<link rel="preload" as="image" href="dev_assets/scenes/room-v2.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="workshop.css?v=7">
+</head>
+<body data-time="day">
+
+<main id="stage" aria-label="The Wizard's Workshop — interactive scene">
+  <div class="scene">
+    <img class="room" src="dev_assets/scenes/room-v2.webp" alt="A cozy two-story wizard's workshop" fetchpriority="high">
+    <div class="scene-grade" aria-hidden="true"></div>
+
+    <!-- ambient: light shaft from the gothic window -->
+    <div class="fx godray" aria-hidden="true"></div>
+
+    <!-- ===== BACKGROUND / LOFT TIER ===== -->
+    <button class="actor" id="a-brewer" data-action="card" data-key="brewer" aria-label="The Brewer — the messaging cauldron">
+      <img src="dev_assets/scenes/brewer-station-cut.png" alt="A wizard stirring the messaging cauldron">
+      <span class="tag">The messaging cauldron</span>
+    </button>
+    <div class="fx steam" id="steam-cauldron" aria-hidden="true"></div>
+
+    <!-- ===== MIDGROUND ===== -->
+    <!-- Arcanum doorway (invisible clickable over the painted central door) -->
+    <button id="a-door" data-action="nav" data-href="/mastermind" aria-label="Enter the Arcanum (mastermind)">
+      <span class="tag">The Arcanum — apply</span>
+    </button>
+    <div class="fx orb-glow" id="orbGlow" aria-hidden="true"></div>
+    <button class="actor" id="a-seer" data-action="orb" aria-expanded="false" aria-label="The Seer — reveal Jake's channels">
+      <img src="dev_assets/scenes/seer-station-cut.png" alt="A wizard gazing into the social orb">
+      <span class="tag">Peer into the orb</span>
+    </button>
+
+    <!-- social fan (blooms from the Seer's orb) -->
+    <nav class="social-fan" id="fan" aria-label="Jake's channels">
+      <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/itsjakethewizard/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/itsjakethewizard" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/JakeTtheWizard" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+    </nav>
+
+    <!-- ===== FOREGROUND / HERO NOOK ===== -->
+    <div class="fx nook-glow" aria-hidden="true"></div>
+    <button class="actor" id="a-raven" data-action="card" data-key="podcast" aria-label="The Raven — invite Jake on a podcast">
+      <img src="dev_assets/scenes/raven-cut.png" alt="A raven messenger on the windowsill">
+      <span class="tag">Send the raven</span>
+    </button>
+    <button class="actor" id="a-jake" data-action="card" data-key="jake" aria-label="Jake, the Wizard — at his arcane laptop">
+      <img src="dev_assets/scenes/jake-typing-cut.png" alt="Jake the Wizard, typing at his arcane laptop">
+      <span class="tag">Jake — the Wizard</span>
+    </button>
+    <div class="fx steam mug" id="steam-mug" aria-hidden="true"></div>
+
+    <!-- scene-wide drifting magic motes (JS-filled) -->
+    <div class="fx motes" id="motes" aria-hidden="true"></div>
+    <!-- foreground framing -->
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- curios (domino hunt) -->
+    <button id="cu-domino1" class="curio" data-item="domino1" aria-label="A curious domino"><span class="dot"></span></button>
+    <button id="cu-domino2" class="curio" data-item="domino2" aria-label="A curious domino"><span class="dot"></span></button>
+    <button id="cu-domino3" class="curio" data-item="domino3" aria-label="A curious domino"><span class="dot"></span></button>
+  </div>
+</main>
+
+<!-- ===== UI CHROME ===== -->
+<div id="brand" class="chrome">
+  <span class="mark"><img src="dev_assets/Bat.png" alt="">THE WIZARD'S WORKSHOP</span>
+  <small>a point-and-click corner of jakethewizard.com</small>
+</div>
+<div id="topright" class="chrome">
+  <button class="ui-btn ghost" id="revealBtn" aria-pressed="false"><i class="fas fa-wand-magic-sparkles"></i> Reveal clues</button>
+  <button class="ui-btn icon" id="soundBtn" aria-pressed="false" aria-label="Sound"></button>
+  <button class="ui-btn icon" id="timeBtn" aria-label="Time of day"></button>
+  <a class="ui-btn" href="/"><i class="fas fa-arrow-right-from-bracket"></i> Classic site</a>
+</div>
+<div id="counter" class="chrome"><i class="fas fa-sack-xmark"></i> curios <span id="counter-n">0/3</span></div>
+<div id="satchel" class="chrome" aria-label="Your satchel">
+  <div class="tray"><span class="label">Satchel</span>
+    <div class="slot" data-slot="0"></div><div class="slot" data-slot="1"></div><div class="slot" data-slot="2"></div>
+  </div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="card"><button class="dismiss" id="modalClose" aria-label="Close">&times;</button><div id="modalBody"></div></div>
+</div>
+
+<div id="intro">
+  <div class="inner">
+    <img src="dev_assets/scenes/jake-typing-cut.png" alt="">
+    <h1>You found the <em>Wizard's&nbsp;Workshop</em>.</h1>
+    <p>Talk to the wizards. Peer into the orb. Open the Arcanum door, and pocket what glints.<br>Or take the plain road — the classic site is one click away.</p>
+    <div class="row">
+      <button class="btn-enter" id="enterBtn">Step inside</button>
+      <a class="ui-btn" href="/">I'll take the classic site</a>
+    </div>
+  </div>
+</div>
+
+<div id="mgate">
+  <div class="inner">
+    <img src="dev_assets/scenes/jake-typing-cut.png" alt="">
+    <h2>Best seen on a bigger screen</h2>
+    <p>The Workshop is a wide point-and-click scene — it shines on a laptop or desktop. On your phone, the classic site has everything in a clean, tappable layout.</p>
+    <div class="row">
+      <a class="btn-enter" href="/">Take me to the classic site</a>
+      <button class="ui-btn ghost" id="mEnterBtn">Enter the Workshop anyway</button>
+    </div>
+  </div>
+</div>
+
+<script src="workshop.js?v=5" defer></script>
+</body>
+</html>

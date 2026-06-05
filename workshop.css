@@ -1,0 +1,213 @@
+/* =====================================================================
+   THE WIZARD'S WORKSHOP — layered point-and-click scene
+   Bare room plate + transparent character sprites as their own layers.
+   Each sprite = an animated, clickable actor with a back-glow lift.
+   ===================================================================== */
+:root{
+  --parchment:#F4EEE0; --parchment-dark:#c9bfa8;
+  --ink:#181412; --ink-light:#3a2f28; --ink-muted:#6b5c52;
+  --wax-red:#c32b39; --wax-red-hover:#a1232e; --gold:#b8860b;
+  --display:'Playfair Display',Georgia,serif;
+  --body:'IM Fell English',Georgia,serif;
+  --glow:rgba(255,210,120,.95); --glow2:rgba(184,134,11,.7);
+  --ease:cubic-bezier(.25,1,.5,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#0c0908;color:var(--parchment);font-family:var(--body);overflow:hidden;-webkit-font-smoothing:antialiased}
+img{display:block}
+button{font-family:inherit;color:inherit}
+
+/* ---------- STAGE + bare room (cover) ---------- */
+#stage{position:fixed;inset:0;overflow:hidden;background:#0c0908}
+.scene{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:max(100vw,calc(100vh*16/9));aspect-ratio:16/9}
+.room{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* time-of-day grade over the room (single plate, CSS re-lit) */
+.scene-grade{position:absolute;inset:0;pointer-events:none;transition:background 1.2s var(--ease),opacity 1.2s var(--ease)}
+body[data-time="night"] .scene-grade{background:linear-gradient(180deg,rgba(20,26,60,.5),rgba(8,8,22,.62));mix-blend-mode:multiply}
+body[data-time="dusk"]  .scene-grade{background:linear-gradient(180deg,rgba(150,70,30,.35),rgba(60,24,40,.42));mix-blend-mode:multiply}
+body[data-time="dawn"]  .scene-grade{background:linear-gradient(180deg,rgba(255,190,130,.22),rgba(150,110,80,.2));mix-blend-mode:soft-light}
+body[data-time="day"]   .scene-grade{background:radial-gradient(70% 60% at 70% 26%,rgba(255,238,190,.22),transparent 60%);mix-blend-mode:screen}
+.scene-vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 16vw 5vw rgba(8,6,5,.5)}
+
+/* ambient embers */
+.ember{position:absolute;bottom:12%;width:4px;height:4px;border-radius:50%;
+  background:radial-gradient(closest-side,#ffcf8a,transparent);opacity:0;animation:rise linear infinite;pointer-events:none}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}12%{opacity:.8}100%{opacity:0;transform:translateY(-55vh) scale(.4)}}
+
+/* ---------- ACTORS (character sprite layers) ---------- */
+.actor{position:absolute;border:none;background:none;padding:0;cursor:pointer;opacity:1;
+  transform-origin:bottom center;
+  filter:drop-shadow(0 9px 8px rgba(0,0,0,.32));
+  transition:transform .3s var(--ease), filter .3s ease}
+.actor img{width:100%;height:auto;pointer-events:none}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5%)}}
+/* hover = back-glow + a small smooth lift (no idle float, no bounce, no at-rest glow) */
+.actor:hover,.actor:focus-visible{outline:none;
+  transform:translateY(-2%) scale(1.03);
+  filter:drop-shadow(0 0 18px var(--glow)) drop-shadow(0 0 34px var(--glow2)) drop-shadow(0 12px 12px rgba(0,0,0,.4))}
+.actor .tag{position:absolute;left:50%;bottom:calc(100% - 4px);transform:translate(-50%,6px);
+  background:var(--parchment);color:var(--ink);font-family:var(--display);font-weight:700;
+  font-size:clamp(.62rem,1.3vw,.92rem);white-space:nowrap;padding:.22em .65em;border-radius:3px;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;box-shadow:0 4px 10px rgba(0,0,0,.5);z-index:6}
+.actor .tag::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--parchment)}
+.actor:hover .tag,.actor:focus-visible .tag{opacity:1;transform:translate(-50%,0)}
+/* "Reveal clues" button highlights clickables on demand (not at rest) */
+body.reveal .actor{filter:drop-shadow(0 0 16px var(--glow)) drop-shadow(0 10px 10px rgba(0,0,0,.4))}
+/* station ambient glows removed — characters only glow on hover */
+
+/* actor station positions on the multi-tier shell (% of .scene) */
+/* DEPTH: Jake foreground-left (near, big) > Seer center (mid) > Brewer loft (far, small) */
+#a-jake{left:3%;bottom:2.5%;width:27.5%;z-index:15}         /* hero nook, foreground */
+#a-raven{left:23.5%;top:57%;width:5%;z-index:13}            /* familiar on the windowsill by Jake */
+#a-seer{left:37%;bottom:13%;width:16.5%;z-index:10}         /* orb, center stage, midground (clear of satchel) */
+#a-brewer{left:45%;top:35.8%;width:12.5%;z-index:6}         /* cauldron up on the loft, background */
+
+/* Arcanum doorway: invisible clickable over the painted RIGHT door (steps up = ascend) */
+#a-door{position:absolute;left:78.5%;top:52%;width:9.5%;height:21%;cursor:pointer;border:none;background:none;z-index:4}
+#a-door::after{content:"";position:absolute;inset:0;border-radius:8px 8px 0 0;
+  background:radial-gradient(closest-side,rgba(184,134,11,.55),transparent 75%);opacity:0;transition:opacity .3s}
+#a-door:hover::after,#a-door:focus-visible::after,body.reveal #a-door::after{opacity:.7}
+#a-door:focus-visible{outline:2px dashed var(--gold);outline-offset:3px}
+#a-door .tag{position:absolute;left:50%;top:14%;transform:translate(-50%,6px);background:var(--parchment);color:var(--ink);
+  font-family:var(--display);font-weight:700;font-size:clamp(.62rem,1.3vw,.92rem);white-space:nowrap;padding:.22em .65em;border-radius:3px;opacity:0;transition:opacity .25s,transform .25s;box-shadow:0 4px 10px rgba(0,0,0,.5)}
+#a-door:hover .tag,#a-door:focus-visible .tag{opacity:1;transform:translate(-50%,0)}
+
+/* social fan (blooms from the Seer's orb, now center-stage) */
+.social-fan{position:absolute;left:47.5%;top:80%;width:0;height:0;pointer-events:none;z-index:30}
+.social-fan a{position:absolute;left:0;top:0;width:clamp(36px,3.4vw,50px);height:clamp(36px,3.4vw,50px);
+  margin:calc(-1*clamp(18px,1.7vw,25px));border-radius:50%;display:grid;place-items:center;color:var(--parchment);
+  font-size:clamp(.95rem,1.5vw,1.2rem);background:radial-gradient(closest-side,#2a6db0,#10243f);
+  border:1px solid rgba(150,210,255,.6);box-shadow:0 0 16px rgba(150,210,255,.55);
+  opacity:0;transform:translate(0,0) scale(.3);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .3s;pointer-events:none}
+.social-fan.open a{pointer-events:auto;opacity:1}
+
+/* collectible curios */
+.curio{position:absolute;border:none;background:none;padding:0;cursor:pointer;z-index:6;
+  animation:glint 3s ease-in-out infinite;transition:transform .3s,opacity .5s}
+.curio .dot{display:block;width:clamp(13px,1.4vw,20px);height:clamp(13px,1.4vw,20px);border-radius:50%;
+  background:radial-gradient(closest-side,#fff3d0,#e9b949);box-shadow:0 0 10px rgba(255,210,120,.9)}
+.curio:hover{transform:scale(1.25)}
+.curio.taken{opacity:0;transform:scale(.2) translateY(-26px);pointer-events:none}
+@keyframes glint{0%,100%{filter:drop-shadow(0 0 0 rgba(255,225,150,0))}50%{filter:drop-shadow(0 0 7px rgba(255,225,150,.9))}}
+#cu-domino1{left:31%;bottom:26%}   /* tucked under the loft stairs */
+#cu-domino2{left:62%;top:46.5%}    /* up on the loft railing */
+#cu-domino3{left:86%;bottom:20%}   /* by the right steps / nook */
+
+/* ===================================================================
+   AMBIENT LIFE — selective micro-motion + lighting.
+   Lo-Fi rule: only animate what would move if it were real; slow + soft.
+   =================================================================== */
+.fx{position:absolute;pointer-events:none}
+
+/* warm light shaft angling down from the gothic window (background) */
+.godray{left:36%;top:7%;width:30%;height:60%;z-index:2;mix-blend-mode:screen;
+  background:linear-gradient(177deg,rgba(255,243,200,.5),rgba(255,236,170,.12) 55%,transparent 82%);
+  clip-path:polygon(36% 0,64% 0,100% 100%,0 100%);filter:blur(7px);
+  animation:godray 9s ease-in-out infinite}
+@keyframes godray{0%,100%{opacity:.4}50%{opacity:.7}}
+
+/* orb glow — center stage, haloes over the crystal ball */
+.orb-glow{left:36%;top:70%;width:18%;height:20%;z-index:11;mix-blend-mode:screen;
+  background:radial-gradient(closest-side,rgba(150,225,255,.8),rgba(70,150,230,.28) 55%,transparent 72%);
+  animation:orbpulse 4.5s ease-in-out infinite}
+@keyframes orbpulse{0%,100%{opacity:.5;transform:scale(.95)}50%{opacity:.85;transform:scale(1.06)}}
+
+/* warm hero-nook glow on the wall behind Jake's desk */
+.nook-glow{left:-3%;top:62%;width:28%;height:38%;z-index:3;mix-blend-mode:screen;
+  background:radial-gradient(closest-side,rgba(255,205,120,.55),rgba(220,140,40,.16) 55%,transparent 75%);
+  animation:nookflicker 5s ease-in-out infinite}
+@keyframes nookflicker{0%,100%{opacity:.5}45%{opacity:.68}60%{opacity:.57}}
+
+/* rising steam (JS fills with .puff) */
+#steam-cauldron{left:48%;top:40%;width:5%;height:12%;z-index:7}
+#steam-mug{left:9%;top:74%;width:4%;height:10%;z-index:16}
+.puff{position:absolute;bottom:0;left:50%;width:16px;height:16px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,255,255,.5),transparent);
+  opacity:0;animation:puff var(--dur,4.5s) ease-out infinite;animation-delay:var(--d,0s)}
+@keyframes puff{0%{opacity:0;transform:translate(-50%,0) scale(.5)}
+  20%{opacity:.5}100%{opacity:0;transform:translate(calc(-50% + var(--dx,8px)),-95px) scale(1.9)}}
+
+/* drifting magic motes (JS fills with .mote) */
+.motes{inset:0;z-index:18}
+.mote{position:absolute;width:4px;height:4px;border-radius:50%;
+  background:radial-gradient(closest-side,#fff2c8,rgba(255,210,130,.4),transparent);
+  box-shadow:0 0 6px rgba(255,220,150,.7);opacity:0;
+  animation:drift var(--dur,16s) linear infinite;animation-delay:var(--d,0s)}
+@keyframes drift{0%{opacity:0;transform:translate(0,0)}10%{opacity:.7}90%{opacity:.55}
+  100%{opacity:0;transform:translate(var(--dx,20px),var(--dy,-60vh))}}
+
+/* foreground framing vignette (dark FG -> lit center) */
+.vignette{position:absolute;inset:0;z-index:22;pointer-events:none;
+  box-shadow:inset 0 0 14vw 4vw rgba(14,8,4,.5),inset 0 0 6vw 0 rgba(14,8,4,.26)}
+
+/* ---------- UI CHROME ---------- */
+.chrome{position:fixed;z-index:30}
+#brand{top:16px;left:18px;font-family:var(--display);pointer-events:none}
+#brand .mark{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1rem;text-shadow:0 2px 8px rgba(0,0,0,.85)}
+#brand img{width:24px}
+#brand small{display:block;opacity:.78;font-style:italic;font-size:.74rem;margin-top:2px;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+#topright{top:14px;right:16px;display:flex;gap:9px;align-items:center}
+.ui-btn{font-family:var(--display);font-size:.82rem;cursor:pointer;color:var(--parchment);background:rgba(24,16,12,.7);
+  border:1px solid rgba(184,134,11,.5);padding:.5em 1em;border-radius:50px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.45em;backdrop-filter:blur(4px);transition:background .2s,transform .2s}
+.ui-btn:hover{background:rgba(184,134,11,.28);transform:translateY(-1px)}
+.ui-btn.icon{padding:.5em;width:38px;height:38px;justify-content:center}
+.ui-btn.ghost{border-color:rgba(244,238,224,.35)}
+.ui-btn[aria-pressed="true"]{background:rgba(184,134,11,.35);border-color:var(--gold)}
+#counter{top:62px;right:16px;font-family:var(--display);font-size:.8rem;color:var(--gold);background:rgba(24,16,12,.6);
+  border:1px solid rgba(184,134,11,.4);padding:.32em .8em;border-radius:50px;display:flex;align-items:center;gap:.4em;text-shadow:0 1px 4px #000}
+#satchel{bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:flex-end;padding:0 0 12px;pointer-events:none}
+#satchel .tray{pointer-events:auto;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(36,26,21,.94),rgba(18,12,8,.97));
+  border:1px solid rgba(184,134,11,.45);border-bottom:none;border-radius:14px 14px 0 0;padding:9px 16px;box-shadow:0 -8px 24px rgba(0,0,0,.55)}
+#satchel .label{font-family:var(--display);font-style:italic;color:var(--gold);font-size:.82rem}
+.slot{width:44px;height:44px;border-radius:8px;border:1px dashed rgba(184,134,11,.35);background:rgba(0,0,0,.35);display:grid;place-items:center;font-size:1.4rem}
+.slot.filled{border-style:solid;border-color:var(--gold);background:rgba(184,134,11,.14)}
+#toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(18px);background:var(--parchment);color:var(--ink);
+  font-family:var(--display);font-style:italic;padding:.65em 1.25em;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5);
+  opacity:0;transition:opacity .3s,transform .3s;z-index:40;pointer-events:none;max-width:80vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- MODAL ---------- */
+#modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:20px;background:rgba(8,6,5,.78);backdrop-filter:blur(3px)}
+#modal.open{display:grid}
+.card{position:relative;max-width:460px;width:100%;color:var(--ink);background:var(--parchment);
+  background-image:radial-gradient(120% 120% at 0% 0%,rgba(201,191,168,.5),transparent 60%);
+  border-radius:8px;padding:30px 28px 26px;border:1px solid var(--parchment-dark);box-shadow:0 24px 60px rgba(0,0,0,.6);
+  transform:translateY(14px) scale(.98);animation:cardin .4s var(--ease) forwards}
+@keyframes cardin{to{transform:translateY(0) scale(1)}}
+.card h3{font-family:var(--display);font-size:1.6rem;font-weight:900;line-height:1.1}
+.card .role{font-style:italic;color:var(--ink-muted);margin-bottom:.7em;font-size:.95rem}
+.card p{line-height:1.55;margin-bottom:1em;color:var(--ink-light)}
+.card .portrait{float:right;width:92px;margin:0 0 8px 14px;border-radius:6px;border:3px solid #2a201b}
+.card-cta{display:inline-flex;align-items:center;gap:.5em;background:var(--wax-red);color:#fff;font-family:var(--display);font-weight:700;
+  padding:.6em 1.2em;border-radius:4px;text-decoration:none;box-shadow:4px 4px 0 rgba(30,18,8,.2);transition:transform .2s}
+.card-cta:hover{transform:translate(-1px,-1px);background:var(--wax-red-hover)}
+.card .cta2{display:inline-block;margin-left:14px;color:var(--ink-muted);font-style:italic;text-decoration:underline;font-size:.9rem;background:none;border:none;cursor:pointer}
+.card .dismiss{position:absolute;top:8px;right:12px;background:none;border:none;font-size:1.5rem;color:var(--ink-muted);cursor:pointer;line-height:1}
+.card form{display:flex;gap:8px;flex-wrap:wrap;margin-top:.4em}
+.card input[type=email]{flex:1;min-width:180px;padding:.6em .8em;border:1px solid var(--parchment-dark);border-radius:4px;background:#fffdf7;font-family:var(--body);font-size:1rem}
+.card.scroll{text-align:center;background:#f6efdd}
+.card.scroll .seal{font-size:2.4rem;color:var(--wax-red);margin-bottom:.2em}
+
+/* ---------- INTRO + MOBILE GATE ---------- */
+#intro{position:fixed;inset:0;z-index:60;display:grid;place-items:center;text-align:center;padding:24px;background:radial-gradient(120% 90% at 50% 30%,#1c130d,#070504)}
+#intro.gone{opacity:0;pointer-events:none;transition:opacity .6s}
+#intro .inner{max-width:560px;animation:cardin .6s ease forwards}
+#intro img{width:150px;margin:0 auto 8px;animation:idle 5s ease-in-out infinite}
+#intro h1{font-family:var(--display);font-weight:900;font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin-bottom:.2em}
+#intro h1 em{color:var(--gold)}
+#intro p{opacity:.82;font-size:1.05rem;margin-bottom:1.6em;line-height:1.5}
+#intro .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-enter{font-family:var(--display);font-weight:700;font-size:1.05rem;cursor:pointer;color:#fff;background:var(--wax-red);border:none;padding:.8em 1.8em;border-radius:4px;box-shadow:5px 5px 0 rgba(0,0,0,.4);transition:transform .2s}
+.btn-enter:hover{transform:translate(-2px,-2px)}
+#mgate{position:fixed;inset:0;z-index:70;display:none;place-items:center;text-align:center;padding:28px;background:radial-gradient(120% 90% at 50% 30%,#1c130d,#070504)}
+#mgate .inner{max-width:420px}
+#mgate img{width:120px;margin:0 auto 10px}
+#mgate h2{font-family:var(--display);font-weight:900;font-size:1.7rem;margin-bottom:.4em}
+#mgate p{opacity:.8;margin-bottom:1.4em;line-height:1.5}
+#mgate .row{display:flex;flex-direction:column;gap:12px}
+@media (max-width:760px){.actor .tag,#a-door .tag,.prop .tag{display:none}#brand small{display:none}body.is-mobile #mgate{display:grid}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.01ms !important}}

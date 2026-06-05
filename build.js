@@ -26,7 +26,7 @@ const ROOT = __dirname;
 
 const CONFIG = {
     youtubeChannelId: process.env.YOUTUBE_CHANNEL_ID || 'UC26G_o-cTFCcPo-CyGf_3YA',
-    tiktokUsername: process.env.TIKTOK_USERNAME || 'thewizardmarketing',
+    tiktokUsername: process.env.TIKTOK_USERNAME || 'itsjakethewizard',
     indexPath: path.resolve(process.env.INDEX_PATH || path.join(ROOT, 'index.html')),
     outputDir: path.resolve(process.env.OUTPUT_DIR || path.join(ROOT, 'public')),
     fetchTimeoutMs: Number(process.env.FETCH_TIMEOUT_MS) || 10_000,
@@ -35,6 +35,7 @@ const CONFIG = {
 
 const PUBLIC_FILES = [
     'index.html',
+    'workshop.html',
     'links.html',
     'consulting.html',
     'mastermind.html',
@@ -43,6 +44,10 @@ const PUBLIC_FILES = [
     'tools.html',
     'styles.css',
     'script.js',
+    'scene.css',
+    'scene.js',
+    'workshop.css',
+    'workshop.js',
     'parchment-bg-v4.jpg',
     'robots.txt',
     'sitemap.xml',

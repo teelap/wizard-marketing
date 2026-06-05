@@ -45,9 +45,10 @@
       "knowsAbout": ["Marketing Strategy", "SEO", "Demand Generation", "Conversion Architecture", "Marketing Messaging Matrix"],
       "sameAs": [
         "https://www.linkedin.com/in/jacob-tlapek-10b55962/",
-        "https://www.tiktok.com/@thewizardmarketing",
-        "https://www.youtube.com/channel/UC26G_o-cTFCcPo-CyGf_3YA",
-        "https://www.instagram.com/thewizardmarketing/",
+        "https://www.tiktok.com/@itsjakethewizard",
+        "https://www.youtube.com/@itsjakethewizard",
+        "https://www.instagram.com/itsjakethewizard/",
+        "https://www.facebook.com/itsjakethewizard",
         "https://twitter.com/JakeTtheWizard"
       ]
     }
@@ -65,7 +66,9 @@
     </script>
 
     <link rel="preload" href="parchment-bg-v4.jpg" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="preload" href="dev_assets/scenes/lofi-room.webp" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=8.1">
+    <link rel="stylesheet" href="scene.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -88,43 +91,40 @@
             </button>
             <ul id="primary-nav" class="nav-links">
                 <li><a href="/" aria-current="page">Home</a></li>
-                <li><a href="/consulting.html">Consulting</a></li>
-                <li><a href="/mastermind.html">Arcanum</a></li>
-                <li><a href="/book.html">The Book</a></li>
-                <li><a href="/podcast-guest.html">Podcast</a></li>
-                <li><a href="/tools.html">Tools</a></li>
-                <li><a href="#contact">Speak</a></li>
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Arcanum</a></li>
+                <li><a href="/book" data-dest="book">The Book</a></li>
+                <li><a href="/podcast-guest" data-dest="podcast">Podcast</a></li>
+                <li><a href="/tools" data-dest="tools">Tools</a></li>
+                <li><a href="#contact" data-dest="contact">Speak</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="content-wrapper">
-        <!-- V6: Giant Typography Hero Section (Night Theme) -->
-        <section id="hero" class="hero-section dark-theme-section">
-            <div class="hero-parallax-bg">
-                <!-- Floating mystical elements from dev_assets -->
-                <img src="dev_assets/castel 1.png" class="floating-artifact a1" alt="" aria-hidden="true">
-                <img src="dev_assets/Hat.png" class="floating-artifact a2" alt="" aria-hidden="true">
-                <img src="dev_assets/Bat.png" class="floating-artifact a4" alt="" aria-hidden="true">
-                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="" aria-hidden="true">
+        <!-- ===== LO-FI LOOPING HERO ===== -->
+        <!-- A calm, always-looping animated scene (the Lo-Fi Girl vibe).
+             Navigation is the top bar only — the scene has no click targets.
+             Full-viewport; the rich homepage content scrolls below it. -->
+        <section id="scene-hero" aria-label="The Wizard's study — a looping animated scene">
+            <h1 class="visually-hidden">Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.</h1>
+            <div class="scene">
+                <video id="scene-video" class="room" autoplay muted loop playsinline preload="auto"
+                       poster="dev_assets/scenes/lofi-room.webp"
+                       aria-label="A cozy candle-lit study: Jake works at his glowing laptop while snow falls outside the castle window and an owl watches.">
+                    <source src="dev_assets/scenes/lofi-loop-5.webm" type="video/webm">
+                    <source src="dev_assets/scenes/lofi-loop-5.mp4" type="video/mp4">
+                </video>
+                <div class="scene-vignette" aria-hidden="true"></div>
             </div>
-            
-            <div class="hero-content">
-                <h1 class="massive-title parallax-text">
-                    <span class="word1">JAKE</span> <span class="word2">TLAPEK</span>
-                </h1>
-                <p class="hero-role text-night">Marketing Consultant &nbsp;|&nbsp; Author &nbsp;|&nbsp; $100M+ in Revenue Generated</p>
 
-                <div class="hero-ctas">
-                    <a href="/consulting.html" class="btn btn-primary">Work With Jake</a>
-                    <a href="#origin" class="btn btn-ghost-light">Read His Story</a>
-                </div>
-
-                <div class="hero-footer">
-                    <p class="hero-subtitle ink-text text-night">Author of <em>Eight Dominoes</em>.<br>A messaging framework that compounds.</p>
-                    <div class="scroll-indicator ink-stamp text-night">Scroll to discover</div>
-                </div>
+            <!-- minimal overlay: music toggle + scroll cue -->
+            <div class="scene-ui" id="scene-ctl">
+                <button class="scene-btn" id="sceneSoundBtn" aria-pressed="false" aria-label="Play music"></button>
             </div>
+            <button class="scene-ui" id="scene-scroll" aria-label="Scroll down to read more">
+                <span>the story continues</span><span class="chev"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
         </section>
 
         <!-- Social Proof Strip (3 qualified claims) -->
@@ -153,31 +153,31 @@
                 <h2 class="section-title ink-stamp">Ways to Work Together</h2>
                 <p class="description center-text">Pick your entry point. No wrong door.</p>
                 <div class="services-hub">
-                    <a href="/consulting.html" class="service-card scroll-reveal">
+                    <a href="/consulting" class="service-card scroll-reveal">
                         <div class="service-card-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
                         <h3 class="service-card-title">Private Consulting</h3>
                         <p class="service-card-body">One-on-one strategy. Find the bottleneck, fix the sequence, compound the results. Hourly and retainer options available.</p>
                         <span class="service-card-cta">Book a session <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </a>
-                    <a href="/mastermind.html" class="service-card scroll-reveal" style="transition-delay:100ms;">
+                    <a href="/mastermind" class="service-card scroll-reveal" style="transition-delay:100ms;">
                         <div class="service-card-icon"><i class="fas fa-hat-wizard" aria-hidden="true"></i></div>
                         <h3 class="service-card-title">Business Arcanum</h3>
                         <p class="service-card-body">Jake's elite peer group for founders and marketers who are serious about scaling. Application-only. Limited seats.</p>
                         <span class="service-card-cta">Apply now <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </a>
-                    <a href="/book.html" class="service-card scroll-reveal" style="transition-delay:200ms;">
+                    <a href="/book" class="service-card scroll-reveal" style="transition-delay:200ms;">
                         <div class="service-card-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
                         <h3 class="service-card-title">Eight Dominoes</h3>
                         <p class="service-card-body">The messaging framework that compounds. Jake's upcoming book. Get first access and weekly insights before it ships.</p>
                         <span class="service-card-cta">Get first access <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </a>
-                    <a href="/podcast-guest.html" class="service-card scroll-reveal" style="transition-delay:300ms;">
+                    <a href="/podcast-guest" class="service-card scroll-reveal" style="transition-delay:300ms;">
                         <div class="service-card-icon"><i class="fas fa-microphone" aria-hidden="true"></i></div>
                         <h3 class="service-card-title">Book Jake for Your Podcast</h3>
                         <p class="service-card-body">Raw marketing truths, no fluff. Jake is available for podcast interviews and panel discussions.</p>
                         <span class="service-card-cta">Invite Jake <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </a>
-                    <a href="/tools.html" class="service-card scroll-reveal" style="transition-delay:400ms;">
+                    <a href="/tools" class="service-card scroll-reveal" style="transition-delay:400ms;">
                         <div class="service-card-icon"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i></div>
                         <h3 class="service-card-title">Jake's Favorite Tools</h3>
                         <p class="service-card-body">The software stack the Wizard actually uses. Vetted, annotated, updated when something better comes along. No kickbacks that cloud the judgment.</p>
@@ -448,7 +448,7 @@
                         <p>"The One Metric Most Business Owners Overlook"</p>
                         <span class="featured-host">Share of Brand Voice</span>
                     </a>
-                    <a href="https://www.youtube.com/@thewizardmarketing" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay: 200ms;">
+                    <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay: 200ms;">
                         <div class="featured-art-wrap">
                             <img src="dev_assets/podcast-art-placeholder.svg" alt="" class="featured-art" loading="lazy" decoding="async">
                             <i class="fas fa-headset featured-icon-overlay" aria-hidden="true"></i>
@@ -481,10 +481,11 @@
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">SUMMON<br>THE<br>WIZARD.</h2>
                         <div class="social-links-large">
-                            <a href="https://www.tiktok.com/@thewizardmarketing" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                            <a href="https://www.tiktok.com/@itsjakethewizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
                             <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            <a href="https://www.youtube.com/channel/UC26G_o-cTFCcPo-CyGf_3YA" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/thewizardmarketing/" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/@itsjakethewizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/itsjakethewizard/" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/itsjakethewizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                             <a href="https://twitter.com/JakeTtheWizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) profile"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -538,6 +539,7 @@
             integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-    <script defer src="script.js?v=7.1"></script>
+    <script defer src="script.js?v=7.2"></script>
+    <script defer src="scene.js?v=6"></script>
 </body>
 </html>
