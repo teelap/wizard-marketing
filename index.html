@@ -10,8 +10,8 @@
     <meta name="color-scheme" content="light dark">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.jakethewizard.com/" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/Bat.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/Bat.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-180.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph / Facebook -->
@@ -67,7 +67,7 @@
 
     <link rel="preload" href="parchment-bg-v4.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="dev_assets/scenes/lofi-room.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=8.1">
+    <link rel="stylesheet" href="styles.css?v=8.2">
     <link rel="stylesheet" href="scene.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,7 +85,7 @@
     <!-- Pill Nav -->
     <nav id="navbar" class="pill-nav">
         <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/Bat.png" alt="Wizard Logo" class="nav-logo-icon"> THE WIZARD</a>
+            <a href="/" class="logo"><img src="dev_assets/jake-icon-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
             <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
@@ -524,7 +524,12 @@
     <footer class="dark-theme-section">
         <div class="container center-text">
             <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p>&copy; <span id="footer-year">2026</span> Jake Tlapek. Built with scars.</p>
+            <p>&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
+            <nav class="footer-legal" aria-label="Legal links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms &amp; Conditions</a>
+                <a href="/cookies">Cookie Policy</a>
+            </nav>
         </div>
     </footer>
 
@@ -541,5 +546,6 @@
             referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.2"></script>
     <script defer src="scene.js?v=6"></script>
+    <script defer src="cookie-consent.js?v=1"></script>
 </body>
 </html>
