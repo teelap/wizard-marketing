@@ -45,6 +45,7 @@ const PUBLIC_FILES = [
     'privacy.html',
     'terms.html',
     'cookies.html',
+    'ai-information.html',
     'styles.css',
     'script.js',
     'cookie-consent.js',
