@@ -31,6 +31,9 @@ const CONFIG = {
     outputDir: path.resolve(process.env.OUTPUT_DIR || path.join(ROOT, 'public')),
     fetchTimeoutMs: Number(process.env.FETCH_TIMEOUT_MS) || 10_000,
     strict: process.env.STRICT === '1',
+    // Google Tag Manager container ID. Override via env until the real container
+    // exists; the placeholder loads nothing (harmless 404) so builds stay safe.
+    gtmContainerId: process.env.GTM_CONTAINER_ID || 'GTM-TLXMBN8B',
 };
 
 const PUBLIC_FILES = [
@@ -49,6 +52,7 @@ const PUBLIC_FILES = [
     'styles.css',
     'script.js',
     'cookie-consent.js',
+    'analytics.js',
     'scene.css',
     'scene.js',
     'workshop.css',
@@ -122,7 +126,7 @@ async function injectFeeds() {
     if (hasYt) {
         const videoId = await getLatestYouTubeVideoId();
         const replacement = `<div class="video-wrapper" id="youtube-feed-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" title="Jake Tlapek YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" title="Jake Tlapek YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>`;
         ({ html } = injectFeed(html, YT_CONTAINER_RE, replacement, 'youtube-feed-container'));
     }
@@ -171,6 +175,64 @@ function assemblePublic() {
     }
 }
 
+// EEA + UK + Switzerland: Consent Mode defaults are strict here (analytics denied
+// until the visitor accepts). Everywhere else, analytics is granted by default so
+// we capture the most data the law allows; ads stay denied until explicit consent.
+const STRICT_CONSENT_REGIONS = [
+    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU',
+    'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES',
+    'SE', 'IS', 'LI', 'NO', 'GB', 'CH',
+];
+
+function analyticsHeadBlock(gtmId) {
+    const regions = JSON.stringify(STRICT_CONSENT_REGIONS);
+    return `<!-- wiz-analytics-bootstrap: Consent Mode v2 + dataLayer + GTM -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+gtag('consent','default',{region:${regions},ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+gtag('set','ads_data_redaction',true);gtag('set','url_passthrough',true);
+</script>
+<script defer src="/analytics.js?v=1"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>
+<!-- End Google Tag Manager -->`;
+}
+
+function analyticsNoscript(gtmId) {
+    return `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden" title="gtm"></iframe></noscript>`;
+}
+
+/**
+ * Inject the GTM + Consent Mode + analytics bootstrap into every built HTML page.
+ * Idempotent: a page that already carries the marker is left untouched, so the
+ * source files stay clean and only the deployed `public/` copies get tracking.
+ */
+function injectAnalytics() {
+    const headBlock = analyticsHeadBlock(CONFIG.gtmContainerId);
+    const noscript = analyticsNoscript(CONFIG.gtmContainerId);
+    const htmlFiles = PUBLIC_FILES.filter((f) => f.endsWith('.html'));
+
+    for (const file of htmlFiles) {
+        const dest = path.join(CONFIG.outputDir, file);
+        if (!fs.existsSync(dest)) continue;
+
+        let html = fs.readFileSync(dest, 'utf8');
+        if (html.includes('wiz-analytics-bootstrap')) {
+            console.log(`[analytics] already present → ${file}`);
+            continue;
+        }
+        if (!/<head[^>]*>/i.test(html) || !/<body[^>]*>/i.test(html)) {
+            console.warn(`[analytics] no <head>/<body> in ${file} — skipping`);
+            continue;
+        }
+        html = html.replace(/<head[^>]*>/i, (m) => `${m}\n${headBlock}`);
+        html = html.replace(/<body[^>]*>/i, (m) => `${m}\n    ${noscript}`);
+        fs.writeFileSync(dest, html);
+        console.log(`[analytics] injected (${CONFIG.gtmContainerId}) → ${file}`);
+    }
+}
+
 async function main() {
     console.log('[build] start', {
         indexPath: CONFIG.indexPath,
@@ -180,6 +242,7 @@ async function main() {
 
     await injectFeeds();
     assemblePublic();
+    injectAnalytics();
 
     console.log(`[build] done — output written to ${CONFIG.outputDir}`);
 }

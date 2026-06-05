@@ -65,10 +65,9 @@
     }
     </script>
 
-    <link rel="preload" href="parchment-bg-v4.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="dev_assets/scenes/lofi-room.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=8.2">
-    <link rel="stylesheet" href="scene.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=8.3">
+    <link rel="stylesheet" href="scene.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -116,6 +115,16 @@
                     <source src="dev_assets/scenes/lofi-loop-5.mp4" type="video/mp4">
                 </video>
                 <div class="scene-vignette" aria-hidden="true"></div>
+            </div>
+
+            <!-- Value proposition + primary CTA (kept light so the scene still breathes) -->
+            <div class="scene-intro">
+                <p class="scene-kicker">Jake Tlapek &middot; The Wizard of Marketing</p>
+                <p class="scene-headline">Your product isn't the problem.<br>Your sequence is.</p>
+                <div class="scene-cta-row">
+                    <a href="/consulting" class="btn btn-primary">Work with Jake</a>
+                    <a href="#eight-dominoes" class="btn btn-ghost-light">See the framework</a>
+                </div>
             </div>
 
             <!-- minimal overlay: music toggle + scroll cue -->
@@ -223,7 +232,7 @@
                         <p class="dominoes-tagline">A messaging framework that compounds.</p>
                     </div>
                     <div class="dominoes-book-visual">
-                        <img src="dev_assets/book-cover-placeholder.svg" alt="Eight Dominoes — book cover (placeholder)" class="book-mockup" loading="lazy" decoding="async">
+                        <img src="dev_assets/book-cover-placeholder.svg" alt="Eight Dominoes — book cover" class="book-mockup" loading="lazy" decoding="async">
                     </div>
                 </header>
 
@@ -296,7 +305,7 @@
                     <p class="dominoes-capture-copy">First access when the book ships. Weekly truths in the meantime.<br>No fluff. No drip sequence.</p>
                     <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="dominoes-form">
                         <label for="dominoes-email" class="visually-hidden">Your email address</label>
-                        <input id="dominoes-email" type="email" name="email" placeholder="Your best email" required>
+                        <input id="dominoes-email" type="email" name="email" placeholder="Your best email" autocomplete="email" required>
                         <input type="hidden" name="_subject" value="Eight Dominoes &mdash; First Access Signup">
                         <input type="hidden" name="_form_type" value="eight_dominoes">
                         <button type="submit" class="btn btn-primary">Join The Order</button>
@@ -315,7 +324,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/timeline-placeholder.svg" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <div class="timeline-icon" aria-hidden="true"><i class="fas fa-tower-broadcast"></i></div>
                             <span class="timeline-year">2025</span>
                             <h3 class="ink-stamp">Vox & Coin</h3>
                             <p>Building Vox &amp; Coin, a business media network for people who want the truth behind the business.</p>
@@ -324,7 +333,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/timeline-placeholder.svg" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <div class="timeline-icon" aria-hidden="true"><i class="fas fa-hat-wizard"></i></div>
                             <span class="timeline-year">2024</span>
                             <h3 class="ink-stamp">Business Arcanum</h3>
                             <p>Began building Business Arcanum, an application-only peer group for founders and marketers who are done with theory.</p>
@@ -333,7 +342,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/timeline-placeholder.svg" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <div class="timeline-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
                             <span class="timeline-year">2023</span>
                             <h3 class="ink-stamp">Chief Evangelist at Finch</h3>
                             <p>Built campaigns that moved revenue. Called out the industry's worst habits in public. Did it without permission.</p>
@@ -360,19 +369,19 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/timeline-placeholder.svg" alt="" class="timeline-thumb" loading="lazy" decoding="async">
-                            <span class="timeline-year">2014</span>
-                            <h3 class="ink-stamp">Exit #1 — Brio Studio</h3>
-                            <p>Built and sold <strong>Brio Studio</strong>, the first exit that proved the model. Every lesson from that sale was applied to the next one.</p>
+                            <img src="dev_assets/Cards.png" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <span class="timeline-year">2016</span>
+                            <h3 class="ink-stamp">Grifters: 300K Copies Sold</h3>
+                            <p>Co-designed the hand-building card game <em>Grifters</em> with David Fulton. Published by Indie Boards & Cards, sold over 300,000 copies worldwide.</p>
                         </div>
                     </div>
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/Cards.png" alt="" class="timeline-thumb" loading="lazy" decoding="async">
-                            <span class="timeline-year">2016</span>
-                            <h3 class="ink-stamp">Grifters: 300K Copies Sold</h3>
-                            <p>Co-designed the hand-building card game <em>Grifters</em> with David Fulton. Published by Indie Boards & Cards, sold over 300,000 copies worldwide.</p>
+                            <div class="timeline-icon" aria-hidden="true"><i class="fas fa-store"></i></div>
+                            <span class="timeline-year">2014</span>
+                            <h3 class="ink-stamp">Exit #1 — Brio Studio</h3>
+                            <p>Built and sold <strong>Brio Studio</strong>, the first exit that proved the model. Every lesson from that sale was applied to the next one.</p>
                         </div>
                     </div>
                     <div class="timeline-item scroll-reveal">
@@ -432,7 +441,7 @@
                 <div class="featured-grid">
                     <a href="https://www.youtube.com/watch?v=6Mz7yKfqEqI" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal">
                         <div class="featured-art-wrap">
-                            <img src="dev_assets/podcast-art-placeholder.svg" alt="" class="featured-art" loading="lazy" decoding="async">
+                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
                             <i class="fas fa-podcast featured-icon-overlay" aria-hidden="true"></i>
                         </div>
                         <h3>Inspiring Business Podcast</h3>
@@ -441,7 +450,7 @@
                     </a>
                     <a href="https://morethanafewwords.com" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay: 100ms;">
                         <div class="featured-art-wrap">
-                            <img src="dev_assets/podcast-art-placeholder.svg" alt="" class="featured-art" loading="lazy" decoding="async">
+                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
                             <i class="fas fa-microphone featured-icon-overlay" aria-hidden="true"></i>
                         </div>
                         <h3>More Than a Few Words</h3>
@@ -450,7 +459,7 @@
                     </a>
                     <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay: 200ms;">
                         <div class="featured-art-wrap">
-                            <img src="dev_assets/podcast-art-placeholder.svg" alt="" class="featured-art" loading="lazy" decoding="async">
+                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
                             <i class="fas fa-headset featured-icon-overlay" aria-hidden="true"></i>
                         </div>
                         <h3>Hold My Beard Podcast</h3>
@@ -545,8 +554,8 @@
             integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-    <script defer src="script.js?v=7.2"></script>
+    <script defer src="script.js?v=7.3"></script>
     <script defer src="scene.js?v=6"></script>
-    <script defer src="cookie-consent.js?v=1"></script>
+    <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

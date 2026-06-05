@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active', open);
         mobileMenu.setAttribute('aria-expanded', open ? 'true' : 'false');
         mobileMenu.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        // Swap the hamburger for an X so the open/close state is obvious.
+        const icon = mobileMenu.querySelector('i');
+        if (icon) { icon.classList.toggle('fa-bars', !open); icon.classList.toggle('fa-xmark', open); }
+        // Never leave the bar hidden while its menu is open.
+        if (open) document.getElementById('navbar')?.classList.remove('nav-hidden');
     };
     mobileMenu.addEventListener('click', () => setMenuOpen(!navLinks.classList.contains('active')));
     document.querySelectorAll('.nav-links a').forEach(link =>
@@ -97,11 +102,24 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================================================= */
     const navbar = document.getElementById('navbar');
     let navTicking = false;
+    let lastScrollY = window.scrollY;
     window.addEventListener('scroll', () => {
         if (navTicking) return;
         navTicking = true;
         requestAnimationFrame(() => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            const y = window.scrollY;
+            navbar.classList.toggle('scrolled', y > 50);
+            // Slide the pill away on scroll-down so it never covers content;
+            // bring it back the moment the visitor scrolls up. Disabled while
+            // the mobile menu is open.
+            if (!navLinks.classList.contains('active')) {
+                if (y > lastScrollY && y > 220) {
+                    navbar.classList.add('nav-hidden');
+                } else if (y < lastScrollY) {
+                    navbar.classList.remove('nav-hidden');
+                }
+            }
+            lastScrollY = y;
             navTicking = false;
         });
     }, { passive: true });

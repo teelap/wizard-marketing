@@ -37,26 +37,28 @@
     function injectStyles() {
         if (document.getElementById('wiz-cc-styles')) return;
         var css = [
-            '.wiz-cc{position:fixed;left:50%;transform:translateX(-50%);bottom:1rem;z-index:2147483000;',
-            'width:calc(100% - 2rem);max-width:680px;background:#181412;color:#F4EEE0;',
+            // Compact bottom-right toast on desktop so it never covers the hero
+            // CTA or scroll cue; a slim full-width bar on small screens.
+            '.wiz-cc{position:fixed;right:1rem;bottom:1rem;z-index:2147483000;',
+            'width:min(370px, calc(100% - 2rem));background:#181412;color:#F4EEE0;',
             'border:1px solid rgba(244,238,224,0.18);border-radius:10px;',
-            'box-shadow:0 10px 40px rgba(0,0,0,0.45);padding:1.1rem 1.25rem;',
-            'display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem 1rem;',
+            'box-shadow:0 10px 40px rgba(0,0,0,0.45);padding:0.85rem 1rem;',
+            'display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem 0.85rem;',
             "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Arial,sans-serif;",
-            'opacity:0;transform:translateX(-50%) translateY(12px);transition:opacity .35s ease,transform .35s ease;}',
-            '.wiz-cc.wiz-cc-in{opacity:1;transform:translateX(-50%) translateY(0);}',
-            '.wiz-cc__text{flex:1 1 280px;font-size:0.86rem;line-height:1.5;margin:0;color:#F4EEE0;}',
+            'opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease;}',
+            '.wiz-cc.wiz-cc-in{opacity:1;transform:translateY(0);}',
+            '.wiz-cc__text{flex:1 1 100%;font-size:0.8rem;line-height:1.45;margin:0;color:#F4EEE0;}',
             '.wiz-cc__text a{color:#F4EEE0;text-decoration:underline;}',
-            '.wiz-cc__actions{display:flex;gap:0.5rem;flex:0 0 auto;}',
-            '.wiz-cc__btn{font:inherit;font-size:0.82rem;font-weight:700;letter-spacing:0.3px;',
-            'cursor:pointer;border-radius:6px;padding:0.55rem 1rem;border:1px solid transparent;',
+            '.wiz-cc__actions{display:flex;gap:0.5rem;flex:1 1 100%;}',
+            '.wiz-cc__btn{font:inherit;font-size:0.8rem;font-weight:700;letter-spacing:0.3px;',
+            'cursor:pointer;border-radius:6px;padding:0.48rem 0.9rem;border:1px solid transparent;flex:1;',
             'transition:background .2s ease,color .2s ease,border-color .2s ease;}',
             '.wiz-cc__btn--accept{background:#c32b39;color:#fff;}',
             '.wiz-cc__btn--accept:hover{background:#a1232e;}',
             '.wiz-cc__btn--decline{background:transparent;color:#F4EEE0;border-color:rgba(244,238,224,0.3);}',
             '.wiz-cc__btn--decline:hover{border-color:rgba(244,238,224,0.7);}',
             '.wiz-cc__btn:focus-visible{outline:2px solid #F4EEE0;outline-offset:2px;}',
-            '@media (max-width:520px){.wiz-cc__actions{flex:1 1 100%;}.wiz-cc__btn{flex:1;}}',
+            '@media (max-width:520px){.wiz-cc{left:1rem;right:1rem;width:auto;}}',
             '@media (prefers-reduced-motion:reduce){.wiz-cc{transition:none;}}'
         ].join('');
         var style = document.createElement('style');
@@ -95,6 +97,13 @@
 
         function dismiss(choice) {
             persist(choice);
+            // Drive Google Consent Mode v2 via the analytics layer (if present).
+            try {
+                if (window.WizAnalytics) {
+                    if (choice === 'accepted') window.WizAnalytics.grantConsent();
+                    else window.WizAnalytics.denyConsent();
+                }
+            } catch (e) { /* analytics optional — never block the UI */ }
             banner.classList.remove('wiz-cc-in');
             window.setTimeout(function () {
                 if (banner.parentNode) banner.parentNode.removeChild(banner);

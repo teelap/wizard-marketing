@@ -63,10 +63,13 @@ html { font-size: 16px; scroll-padding-top: 150px; }
 body.parchment-theme {
     font-family: var(--font-body);
     background-color: var(--bg-day);
-    background-image: url('dev_assets/wizpaper1.png');
+    /* Cream wash over the parchment texture: keeps the character, kills the
+       harsh yellow + busy motifs so text stays readable everywhere. */
+    background-image:
+        linear-gradient(rgba(248, 244, 235, 0.62), rgba(248, 244, 235, 0.62)),
+        url('dev_assets/wizpaper1.png');
     background-size: cover;
     background-attachment: fixed;
-    background-blend-mode: multiply;
     color: var(--text-day);
     line-height: 1.6;
     overflow-x: hidden;
@@ -104,7 +107,7 @@ h1, h2, h3, h4, h5, h6, .logo, .footer-logo {
     font-family: var(--font-accent);
     font-size: 1.1rem;
     line-height: 1.6;
-    opacity: 0.85;
+    opacity: 0.92;
 }
 .ink-stamp { color: var(--text-day); font-weight: 900; letter-spacing: 0px; font-style: italic; }
 a {
@@ -120,32 +123,38 @@ a:hover { color: var(--gold); }
 .pill-nav {
     position: fixed; top: 0.85rem; left: 50%; transform: translateX(-50%);
     width: auto; max-width: calc(100% - 2rem);
-    background: rgba(247, 242, 232, 0.7);
+    background: rgba(248, 244, 236, 0.92);
     backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
-    border: 1px solid rgba(24, 20, 18, 0.06);
+    border: 1px solid rgba(24, 20, 18, 0.09);
     border-radius: var(--radius-pill);
     padding: 0.4rem 1.1rem;
     z-index: 1010;
-    transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
-    box-shadow: 0 2px 10px rgba(24, 20, 18, 0.05);
+    transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 2px 10px rgba(24, 20, 18, 0.08);
 }
 .pill-nav.scrolled {
     top: 0.55rem;
-    background: rgba(247, 242, 232, 0.86);
-    box-shadow: 0 4px 16px rgba(24, 20, 18, 0.07);
+    background: rgba(248, 244, 236, 0.97);
+    box-shadow: 0 6px 20px rgba(24, 20, 18, 0.12);
 }
+/* Slide the pill out of the way on scroll-down so it never sits over text;
+   it returns the instant the visitor scrolls up. Toggled in script.js. */
+.pill-nav.nav-hidden { transform: translateX(-50%) translateY(-180%); }
 .nav-content { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
 .logo {
     font-size: 0.82rem; font-weight: 900; letter-spacing: 0.5px;
-    display: flex; align-items: center; gap: 6px;
+    display: inline-flex; align-items: center; gap: 7px;
+    line-height: 1;
     white-space: nowrap;
 }
-.nav-logo-icon { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle; border: 1px solid rgba(244,238,224,0.25); }
-.nav-links { list-style: none; display: flex; gap: 1.05rem; }
+.nav-logo-icon { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 1px solid rgba(24,20,18,0.12); }
+.nav-links { list-style: none; display: flex; align-items: center; gap: 1.05rem; }
+.nav-links li { display: flex; align-items: center; }
 .nav-links li a {
     color: var(--text-day); font-size: 0.7rem; font-family: var(--font-body);
     text-transform: uppercase; font-weight: 700; letter-spacing: 0.6px;
     white-space: nowrap;
+    display: inline-flex; align-items: center; line-height: 1;
     transition: color 0.3s;
 }
 .nav-links li a:hover { color: var(--wax-red); }
@@ -362,12 +371,14 @@ a:hover { color: var(--gold); }
 
 /* ─── V6: Asymmetrical Section Titles ────────────────────────── */
 .massive-section-title {
-    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-size: clamp(2.5rem, 9vw, 8rem);
     line-height: 0.85; margin: 0;
     color: var(--text-day);
     letter-spacing: -0.02em;
     font-family: var(--font-heading);
     mix-blend-mode: multiply;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 .dark-theme-section .massive-section-title { color: var(--text-night); mix-blend-mode: screen; }
 
@@ -382,7 +393,7 @@ a:hover { color: var(--gold); }
     .asymmetric-right { flex: 1; margin-top: clamp(2rem, 8vh, 6rem); }
 }
 .jake-bio-photo { width: 100%; max-width: 350px; margin-top: 2rem; border-radius: var(--radius-md); }
-.body-copy-large p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; color: var(--text-day); opacity: 0.85; }
+.body-copy-large p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; color: var(--text-day); opacity: 0.92; }
 
 /* ─── Eight Dominoes Section ────────────────────────────────── */
 .dominoes-section {
@@ -772,6 +783,12 @@ button[type="submit"]:disabled {
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
+/* Clean iconographic motif for podcast tiles until real cover art is added. */
+.featured-art-icon {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+    color: rgba(244, 238, 224, 0.18);
+}
 .featured-card:hover .featured-art { transform: scale(1.04); }
 .featured-icon-overlay {
     position: absolute;
@@ -833,8 +850,21 @@ button[type="submit"]:disabled {
     padding: 4px;
     box-shadow: 2px 2px 0 rgba(30,18,8,0.12);
 }
+.timeline-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: clamp(56px, 8vw, 76px);
+    height: clamp(56px, 8vw, 76px);
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--edge-burn);
+    background: rgba(255,255,255,0.35);
+    color: var(--wax-red);
+    border-radius: 2px;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 0 rgba(30,18,8,0.12);
+}
 @media (min-width: 768px) {
-    .timeline-item:nth-child(odd) .timeline-thumb { margin-left: auto; }
+    .timeline-item:nth-child(odd) .timeline-thumb,
+    .timeline-item:nth-child(odd) .timeline-icon { margin-left: auto; }
 }
 
 /* ─── Contact ────────────────────────────────── */
@@ -927,7 +957,7 @@ body.js-ready .scroll-reveal.active { opacity: 1; transform: translateY(0); }
         border-radius: var(--radius-sm);
     }
     .nav-links.active  { display: flex; }
-    .nav-links li      { text-align: center; padding: 0.9rem 0; border-bottom: 1px dashed rgba(30,18,8,0.12); }
+    .nav-links li      { justify-content: center; text-align: center; padding: 0.7rem 0; border-bottom: 1px dashed rgba(30,18,8,0.12); }
     .nav-links li:last-child { border-bottom: none; }
     .menu-toggle       { display: inline-flex; }
 }
@@ -1033,7 +1063,7 @@ a.logo:hover { color: var(--wax-red); }
     font-size: 0.98rem;
     line-height: 1.55;
     color: var(--text-day);
-    opacity: 0.8;
+    opacity: 0.9;
     margin: 0;
 }
 .service-card-cta {
@@ -1459,7 +1489,7 @@ a.logo:hover { color: var(--wax-red); }
     opacity: 0.85;
     margin: var(--space-md) 0 var(--space-xl);
 }
-.section-title { font-family: var(--font-heading); font-weight: 900; }
-.description { font-family: var(--font-accent); font-size: 1.05rem; line-height: 1.6; opacity: 0.8; }
+.section-title { font-family: var(--font-heading); font-weight: 900; text-align: center; }
+.description { font-family: var(--font-accent); font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
 .center-text { text-align: center; }
 .description.center-text { margin: 0.75rem auto 0; max-width: 600px; }
