@@ -183,6 +183,12 @@ a:hover { color: var(--gold); }
     color: var(--text-night);
 }
 .text-night { color: var(--text-night) !important; }
+/* Body copy inside dark sections must stay light — otherwise helper classes
+   like .body-copy-large / .ink-text force dark text onto the dark background
+   (e.g. the contact intro was rendering black-on-black, invisible). */
+.dark-theme-section .ink-text,
+.dark-theme-section .ink-text p,
+.dark-theme-section .body-copy-large p { color: var(--text-night); }
 
 /* ─── Huge Hero Section ──────────────────────── */
 .hero-section {
@@ -371,14 +377,12 @@ a:hover { color: var(--gold); }
 
 /* ─── V6: Asymmetrical Section Titles ────────────────────────── */
 .massive-section-title {
-    font-size: clamp(2.5rem, 9vw, 8rem);
+    font-size: clamp(2.25rem, 7.4vw, 7rem);
     line-height: 0.85; margin: 0;
     color: var(--text-day);
     letter-spacing: -0.02em;
     font-family: var(--font-heading);
     mix-blend-mode: multiply;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 .dark-theme-section .massive-section-title { color: var(--text-night); mix-blend-mode: screen; }
 
@@ -773,7 +777,7 @@ button[type="submit"]:disabled {
     margin-bottom: 1.25rem;
     overflow: hidden;
     border-radius: var(--radius-sm);
-    background: var(--ink-dark);
+    background: radial-gradient(circle at 50% 42%, #2c211b, var(--ink-dark) 72%);
     box-shadow: 3px 3px 0 rgba(30,18,8,0.12);
 }
 .featured-art {
@@ -786,8 +790,8 @@ button[type="submit"]:disabled {
 /* Clean iconographic motif for podcast tiles until real cover art is added. */
 .featured-art-icon {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    font-size: clamp(2.75rem, 8vw, 4.5rem);
-    color: rgba(244, 238, 224, 0.18);
+    font-size: clamp(3rem, 9vw, 5rem);
+    color: rgba(244, 238, 224, 0.32);
 }
 .featured-card:hover .featured-art { transform: scale(1.04); }
 .featured-icon-overlay {
@@ -1434,10 +1438,13 @@ a.logo:hover { color: var(--wax-red); }
 }
 .intake-form textarea { resize: vertical; min-height: 120px; }
 .dark-input {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-color: rgba(244, 238, 224, 0.2) !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    border-color: rgba(244, 238, 224, 0.34) !important;
 }
 .dark-input:focus { border-color: var(--gold) !important; }
+/* Native dropdown options render on the system (light) popup — keep them
+   dark-on-light so they're readable when the select is open. */
+.dark-input option { color: #181412; background-color: #F4EEE0; }
 
 /* ─── Stats Row (mastermind social proof) ────── */
 .stats-row {
