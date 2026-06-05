@@ -1035,10 +1035,7 @@ a.logo:hover { color: var(--wax-red); }
     margin-top: var(--space-xl);
 }
 @media (min-width: 768px) {
-    .offers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (min-width: 1024px) {
-    .offers-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .offers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .offer-card {
     display: flex;
@@ -1132,6 +1129,8 @@ a.logo:hover { color: var(--wax-red); }
     line-height: 1.55;
 }
 .offer-card .btn { margin-top: auto; text-align: center; }
+.offer-cta-group { margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; }
+.offer-cta-group .btn { margin-top: 0; }
 .w-100 { width: 100%; }
 
 /* ─── Process Steps ──────────────────────────── */
