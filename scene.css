@@ -78,10 +78,19 @@
   #scene-scroll .chev{animation:none}
 }
 @media (max-width:760px){
-  #scene-hero{height:78vh;height:78svh}
-  #scene-scroll{font-size:.8rem;bottom:.85rem}
-  #scene-hero::after{height:56%}
-  .scene-intro{left:50%;transform:translateX(-50%);width:calc(100% - 2.2rem);max-width:520px;
-    text-align:center;bottom:clamp(4rem,12vh,6rem)}
+  /* Mobile: show the CENTRE SQUARE of the scene (Jake, owl, window, desk) instead
+     of a tall over-cropped strip, with the value prop + CTAs stacked below it. */
+  #scene-hero{height:auto}
+  #scene-hero .scene{
+    position:relative;top:auto;left:auto;transform:none;
+    width:100%;aspect-ratio:1/1;
+  }
+  #scene-hero::after{display:none}
+  #scene-scroll{display:none}
+  .scene-intro{
+    position:static;transform:none;left:auto;bottom:auto;
+    width:auto;max-width:none;text-align:center;text-shadow:none;
+    padding:clamp(1.5rem,6vw,2rem) var(--edge-pad) clamp(1.9rem,7vw,2.6rem);
+  }
   .scene-cta-row{justify-content:center}
 }
