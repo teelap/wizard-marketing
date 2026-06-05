@@ -73,7 +73,7 @@
                 <h1 class="massive-section-title">WORK WITH<br>THE WIZARD.</h1>
                 <p class="hero-role text-night">One session can change your trajectory.</p>
                 <div class="hero-ctas" style="margin-top:2rem;">
-                    <a href="#book-session" class="btn btn-primary">Book a Session</a>
+                    <a href="#offers" class="btn btn-primary">Book a Session</a>
                     <a href="#what-i-do" class="btn btn-ghost-light">See What's Included</a>
                 </div>
             </div>
@@ -101,10 +101,25 @@
         <section id="offers" class="section padding-section" style="background: rgba(244,238,224,0.4); border-top:1px solid var(--edge-burn); border-bottom:1px solid var(--edge-burn);">
             <div class="container">
                 <h2 class="section-title ink-stamp">Pick Your Engagement</h2>
-                <p class="description center-text">Three ways to get Jake's brain on your business.</p>
+                <p class="description center-text">Four ways to get Jake's brain on your business.</p>
                 <div class="offers-grid">
 
                     <div class="offer-card scroll-reveal">
+                        <span class="offer-label">Express</span>
+                        <h3 class="offer-title">Strategy 30</h3>
+                        <div class="offer-price">$400</div>
+                        <p class="offer-price-note">30 minutes. One sharp problem.</p>
+                        <p class="offer-desc">Short, surgical, straight to the point. Bring one specific question and leave with Jake's direct read and a clear next move.</p>
+                        <ul class="offer-includes">
+                            <li>30-minute live session</li>
+                            <li>One focused problem</li>
+                            <li>Clear next-step recommendation</li>
+                            <li>Recording sent after</li>
+                        </ul>
+                        <a href="https://calendly.com/jakethewizard/30-min-consultation" class="btn btn-secondary w-100" target="_blank" rel="noopener noreferrer">Book a Strategy 30</a>
+                    </div>
+
+                    <div class="offer-card scroll-reveal" style="transition-delay:100ms;">
                         <span class="offer-label">Single Session</span>
                         <h3 class="offer-title">Strategy Hour</h3>
                         <div class="offer-price">$750<span style="font-size:1rem; font-style:normal; color:var(--ink-muted);">/hr</span></div>
@@ -116,10 +131,10 @@
                             <li>Written action summary</li>
                             <li>30-day async Q&amp;A access</li>
                         </ul>
-                        <a href="#book-session" class="btn btn-secondary w-100">Book a Strategy Hour</a>
+                        <a href="https://calendly.com/jakethewizard/1-hour-consultation" class="btn btn-secondary w-100" target="_blank" rel="noopener noreferrer">Book a Strategy Hour</a>
                     </div>
 
-                    <div class="offer-card featured scroll-reveal" style="transition-delay:100ms;">
+                    <div class="offer-card featured scroll-reveal" style="transition-delay:200ms;">
                         <span class="offer-label">Deep Dive</span>
                         <h3 class="offer-title">Half-Day Audit</h3>
                         <div class="offer-price">$2,500</div>
@@ -135,18 +150,17 @@
                         <a href="#book-session" class="btn btn-primary w-100">Book a Half-Day</a>
                     </div>
 
-                    <div class="offer-card scroll-reveal" style="transition-delay:200ms;">
+                    <div class="offer-card scroll-reveal" style="transition-delay:300ms;">
                         <span class="offer-label">Ongoing</span>
                         <h3 class="offer-title">Fractional CMO</h3>
-                        <div class="offer-price">From $10K<span style="font-size:1rem; font-style:normal; color:var(--ink-muted);">/mo</span></div>
-                        <p class="offer-price-note">Monthly retainer. Jake on your team.</p>
-                        <p class="offer-desc">For companies that need Jake's thinking applied consistently, not just in a single session. Strategy, oversight, and execution guidance built into the way you operate.</p>
+                        <div class="offer-price">From $5,000<span style="font-size:1rem; font-style:normal; color:var(--ink-muted);">/mo</span></div>
+                        <p class="offer-price-note">Half a day a week, plus comms. The floor for a retainer.</p>
+                        <p class="offer-desc">Jake on retainer, starting at half a day a week plus comms between. Strategy and oversight built into how you operate, scaling up whenever you need more.</p>
                         <ul class="offer-includes">
-                            <li>Weekly working sessions</li>
-                            <li>Full marketing strategy ownership</li>
-                            <li>Team coaching and training</li>
-                            <li>Campaign review and oversight</li>
-                            <li>Direct Slack access</li>
+                            <li>Half-day working session each week</li>
+                            <li>Async comms access between sessions</li>
+                            <li>Ongoing strategy direction and campaign review</li>
+                            <li>Priority to add more time as you grow</li>
                         </ul>
                         <a href="#book-session" class="btn btn-secondary w-100">Inquire About Retainer</a>
                     </div>
@@ -237,7 +251,7 @@
                 <div class="asymmetric-grid">
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">READY<br>TO<br>START?</h2>
-                        <p class="ink-text text-night" style="margin-top:1.5rem;">Fill out the form. Jake reads every submission personally and will respond within 48 hours to confirm your session.</p>
+                        <p class="ink-text text-night" style="margin-top:1.5rem;">This form is for Half-Day audits, retainers, and custom work. Jake reads every submission personally and responds within 48 hours. For a Strategy 30 or Strategy Hour, grab a time straight from the cards above.</p>
                     </div>
                     <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
                         <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="magic-form intake-form">
@@ -255,9 +269,8 @@
                                 <label for="c-type" class="text-night">Which engagement?</label>
                                 <select id="c-type" name="engagement_type" class="text-night dark-input" required>
                                     <option value="" disabled selected>Select one</option>
-                                    <option value="strategy-hour">Strategy Hour ($750)</option>
                                     <option value="half-day">Half-Day Audit ($2,500)</option>
-                                    <option value="fractional-cmo">Fractional CMO (retainer)</option>
+                                    <option value="fractional-cmo">Fractional CMO (from $5K/mo)</option>
                                     <option value="unsure">Not sure yet — let's talk</option>
                                 </select>
                             </div>
