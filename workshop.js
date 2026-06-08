@@ -160,7 +160,13 @@
       '<p>For your curiosity: the first chapter of <em>Eight Dominoes</em>, before anyone else. Leave a sigil (your email) and it\'s yours.</p>'+
       '<form id="rewardForm"><input type="email" name="email" placeholder="Your best email" required><button type="submit" class="card-cta">Claim it</button></form>','scroll');
     var form=$('#rewardForm'); form.addEventListener('submit',function(ev){ev.preventDefault(); var fd=new FormData(form); fd.append('_form_type','secret_scroll'); fd.append('_subject','Secret Scroll claimed (Workshop)');
-      fetch(FORMSPREE,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){return r.ok;}).catch(function(){return false;}).then(function(ok){closeCard();say(ok?"The scroll is sealed and on its way to your inbox.":"The owl got lost — try again in a moment.");}); }); }
+      var subEmail=(form.querySelector('input[type="email"],input[name="email"]')||{}).value||'';
+      fetch(FORMSPREE,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){return r.ok;}).catch(function(){return false;}).then(function(ok){
+        // On confirmed success, also add the subscriber to the Resend audience
+        // (same pipeline as the main forms in script.js). Fire-and-forget.
+        if(ok&&subEmail){ try{ fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:subEmail,source:'secret_scroll'}),keepalive:true}).catch(function(){}); }catch(e){} }
+        closeCard();say(ok?"The scroll is sealed and on its way to your inbox.":"The owl got lost — try again in a moment.");
+      }); }); }
 
   /* ---------- day / night ---------- */
   var timePref=localStorage.getItem('wiz-time')||'auto';
