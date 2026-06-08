@@ -131,15 +131,11 @@
 
     /* ───────────────────────────── Consent ───────────────────────────── */
 
-    /**
-     * Mirror the consent decision to Microsoft Clarity (heatmaps + session
-     * recordings). Clarity's queue (window.clarity) is created synchronously by the
-     * loader in <head>, so this is safe even before the external tag has loaded.
-     * Granting links multi-page sessions via cookies; denying keeps Clarity cookieless.
-     */
-    function clarityConsent(granted) {
-        try { if (window.clarity) window.clarity('consent', !!granted); } catch (e) { /* never block */ }
-    }
+    // Microsoft Clarity needs no explicit wiring here: it natively reads Google
+    // Consent Mode (ad_storage / analytics_storage) from this same dataLayer, so it
+    // honors our region-aware defaults AND the grant/deny updates below automatically
+    // (EEA/UK/CH gated until consent; recording elsewhere). Clarity's older
+    // clarity('consent') JS API is deprecated, so we deliberately don't call it.
 
     function grantConsent() {
         gtag('consent', 'update', {
@@ -148,7 +144,6 @@
             ad_personalization: 'granted',
             analytics_storage: 'granted'
         });
-        clarityConsent(true);
         track('consent_update', { consent_state: 'granted' });
     }
 
@@ -159,7 +154,6 @@
             ad_personalization: 'denied',
             analytics_storage: 'denied'
         });
-        clarityConsent(false);
         track('consent_update', { consent_state: 'denied' });
     }
 

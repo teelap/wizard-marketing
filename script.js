@@ -92,6 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (e) { /* tracking must never block the success UI */ }
 
+        // Add the subscriber to the Resend audience (the newsletter / email list).
+        // Fire-and-forget with keepalive so it survives the form being replaced;
+        // it must never block or break the success UI.
+        try {
+            const subEmail = (form.querySelector('input[type="email"], input[name="email"]') || {}).value || '';
+            if (subEmail) {
+                const subName = (form.querySelector('input[name="name"]') || {}).value || '';
+                const subParts = subName.trim().split(/\s+/).filter(Boolean);
+                fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: subEmail,
+                        first_name: subParts[0] || '',
+                        last_name: subParts.length > 1 ? subParts[subParts.length - 1] : '',
+                        source: formType || 'contact'
+                    }),
+                    keepalive: true
+                }).catch(function () { /* best-effort */ });
+            }
+        } catch (e) { /* subscribe must never block the success UI */ }
+
         const host = form.parentElement;
         const isDominoes = formType === 'eight_dominoes';
 
