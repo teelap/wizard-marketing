@@ -59,7 +59,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Map each form to the Meta standard event it represents. Waitlists are
+    // CompleteRegistration; substantive inquiries are Lead.
+    const META_MAP = {
+        eight_dominoes:   { meta_event: 'CompleteRegistration', content_name: 'Eight Dominoes Waitlist',   content_category: 'book',       status: 'book_waitlist' },
+        arcanum_waitlist: { meta_event: 'CompleteRegistration', content_name: 'Business Arcanum Waitlist', content_category: 'mastermind', status: 'arcanum_waitlist' },
+        consulting:       { meta_event: 'Lead', content_name: 'Consulting Inquiry',    content_category: 'consulting' },
+        podcast_inquiry:  { meta_event: 'Lead', content_name: 'Podcast Guest Inquiry', content_category: 'podcast' },
+        contact:          { meta_event: 'Lead', content_name: 'Contact Inquiry',       content_category: 'contact' }
+    };
+
     function renderFormSuccess(form, formType) {
+        // Fire the Meta conversion on CONFIRMED success, before the form leaves the DOM.
+        try {
+            if (window.WizAnalytics && typeof window.WizAnalytics.conversion === 'function') {
+                const map = META_MAP[formType] ||
+                    { meta_event: 'Lead', content_name: 'Form Submission', content_category: formType || 'contact' };
+                const email = (form.querySelector('input[type="email"], input[name="email"]') || {}).value || '';
+                const fullName = (form.querySelector('input[name="name"]') || {}).value || '';
+                const parts = fullName.trim().split(/\s+/).filter(Boolean);
+                window.WizAnalytics.conversion({
+                    meta_event: map.meta_event,
+                    content_name: map.content_name,
+                    content_category: map.content_category,
+                    status: map.status || '',
+                    currency: 'USD',
+                    value: 0,
+                    email: email,
+                    first_name: parts[0] || '',
+                    last_name: parts.length > 1 ? parts[parts.length - 1] : ''
+                });
+            }
+        } catch (e) { /* tracking must never block the success UI */ }
+
         const host = form.parentElement;
         const isDominoes = formType === 'eight_dominoes';
 

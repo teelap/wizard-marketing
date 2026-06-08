@@ -44,7 +44,102 @@
         } catch (e) { /* never let tracking break the page */ }
     }
 
+    /* ──────────────────── Identity / match helpers ───────────────────── */
+
+    /** RFC4122-ish v4 id — shared by a Pixel event and its CAPI twin to dedupe. */
+    function uuid() {
+        try {
+            if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+            if (window.crypto && crypto.getRandomValues) {
+                var b = crypto.getRandomValues(new Uint8Array(16));
+                b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+                var h = [];
+                for (var i = 0; i < 16; i++) h.push((b[i] + 0x100).toString(16).slice(1));
+                return h.slice(0, 4).join('') + '-' + h.slice(4, 6).join('') + '-' +
+                       h.slice(6, 8).join('') + '-' + h.slice(8, 10).join('') + '-' + h.slice(10, 16).join('');
+            }
+        } catch (e) { /* fall through to time-based id */ }
+        return 'e-' + Date.now() + '-' + Math.floor(Math.random() * 1e9);
+    }
+
+    function getCookie(name) {
+        try {
+            var re = new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1') + '=([^;]*)');
+            var m = document.cookie.match(re);
+            return m ? decodeURIComponent(m[1]) : '';
+        } catch (e) { return ''; }
+    }
+
+    /** Meta click id: the _fbc cookie, or one synthesised from ?fbclid= (persisted). */
+    function resolveFbc() {
+        var fbc = getCookie('_fbc');
+        if (fbc) return fbc;
+        try {
+            var fbclid = new URLSearchParams(window.location.search || '').get('fbclid');
+            var stored = window.localStorage ? localStorage.getItem('wiz-fbc') : '';
+            if (fbclid) {
+                if (stored) return stored;
+                var built = 'fb.1.' + Date.now() + '.' + fbclid;
+                try { localStorage.setItem('wiz-fbc', built); } catch (e) { /* ignore */ }
+                return built;
+            }
+            if (stored) return stored;
+        } catch (e) { /* ignore */ }
+        return '';
+    }
+
+    /** Stable pseudonymous id — lifts Meta match quality, carries no raw PII. */
+    function resolveExternalId() {
+        try {
+            if (!window.localStorage) return '';
+            var id = localStorage.getItem('wiz-uid');
+            if (!id) { id = uuid(); localStorage.setItem('wiz-uid', id); }
+            return id;
+        } catch (e) { return ''; }
+    }
+
+    function normalizePhone(p) { return (p || '').replace(/[^0-9]/g, ''); }
+
+    /**
+     * Fire a Meta-grade conversion. Pushes ONE `conversion` event carrying a shared
+     * event_id (Pixel⇄CAPI dedupe), the Meta standard event name, value, and
+     * advanced-matching fields (em/fn/ln/ph/fbp/fbc/external_id). Only the Meta tags
+     * in GTM consume the match fields, and those tags are consent-gated on ad_storage.
+     * Returns the event_id so callers can correlate if they ever need to.
+     */
+    function conversion(opts) {
+        opts = opts || {};
+        var eventId = opts.event_id || uuid();
+        track('conversion', {
+            meta_event: opts.meta_event || 'Lead',
+            event_id: eventId,
+            content_name: opts.content_name || '',
+            content_category: opts.content_category || '',
+            value: (opts.value != null ? opts.value : 0),
+            currency: opts.currency || 'USD',
+            status: opts.status || '',
+            em: (opts.email || '').trim().toLowerCase(),
+            fn: (opts.first_name || '').trim().toLowerCase(),
+            ln: (opts.last_name || '').trim().toLowerCase(),
+            ph: normalizePhone(opts.phone),
+            fbp: getCookie('_fbp'),
+            fbc: resolveFbc(),
+            external_id: resolveExternalId()
+        });
+        return eventId;
+    }
+
     /* ───────────────────────────── Consent ───────────────────────────── */
+
+    /**
+     * Mirror the consent decision to Microsoft Clarity (heatmaps + session
+     * recordings). Clarity's queue (window.clarity) is created synchronously by the
+     * loader in <head>, so this is safe even before the external tag has loaded.
+     * Granting links multi-page sessions via cookies; denying keeps Clarity cookieless.
+     */
+    function clarityConsent(granted) {
+        try { if (window.clarity) window.clarity('consent', !!granted); } catch (e) { /* never block */ }
+    }
 
     function grantConsent() {
         gtag('consent', 'update', {
@@ -53,6 +148,7 @@
             ad_personalization: 'granted',
             analytics_storage: 'granted'
         });
+        clarityConsent(true);
         track('consent_update', { consent_state: 'granted' });
     }
 
@@ -63,6 +159,7 @@
             ad_personalization: 'denied',
             analytics_storage: 'denied'
         });
+        clarityConsent(false);
         track('consent_update', { consent_state: 'denied' });
     }
 
@@ -253,6 +350,11 @@
                     booking_type: detail, value: value, currency: 'USD',
                     cta_text: textOf(link), cta_location: sectionOf(link), link_url: href
                 });
+                // Mirror to Meta as a Schedule conversion (Pixel + CAPI, deduped).
+                conversion({
+                    meta_event: 'Schedule', content_name: detail,
+                    content_category: 'consulting', value: value, currency: 'USD'
+                });
                 return; // calendly is also outbound, but the conversion event is what matters
             }
 
@@ -433,7 +535,8 @@
     window.WizAnalytics = {
         grantConsent: grantConsent,
         denyConsent: denyConsent,
-        track: track
+        track: track,
+        conversion: conversion
     };
 
     if (document.readyState === 'loading') {

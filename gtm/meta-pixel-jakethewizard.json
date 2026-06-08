@@ -1,0 +1,309 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-06-05 12:00:00",
+  "containerVersion": {
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "name": "Meta Pixel + Conversions API",
+    "description": "Comprehensive Meta (Facebook) Pixel + Conversions API for jakethewizard.com. Maps the existing analytics.js dataLayer to Meta standard + custom events. Pixel and CAPI share an event_id for deduplication and are consent-gated on ad_storage. After import: set the 'Const - Meta Pixel ID' variable, then Preview and Publish.",
+    "container": {
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
+      "name": "jakethewizard.com",
+      "publicId": "GTM-TLXMBN8B",
+      "usageContext": ["WEB"],
+      "fingerprint": "0",
+      "tagManagerUrl": ""
+    },
+    "tag": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "1",
+        "name": "Meta Pixel - Base + PageView",
+        "type": "html",
+        "notes": "Loads fbevents.js, initialises the Pixel from {{Const - Meta Pixel ID}}, and fires PageView. Consent-gated on ad_storage (US: granted by default; EEA/UK: after Accept).",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','{{Const - Meta Pixel ID}}');fbq('track','PageView');</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "2",
+        "name": "Meta Pixel - Conversion",
+        "type": "html",
+        "notes": "Fires the Meta standard conversion (Schedule / Lead / CompleteRegistration / Contact) from the dataLayer 'conversion' event. Adds advanced matching (email/name/external_id) and the shared eventID for dedup with CAPI.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>(function(){if(typeof fbq!=='function')return;var pid='{{Const - Meta Pixel ID}}';var em='{{DLV - em}}';if(em){fbq('init',pid,{em:em,fn:'{{DLV - fn}}',ln:'{{DLV - ln}}',external_id:'{{DLV - external_id}}'});}var data={content_name:'{{DLV - content_name}}',content_category:'{{DLV - content_category}}',currency:'{{DLV - currency}}'};var v=parseFloat('{{DLV - value}}');if(v){data.value=v;}var st='{{DLV - status}}';if(st){data.status=st;}fbq('track','{{DLV - meta_event}}',data,{eventID:'{{DLV - event_id}}'});})();</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "3",
+        "name": "Meta CAPI - Conversion",
+        "type": "html",
+        "notes": "Server-side twin of the conversion. POSTs to /api/meta-capi (the Vercel function), which hashes PII and forwards to the Graph API. Same event_id as the Pixel tag => Meta deduplicates.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>(function(){try{var body={event_name:'{{DLV - meta_event}}',event_id:'{{DLV - event_id}}',event_source_url:'{{Page URL}}',user_data:{em:'{{DLV - em}}',fn:'{{DLV - fn}}',ln:'{{DLV - ln}}',ph:'{{DLV - ph}}',external_id:'{{DLV - external_id}}',fbp:'{{DLV - fbp}}',fbc:'{{DLV - fbc}}'},custom_data:{content_name:'{{DLV - content_name}}',content_category:'{{DLV - content_category}}',currency:'{{DLV - currency}}',value:parseFloat('{{DLV - value}}')||0,status:'{{DLV - status}}'}};var s=JSON.stringify(body);if(window.fetch){fetch('/api/meta-capi',{method:'POST',headers:{'Content-Type':'application/json'},body:s,keepalive:true,credentials:'same-origin'});}else if(navigator.sendBeacon){navigator.sendBeacon('/api/meta-capi',new Blob([s],{type:'application/json'}));}}catch(e){}})();</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "4",
+        "name": "Meta Pixel - ViewContent",
+        "type": "html",
+        "notes": "Fires ViewContent on money pages (consulting/mastermind/book/podcast/tools) from the page_data event.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('track','ViewContent',{content_name:'{{DLV - page_category}}',content_type:'{{DLV - page_type}}',content_category:'{{DLV - funnel_stage}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "5",
+        "name": "Meta Pixel - Contact",
+        "type": "html",
+        "notes": "Fires the Meta standard Contact event on email (mailto) and phone (tel) clicks.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('track','Contact',{content_category:'click'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["3", "4"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "6",
+        "name": "Meta Pixel - FormStart (custom)",
+        "type": "html",
+        "notes": "Micro-conversion: someone focused a form field. Great for 'started but didn't finish' retargeting audiences.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','FormStart',{form_name:'{{DLV - form_name}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["5"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "7",
+        "name": "Meta Pixel - CTAClick (custom)",
+        "type": "html",
+        "notes": "Custom event for primary CTA clicks (hero buttons, cards, etc.).",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','CTAClick',{cta_text:'{{DLV - cta_text}}',cta_location:'{{DLV - cta_location}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["6"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "8",
+        "name": "Meta Pixel - OutboundClick (custom)",
+        "type": "html",
+        "notes": "Custom event when a visitor leaves to an external domain.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','OutboundClick',{link_domain:'{{DLV - link_domain}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["7"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "9",
+        "name": "Meta Pixel - SocialClick (custom)",
+        "type": "html",
+        "notes": "Custom event for clicks on social profile links.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','SocialClick',{social_network:'{{DLV - social_network}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["8"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "10",
+        "name": "Meta Pixel - FileDownload (custom)",
+        "type": "html",
+        "notes": "Custom event for downloads (pdf, zip, docs, media).",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','FileDownload',{file_name:'{{DLV - file_name}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["9"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "11",
+        "name": "Meta Pixel - ScrollDepth 90% (custom)",
+        "type": "html",
+        "notes": "Deep-engagement signal at 90% scroll. Useful for engaged-reader audiences.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','ScrollDepth',{percent:90});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "12",
+        "name": "Meta Pixel - VideoComplete (custom)",
+        "type": "html",
+        "notes": "Custom event when an embedded YouTube video finishes.",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>if(typeof fbq==='function'){fbq('trackCustom','VideoComplete',{video_title:'{{DLV - video_title}}'});}</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [ { "type": "TEMPLATE", "value": "ad_storage" } ] } },
+        "fingerprint": "0",
+        "firingTriggerId": ["11"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "1", "name": "CE - conversion", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "conversion" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "2", "name": "CE - page_data (ViewContent money pages)", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "page_data" } ] } ],
+        "filter": [ { "type": "MATCH_REGEX", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{DLV - page_category}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "^(consulting|mastermind|book|podcast|tools)$" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "3", "name": "CE - email_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "email_click" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "4", "name": "CE - tel_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "tel_click" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "5", "name": "CE - form_start", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "form_start" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "6", "name": "CE - cta_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "cta_click" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "7", "name": "CE - outbound_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "outbound_click" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "8", "name": "CE - social_click", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "social_click" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "9", "name": "CE - file_download", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "file_download" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "10", "name": "CE - scroll_depth 90", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "scroll_depth" } ] } ],
+        "filter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{DLV - percent_scrolled}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "90" } ] } ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "11", "name": "CE - video_progress complete", "type": "CUSTOM_EVENT",
+        "customEventFilter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "video_progress" } ] } ],
+        "filter": [ { "type": "EQUALS", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{DLV - video_status}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "complete" } ] } ],
+        "fingerprint": "0"
+      }
+    ],
+    "variable": [
+      { "accountId": "0", "containerId": "0", "variableId": "1", "name": "DLV - event_id", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "event_id" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "2", "name": "DLV - meta_event", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "meta_event" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "3", "name": "DLV - content_name", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "content_name" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "4", "name": "DLV - content_category", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "content_category" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "5", "name": "DLV - value", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "value" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "6", "name": "DLV - currency", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "true" }, { "type": "TEMPLATE", "key": "defaultValue", "value": "USD" }, { "type": "TEMPLATE", "key": "name", "value": "currency" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "7", "name": "DLV - status", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "status" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "8", "name": "DLV - em", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "em" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "9", "name": "DLV - fn", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "fn" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "10", "name": "DLV - ln", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "ln" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "11", "name": "DLV - ph", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "ph" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "12", "name": "DLV - fbp", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "fbp" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "13", "name": "DLV - fbc", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "fbc" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "14", "name": "DLV - external_id", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "external_id" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "15", "name": "DLV - page_type", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "page_type" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "16", "name": "DLV - page_category", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "page_category" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "17", "name": "DLV - funnel_stage", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "funnel_stage" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "18", "name": "DLV - form_name", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "form_name" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "19", "name": "DLV - cta_text", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "cta_text" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "20", "name": "DLV - cta_location", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "cta_location" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "21", "name": "DLV - link_domain", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "link_domain" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "22", "name": "DLV - social_network", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "social_network" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "23", "name": "DLV - file_name", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "file_name" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "24", "name": "DLV - video_title", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "video_title" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "25", "name": "DLV - video_status", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "video_status" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "26", "name": "DLV - percent_scrolled", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "percent_scrolled" } ], "fingerprint": "0" },
+      { "accountId": "0", "containerId": "0", "variableId": "27", "name": "Const - Meta Pixel ID", "type": "c", "notes": "Paste your Meta Pixel / dataset ID here (the ~15-digit number), then Save, Preview, and Publish.", "parameter": [ { "type": "TEMPLATE", "key": "value", "value": "REPLACE_WITH_PIXEL_ID" } ], "fingerprint": "0" }
+    ],
+    "builtInVariable": [
+      { "accountId": "0", "containerId": "0", "type": "PAGE_URL", "name": "Page URL" }
+    ],
+    "fingerprint": "0"
+  }
+}

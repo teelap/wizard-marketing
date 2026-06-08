@@ -34,6 +34,10 @@ const CONFIG = {
     // Google Tag Manager container ID. Override via env until the real container
     // exists; the placeholder loads nothing (harmless 404) so builds stay safe.
     gtmContainerId: process.env.GTM_CONTAINER_ID || 'GTM-TLXMBN8B',
+    // Microsoft Clarity project ID (heatmaps + session recordings). Injected into
+    // every page's <head>; consent is driven through WizAnalytics in analytics.js,
+    // so Clarity follows the same Accept/Decline decision as GA. Set to '' to skip.
+    clarityProjectId: process.env.CLARITY_PROJECT_ID || 'x3vtfizvve',
 };
 
 const PUBLIC_FILES = [
@@ -175,28 +179,42 @@ function assemblePublic() {
     }
 }
 
-// EEA + UK + Switzerland: Consent Mode defaults are strict here (analytics denied
-// until the visitor accepts). Everywhere else, analytics is granted by default so
-// we capture the most data the law allows; ads stay denied until explicit consent.
+// EEA + UK + Switzerland: Consent Mode defaults are strict here — analytics AND
+// ads are denied until the visitor explicitly accepts. Everywhere else (US et al.)
+// analytics AND ads are granted by default so the Meta Pixel, Conversions API, and
+// Google Ads signals fire immediately for non-EEA traffic; visitors who Decline are
+// then honoured (all storage denied). This mirrors the "maximize signal, stay legal"
+// posture: most data the law allows, with a hard wall around the strict regions.
 const STRICT_CONSENT_REGIONS = [
     'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU',
     'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES',
     'SE', 'IS', 'LI', 'NO', 'GB', 'CH',
 ];
 
-function analyticsHeadBlock(gtmId) {
+function clarityBlock(clarityId) {
+    if (!clarityId) return '';
+    // Standard Clarity loader. window.clarity is queued synchronously here, so the
+    // consent calls wired into WizAnalytics (analytics.js) are safe to fire before
+    // the external tag finishes loading. Clarity masks all page content by default.
+    return `
+<!-- Microsoft Clarity -->
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','${clarityId}');</script>
+<!-- End Microsoft Clarity -->`;
+}
+
+function analyticsHeadBlock(gtmId, clarityId) {
     const regions = JSON.stringify(STRICT_CONSENT_REGIONS);
     return `<!-- wiz-analytics-bootstrap: Consent Mode v2 + dataLayer + GTM -->
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted',functionality_storage:'granted',security_storage:'granted'});
 gtag('consent','default',{region:${regions},ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
 gtag('set','ads_data_redaction',true);gtag('set','url_passthrough',true);
 </script>
-<script defer src="/analytics.js?v=1"></script>
+<script defer src="/analytics.js?v=3"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>
-<!-- End Google Tag Manager -->`;
+<!-- End Google Tag Manager -->${clarityBlock(clarityId)}`;
 }
 
 function analyticsNoscript(gtmId) {
@@ -209,7 +227,7 @@ function analyticsNoscript(gtmId) {
  * source files stay clean and only the deployed `public/` copies get tracking.
  */
 function injectAnalytics() {
-    const headBlock = analyticsHeadBlock(CONFIG.gtmContainerId);
+    const headBlock = analyticsHeadBlock(CONFIG.gtmContainerId, CONFIG.clarityProjectId);
     const noscript = analyticsNoscript(CONFIG.gtmContainerId);
     const htmlFiles = PUBLIC_FILES.filter((f) => f.endsWith('.html'));
 
