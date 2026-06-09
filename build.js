@@ -46,7 +46,7 @@ const PUBLIC_FILES = [
     'links.html',
     'consulting.html',
     'mastermind.html',
-    'book.html',
+    'eight-dominoes.html',
     'podcast-guest.html',
     'tools.html',
     'privacy.html',

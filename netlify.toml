@@ -2,6 +2,19 @@
   command = "npm run build"
   publish = "public"
 
+# 301 the retired /book slug (and the numeral variant) to the canonical book URL.
+[[redirects]]
+  from = "/book"
+  to = "/eight-dominoes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/8-dominoes"
+  to = "/eight-dominoes"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

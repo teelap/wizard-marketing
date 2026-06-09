@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         email: subEmail,
                         first_name: subParts[0] || '',
                         last_name: subParts.length > 1 ? subParts[subParts.length - 1] : '',
-                        source: formType || 'contact'
+                        source: formType || 'contact',
+                        signup_page: window.location.pathname
                     }),
                     keepalive: true
                 }).catch(function () { /* best-effort */ });

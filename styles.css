@@ -1005,6 +1005,46 @@ a.logo:hover { color: var(--wax-red); }
 .page-hero-content { position: relative; z-index: 3; }
 .page-hero .hero-role { margin-top: 1.25rem; }
 
+/* ─── Eight Dominoes landing hero: left-align + waiting-list capture ─── */
+.page-hero--landing .hero-role { text-align: left; }
+.hero-waitlist {
+    margin-top: var(--space-lg);
+    max-width: 560px;
+    position: relative;
+    z-index: 10;
+}
+.hero-waitlist-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+}
+.hero-waitlist-copy {
+    font-family: var(--font-accent);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin: 0 0 1.5rem;
+}
+.hero-waitlist .dominoes-form {
+    margin: 0;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.hero-waitlist .fine-print { margin-top: 0.85rem; }
+.hero-waitlist-secondary {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(244, 238, 224, 0.4);
+    padding-bottom: 2px;
+    transition: opacity var(--transition);
+}
+.hero-waitlist-secondary:hover { opacity: 1; }
+
 /* ─── Services Hub Cards (home page) ─────────── */
 .services-hub {
     display: grid;

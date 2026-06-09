@@ -267,7 +267,7 @@
             '/links': { page_type: 'links_hub', page_category: 'hub', funnel_stage: 'awareness' },
             '/consulting': { page_type: 'service', page_category: 'consulting', funnel_stage: 'consideration' },
             '/mastermind': { page_type: 'service', page_category: 'mastermind', funnel_stage: 'consideration' },
-            '/book': { page_type: 'offer', page_category: 'book', funnel_stage: 'consideration' },
+            '/eight-dominoes': { page_type: 'offer', page_category: 'book', funnel_stage: 'consideration' },
             '/podcast-guest': { page_type: 'service', page_category: 'podcast', funnel_stage: 'consideration' },
             '/tools': { page_type: 'content', page_category: 'tools', funnel_stage: 'awareness' },
             '/workshop': { page_type: 'content', page_category: 'workshop', funnel_stage: 'awareness' },

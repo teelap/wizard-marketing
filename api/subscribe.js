@@ -110,6 +110,12 @@ module.exports = async (req, res) => {
   }
   const firstName = String(body.first_name || '').trim();
   const lastName = String(body.last_name || '').trim();
+  // Optional origin tag — which form/page the signup came from (e.g. "eight_dominoes").
+  // Stored as Resend contact properties so the audience can be segmented by source
+  // later, and as a tag on the welcome email. Best-effort: never required for the add.
+  const source = String(body.source || '').trim().slice(0, 60);
+  const signupPage = String(body.signup_page || '').trim().slice(0, 120);
+  const sourceTag = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 50);
 
   let audienceId;
   try {
@@ -132,6 +138,11 @@ module.exports = async (req, res) => {
         first_name: firstName || undefined,
         last_name: lastName || undefined,
         unsubscribed: false,
+        // Custom properties (Resend's newer contact model). Harmless if the
+        // account/audience doesn't support them — the contact is still added.
+        properties: (source || signupPage)
+          ? { source: source || undefined, signup_page: signupPage || undefined }
+          : undefined,
       }),
     });
     const j = await r.json().catch(() => ({}));
@@ -158,6 +169,7 @@ module.exports = async (req, res) => {
           to: [email],
           subject: "You're on the list",
           html: welcomeHtml(firstName),
+          tags: sourceTag ? [{ name: 'source', value: sourceTag }] : undefined,
         }),
       });
     } catch (e) { /* welcome is best-effort */ }

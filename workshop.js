@@ -13,7 +13,7 @@
       portrait: "dev_assets/jake-headshot.png",
       body: "That's me at the arcane laptop — 20 years, two exits, $100M+ generated. Two ways in: book me for 1-on-1 consulting, or grab my upcoming book, Eight Dominoes.",
       cta: { label: "Work with Jake → Consulting", href: "/consulting" },
-      cta2: { label: "Get the book →", href: "/book" }
+      cta2: { label: "Get the book →", href: "/eight-dominoes" }
     },
     brewer: {
       title: "The Messaging Cauldron", role: "Private consulting",
@@ -73,7 +73,7 @@
   addEventListener('keydown',function(e){ if(e.key==='Escape')closeCard(); if(modal.classList.contains('open'))trapFocus(e); });
   modalBody.addEventListener('click',function(e){ var b=e.target.closest('[data-card-action]'); if(!b)return;
     if(b.dataset.cardAction==='dominoes'){ var list=DOMINOES.map(function(d,i){return '<p style="margin:.2em 0"><strong>'+(i+1)+'.</strong> '+d+'</p>';}).join('');
-      showModal('<h3>The Eight Dominoes</h3><div class="role">the framework, straight from the tome</div>'+list+'<a class="card-cta" href="/book">Get first access <i class="fas fa-arrow-right"></i></a>'); } });
+      showModal('<h3>The Eight Dominoes</h3><div class="role">the framework, straight from the tome</div>'+list+'<a class="card-cta" href="/eight-dominoes">Get first access <i class="fas fa-arrow-right"></i></a>'); } });
 
   /* ---------- toast / whisper ---------- */
   var toast=$('#toast'), toastT;
