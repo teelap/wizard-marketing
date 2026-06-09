@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found (404) — Jake Tlapek, The Wizard of Marketing</title>
+    <meta name="description" content="This page wandered off the map. Find your way back to jakethewizard.com.">
+    <meta name="author" content="Jake Tlapek">
+    <meta name="theme-color" content="#1a0f1f">
+    <meta name="color-scheme" content="light dark">
+    <!-- A 404 must never be indexed, but let crawlers follow the links back out. -->
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Absolute paths only: the 404 is served for ANY unmatched URL (e.g. /a/b/c),
+         so relative paths would resolve against the wrong directory and break. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/jake-icon-32.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/jake-icon-180.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="/styles.css?v=8.4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+</head>
+<body class="parchment-theme">
+
+    <nav id="navbar" class="pill-nav">
+        <div class="nav-content">
+            <a href="/" class="logo"><img src="/dev_assets/jake-icon-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul id="primary-nav" class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/consulting">Consulting</a></li>
+                <li><a href="/mastermind">Arcanum</a></li>
+                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+                <li><a href="/podcast-guest">Podcast</a></li>
+                <li><a href="/tools">Tools</a></li>
+                <li><a href="/#contact">Speak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <section class="page-hero dark-theme-section">
+            <div class="container page-hero-content">
+                <span class="eyebrow">Error 404</span>
+                <h1 class="massive-section-title">THIS SPELL<br>FIZZLED.</h1>
+                <p class="hero-role text-night">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all. Let's get you back on the path.</p>
+                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+                    <a href="/" class="btn btn-primary">Back to the homepage</a>
+                    <a href="/eight-dominoes" class="btn btn-ghost-light">Read Eight Dominoes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section padding-section">
+            <div class="container center-text">
+                <span class="eyebrow">Or try one of these</span>
+                <nav aria-label="Popular pages" style="margin-top:1.25rem; display:flex; gap:0.75rem 1.5rem; flex-wrap:wrap; justify-content:center;">
+                    <a href="/consulting">Consulting</a>
+                    <a href="/mastermind">The Arcanum</a>
+                    <a href="/eight-dominoes">Eight Dominoes</a>
+                    <a href="/podcast-guest">Book Jake on your podcast</a>
+                    <a href="/tools">Free tools</a>
+                    <a href="/#contact">Get in touch</a>
+                </nav>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="dark-theme-section">
+        <div class="container center-text">
+            <div class="footer-logo ink-stamp text-night">The Wizard</div>
+            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
+            <nav aria-label="Footer navigation" style="margin-top:1rem;">
+                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
+                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
+                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Arcanum</a>
+                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
+                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
+                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
+            </nav>
+            <nav class="footer-legal" aria-label="Legal links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms &amp; Conditions</a>
+                <a href="/cookies">Cookie Policy</a>
+                <a href="/ai-information">AI Information</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script defer src="/script.js?v=7.5"></script>
+    <script defer src="/cookie-consent.js?v=2"></script>
+</body>
+</html>

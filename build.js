@@ -53,6 +53,7 @@ const PUBLIC_FILES = [
     'terms.html',
     'cookies.html',
     'ai-information.html',
+    '404.html',
     'styles.css',
     'script.js',
     'cookie-consent.js',
@@ -62,6 +63,7 @@ const PUBLIC_FILES = [
     'workshop.css',
     'workshop.js',
     'parchment-bg-v4.jpg',
+    'favicon.ico',
     'robots.txt',
     'sitemap.xml',
     'site.webmanifest',
@@ -214,7 +216,7 @@ gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_persona
 gtag('consent','default',{region:${regions},ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
 gtag('set','ads_data_redaction',true);gtag('set','url_passthrough',true);
 </script>
-<script defer src="/analytics.js?v=4"></script>
+<script defer src="/analytics.js?v=5"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>
 <!-- End Google Tag Manager -->${clarityBlock(clarityId)}`;
