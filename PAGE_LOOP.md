@@ -34,7 +34,7 @@ Loop ends when every page below has had **3 passes**.
 | index.html | 1/3 | 2026-06-10 |
 | mastermind.html | 1/3 | 2026-06-10 |
 | podcast-guest.html | 1/3 | 2026-06-10 |
-| tools.html | 0/3 | — |
+| tools.html | 1/3 | 2026-06-10 |
 | links.html | 0/3 | — |
 | workshop.html | 0/3 | — |
 | 404.html | 0/3 | — |
@@ -61,6 +61,12 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — tools.html (pass 1/3).** NEW Share of Brand Voice category
+  — his named metric with the two tools he cites on podcasts (SparkToro,
+  Search Atlas), intro deep-links the MTAFW episode; AI section now opens
+  with his verbatim bell-curve stance (tools save hours, don't replace the
+  human); intro gains the philosophy kicker ("tools don't fix a broken
+  sequence… that's why this list is short"); BreadcrumbList JSON-LD.
 - **2026-06-10 — podcast-guest.html (pass 1/3).** Dead Inspiring Business
   link → live Videosocials episode; MTAFW deep-links #1162; NEW "Steal
   These Questions" section — 7 lift-ready host questions each baiting a
