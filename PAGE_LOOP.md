@@ -35,7 +35,7 @@ Loop ends when every page below has had **3 passes**.
 | mastermind.html | 3/3 ✓ | 2026-06-10 |
 | podcast-guest.html | 3/3 ✓ | 2026-06-10 |
 | tools.html | 3/3 ✓ | 2026-06-10 |
-| links.html | 2/3 | 2026-06-10 |
+| links.html | 3/3 ✓ | 2026-06-10 |
 | 404.html | 2/3 | 2026-06-10 |
 | ai-information.html | 2/3 | 2026-06-10 |
 
@@ -62,6 +62,9 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — links.html (pass 3/3 ✓ DONE).** Name promoted to a real
+  h1 (page had none — a11y/semantics); OG description loses "and more"
+  filler for "pick a door."
 - **2026-06-10 — tools.html (pass 3/3 ✓ DONE).** "Stack last reviewed:
   June 2026" stamp backs the freshness claim; meta description names the
   categories and tool count; consulting CTA gains the "From $400. Prices
