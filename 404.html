@@ -55,7 +55,8 @@
             <div class="container page-hero-content">
                 <span class="eyebrow">Error 404</span>
                 <h1 class="massive-section-title">THIS SPELL<br>FIZZLED.</h1>
-                <p class="hero-role text-night">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all. Let's get you back on the path.</p>
+                <p class="hero-role text-night" id="fizzle-line">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all.</p>
+                <p class="text-night" style="margin-top:0.5rem; opacity:0.85;">Let's get you back on the path.</p>
                 <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
                     <a href="/" class="btn btn-primary">Back to the homepage</a>
                     <a href="/eight-dominoes" class="btn btn-ghost-light">Read Eight Dominoes</a>
@@ -74,6 +75,20 @@
                     <a href="/tools">Free tools</a>
                     <a href="/#contact">Get in touch</a>
                 </nav>
+
+                <div style="max-width:480px; margin:3.5rem auto 0;">
+                    <h2 class="ink-stamp" style="font-size:1.3rem;">The page is gone. The weekly truths aren't.</h2>
+                    <p class="ink-text" style="margin-top:0.5rem; font-size:0.95rem; opacity:0.85;">One marketing truth a week, plus first access to <em>Eight Dominoes</em> when it ships. No spam, unsubscribe anytime.</p>
+                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="dominoes-form" style="margin-top:1.25rem;">
+                        <label for="lost-email" class="visually-hidden">Your email address</label>
+                        <input id="lost-email" type="email" name="email" placeholder="Your best email" autocomplete="email" required>
+                        <input type="hidden" name="_subject" value="Eight Dominoes — Waiting List Signup (404 page)">
+                        <input type="hidden" name="_form_type" value="eight_dominoes">
+                        <button type="submit" class="btn btn-primary">Join the waiting list</button>
+                    </form>
+                </div>
+
+                <p class="ink-text" style="margin-top:3.5rem; font-size:0.85rem; font-style:italic; opacity:0.7;">Why "404"? In HTTP's status codes, 4xx means the request &mdash; not the server &mdash; misfired. The legend that it honors "Room 404" at CERN is, fittingly for this page, a myth.</p>
             </div>
         </section>
 
@@ -100,6 +115,20 @@
         </div>
     </footer>
 
+    <script>
+    (function () {
+        var lines = [
+            "Someone skipped a domino in this URL's sequence. The whole thing collapsed.",
+            "The owl flew off with this page. A sternly worded scroll has been dispatched.",
+            "This URL browsed intellectually but never converted.",
+            "No magic here. Just a broken link — and broken links kill trust, so thanks for catching one.",
+            "Even a wizard with $100M in results misplaces a scroll occasionally.",
+            "The page you're looking for vanished into the void — moved, renamed, or never conjured at all."
+        ];
+        var el = document.getElementById('fizzle-line');
+        if (el) el.textContent = lines[Math.floor(Math.random() * lines.length)];
+    })();
+    </script>
     <script defer src="/script.js?v=7.6"></script>
     <script defer src="/cookie-consent.js?v=2"></script>
 </body>

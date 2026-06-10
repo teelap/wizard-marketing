@@ -36,12 +36,13 @@ Loop ends when every page below has had **3 passes**.
 | podcast-guest.html | 1/3 | 2026-06-10 |
 | tools.html | 1/3 | 2026-06-10 |
 | links.html | 1/3 | 2026-06-10 |
-| workshop.html | 0/3 | — |
-| 404.html | 0/3 | — |
+| 404.html | 1/3 | 2026-06-10 |
 | ai-information.html | 0/3 | — |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
-personality), `public/` (build output), `_*.html` (dev scraps).
+personality), workshop.html (ARCHIVED per WORKSHOP_BUILD.md — noindex,
+unlinked, "retire later"; don't polish a dead page), `public/` (build
+output), `_*.html` (dev scraps).
 
 ## Open items (carry between passes)
 
@@ -61,6 +62,13 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — 404.html (pass 1/3).** Rotating fizzle line (6 wizard-voice
+  variants per load, Marvel pattern, no-JS fallback keeps default text);
+  email capture added ("The page is gone. The weekly truths aren't." →
+  eight_dominoes list, AJAX + conversion tracking free via script.js's
+  generic Formspree handler); nerd footnote on the real origin of "404"
+  (and the CERN Room-404 myth). workshop.html EXCLUDED from loop this
+  iteration — WORKSHOP_BUILD.md marks it archived/noindex/"retire later".
 - **2026-06-10 — links.html (pass 1/3).** Campaign-first reorder: Eight
   Dominoes now the SINGLE featured card on top (was 3rd, unfeatured, with
   two other cards diluting the red); consulting sub gains "prices on the
