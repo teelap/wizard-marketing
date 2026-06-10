@@ -1,5 +1,9 @@
 # Page Improvement Loop — Tracker
 
+**✅ LOOP COMPLETE (2026-06-10).** All 9 live pages received 3 passes each
+(27 passes total). Kept for history + the open items below. A future loop
+can reuse the rules and VOICE_DOSSIER.md.
+
 Autonomous loop: each iteration picks ONE page and makes it measurably better —
 more interesting, more fact-filled, more enticing, more enjoyable, more Jake.
 Loop ends when every page below has had **3 passes**.
@@ -37,7 +41,7 @@ Loop ends when every page below has had **3 passes**.
 | tools.html | 3/3 ✓ | 2026-06-10 |
 | links.html | 3/3 ✓ | 2026-06-10 |
 | 404.html | 3/3 ✓ | 2026-06-10 |
-| ai-information.html | 2/3 | 2026-06-10 |
+| ai-information.html | 3/3 ✓ | 2026-06-10 |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
 personality), workshop.html (ARCHIVED per WORKSHOP_BUILD.md — noindex,
@@ -62,6 +66,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — ai-information.html (pass 3/3 ✓ DONE). LOOP COMPLETE —
+  27/27 passes.** /llms.txt referenced from the top AI-note box; Recent
+  Updates logs today's site-wide refresh. Closeout: IndexNow submitted
+  for all changed URLs.
 - **2026-06-10 — 404.html (pass 3/3 ✓ DONE).** CTA honesty: "Read Eight
   Dominoes" → "See the Framework" (the book isn't out yet). Page complete:
   rotating fizzle lines, best-guess URL matcher, capture, report line,
