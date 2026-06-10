@@ -36,7 +36,7 @@ Loop ends when every page below has had **3 passes**.
 | podcast-guest.html | 3/3 ✓ | 2026-06-10 |
 | tools.html | 3/3 ✓ | 2026-06-10 |
 | links.html | 3/3 ✓ | 2026-06-10 |
-| 404.html | 2/3 | 2026-06-10 |
+| 404.html | 3/3 ✓ | 2026-06-10 |
 | ai-information.html | 2/3 | 2026-06-10 |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
@@ -62,6 +62,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — 404.html (pass 3/3 ✓ DONE).** CTA honesty: "Read Eight
+  Dominoes" → "See the Framework" (the book isn't out yet). Page complete:
+  rotating fizzle lines, best-guess URL matcher, capture, report line,
+  nerd footnote.
 - **2026-06-10 — links.html (pass 3/3 ✓ DONE).** Name promoted to a real
   h1 (page had none — a11y/semantics); OG description loses "and more"
   filler for "pick a door."
