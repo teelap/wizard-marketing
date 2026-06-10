@@ -33,7 +33,7 @@ Loop ends when every page below has had **3 passes**.
 | eight-dominoes.html | 2/3 | 2026-06-10 |
 | index.html | 2/3 | 2026-06-10 |
 | mastermind.html | 2/3 | 2026-06-10 |
-| podcast-guest.html | 1/3 | 2026-06-10 |
+| podcast-guest.html | 2/3 | 2026-06-10 |
 | tools.html | 1/3 | 2026-06-10 |
 | links.html | 1/3 | 2026-06-10 |
 | 404.html | 1/3 | 2026-06-10 |
@@ -51,9 +51,9 @@ output), `_*.html` (dev scraps).
       Site links are correct — do not change.
 - [x] **Dead proof links — RESOLVED**: fixed on index AND podcast-guest
       (Videosocials episode + MTAFW #1162 deep links everywhere).
-- [ ] **4th appearance card**: Service Provider's Edge ep. 162 (Frederick
-      Dudek) is verified real but no clean episode URL found yet — hunt
-      again during podcast-guest pass 2.
+- [x] **4th appearance card — DONE**: Service Providers Edge ep. 162 found
+      live at frederickdudek.com (slug says ep-163, title says 162 — their
+      CMS quirk; URL verified) and added to podcast-guest.
 - [ ] **Timeline years** on index (2014/2018 exits) conflict with external
       evidence — propose year-free "Exit #1 / Exit #2" wording to Jake
       (dossier §6.2–6.3). Needs Jake's sign-off.
@@ -62,6 +62,12 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — podcast-guest.html (pass 2/3).** 4th verified appearance
+  card added: The Service Providers Edge #162 (Frederick Dudek) — the
+  episode that carries ALL his flagship stories (17x ROAS, landscaper,
+  6.5% button, TikTok SEO); booker-facing proof strip after the hero
+  (100K+ followers / 31 episodes hosting his own show, "he knows both
+  chairs" / 5-day max reply).
 - **2026-06-10 — mastermind.html (pass 2/3).** Pull quote ("the hardest
   system to debug is people" — on why the room matters more than the
   playbook); "Before You Ask" FAQ: members-first pricing honesty, cohort
