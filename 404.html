@@ -57,6 +57,7 @@
                 <h1 class="massive-section-title">THIS SPELL<br>FIZZLED.</h1>
                 <p class="hero-role text-night" id="fizzle-line">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all.</p>
                 <p class="text-night" style="margin-top:0.5rem; opacity:0.85;">Let's get you back on the path.</p>
+                <p class="text-night" id="wiz-guess" style="display:none; margin-top:1rem; font-style:italic;">The wizard's best guess: you were looking for <a id="wiz-guess-link" href="/" class="text-night" style="text-decoration:underline;"></a></p>
                 <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
                     <a href="/" class="btn btn-primary">Back to the homepage</a>
                     <a href="/eight-dominoes" class="btn btn-ghost-light">Read Eight Dominoes</a>
@@ -88,7 +89,9 @@
                     </form>
                 </div>
 
-                <p class="ink-text" style="margin-top:3.5rem; font-size:0.85rem; font-style:italic; opacity:0.7;">Why "404"? In HTTP's status codes, 4xx means the request &mdash; not the server &mdash; misfired. The legend that it honors "Room 404" at CERN is, fittingly for this page, a myth.</p>
+                <p class="ink-text" style="margin-top:2.5rem; font-size:0.9rem;">Followed a link here from somewhere? <a href="/#contact">Tell Jake what you were looking for</a> &mdash; broken links kill trust, and he fixes them fast.</p>
+
+                <p class="ink-text" style="margin-top:2.5rem; font-size:0.85rem; font-style:italic; opacity:0.7;">Why "404"? In HTTP's status codes, 4xx means the request &mdash; not the server &mdash; misfired. The legend that it honors "Room 404" at CERN is, fittingly for this page, a myth.</p>
             </div>
         </section>
 
@@ -127,6 +130,36 @@
         ];
         var el = document.getElementById('fizzle-line');
         if (el) el.textContent = lines[Math.floor(Math.random() * lines.length)];
+
+        // The wizard's best guess: fuzzy-match the broken path to a real page.
+        var routes = [
+            { keys: ['consult', 'session', 'cmo', 'audit', 'hire', 'work'], href: '/consulting', label: 'Consulting' },
+            { keys: ['mastermind', 'arcanum', 'group', 'peer'], href: '/mastermind', label: 'Business Arcanum' },
+            { keys: ['domino', 'book', 'eight', '8-'], href: '/eight-dominoes', label: 'Eight Dominoes' },
+            { keys: ['podcast', 'guest', 'speak', 'interview', 'media'], href: '/podcast-guest', label: 'the podcast one-sheet' },
+            { keys: ['tool', 'stack', 'software', 'arsenal'], href: '/tools', label: "Jake's tools" },
+            { keys: ['link', 'bio', 'social'], href: '/links', label: 'the links page' },
+            { keys: ['contact', 'email', 'reach', 'touch'], href: '/#contact', label: 'the contact form' },
+            { keys: ['privacy'], href: '/privacy', label: 'the privacy policy' },
+            { keys: ['terms'], href: '/terms', label: 'the terms' },
+            { keys: ['cookie'], href: '/cookies', label: 'the cookie policy' }
+        ];
+        var path = decodeURIComponent(window.location.pathname || '').toLowerCase();
+        if (path && path !== '/') {
+            for (var i = 0; i < routes.length; i++) {
+                var hit = routes[i].keys.some(function (k) { return path.indexOf(k) !== -1; });
+                if (hit) {
+                    var wrap = document.getElementById('wiz-guess');
+                    var link = document.getElementById('wiz-guess-link');
+                    if (wrap && link) {
+                        link.href = routes[i].href;
+                        link.textContent = routes[i].label;
+                        wrap.style.display = 'block';
+                    }
+                    break;
+                }
+            }
+        }
     })();
     </script>
     <script defer src="/script.js?v=7.6"></script>

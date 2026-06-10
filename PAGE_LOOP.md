@@ -36,7 +36,7 @@ Loop ends when every page below has had **3 passes**.
 | podcast-guest.html | 2/3 | 2026-06-10 |
 | tools.html | 2/3 | 2026-06-10 |
 | links.html | 2/3 | 2026-06-10 |
-| 404.html | 1/3 | 2026-06-10 |
+| 404.html | 2/3 | 2026-06-10 |
 | ai-information.html | 1/3 | 2026-06-10 |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — 404.html (pass 2/3).** "The wizard's best guess" — inline
+  fuzzy-match of the broken pathname against keyword→route table, shows
+  the page the visitor probably meant (works on Vercel, which serves
+  404.html with the original path intact); "tell Jake what you were
+  looking for" broken-link report line → contact form.
 - **2026-06-10 — links.html (pass 2/3).** On-page email capture card
   ("One marketing truth a week") so TikTok visitors convert without a
   click-through; self-contained AJAX handler (script.js isn't loaded on
