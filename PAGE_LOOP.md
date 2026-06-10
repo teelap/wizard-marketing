@@ -27,7 +27,7 @@ Loop ends when every page below has had **3 passes**.
 | Page | Passes | Last touched |
 |---|---|---|
 | consulting.html | 1/3 | 2026-06-10 |
-| eight-dominoes.html | 0/3 | — |
+| eight-dominoes.html | 1/3 | 2026-06-10 |
 | index.html | 0/3 | — |
 | mastermind.html | 0/3 | — |
 | podcast-guest.html | 0/3 | — |
@@ -56,6 +56,15 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — eight-dominoes.html (pass 1/3).** Hook now tells the real
+  Whitehead 1983 physics story (cotton wisp → Empire State, ~2B amplification,
+  sourced); identity-promise waitlist headline ("Become the clearest message
+  in your category"); "In the wild" sourced example under each of the 8
+  dominoes (Damasio, Obama button test, iPod, loss aversion, Domino's pun,
+  $300M button, Avis, De Beers); founder's note ends on promise + "— Jake"
+  sign-off; bottom capture retitled "Read it before your competitors do";
+  weekly-email promise unified across both forms; SERP-bait meta description.
+  Proposed for Jake (not published): free sample chapter as lead magnet.
 - **2026-06-10 — consulting.html (pass 1/3).** Sharper hero promise + proof
   line; landscaper 3→9-crews story woven into The Real Problem; "margin
   notes" device debuts (page annotates its own persuasion: jam study, decoy
