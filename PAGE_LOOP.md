@@ -31,7 +31,7 @@ Loop ends when every page below has had **3 passes**.
 |---|---|---|
 | consulting.html | 2/3 | 2026-06-10 |
 | eight-dominoes.html | 2/3 | 2026-06-10 |
-| index.html | 1/3 | 2026-06-10 |
+| index.html | 2/3 | 2026-06-10 |
 | mastermind.html | 1/3 | 2026-06-10 |
 | podcast-guest.html | 1/3 | 2026-06-10 |
 | tools.html | 1/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — index.html (pass 2/3).** Grifters joins the BRUTAL TRUTH
+  bio prose, tied to the thesis ("different shelf, same lesson"); the
+  homepage framework preview now deep-links the book page's full version
+  ("with the famous campaign behind each domino"); WebSite JSON-LD added.
+  Scene untouched.
 - **2026-06-10 — eight-dominoes.html (pass 2/3).** Author proof strip after
   the hook ($100M+ / 300K Grifters copies "he ships things people use" /
   100K+ truth-telling) bridging game-designer cred to book cred; "Before
