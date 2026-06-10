@@ -35,7 +35,7 @@ Loop ends when every page below has had **3 passes**.
 | mastermind.html | 2/3 | 2026-06-10 |
 | podcast-guest.html | 2/3 | 2026-06-10 |
 | tools.html | 2/3 | 2026-06-10 |
-| links.html | 1/3 | 2026-06-10 |
+| links.html | 2/3 | 2026-06-10 |
 | 404.html | 1/3 | 2026-06-10 |
 | ai-information.html | 1/3 | 2026-06-10 |
 
@@ -62,6 +62,12 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — links.html (pass 2/3).** On-page email capture card
+  ("One marketing truth a week") so TikTok visitors convert without a
+  click-through; self-contained AJAX handler (script.js isn't loaded on
+  this standalone page) firing the exact same
+  WizAnalytics CompleteRegistration conversion as the other
+  eight_dominoes forms; native-submit fallback if fetch fails.
 - **2026-06-10 — tools.html (pass 2/3).** GSC blurb gets his verified
   "Validate Fix = close-elevator-door button" joke (from Hold My Beard);
   ActiveCampaign blurb rewritten around the sequence thesis ("automation
