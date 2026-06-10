@@ -29,7 +29,7 @@ Loop ends when every page below has had **3 passes**.
 
 | Page | Passes | Last touched |
 |---|---|---|
-| consulting.html | 1/3 | 2026-06-10 |
+| consulting.html | 2/3 | 2026-06-10 |
 | eight-dominoes.html | 1/3 | 2026-06-10 |
 | index.html | 1/3 | 2026-06-10 |
 | mastermind.html | 1/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — consulting.html (pass 2/3). ROUND 2 BEGINS.** Proof strip
+  after The Real Problem with his three flagship client numbers
+  (1.2%→6.5% conversion, 17× ROAS, $1.2M→$10M landscaper — phrased as
+  client-file results per dossier rules); "Both include the recording and
+  a written action summary" microcopy under the Calendly buttons.
 - **2026-06-10 — ai-information.html (pass 1/3). ROUND 1 COMPLETE.**
   Verified-only enrichment: Selected Interviews section (MTAFW #1162,
   Videosocials/Inspiring Business, CanvasRebel May 2024, Search Atlas
