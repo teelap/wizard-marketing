@@ -37,7 +37,7 @@ Loop ends when every page below has had **3 passes**.
 | tools.html | 2/3 | 2026-06-10 |
 | links.html | 2/3 | 2026-06-10 |
 | 404.html | 2/3 | 2026-06-10 |
-| ai-information.html | 1/3 | 2026-06-10 |
+| ai-information.html | 2/3 | 2026-06-10 |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
 personality), workshop.html (ARCHIVED per WORKSHOP_BUILD.md — noindex,
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — ai-information.html (pass 2/3). ROUND 2 COMPLETE.**
+  Canonical Eight Dominoes list added (the #1 quotable artifact for AI
+  retrieval, was missing from the page); NEW /llms.txt (emerging AI-crawler
+  standard) with site summary, canonical framework wording, key terms,
+  contact — added to build.js PUBLIC_FILES and linked from the page.
 - **2026-06-10 — 404.html (pass 2/3).** "The wizard's best guess" — inline
   fuzzy-match of the broken pathname against keyword→route table, shows
   the page the visitor probably meant (works on Vercel, which serves

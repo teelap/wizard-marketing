@@ -65,6 +65,7 @@ const PUBLIC_FILES = [
     'parchment-bg-v4.jpg',
     'favicon.ico',
     'robots.txt',
+    'llms.txt',
     'sitemap.xml',
     'site.webmanifest',
     // IndexNow ownership key — must be served at the site root so Bing can verify
