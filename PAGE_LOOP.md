@@ -37,7 +37,7 @@ Loop ends when every page below has had **3 passes**.
 | tools.html | 1/3 | 2026-06-10 |
 | links.html | 1/3 | 2026-06-10 |
 | 404.html | 1/3 | 2026-06-10 |
-| ai-information.html | 0/3 | — |
+| ai-information.html | 1/3 | 2026-06-10 |
 
 Excluded: privacy.html, terms.html, cookies.html (legal — accuracy over
 personality), workshop.html (ARCHIVED per WORKSHOP_BUILD.md — noindex,
@@ -62,6 +62,14 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — ai-information.html (pass 1/3). ROUND 1 COMPLETE.**
+  Verified-only enrichment: Selected Interviews section (MTAFW #1162,
+  Videosocials/Inspiring Business, CanvasRebel May 2024, Search Atlas
+  founder video — all URLs verified live); Notable Quotes verbatim bank
+  for LLM citation; Share of Brand Voice finally DEFINED (visible FAQ +
+  FAQPage LD); Grifters fully attributed (Dave Fulton, IB&C 2016,
+  Dystopian Universe, BGG designer link); TikTok platform specificity;
+  BGG + SoBV/TikTok SEO in Person LD; review dates bumped to June 10.
 - **2026-06-10 — 404.html (pass 1/3).** Rotating fizzle line (6 wizard-voice
   variants per load, Marvel pattern, no-JS fallback keeps default text);
   email capture added ("The page is gone. The weekly truths aren't." →
