@@ -21,6 +21,9 @@ Loop ends when every page below has had **3 passes**.
 5. Each pass: `node build.js` + `npm run validate` must pass; eyeball in
    preview; then commit (`feat(loop): pass N on <page>`) and push.
 6. Mark the pass in the table + log below in the same commit.
+7. **NEVER edit HTML via PowerShell Get-Content/Set-Content** — PS 5.1
+   mangles UTF-8 (mojibake). Use the Edit tool only. (Learned 2026-06-10;
+   repaired via cp1252→utf8 byte round-trip.)
 
 ## Pass status
 
@@ -30,7 +33,7 @@ Loop ends when every page below has had **3 passes**.
 | eight-dominoes.html | 1/3 | 2026-06-10 |
 | index.html | 1/3 | 2026-06-10 |
 | mastermind.html | 1/3 | 2026-06-10 |
-| podcast-guest.html | 0/3 | — |
+| podcast-guest.html | 1/3 | 2026-06-10 |
 | tools.html | 0/3 | — |
 | links.html | 0/3 | — |
 | workshop.html | 0/3 | — |
@@ -45,9 +48,11 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 - [x] **TikTok handle — RESOLVED**: `@itsjakethewizard` verified live via
       TikTok oembed (2026-06-10); `@thewizardmarketing` is the OLD handle.
       Site links are correct — do not change.
-- [ ] **Dead proof links**: fixed on index (Videosocials episode +
-      MTAFW #1162 deep link). **podcast-guest.html still needs the same
-      fixes during its pass** (dossier §6.7).
+- [x] **Dead proof links — RESOLVED**: fixed on index AND podcast-guest
+      (Videosocials episode + MTAFW #1162 deep links everywhere).
+- [ ] **4th appearance card**: Service Provider's Edge ep. 162 (Frederick
+      Dudek) is verified real but no clean episode URL found yet — hunt
+      again during podcast-guest pass 2.
 - [ ] **Timeline years** on index (2014/2018 exits) conflict with external
       evidence — propose year-free "Exit #1 / Exit #2" wording to Jake
       (dossier §6.2–6.3). Needs Jake's sign-off.
@@ -56,6 +61,14 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — podcast-guest.html (pass 1/3).** Dead Inspiring Business
+  link → live Videosocials episode; MTAFW deep-links #1162; NEW "Steal
+  These Questions" section — 7 lift-ready host questions each baiting a
+  Jake story (sequence, Share of Brand Voice, TikTok origin, 1.2→6.5%
+  button, Grifters, contrarian best-practice, AI skepticism); Copy Bio
+  one-click button beside Download Headshot; BreadcrumbList JSON-LD.
+  Incident: PowerShell text pipeline mojibake'd the file; repaired
+  losslessly via cp1252→utf8 round-trip; rule 7 added.
 - **2026-06-10 — mastermind.html (pass 1/3).** Latin definition of "arcanum"
   under the H1 (makes the name land); de-hyped "elite" → "small, curated"
   (numbers-over-adverbs rule); margin note on Napoleon Hill's 1937

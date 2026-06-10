@@ -37,6 +37,17 @@
           integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.jakethewizard.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Podcast Guest", "item": "https://www.jakethewizard.com/podcast-guest" }
+      ]
+    }
+    </script>
 </head>
 <body class="parchment-theme">
 
@@ -148,17 +159,35 @@
             </div>
         </section>
 
+        <!-- Suggested Questions -->
+        <section id="steal-these" class="section padding-section">
+            <div class="container" style="max-width:760px;">
+                <h2 class="section-title ink-stamp">Steal These Questions</h2>
+                <p class="description center-text">Prep done for you. Lift any of these word-for-word &mdash; Jake has a story, and a number, for each one.</p>
+                <ol class="ink-text" style="list-style:none; margin:2.5rem 0 0; padding:0; counter-reset: q;">
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">01</span><span>You say the product is almost never the problem &mdash; the sequence is. What does that actually mean?</span></li>
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">02</span><span>What is Share of Brand Voice, and why do you call it the one metric most business owners overlook?</span></li>
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">03</span><span>You sat at 400 TikTok followers after a month of posting. Then 10,000 showed up almost overnight. What happened?</span></li>
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">04</span><span>Tell me about the page that went from 1.2% to 6.5% conversion. What was the tweak?</span></li>
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">05</span><span>You co-designed a card game that sold 300,000 copies. What did board games teach you about marketing?</span></li>
+                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">06</span><span>What marketing "best practice" should most founders ignore completely?</span></li>
+                    <li class="scroll-reveal" style="padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">07</span><span>You're an AI skeptic in the middle of an AI gold rush. Make your case.</span></li>
+                </ol>
+            </div>
+        </section>
+
         <!-- Bio for Podcast Hosts -->
         <section class="section padding-section dark-theme-section">
             <div class="container">
                 <h2 class="section-title ink-stamp text-night">Jake's Bio</h2>
                 <p class="description center-text text-night" style="max-width:700px; margin:0.75rem auto var(--space-xl);">Copy and paste this for your show notes, episode page, or wherever you introduce your guests.</p>
-                <div style="max-width:760px; margin:0 auto; padding:var(--space-xl) clamp(1.5rem, 4vw, 3rem); border:1px solid rgba(244,238,224,0.2); border-radius:var(--radius-md); background:rgba(255,255,255,0.04);">
+                <div id="jake-bio" style="max-width:760px; margin:0 auto; padding:var(--space-xl) clamp(1.5rem, 4vw, 3rem); border:1px solid rgba(244,238,224,0.2); border-radius:var(--radius-md); background:rgba(255,255,255,0.04);">
                     <p class="ink-text text-night" style="font-size:1.1rem; line-height:1.75; opacity:1;">Jake Tlapek — known as <strong>The Wizard of Marketing</strong> — has generated over <strong>$100 million in measurable revenue</strong> for clients across Fortune 500 companies on three continents. He started in the U.S. Air Force, moved into digital marketing, and made <strong>two exits</strong>: Brio Studio and Wizard Marketing, which was acquired by Finch where he served as Chief Evangelist. He now runs his own consulting practice.</p>
                     <p class="ink-text text-night" style="font-size:1.1rem; line-height:1.75; opacity:1; margin-top:1.25rem;">He co-designed the card game <em>Grifters</em>, which sold over 300,000 copies worldwide. He has 100K+ social media followers built through one approach: telling the truth about marketing when everyone else was pitching. He's currently writing <em>Eight Dominoes</em>, a book on the messaging framework behind his biggest client results.</p>
                 </div>
                 <div style="text-align:center; margin-top:var(--space-lg);">
-                    <a href="dev_assets/jake-headshot.png" download class="btn btn-ghost-light">Download Headshot</a>
+                    <button type="button" class="btn btn-ghost-light" onclick="navigator.clipboard.writeText(document.getElementById('jake-bio').innerText).then(() => { this.textContent = 'Copied'; setTimeout(() => { this.textContent = 'Copy Bio'; }, 2000); })">Copy Bio</button>
+                    <a href="dev_assets/jake-headshot.png" download class="btn btn-ghost-light" style="margin-left:0.75rem;">Download Headshot</a>
                 </div>
             </div>
         </section>
@@ -168,7 +197,7 @@
             <div class="container">
                 <h2 class="section-title ink-stamp">Past Appearances</h2>
                 <div class="featured-grid">
-                    <a href="https://www.youtube.com/watch?v=6Mz7yKfqEqI" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal">
+                    <a href="https://videosocials.net/the-wizard-of-marketing-with-jake-tlapek/" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal">
                         <div class="featured-art-wrap">
                             <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
                             <i class="fas fa-podcast featured-icon-overlay" aria-hidden="true"></i>
@@ -177,13 +206,13 @@
                         <p>"The Wizard of Marketing"</p>
                         <span class="featured-host">with Mark Bullock</span>
                     </a>
-                    <a href="https://morethanafewwords.com" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay:100ms;">
+                    <a href="https://roundpeg.podbean.com/e/1162-the-one-metric-most-business-owners-overlook-jake-tlapek/" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay:100ms;">
                         <div class="featured-art-wrap">
                             <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
                             <i class="fas fa-microphone featured-icon-overlay" aria-hidden="true"></i>
                         </div>
                         <h3>More Than a Few Words</h3>
-                        <p>"The One Metric Most Business Owners Overlook"</p>
+                        <p>"The One Metric Most Business Owners Overlook" &mdash; #1162</p>
                         <span class="featured-host">Share of Brand Voice</span>
                     </a>
                     <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay:200ms;">
