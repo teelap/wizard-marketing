@@ -32,7 +32,7 @@ Loop ends when every page below has had **3 passes**.
 | consulting.html | 2/3 | 2026-06-10 |
 | eight-dominoes.html | 2/3 | 2026-06-10 |
 | index.html | 2/3 | 2026-06-10 |
-| mastermind.html | 1/3 | 2026-06-10 |
+| mastermind.html | 2/3 | 2026-06-10 |
 | podcast-guest.html | 1/3 | 2026-06-10 |
 | tools.html | 1/3 | 2026-06-10 |
 | links.html | 1/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — mastermind.html (pass 2/3).** Pull quote ("the hardest
+  system to debug is people" — on why the room matters more than the
+  playbook); "Before You Ask" FAQ: members-first pricing honesty, cohort
+  timing, "not sure you qualify? join anyway — a no from Jake usually
+  comes with a roadmap"; FAQPage JSON-LD.
 - **2026-06-10 — index.html (pass 2/3).** Grifters joins the BRUTAL TRUTH
   bio prose, tied to the thesis ("different shelf, same lesson"); the
   homepage framework preview now deep-links the book page's full version
