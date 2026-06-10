@@ -29,7 +29,7 @@ Loop ends when every page below has had **3 passes**.
 
 | Page | Passes | Last touched |
 |---|---|---|
-| consulting.html | 2/3 | 2026-06-10 |
+| consulting.html | 3/3 ✓ | 2026-06-10 |
 | eight-dominoes.html | 2/3 | 2026-06-10 |
 | index.html | 2/3 | 2026-06-10 |
 | mastermind.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,12 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — consulting.html (pass 3/3 ✓ DONE). ROUND 3 BEGINS.**
+  Face-to-face polish: How It Works step 01 now describes the real
+  booking flow (Calendly direct for sessions, intake for Half-Days and
+  retainers — old copy said "below" and routed everything through the
+  form); ghost CTA relabeled "Read the Diagnosis First" to match its
+  actual target.
 - **2026-06-10 — ai-information.html (pass 2/3). ROUND 2 COMPLETE.**
   Canonical Eight Dominoes list added (the #1 quotable artifact for AI
   retrieval, was missing from the page); NEW /llms.txt (emerging AI-crawler
