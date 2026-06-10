@@ -34,7 +34,7 @@ Loop ends when every page below has had **3 passes**.
 | index.html | 2/3 | 2026-06-10 |
 | mastermind.html | 2/3 | 2026-06-10 |
 | podcast-guest.html | 2/3 | 2026-06-10 |
-| tools.html | 1/3 | 2026-06-10 |
+| tools.html | 2/3 | 2026-06-10 |
 | links.html | 1/3 | 2026-06-10 |
 | 404.html | 1/3 | 2026-06-10 |
 | ai-information.html | 1/3 | 2026-06-10 |
@@ -62,6 +62,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — tools.html (pass 2/3).** GSC blurb gets his verified
+  "Validate Fix = close-elevator-door button" joke (from Hold My Beard);
+  ActiveCampaign blurb rewritten around the sequence thesis ("automation
+  is sequence made literal"); ItemList JSON-LD for all 20 tools.
 - **2026-06-10 — podcast-guest.html (pass 2/3).** 4th verified appearance
   card added: The Service Providers Edge #162 (Frederick Dudek) — the
   episode that carries ALL his flagship stories (17x ROAS, landscaper,
