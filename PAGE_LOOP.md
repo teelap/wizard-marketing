@@ -29,7 +29,7 @@ Loop ends when every page below has had **3 passes**.
 | consulting.html | 1/3 | 2026-06-10 |
 | eight-dominoes.html | 1/3 | 2026-06-10 |
 | index.html | 1/3 | 2026-06-10 |
-| mastermind.html | 0/3 | — |
+| mastermind.html | 1/3 | 2026-06-10 |
 | podcast-guest.html | 0/3 | — |
 | tools.html | 0/3 | — |
 | links.html | 0/3 | — |
@@ -56,6 +56,12 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — mastermind.html (pass 1/3).** Latin definition of "arcanum"
+  under the H1 (makes the name land); de-hyped "elite" → "small, curated"
+  (numbers-over-adverbs rule); margin note on Napoleon Hill's 1937
+  master-mind alliance (Carnegie study) in What You're Joining; margin note
+  on the 1975 cookie-jar scarcity study under THIS IS NOT FOR EVERYONE,
+  framing the cohort cap as load-bearing honesty; BreadcrumbList JSON-LD.
 - **2026-06-10 — index.html (pass 1/3).** Scene untouched (locked). Fixed
   dead Inspiring Business link → live Videosocials episode page; MTAFW card
   deep-links episode #1162; domino physics line now sourced (Whitehead 1983),
