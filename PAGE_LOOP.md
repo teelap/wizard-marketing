@@ -34,7 +34,7 @@ Loop ends when every page below has had **3 passes**.
 | index.html | 3/3 ✓ | 2026-06-10 |
 | mastermind.html | 3/3 ✓ | 2026-06-10 |
 | podcast-guest.html | 3/3 ✓ | 2026-06-10 |
-| tools.html | 2/3 | 2026-06-10 |
+| tools.html | 3/3 ✓ | 2026-06-10 |
 | links.html | 2/3 | 2026-06-10 |
 | 404.html | 2/3 | 2026-06-10 |
 | ai-information.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — tools.html (pass 3/3 ✓ DONE).** "Stack last reviewed:
+  June 2026" stamp backs the freshness claim; meta description names the
+  categories and tool count; consulting CTA gains the "From $400. Prices
+  on the page." friction-killer.
 - **2026-06-10 — podcast-guest.html (pass 3/3 ✓ DONE).** Topics 02 and 06
   now carry "hear it on…" proof links to the actual episodes (MTAFW
   #1162, SPE #162); OG/Twitter cards rewritten for the real audience —
