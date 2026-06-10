@@ -32,7 +32,7 @@ Loop ends when every page below has had **3 passes**.
 | consulting.html | 3/3 ✓ | 2026-06-10 |
 | eight-dominoes.html | 3/3 ✓ | 2026-06-10 |
 | index.html | 3/3 ✓ | 2026-06-10 |
-| mastermind.html | 2/3 | 2026-06-10 |
+| mastermind.html | 3/3 ✓ | 2026-06-10 |
 | podcast-guest.html | 2/3 | 2026-06-10 |
 | tools.html | 2/3 | 2026-06-10 |
 | links.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — mastermind.html (pass 3/3 ✓ DONE).** OG/Twitter cards now
+  open with the arcanum definition (was "Opening soon…"); benefits intro
+  → "Six things. Each one earns its place."; Eight Dominoes benefit
+  cross-links the book page.
 - **2026-06-10 — index.html (pass 3/3 ✓ DONE).** Trust row de-awkwarded
   ("Trusted by Fortune 500 teams · Finch · Indie Boards & Cards ·
   Founders on 3 continents" — was "teams at … 3 Continents"); sitemap
