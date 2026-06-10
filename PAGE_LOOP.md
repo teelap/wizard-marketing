@@ -30,7 +30,7 @@ Loop ends when every page below has had **3 passes**.
 | Page | Passes | Last touched |
 |---|---|---|
 | consulting.html | 2/3 | 2026-06-10 |
-| eight-dominoes.html | 1/3 | 2026-06-10 |
+| eight-dominoes.html | 2/3 | 2026-06-10 |
 | index.html | 1/3 | 2026-06-10 |
 | mastermind.html | 1/3 | 2026-06-10 |
 | podcast-guest.html | 1/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — eight-dominoes.html (pass 2/3).** Author proof strip after
+  the hook ($100M+ / 300K Grifters copies "he ships things people use" /
+  100K+ truth-telling) bridging game-designer cred to book cred; "Before
+  You Ask" 3-item FAQ (ship date honesty, weekly email contents, no
+  background needed) + matching FAQPage JSON-LD.
 - **2026-06-10 — consulting.html (pass 2/3). ROUND 2 BEGINS.** Proof strip
   after The Real Problem with his three flagship client numbers
   (1.2%→6.5% conversion, 17× ROAS, $1.2M→$10M landscaper — phrased as
