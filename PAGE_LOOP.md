@@ -35,7 +35,7 @@ Loop ends when every page below has had **3 passes**.
 | mastermind.html | 1/3 | 2026-06-10 |
 | podcast-guest.html | 1/3 | 2026-06-10 |
 | tools.html | 1/3 | 2026-06-10 |
-| links.html | 0/3 | — |
+| links.html | 1/3 | 2026-06-10 |
 | workshop.html | 0/3 | — |
 | 404.html | 0/3 | — |
 | ai-information.html | 0/3 | — |
@@ -61,6 +61,13 @@ personality), `public/` (build output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — links.html (pass 1/3).** Campaign-first reorder: Eight
+  Dominoes now the SINGLE featured card on top (was 3rd, unfeatured, with
+  two other cards diluting the red); consulting sub gains "prices on the
+  page" friction-killer; signature aphorism tagline under the identity
+  block. Deliberately did NOT add UTMs to internal links (would split GA4
+  sessions and lose the TikTok referrer) — instead, recommend Jake put
+  `?utm_source=tiktok&utm_medium=bio` on the /links URL in his TikTok bio.
 - **2026-06-10 — tools.html (pass 1/3).** NEW Share of Brand Voice category
   — his named metric with the two tools he cites on podcasts (SparkToro,
   Search Atlas), intro deep-links the MTAFW episode; AI section now opens
