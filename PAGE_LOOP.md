@@ -33,7 +33,7 @@ Loop ends when every page below has had **3 passes**.
 | eight-dominoes.html | 3/3 ✓ | 2026-06-10 |
 | index.html | 3/3 ✓ | 2026-06-10 |
 | mastermind.html | 3/3 ✓ | 2026-06-10 |
-| podcast-guest.html | 2/3 | 2026-06-10 |
+| podcast-guest.html | 3/3 ✓ | 2026-06-10 |
 | tools.html | 2/3 | 2026-06-10 |
 | links.html | 2/3 | 2026-06-10 |
 | 404.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,10 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — podcast-guest.html (pass 3/3 ✓ DONE).** Topics 02 and 06
+  now carry "hear it on…" proof links to the actual episodes (MTAFW
+  #1162, SPE #162); OG/Twitter cards rewritten for the real audience —
+  hosts ("steal-ready questions… everything a host needs on one page").
 - **2026-06-10 — mastermind.html (pass 3/3 ✓ DONE).** OG/Twitter cards now
   open with the arcanum definition (was "Opening soon…"); benefits intro
   → "Six things. Each one earns its place."; Eight Dominoes benefit
