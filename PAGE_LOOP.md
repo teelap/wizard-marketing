@@ -30,7 +30,7 @@ Loop ends when every page below has had **3 passes**.
 | Page | Passes | Last touched |
 |---|---|---|
 | consulting.html | 3/3 ✓ | 2026-06-10 |
-| eight-dominoes.html | 2/3 | 2026-06-10 |
+| eight-dominoes.html | 3/3 ✓ | 2026-06-10 |
 | index.html | 2/3 | 2026-06-10 |
 | mastermind.html | 2/3 | 2026-06-10 |
 | podcast-guest.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — eight-dominoes.html (pass 3/3 ✓ DONE).** Twitter card
+  description synced with the physics hook (was a bare "coming soon");
+  full-page verification. Page judged complete after the pass-1 rewrite
+  (Whitehead story, In-the-wild examples) + pass-2 proof/FAQ — final
+  pass intentionally minimal rather than padded.
 - **2026-06-10 — consulting.html (pass 3/3 ✓ DONE). ROUND 3 BEGINS.**
   Face-to-face polish: How It Works step 01 now describes the real
   booking flow (Calendly direct for sessions, intake for Half-Days and
