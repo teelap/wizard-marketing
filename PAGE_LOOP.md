@@ -31,7 +31,7 @@ Loop ends when every page below has had **3 passes**.
 |---|---|---|
 | consulting.html | 3/3 ✓ | 2026-06-10 |
 | eight-dominoes.html | 3/3 ✓ | 2026-06-10 |
-| index.html | 2/3 | 2026-06-10 |
+| index.html | 3/3 ✓ | 2026-06-10 |
 | mastermind.html | 2/3 | 2026-06-10 |
 | podcast-guest.html | 2/3 | 2026-06-10 |
 | tools.html | 2/3 | 2026-06-10 |
@@ -62,6 +62,11 @@ output), `_*.html` (dev scraps).
 
 ## Pass log
 
+- **2026-06-10 — index.html (pass 3/3 ✓ DONE).** Trust row de-awkwarded
+  ("Trusted by Fortune 500 teams · Finch · Indie Boards & Cards ·
+  Founders on 3 continents" — was "teams at … 3 Continents"); sitemap
+  lastmod bumped to 2026-06-10 for the 7 changed pages (legal untouched).
+  Scene untouched all three passes, as designed.
 - **2026-06-10 — eight-dominoes.html (pass 3/3 ✓ DONE).** Twitter card
   description synced with the physics hook (was a bare "coming soon");
   full-page verification. Page judged complete after the pass-1 rewrite
