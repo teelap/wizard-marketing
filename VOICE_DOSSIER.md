@@ -629,16 +629,19 @@ Mapped to Jake's themes; every item carries its primary source. Items marked
 5. **Grifters "300,000 copies sold"** — design credit is rock-solid;
    the sales number appears nowhere outside his site. Ask for the source
    (publisher royalty statement?) before using in PR contexts.
-6. **TikTok handle mismatch (ACTION ITEM):** the site links everywhere to
-   `tiktok.com/@itsjakethewizard`, but the verifiable 110K account is
-   `@thewizardmarketing` (plus a `@jakethewizardmarketing` duplicate).
-   I could not confirm @itsjakethewizard exists on TikTok. If it doesn't,
-   every TikTok link on the site is broken or pointing at a squatter —
-   verify in a browser and align all links + the "100K+ followers" proof.
-7. **Dead/weak proof links:** YouTube video `6Mz7yKfqEqI` (Inspiring
-   Business card on index + podcast page) returns an empty title (likely
-   deleted/private). More Than a Few Words card links to the homepage, not
-   episode #1162. Both should be re-pointed.
+6. **TikTok handle — RESOLVED 2026-06-10:** TikTok's oembed API confirms
+   `@itsjakethewizard` is LIVE with display name "Jake | The Marketing
+   Wizard", while `@thewizardmarketing` now returns 400 — Jake evidently
+   RENAMED the account. The site's links are correct; the search snippets in
+   §1/§3 citing @thewizardmarketing were stale. Keep linking
+   @itsjakethewizard everywhere.
+7. **Dead/weak proof links — FIXED ON INDEX 2026-06-10:** YouTube video
+   `6Mz7yKfqEqI` confirmed dead (oembed 404); index card now points to the
+   live episode page videosocials.net/the-wizard-of-marketing-with-jake-tlapek/
+   (it IS the Mark Bullock / Inspiring Business episode). MTAFW card now
+   deep-links roundpeg.podbean.com/e/1162-the-one-metric-most-business-
+   owners-overlook-jake-tlapek/. **podcast-guest.html still carries the old
+   links — fix during its pass.**
 8. **YouTube RSS feed 404s** (`feeds/videos.xml?channel_id=UC26G_o-cTFCcPo-CyGf_3YA`)
    even though the channel ID is correct — re-test; may affect any
    automation built on that feed (social-stats pipeline).
