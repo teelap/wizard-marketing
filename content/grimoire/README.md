@@ -36,6 +36,16 @@ Write in plain Markdown below the second `---`. Headings (`##`, `###`), **bold**
   (mid-article CTAs convert best). One is also added at the end automatically.
 - For a centered pull-quote, use raw HTML: `<p class="pullquote">Your line.</p>`
 
+## Social share images
+
+Every post automatically gets a branded 1200×630 share card (the image X,
+LinkedIn, and Facebook show when the link is posted), generated at build time
+from the post's title and category on the parchment template. No action needed
+— a post can never ship without one.
+
+To use your own custom image instead, set `cover:` to a 1200×630 image; it
+becomes both the social-share image and the in-page cover.
+
 ## Drafts
 
 Set `draft: true` to keep a post out of the live build. To preview drafts

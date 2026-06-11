@@ -113,6 +113,16 @@
     font-family: var(--font-body); font-size: 0.82rem; color: var(--ink-muted);
 }
 .grimoire-meta .dot { opacity: 0.5; }
+.grimoire-byline {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-weight: 700; color: var(--text-day);
+}
+.grimoire-byline:hover { color: var(--wax-red); }
+.grimoire-byline-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    object-fit: cover; object-position: top center;
+    border: 1px solid var(--edge-burn); flex-shrink: 0;
+}
 .grimoire-cover {
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover; margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
     border: 1px solid var(--edge-burn); border-radius: var(--radius-md);

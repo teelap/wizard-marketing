@@ -21,6 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const MarkdownIt = require('markdown-it');
+const { generateCard } = require('./grimoire-og');
 
 const md = new MarkdownIt({
     html: true,         // posts are trusted (authored by Jake); allow raw HTML
@@ -197,8 +198,10 @@ function scriptsHtml() {
     <script defer src="/grimoire.js?v=1"></script>`;
 }
 
-function headHtml({ title, ogTitle, description, canonical, ogType, image, articleMeta, jsonLd }) {
+function headHtml({ title, ogTitle, description, canonical, ogType, image, imageW, imageH, imageAlt, articleMeta, jsonLd }) {
     const img = absUrl(image || SITE.defaultImage);
+    const ogDims = imageW && imageH ? `\n    <meta property="og:image:width" content="${imageW}">\n    <meta property="og:image:height" content="${imageH}">` : '';
+    const altText = esc(imageAlt || ogTitle || title);
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,7 +223,8 @@ function headHtml({ title, ogTitle, description, canonical, ogType, image, artic
     <meta property="og:url" content="${esc(canonical)}">
     <meta property="og:title" content="${esc(ogTitle || title)}">
     <meta property="og:description" content="${esc(description)}">
-    <meta property="og:image" content="${esc(img)}">
+    <meta property="og:image" content="${esc(img)}">${ogDims}
+    <meta property="og:image:alt" content="${altText}">
     <meta property="og:site_name" content="Jake Tlapek — The Wizard of Marketing">
 ${articleMeta || ''}
     <!-- Twitter -->
@@ -228,6 +232,7 @@ ${articleMeta || ''}
     <meta property="twitter:title" content="${esc(ogTitle || title)}">
     <meta property="twitter:description" content="${esc(description)}">
     <meta property="twitter:image" content="${esc(img)}">
+    <meta property="twitter:image:alt" content="${altText}">
 
     <link rel="stylesheet" href="/styles.css?v=8.5">
     <link rel="stylesheet" href="/grimoire.css?v=1">
@@ -320,7 +325,7 @@ function cardHtml(post, { featured } = {}) {
 
 function renderPost(post, allPosts) {
     const canonical = absUrl(post.url);
-    const image = post.cover ? rootPath(post.cover) : SITE.defaultImage;
+    const image = post.ogImage || (post.cover ? rootPath(post.cover) : SITE.defaultImage);
 
     const articleMeta = [
         post.date ? `    <meta property="article:published_time" content="${post.date}">` : '',
@@ -372,6 +377,9 @@ function renderPost(post, allPosts) {
         canonical,
         ogType: 'article',
         image,
+        imageW: post.ogCard ? 1200 : undefined,
+        imageH: post.ogCard ? 630 : undefined,
+        imageAlt: post.title,
         articleMeta,
         jsonLd,
     });
@@ -407,7 +415,8 @@ function renderPost(post, allPosts) {
                 <span class="grimoire-cat">${esc(post.category)}</span>
                 <h1 class="grimoire-title">${esc(post.title)}</h1>
                 <div class="grimoire-meta">
-                    <span>${prettyDate(post.date)}</span><span class="dot">&middot;</span><span>${post.readMinutes} min read</span>
+                    <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-headshot.png" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
+                    <span class="dot">&middot;</span><span>${prettyDate(post.date)}</span><span class="dot">&middot;</span><span>${post.readMinutes} min read</span>
                 </div>
             </header>
 ${cover}${video}${lead}            <div class="grimoire-body">
@@ -423,7 +432,7 @@ ${more}
 
 /* ─── hub page ──────────────────────────────────────────────── */
 
-function renderHub(posts) {
+function renderHub(posts, hubOg) {
     const canonical = absUrl(SITE.hubPath);
     const head = headHtml({
         title: `The Grimoire${SITE.titleSuffix}`,
@@ -431,7 +440,10 @@ function renderHub(posts) {
         description: SITE.standfirst,
         canonical,
         ogType: 'website',
-        image: SITE.defaultImage,
+        image: (hubOg && hubOg.image) || SITE.defaultImage,
+        imageW: hubOg && hubOg.card ? 1200 : undefined,
+        imageH: hubOg && hubOg.card ? 630 : undefined,
+        imageAlt: 'The Grimoire — Jake the Wizard',
         jsonLd: jsonLdScript({
             '@context': 'https://schema.org',
             '@graph': [
@@ -545,11 +557,25 @@ function buildGrimoire({ root, outputDir }) {
     const outDir = path.join(outputDir, 'grimoire');
     fs.mkdirSync(outDir, { recursive: true });
 
+    // Social share cards (1200x630). Each post gets a branded card unless it
+    // supplies its own cover; render failures fall back to the default image.
+    const ogDir = path.join(outDir, 'og');
+    let cardCount = 0;
+    for (const post of posts) {
+        if (post.cover) { post.ogImage = rootPath(post.cover); post.ogCard = false; continue; }
+        const card = generateCard({ root, outDir: ogDir, slug: post.slug, title: post.metaTitle || post.title, category: post.category });
+        if (card) { post.ogImage = `${SITE.hubPath}/og/${post.slug}.png`; post.ogCard = true; cardCount++; }
+        else { post.ogImage = SITE.defaultImage; post.ogCard = false; }
+    }
+    const hubCard = generateCard({ root, outDir: ogDir, slug: '_hub', title: 'The Grimoire', category: 'Field Notes' });
+    const hubOg = hubCard ? { image: `${SITE.hubPath}/og/_hub.png`, card: true } : { image: SITE.defaultImage, card: false };
+    console.log(`[grimoire] OG cards: ${cardCount}/${posts.length}${hubCard ? ' (+hub)' : ''}`);
+
     const written = [];
 
     // Hub
     const hubFile = path.join(outDir, 'index.html');
-    fs.writeFileSync(hubFile, renderHub(posts));
+    fs.writeFileSync(hubFile, renderHub(posts, hubOg));
     written.push(hubFile);
     console.log(`[grimoire] hub → grimoire/index.html (${posts.length} post${posts.length === 1 ? '' : 's'})`);
 
