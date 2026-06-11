@@ -67,7 +67,11 @@ async function resolveAudienceId(key) {
 }
 
 function welcomeHtml(firstName) {
-  const hi = firstName ? 'Hey ' + firstName : 'Hey';
+  // Escape the name before it lands in HTML — a crafted first_name should never
+  // become markup, even though this email only ever reaches the submitter.
+  const safeFirst = String(firstName || '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const hi = safeFirst ? 'Hey ' + safeFirst : 'Hey';
   return [
     '<div style="font-family:-apple-system,Segoe UI,system-ui,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1410;line-height:1.6;">',
     '<p>' + hi + ',</p>',

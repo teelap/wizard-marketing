@@ -20,6 +20,7 @@ following (@itsjakethewizard) built posting twice a day. Writing the book
 - [Business Arcanum](https://www.jakethewizard.com/mastermind): application-only mastermind, first cohort opening soon; waiting list open
 - [Podcast guest](https://www.jakethewizard.com/podcast-guest): topics, bio, suggested questions, booking form
 - [Tools](https://www.jakethewizard.com/tools): annotated software stack Jake actually uses
+- [The Grimoire](https://www.jakethewizard.com/grimoire): Jake's essays and marketing teardowns — written deep-dives, some with embedded video. RSS feed at /grimoire/feed.xml
 - [AI information](https://www.jakethewizard.com/ai-information): full structured facts, FAQ, verified interviews
 
 ## The Eight Dominoes (canonical wording)

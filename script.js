@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const META_MAP = {
         eight_dominoes:   { meta_event: 'CompleteRegistration', content_name: 'Eight Dominoes Waitlist',   content_category: 'book',       status: 'book_waitlist' },
         arcanum_waitlist: { meta_event: 'CompleteRegistration', content_name: 'Business Arcanum Waitlist', content_category: 'mastermind', status: 'arcanum_waitlist' },
+        grimoire:         { meta_event: 'CompleteRegistration', content_name: 'Grimoire Newsletter',       content_category: 'newsletter', status: 'newsletter' },
         consulting:       { meta_event: 'Lead', content_name: 'Consulting Inquiry',    content_category: 'consulting' },
         podcast_inquiry:  { meta_event: 'Lead', content_name: 'Podcast Guest Inquiry', content_category: 'podcast' },
         contact:          { meta_event: 'Lead', content_name: 'Contact Inquiry',       content_category: 'contact' }
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const host = form.parentElement;
         const isDominoes = formType === 'eight_dominoes';
+        const isNewsletter = formType === 'grimoire';
 
         const success = document.createElement('div');
         success.className = 'form-success' + (isDominoes ? '' : ' form-success-dark');
@@ -128,6 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="form-success-title">You're on the list.</h3>
                 <p class="form-success-body">The first domino falls when the book ships. Check your inbox to confirm your email.</p>
                 <p class="form-success-secondary">In the meantime, follow Jake on <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+            `;
+        } else if (isNewsletter) {
+            success.innerHTML = `
+                <h3 class="form-success-title">You're on the list.</h3>
+                <p class="form-success-body">Check your inbox to confirm your email. The first truth lands soon.</p>
+                <p class="form-success-secondary">In the meantime, follow Jake on <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener">TikTok</a>.</p>
             `;
         } else {
             success.innerHTML = `

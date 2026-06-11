@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "http-server", ".", "-p", "5173", "-c-1", "--silent"],
       "port": 5173
+    },
+    {
+      "name": "wiz-built",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server", "public", "-p", "5174", "-c-1", "--ext", "html", "--silent"],
+      "port": 5174
     }
   ]
 }

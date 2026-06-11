@@ -21,6 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const xml2js = require('xml2js');
+const { buildGrimoire } = require('./grimoire-build');
 
 const ROOT = __dirname;
 
@@ -62,6 +63,8 @@ const PUBLIC_FILES = [
     'scene.js',
     'workshop.css',
     'workshop.js',
+    'grimoire.css',
+    'grimoire.js',
     'parchment-bg-v4.jpg',
     'favicon.ico',
     'robots.txt',
@@ -232,28 +235,33 @@ function analyticsNoscript(gtmId) {
  * Idempotent: a page that already carries the marker is left untouched, so the
  * source files stay clean and only the deployed `public/` copies get tracking.
  */
-function injectAnalytics() {
+function injectAnalytics(extraFiles = []) {
     const headBlock = analyticsHeadBlock(CONFIG.gtmContainerId, CONFIG.clarityProjectId);
     const noscript = analyticsNoscript(CONFIG.gtmContainerId);
-    const htmlFiles = PUBLIC_FILES.filter((f) => f.endsWith('.html'));
+    const staticFiles = PUBLIC_FILES
+        .filter((f) => f.endsWith('.html'))
+        .map((f) => path.join(CONFIG.outputDir, f));
+    // extraFiles are absolute paths to generated pages (e.g. the Grimoire) that
+    // also need the GTM/Consent bootstrap.
+    const files = [...staticFiles, ...extraFiles];
 
-    for (const file of htmlFiles) {
-        const dest = path.join(CONFIG.outputDir, file);
+    for (const dest of files) {
         if (!fs.existsSync(dest)) continue;
+        const label = path.relative(CONFIG.outputDir, dest);
 
         let html = fs.readFileSync(dest, 'utf8');
         if (html.includes('wiz-analytics-bootstrap')) {
-            console.log(`[analytics] already present → ${file}`);
+            console.log(`[analytics] already present → ${label}`);
             continue;
         }
         if (!/<head[^>]*>/i.test(html) || !/<body[^>]*>/i.test(html)) {
-            console.warn(`[analytics] no <head>/<body> in ${file} — skipping`);
+            console.warn(`[analytics] no <head>/<body> in ${label} — skipping`);
             continue;
         }
         html = html.replace(/<head[^>]*>/i, (m) => `${m}\n${headBlock}`);
         html = html.replace(/<body[^>]*>/i, (m) => `${m}\n    ${noscript}`);
         fs.writeFileSync(dest, html);
-        console.log(`[analytics] injected (${CONFIG.gtmContainerId}) → ${file}`);
+        console.log(`[analytics] injected (${CONFIG.gtmContainerId}) → ${label}`);
     }
 }
 
@@ -266,7 +274,8 @@ async function main() {
 
     await injectFeeds();
     assemblePublic();
-    injectAnalytics();
+    const grimoirePages = buildGrimoire({ root: ROOT, outputDir: CONFIG.outputDir });
+    injectAnalytics(grimoirePages);
 
     console.log(`[build] done — output written to ${CONFIG.outputDir}`);
 }
