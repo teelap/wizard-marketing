@@ -7,6 +7,31 @@ category: Local SEO
 description: "Google My Business is Google Business Profile now, the app is dead, and AI Overviews are eating local search. What actually ranks you in 2026."
 excerpt: "You don't have a homepage problem. You have a Google Business Profile problem. The map is the storefront now, and most local businesses are still decorating the wrong window."
 lead: "Most local businesses pour money into a website almost nobody sees first. The first impression happens on the map. Fix that."
+faq:
+  - q: "Is Google My Business the same as Google Business Profile?"
+    a: >
+      Yes. Google renamed Google My Business to Google Business Profile in November 2021 and
+      retired the standalone app in 2024. Same listing, new name, now managed straight from
+      Google Search and Maps.
+  - q: "How do I manage my profile now that the app is gone?"
+    a: >
+      Search your own business name while signed in as the owner, in Google Search or Maps.
+      The edit controls appear right there. The old standalone Google My Business app is dead.
+  - q: "What is the most important Google Business Profile ranking factor?"
+    a: >
+      Your primary category. It is the single strongest local-pack signal. Pick the most
+      specific one that fits, like "emergency plumber" instead of "home services," or you
+      stay invisible.
+  - q: "How much do reviews matter for local SEO?"
+    a: >
+      A lot. Reviews are roughly 20% of local pack weight, and your profile plus reviews
+      outweigh your website about three to one for the map box. A steady drip of recent
+      reviews beats a big old pile.
+  - q: "Do I still need a website if I have a Google Business Profile?"
+    a: >
+      Yes. A strong profile wins the map box at the bottom of the funnel, but AI Overviews
+      now answer most research questions, and they pull from your website and mentions across
+      the web, not your profile alone.
 ---
 
 For most local businesses, your website isn't the front door anymore. The map is.

@@ -7,6 +7,32 @@ category: Paid + Organic
 description: "Running SEO and PPC as separate teams is a tax you pay every quarter. How to combine them for the search results AI is reshaping in 2026."
 excerpt: "Most companies run paid and organic as two strangers fighting over the same screen. The result is wasted budget and a search page that AI is quietly hollowing out."
 lead: "Most companies run paid and organic as two strangers fighting over the same screen. AI just made that mistake a lot more expensive."
+faq:
+  - q: "Should I invest in SEO or PPC?"
+    a: >
+      Both, wired together. They are not rivals fighting over budget. Run them as one
+      machine: paid funds your SEO keyword research and covers the gaps where AI is eating
+      organic clicks, while SEO lowers your long-term paid bill.
+  - q: "Does running PPC improve SEO rankings?"
+    a: >
+      Not directly, but it makes your SEO smarter. Your paid search-terms report shows which
+      queries actually convert, with real money attached, in days. Build organic pages for
+      those proven winners instead of guessing.
+  - q: "Is SEO still worth it with AI Overviews?"
+    a: >
+      Yes, but the goal shifted from ranking to getting cited. When you are named inside an
+      AI Overview you earn far more clicks than the pages it ignores, and a clear,
+      well-structured page is what gets quoted.
+  - q: "How should I split budget between SEO and PPC?"
+    a: >
+      By query, not by team. Spend paid on terms you cannot win organically or where AI is
+      killing organic clicks, and lean on organic where no AI Overview shows up yet. One
+      budget, two fronts, allocated on purpose.
+  - q: "What is Performance Max and how does it fit in?"
+    a: >
+      Performance Max is Google's AI-run campaign type. It matters here because in 2025 it
+      added campaign-level negative keywords and brand exclusions, so you can stop it from
+      quietly buying the branded clicks you already win for free.
 ---
 
 Most companies run SEO and PPC like two teams who never met. One chases rankings. One burns budget on clicks. They bid on the same keywords, build the same landing pages, and report to the same boss who has no idea they're duplicating each other's work.

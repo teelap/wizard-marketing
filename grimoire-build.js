@@ -94,6 +94,13 @@ function rootPath(p) {
     return p.startsWith('/') ? p : '/' + p;
 }
 
+function mdToPlain(s) {
+    return String(s == null ? '' : s)
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/[*_`~]/g, '')
+        .replace(/\s+/g, ' ').trim();
+}
+
 function jsonLdScript(obj) {
     const json = JSON.stringify(obj, null, 2).replace(/</g, '\\u003c');
     return `<script type="application/ld+json">\n${json}\n</script>`;
@@ -104,7 +111,9 @@ function jsonLdScript(obj) {
 function readPosts(contentDir) {
     if (!fs.existsSync(contentDir)) return [];
     const files = fs.readdirSync(contentDir).filter(
-        (f) => f.endsWith('.md') && f.toLowerCase() !== 'readme.md' && !f.startsWith('_')
+        // posts only: skip underscore-prefixed drafts and ALL-CAPS docs (README, CONTENT_RULES)
+        (f) => f.endsWith('.md') && !f.startsWith('_') &&
+            f.toLowerCase() !== 'readme.md' && !/^[A-Z0-9_]+\.md$/.test(f)
     );
 
     const posts = files.map((file) => {
@@ -135,6 +144,9 @@ function readPosts(contentDir) {
             youtube: data.youtube ? String(data.youtube).trim() : null,
             draft: data.draft === true,
             readMinutes,
+            faq: Array.isArray(data.faq)
+                ? data.faq.map((it) => ({ q: String((it && it.q) || '').trim(), a: String((it && it.a) || '').trim() })).filter((x) => x.q && x.a)
+                : [],
             bodyHtml,
             url: `${SITE.hubPath}/${slug}`,
         };
@@ -235,7 +247,7 @@ ${articleMeta || ''}
     <meta property="twitter:image:alt" content="${altText}">
 
     <link rel="stylesheet" href="/styles.css?v=8.5">
-    <link rel="stylesheet" href="/grimoire.css?v=2">
+    <link rel="stylesheet" href="/grimoire.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -334,6 +346,14 @@ function renderPost(post, allPosts) {
         `    <meta property="article:section" content="${esc(post.category)}">`,
     ].filter(Boolean).join('\n');
 
+    const faqNode = (post.faq && post.faq.length) ? [{
+        '@type': 'FAQPage',
+        mainEntity: post.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: mdToPlain(f.a) },
+        })),
+    }] : [];
     const jsonLd = jsonLdScript({
         '@context': 'https://schema.org',
         '@graph': [
@@ -367,6 +387,7 @@ function renderPost(post, allPosts) {
                     { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
                 ],
             },
+            ...faqNode,
         ],
     });
 
@@ -408,6 +429,15 @@ function renderPost(post, allPosts) {
     </section>`
         : '';
 
+    const faqSection = (post.faq && post.faq.length) ? `            <section class="grimoire-faq" aria-labelledby="grimoire-faq-title">
+                <h2 id="grimoire-faq-title" class="grimoire-faq-title">Straight Answers</h2>
+                ${post.faq.map((f) => `<details class="grimoire-faq-item">
+                    <summary>${esc(f.q)}</summary>
+                    <div class="grimoire-faq-a">${mdInline.render(f.a)}</div>
+                </details>`).join('\n                ')}
+            </section>
+` : '';
+
     const main = `    <main class="grimoire-main">
         <article class="grimoire-article">
             <a href="/grimoire" class="grimoire-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> The Grimoire</a>
@@ -422,7 +452,7 @@ function renderPost(post, allPosts) {
 ${cover}${video}${lead}            <div class="grimoire-body">
 ${body}
             </div>
-            ${ctaHtml()}
+${faqSection}            ${ctaHtml()}
         </article>
 ${more}
     </main>`;

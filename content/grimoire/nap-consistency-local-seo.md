@@ -7,6 +7,31 @@ category: Local SEO
 description: "NAP consistency dropped down the ranking-factor list, then AI search made it matter again. What your name, address, and phone number actually do in 2026."
 excerpt: "Your name, address, and phone number aren't a ranking hack. They're the cost of admission. Get them wrong and every other tactic works twice as hard."
 lead: "NAP consistency is the least exciting thing in local SEO. It's also the thing that quietly decides whether Google and the AI engines trust you exist."
+faq:
+  - q: "Does NAP consistency still matter for local SEO in 2026?"
+    a: >
+      Yes, more than ever. It faded as a direct ranking lever (citations are about 6% of
+      local pack weight now), but it hardened into a trust gate. Inconsistent name, address,
+      and phone data tells Google and the AI engines you might be two different businesses,
+      so they trust you less.
+  - q: "What does NAP stand for?"
+    a: >
+      Name, Address, Phone. The three fields that must match exactly across your website,
+      your Google Business Profile, and every directory that lists you.
+  - q: "Where should I fix my NAP first?"
+    a: >
+      Your Google Business Profile, then your website, then the big directories: Google,
+      Bing, Apple, Yelp, Facebook. The profile is the master record everything else has to
+      agree with.
+  - q: "How often should I check my NAP?"
+    a: >
+      Quarterly. NAP drifts on its own as you move, change numbers, or a data aggregator
+      resurrects an old address. A short audit every quarter keeps the rot out.
+  - q: "Do citations still help local rankings?"
+    a: >
+      Barely as a direct lever, but they are not optional. Citations dropped to around 6% of
+      local pack weight, yet consistent ones are the foundation that lets every other signal
+      count. Treat them as table stakes, not a growth tactic.
 ---
 
 Picture a locksmith. Six months into content, links, the works. Still buried in the map pack behind two shops with worse reviews. Then you pull his listings. Four phone numbers. Three spellings of the street. A suite number from an office he left in 2019.

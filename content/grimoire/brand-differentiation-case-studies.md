@@ -7,6 +7,34 @@ category: Brand Strategy
 description: "Three brand differentiation case studies with the move and the measurable result: Liquid Death, Duolingo, and Avis."
 excerpt: "Most brands fight for a sliver of the same hill. The ones that win pick a different hill. Here are three that did it, with the numbers to prove it."
 lead: "Differentiation isn't being a little better than your rival. It's refusing to stand on the same hill."
+faq:
+  - q: "What is brand differentiation?"
+    a: >
+      Refusing to compete on the axis everyone else is graded on. Real differentiation is not
+      being slightly better than a rival, it is picking a different hill where your weirdness
+      is the whole point.
+  - q: "What is a simple example of brand differentiation?"
+    a: >
+      Liquid Death sold plain water in a beer-style tallboy with a skull and the line
+      "Murder Your Thirst," while every competitor competed on purity. Water is the most
+      undifferentiated product on Earth, and they built a billion-dollar brand by refusing to
+      compete on it.
+  - q: "How do I differentiate my brand?"
+    a: >
+      Name the default axis your whole category competes on, then step off it. Ask what you
+      would build if that axis did not exist, and own a position rivals cannot copy: a
+      character, a confession, or a category you replace instead of join.
+  - q: 'Why does Avis "We Try Harder" still get taught?'
+    a: >
+      Because it turned a weakness into the pitch. Avis admitted it was only number two, and
+      that confession made everything else it said feel honest. It went from thirteen years
+      of losses to profit within a year. The flaw you are hiding is often your most believable
+      asset.
+  - q: "Where does differentiation fit in the Eight Dominoes?"
+    a: >
+      It is the eighth domino, New Opportunity: replacing the category instead of competing in
+      it. The most defensible move in marketing is not a louder version of your rival's pitch,
+      it is being graded on something they cannot win.
 ---
 
 Most "brand differentiation" advice is a pep talk. Be authentic. Find your why. Tell your story. Then everyone in the category tells the same story, in the same voice, fighting over the same inch of the same hill.

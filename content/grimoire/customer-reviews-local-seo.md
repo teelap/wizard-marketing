@@ -7,6 +7,31 @@ category: Local SEO
 description: "Reviews moved from social proof to a measured local ranking signal that AI now reads on your behalf. How to earn them without breaking Google's rules."
 excerpt: "Reviews stopped being a vanity stat. They're a ranking input the algorithm weighs and the AI reads aloud to your next customer. Most businesses are still collecting them wrong."
 lead: "Reviews used to be social proof. Now they're a ranking input the machine reads on your behalf, and most businesses are still collecting them the way that gets them penalized."
+faq:
+  - q: "Do customer reviews affect local SEO rankings?"
+    a: >
+      Yes. Reviews are roughly 16% of what decides the local pack, and that share keeps
+      climbing. They do two jobs at once: persuade the human and rank the business.
+  - q: "How many Google reviews do I need to rank?"
+    a: >
+      Fewer than you think, and then it is about pace. The ranking lift shows up early,
+      around ten reviews, then flattens. A steady drip of recent reviews beats a giant pile
+      that stopped last year.
+  - q: "Is it against the rules to ask only happy customers for reviews?"
+    a: >
+      Yes. That is review gating, and Google prohibits it. The FTC's 2024 rule also bans
+      incentivizing positive reviews and suppressing negative ones. Ask everyone, ask fast,
+      and get out of the way.
+  - q: "Should I respond to negative reviews?"
+    a: >
+      Always. Eighty percent of consumers prefer a business that replies to every review,
+      and a calm, specific response to a one-star rant sells the next reader more than it
+      placates the angry one. You are writing to the audience, not the critic.
+  - q: "How does AI use my reviews?"
+    a: >
+      Google now writes AI summaries of your reviews with Gemini and hands shoppers the
+      verdict before they read a single full one. The language in your reviews feeds what the
+      AI says, so the specific words customers use matter, not just the star count.
 ---
 
 Most local businesses treat reviews like a trophy shelf. Collect a pile, point at the star rating, hope it impresses someone.

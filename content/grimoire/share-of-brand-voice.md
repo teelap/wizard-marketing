@@ -7,6 +7,32 @@ category: Brand Strategy
 description: "Most dashboards measure what's easy to count. Share of Brand Voice measures the thing that predicts next year's revenue. Almost no one tracks it."
 excerpt: "Impressions and likes are a comfort blanket. There's one metric that predicts whether you'll still be here in three years, and your competitors are ignoring it."
 lead: "Everyone measures what's easy to count. Almost no one measures the thing that predicts next year's revenue."
+faq:
+  - q: "What is Share of Brand Voice?"
+    a: >
+      How often your brand gets mentioned, searched, and cited in your category versus
+      everyone else fighting for the same wallet. It is your share of the conversation, not
+      your reach.
+  - q: "How do I measure Share of Brand Voice?"
+    a: >
+      Track three things over time: branded search volume in Google Search Console, mentions
+      and citations through a tool like SparkToro, and the same numbers for three to five
+      named competitors. Share is a comparison or it is nothing.
+  - q: "Why does Share of Brand Voice matter more than impressions?"
+    a: >
+      Because only about 5% of buyers are in the market in any quarter. Share of Brand Voice
+      is how you win the other 95% before they are ready, by being the name they already trust
+      when the buying window finally opens.
+  - q: "Is Share of Brand Voice the same as share of search?"
+    a: >
+      Branded search volume is the cleanest input to it, but Share of Brand Voice is broader.
+      It also counts the mentions and citations you did not pay for, measured against your
+      competitors, not just search.
+  - q: "What is the difference between brand building and activation?"
+    a: >
+      Activation captures demand that already exists; brand building creates the memory that
+      demand comes from. Binet and Field put the split near 60% brand, 40% activation. Most
+      founders run it backwards and wonder why every lead is expensive.
 ---
 
 Most marketing dashboards are a comfort blanket. Impressions. Likes. Follower counts. Numbers that march up and to the right and tell you almost nothing about whether you'll still be standing in three years.
