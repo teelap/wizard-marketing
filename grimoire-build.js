@@ -235,7 +235,7 @@ ${articleMeta || ''}
     <meta property="twitter:image:alt" content="${altText}">
 
     <link rel="stylesheet" href="/styles.css?v=8.5">
-    <link rel="stylesheet" href="/grimoire.css?v=1">
+    <link rel="stylesheet" href="/grimoire.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>

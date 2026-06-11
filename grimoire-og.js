@@ -18,6 +18,7 @@ try { ({ Resvg } = require('@resvg/resvg-js')); } catch (e) { Resvg = null; }
 
 let fontFile = null;
 let iconDataUri = '';
+let textureDataUri = ''; // downscaled arcane-paper texture (optional)
 let initState = null; // null = not tried, true/false = result
 
 function init(root) {
@@ -32,6 +33,17 @@ function init(root) {
         if (fs.existsSync(iconPath)) {
             iconDataUri = 'data:image/png;base64,' + fs.readFileSync(iconPath).toString('base64');
         }
+        // Pre-render the arcane-paper texture once (the 4MB source is too large to
+        // embed per card). Optional: cards fall back to plain parchment if it fails.
+        try {
+            const wp = path.join(root, 'dev_assets', 'wizpaper1.png');
+            if (fs.existsSync(wp)) {
+                const big = 'data:image/png;base64,' + fs.readFileSync(wp).toString('base64');
+                const texSvg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><image href="${big}" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/></svg>`;
+                const texPng = new Resvg(texSvg, { fitTo: { mode: 'original' } }).render().asPng();
+                textureDataUri = 'data:image/png;base64,' + Buffer.from(texPng).toString('base64');
+            }
+        } catch (e) { textureDataUri = ''; }
         initState = true;
     } catch (e) {
         initState = false;
@@ -87,9 +99,13 @@ function buildSvg(title, category) {
         ? `<image href="${iconDataUri}" x="80" y="64" width="56" height="56"/>\n  <text x="150" y="104"`
         : `<text x="80" y="104"`;
 
+    const texture = textureDataUri
+        ? `\n  <image href="${textureDataUri}" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>\n  <rect width="1200" height="630" fill="#F8F4EB" fill-opacity="0.62"/>`
+        : '';
+
     return `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#F4EEE0"/>
-  <rect x="22" y="22" width="1156" height="586" fill="none" stroke="#1e1208" stroke-opacity="0.18" stroke-width="2" rx="16"/>
+  <rect width="1200" height="630" fill="#F4EEE0"/>${texture}
+  <rect x="22" y="22" width="1156" height="586" fill="none" stroke="#1e1208" stroke-opacity="0.22" stroke-width="2" rx="16"/>
   ${iconSvg} font-family="Playfair Display" font-size="30" font-weight="700" fill="#181412" letter-spacing="3">THE GRIMOIRE</text>
   <text x="80" y="250" font-family="Playfair Display" font-size="26" font-weight="700" fill="#c32b39" letter-spacing="4">${xesc(String(category).toUpperCase())}</text>
   <rect x="80" y="270" width="96" height="6" fill="#c32b39"/>
