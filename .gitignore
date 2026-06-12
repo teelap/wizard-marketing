@@ -17,3 +17,6 @@ Thumbs.db
 # dev scratch, scratch previews & worktrees (never deploy)
 .cc-worktrees/
 /_*
+
+# generated video clips (transient Metricool hosting, not site assets)
+content/assets/clips/*.mp4
