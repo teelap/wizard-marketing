@@ -4,7 +4,6 @@ metaTitle: "Rent the Trick, Own the Truth"
 slug: rent-the-trick-own-the-truth
 date: 2026-06-14
 category: AI & Search
-draft: true
 description: "Listicles win AI citations right now, so make a few. Then stop. The format has a six-month shelf life. The compounding bet is the data only you can serve."
 excerpt: "Everyone's chasing the AI-citation trick of the month. Google just smashed the people who chased the last one. Rent the trick. Own the truth."
 lead: "The Top 10 listicle is winning AI citations right now. So make one, then stop. The format rents you visibility. Your own numbers are the only thing that compounds."
