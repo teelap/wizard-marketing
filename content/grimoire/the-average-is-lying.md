@@ -3,7 +3,6 @@ title: "The Average Is Lying: AI Didn't Kill Cold Email"
 metaTitle: "The Average Is Lying"
 slug: the-average-is-lying
 date: 2026-06-15
-draft: true
 category: AI & Sales
 description: "Cold email reply rates fell from 8.5% to 3.4%. But that one number blends two groups: teams that let AI spray, and teams that kept a human on the wheel."
 excerpt: "Everyone says AI killed cold email. The famous collapse stat is two populations stacked into one misleading number, and only one of them is failing."
