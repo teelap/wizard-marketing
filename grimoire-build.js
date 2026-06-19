@@ -578,6 +578,26 @@ function injectSitemap(publicDir, posts) {
     fs.writeFileSync(file, xml);
 }
 
+/* ─── homepage feed ─────────────────────────────────────────── */
+
+/**
+ * Render the latest N post cards for injection into the homepage
+ * ("Latest from the Grimoire"). Reuses the same card markup as the hub so the
+ * homepage stays a single source of truth — new posts surface automatically on
+ * the next build, no hardcoded list to go stale.
+ *
+ * @returns {{ html: string, count: number }} card markup + how many were rendered
+ */
+function renderHomeFeed({ root, limit = 3 } = {}) {
+    const contentDir = path.join(root, 'content', 'grimoire');
+    const posts = readPosts(contentDir).slice(0, Math.max(0, limit));
+    if (!posts.length) return { html: '', count: 0 };
+    return {
+        html: posts.map((p) => cardHtml(p)).join('\n                    '),
+        count: posts.length,
+    };
+}
+
 /* ─── orchestrator ──────────────────────────────────────────── */
 
 function buildGrimoire({ root, outputDir }) {
@@ -626,4 +646,4 @@ function buildGrimoire({ root, outputDir }) {
     return written;
 }
 
-module.exports = { buildGrimoire };
+module.exports = { buildGrimoire, renderHomeFeed };

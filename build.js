@@ -21,7 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const xml2js = require('xml2js');
-const { buildGrimoire } = require('./grimoire-build');
+const { buildGrimoire, renderHomeFeed } = require('./grimoire-build');
 
 const ROOT = __dirname;
 
@@ -80,6 +80,9 @@ const PUBLIC_DIRS = ['dev_assets'];
 
 const YT_CONTAINER_RE = /<div class="video-wrapper" id="youtube-feed-container">[\s\S]*?<\/div>/;
 const TT_CONTAINER_RE = /<div class="video-wrapper tiktok-wrapper" id="tiktok-feed-container">[\s\S]*?<\/div>/;
+// Comment-delimited so the replace is idempotent and survives the nested <div>s
+// inside each card (a div-matching regex would stop at the first inner </div>).
+const GRIMOIRE_FEED_RE = /<!-- grimoire-feed:start -->[\s\S]*?<!-- grimoire-feed:end -->/;
 
 async function getLatestYouTubeVideoId() {
     const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(CONFIG.youtubeChannelId)}`;
@@ -119,6 +122,34 @@ function injectFeed(html, regex, replacement, label) {
     return { html: html.replace(regex, replacement), changed: true };
 }
 
+/**
+ * Replace the placeholder cards between the grimoire-feed markers with the
+ * latest post cards. Always attempted (independent of the social feeds) so the
+ * homepage's "Latest from the Grimoire" deep-links stay current on every build.
+ * A replacement FUNCTION is used so `$` in post excerpts (e.g. "$100M") is never
+ * treated as a regex backreference.
+ */
+function injectGrimoireFeed(html) {
+    if (!GRIMOIRE_FEED_RE.test(html)) {
+        console.warn('[grimoire-home] feed markers not found in index.html — skipping.');
+        return html;
+    }
+    let feed;
+    try {
+        feed = renderHomeFeed({ root: ROOT, limit: 3 });
+    } catch (err) {
+        console.warn(`[grimoire-home] render failed (${err.message}) — leaving fallback card.`);
+        return html;
+    }
+    if (!feed.count) {
+        console.warn('[grimoire-home] no published posts — leaving fallback card.');
+        return html;
+    }
+    const replacement = `<!-- grimoire-feed:start -->\n                    ${feed.html}\n                    <!-- grimoire-feed:end -->`;
+    console.log(`[grimoire-home] injected ${feed.count} card(s) into index.html`);
+    return html.replace(GRIMOIRE_FEED_RE, () => replacement);
+}
+
 async function injectFeeds() {
     if (!fs.existsSync(CONFIG.indexPath)) {
         throw new Error(`index file not found: ${CONFIG.indexPath}`);
@@ -127,29 +158,31 @@ async function injectFeeds() {
     let html = fs.readFileSync(CONFIG.indexPath, 'utf8');
     const original = html;
 
+    // Homepage Grimoire cards — independent of the social feeds below.
+    html = injectGrimoireFeed(html);
+
     const hasYt = YT_CONTAINER_RE.test(html);
     const hasTt = TT_CONTAINER_RE.test(html);
 
     if (!hasYt && !hasTt) {
-        console.warn('[build] no feed containers present in index.html — nothing to inject.');
+        console.warn('[build] no social feed containers present in index.html.');
         if (CONFIG.strict) throw new Error('STRICT=1 and no feed containers found');
-        return;
-    }
-
-    if (hasYt) {
-        const videoId = await getLatestYouTubeVideoId();
-        const replacement = `<div class="video-wrapper" id="youtube-feed-container">
+    } else {
+        if (hasYt) {
+            const videoId = await getLatestYouTubeVideoId();
+            const replacement = `<div class="video-wrapper" id="youtube-feed-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" title="Jake Tlapek YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>`;
-        ({ html } = injectFeed(html, YT_CONTAINER_RE, replacement, 'youtube-feed-container'));
-    }
+            ({ html } = injectFeed(html, YT_CONTAINER_RE, replacement, 'youtube-feed-container'));
+        }
 
-    if (hasTt) {
-        const embed = buildTikTokEmbed(CONFIG.tiktokUsername);
-        const replacement = `<div class="video-wrapper tiktok-wrapper" id="tiktok-feed-container">
+        if (hasTt) {
+            const embed = buildTikTokEmbed(CONFIG.tiktokUsername);
+            const replacement = `<div class="video-wrapper tiktok-wrapper" id="tiktok-feed-container">
                 ${embed}
             </div>`;
-        ({ html } = injectFeed(html, TT_CONTAINER_RE, replacement, 'tiktok-feed-container'));
+            ({ html } = injectFeed(html, TT_CONTAINER_RE, replacement, 'tiktok-feed-container'));
+        }
     }
 
     if (html === original) {
