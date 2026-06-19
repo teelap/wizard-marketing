@@ -4,7 +4,6 @@ metaTitle: "The Domino Effect in Marketing"
 slug: the-domino-effect
 date: 2026-06-18
 category: Messaging & Strategy
-draft: true
 description: "Your marketing isn't failing on volume. It's failing on order. A pen topples a skyscraper in 29 steps, and your message runs on the same physics."
 excerpt: "Most businesses don't have a reach problem. They have a sequence problem, and they keep paying to push harder on a chain that's out of order."
 lead: "Your marketing isn't failing on volume. It's failing on order. One domino topples the next one half-again its size, and 29 of them turn a pen tap into a falling skyscraper. Your message runs on the same physics."
