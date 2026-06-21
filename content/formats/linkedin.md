@@ -5,6 +5,17 @@
 
 > Start every post from a card, then run the QA gate (format → voice → stop-slop). The hook is the first ~140 chars before "See more" — write for 140. LinkedIn register is the same diagnosis-first voice, slightly more structured (CONTENT_GUIDE §11), never corporate or thought-leader mush. Voice rules are non-negotiable: no emoji, no exclamation marks, no em-dashes, numbers only from CONTENT_GUIDE §2 (never first-person — "a client," or omit), in-world imperative CTAs, link in the first comment. **Three families:** (a) text posts, (b) document/carousel decks, (c) poll-as-diagnosis.
 
+**Weekly LinkedIn mix (Jake, 2026-06-15): 1 document-carousel + 4 text posts.** Of the 4 text posts, **2 carry a static brand image** (*The Static Card* — a single on-brand card pairing the post's hook line with the parchment/ink/wax-red visual system, rendered one-slide-→-one-PNG from the deck pipeline and hosted via the side-branch like carousels); the other 2 are pure text. The carousel deals from the document family (Process / Myth-Bust / Teardown); the text posts deal from the text family. A static card lifts a text post out of the plain-text feed without the cost of a full carousel — pair it with cards whose hook is a quotable line (Diagnosis-First Short, Contrarian POV, the Scar Story's lesson line) or a stat-bank number.
+
+---
+
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
+
+- **W25 (first real read):** text POSTs out-engaged static-image/doc on ER. The personal-brand text post hit **10.3% ER** (best on the platform); the value-prop text post 3.85%. Against that, the Taste document landed top reach (170 imp) but only 1.76% ER, and the Domino-08 **Static Card was the worst post on the platform — 32 imp / 0% ER.** Low confidence (2 text vs 3 image, 1 week). Emphasis: keep the 1-document + 4-text mix; reserve the Static Card for genuinely quotable hook lines, not thin "send this" share-bait.
+- **W25 — winning subject:** *personal brand as the exit-proof asset* over-indexed here (10.3% ER) **and** drove Jake's best original X reach. Deal it again; pairs with the Scar Story / Contrarian POV.
+
 ---
 
 ## 1. Format cards
@@ -14,16 +25,16 @@
 - **Why it works here:** the first ~140 chars decide the "See more" click; a sharp diagnosis wins the fold, and a specific closing question drives comments (~15x likes, per linkedin.md). Stays inside the 1,300–1,900 char sweet spot where engagement lifts.
 - **Skeleton:** [diagnosis line, pre-fold]. \n\n [the cost / why it happens, 2–3 short paras, fragments]. \n\n [the one fix]. \n\n [specific question]. Link in first comment.
 - **Hooks that fit:** The Reframe, The Callout, Contrarian Claim.
-- **Example (Jake's voice):** pre-fold: "Most rebrands fix the logo and ignore the thing actually losing the sale." Body diagnoses the broken sequence: the product was never the problem, the order the customer meets it in was. One fix: rewrite the first line a stranger reads as the wound, not the service. Ends: "What's the last line of your homepage a stranger reads before they leave?" Get the truth in the first comment.
+- **Example (Jake's voice):** pre-fold: "Most rebrands fix the logo and ignore the thing actually losing the sale." Body diagnoses the broken sequence: the product was never the problem, the order the customer meets it in was. One fix: rewrite the first line a stranger reads as the wound, not the service. Ends: "What's the last line of your homepage a stranger reads before they leave?" Book the call in the first comment.
 - **Don't:** bury the diagnosis below the fold behind a throat-clearing intro. No "Excited to share." No "Thoughts?" close. The closing question must be answerable from their own business, not "Agree?"
-- **Best for:** Myth, Pitfall, Method. Subjects: any single Domino, CRO, Share of Brand Voice.
+- **Best for:** Myth, Pitfall, Method. Subjects: any single messaging concept, CRO, Share of Brand Voice.
 
 ### The Scar Story — Tier A
 - **What:** a short narrative post. Something broke, it cost something, here's the lesson that outlived it.
 - **Why it works here:** story openers earn the most inbound DMs and build the trust LinkedIn's interest-graph rewards; the narrative pulls dwell past the 61s+ band (15.6% eng vs 1.2% at 0–3s). Maps directly to Jake's "scars, not blog posts" authority.
 - **Skeleton:** [the moment it broke, pre-fold — a scene, not a summary]. \n\n [what it cost, concrete]. \n\n [the wrong thing everyone does here]. \n\n [the lesson, stated as a rule]. \n\n [question that hands the lesson to the reader]. Link in first comment.
 - **Hooks that fit:** The Scene Open, The Confession, The Turning Point.
-- **Example (Jake's voice):** pre-fold: "A client called at 11pm because the launch everyone loved sold nothing." Body: the deck was beautiful, the funnel was clean, the message met buyers in the wrong order. Cost was a quarter of runway. The lesson: a great offer in the wrong sequence still reads as noise. "What part of your launch are you assuming works because it looks finished?" Get the truth in the first comment.
+- **Example (Jake's voice):** pre-fold: "A client called at 11pm because the launch everyone loved sold nothing." Body: the deck was beautiful, the funnel was clean, the message met buyers in the wrong order. Cost was a quarter of runway. The lesson: a great offer in the wrong sequence still reads as noise. "What part of your launch are you assuming works because it looks finished?" Book the call in the first comment.
 - **Don't:** invent a number, a named client, or a credential to inflate the stakes (CONTENT_MATRIX §3 — the story can be composite, the receipts cannot). No hero-of-my-own-story flex. No tidy "and that's when everything changed."
 - **Best for:** Story, Takeaway. Subjects: CRO button story (as "a client"), personal brand as exit-proof asset, any trenches lesson.
 
@@ -41,9 +52,9 @@
 - **Why it works here:** numbers cut noise and set a completion expectation that holds dwell across the post; a clear numbered structure is one of the most-saved formats, and saves now earn extended distribution (they resurface for weeks). Scannable structure suits the fragment voice.
 - **Skeleton:** [N + the specific payoff, pre-fold: "N things that quietly kill X"]. \n\n 1. [item — claim, then one-line why]. \n\n 2. [item]. \n\n … N. [item]. \n\n [the through-line: what all N have in common]. \n\n [question]. Link in first comment.
 - **Hooks that fit:** The Numbered Framework, The Surprising Statistic, The Callout.
-- **Example (Jake's voice):** pre-fold: "Five lines on your site that lose the sale before the price ever loads." Items: the headline that names the service instead of the wound; the subhead that explains how it works before saying why it matters; the testimonial with no number in it; the CTA that asks instead of orders; the about page written in "we." Through-line: every one describes you, not the buyer. "Which of the five is on your homepage right now?" Get the truth in the first comment.
+- **Example (Jake's voice):** pre-fold: "Five lines on your site that lose the sale before the price ever loads." Items: the headline that names the service instead of the wound; the subhead that explains how it works before saying why it matters; the testimonial with no number in it; the CTA that asks instead of orders; the about page written in "we." Through-line: every one describes you, not the buyer. "Which of the five is on your homepage right now?" Full breakdown on the blog — link in the first comment.
 - **Don't:** pad to a round number with filler. No item that needs three clauses — one idea each. Don't smuggle in a stat that isn't in §2.
-- **Best for:** Pitfall, Tip, Method. Subjects: CRO, messaging, Domino 06 Barrier Breakdown, TikTok SEO.
+- **Best for:** Pitfall, Tip, Method. Subjects: CRO, messaging, Barrier Breakdown (objections), TikTok SEO.
 
 ### The Process Carousel — Tier A (document)
 - **What:** a 7–10 slide PDF that lays one repeatable method out, one step per slide.
@@ -56,27 +67,27 @@
   - Slide 9 — The proof / what changes when you run it in order.
   - Slide 10 — CTA: restate the takeaway in one sentence + one imperative CTA + the comment prompt.
 - **Hooks that fit:** The Numbered Framework, The Reframe, The Simple Swap (on the cover slide).
-- **Example (Jake's voice):** cover slide: "How to get a new post ranking on Google fast. In sequence. No skipping ahead." Steps walk the TikTok-SEO/indexing method one move per slide; proof slide states the principle (discovery is moving to search-first surfaces); final slide: "Start with step one this week. Get the truth — link in the comments."
+- **Example (Jake's voice):** cover slide: "How to get a new post ranking on Google fast. In sequence. No skipping ahead." Steps walk the TikTok-SEO/indexing method one move per slide; proof slide states the principle (discovery is moving to search-first surfaces); final slide: "Start with step one this week. Link to the full method in the comments."
 - **Don't:** two columns on a slide (split it). No slide that needs scrolling to read. Don't let the cover be a generic title ("Some SEO tips") — it's a billboard, it has to win the fold alone.
-- **Best for:** Method, Tip. Subjects: TikTok SEO, CRO checklist, a single Domino unpacked, Share of Brand Voice measurement.
+- **Best for:** Method, Tip. Subjects: TikTok SEO, CRO checklist, a single messaging concept unpacked, Share of Brand Voice measurement.
 
 ### The I-Was-Wrong Reversal — Tier B
 - **What:** a confession post. Jake held a belief, it cost him, he reversed it, here's the corrected rule.
 - **Why it works here:** the counterintuitive confession is a documented curiosity-gap hook; vulnerability earns DMs and the reversal creates a tension the reader needs resolved, which extends dwell. The pratfall/blemish effect (VOICE_DOSSIER Facts #22–23) makes the admission read as more credible.
 - **Skeleton:** [the thing I believed and was wrong about, pre-fold]. \n\n [how long I ran on it / what it cost]. \n\n [the moment it broke]. \n\n [the corrected rule, stated cleanly]. \n\n [question inviting their own reversal]. Link in first comment.
 - **Hooks that fit:** The Confession, The Counterintuitive Confession, The Turning Point.
-- **Example (Jake's voice):** pre-fold: "For years I led with the mechanism. The named system. The clever part." Body: I thought the framework was the sell. It wasn't. People browse intellectually and buy emotionally, and I was handing them logic before I had earned the feeling. Corrected rule: lead with the emotion they are actually buying, name the mechanism second. "What are you explaining before you've made anyone care?" Get the truth in the first comment.
+- **Example (Jake's voice):** pre-fold: "For years I led with the mechanism. The named system. The clever part." Body: I thought the framework was the sell. It wasn't. People browse intellectually and buy emotionally, and I was handing them logic before I had earned the feeling. Corrected rule: lead with the emotion they are actually buying, name the mechanism second. "What are you explaining before you've made anyone care?" Book the call in the first comment.
 - **Don't:** fake a reversal you never lived, or stage humility ("my only flaw is I care too much"). Tier B because over-used it reads performative — rotate it, don't lead every week with it.
-- **Best for:** Takeaway, Commentary, Story. Subjects: Domino 01 Core Attraction, AI-skepticism, "benefit of the benefit."
+- **Best for:** Takeaway, Commentary, Story. Subjects: Core Attraction (emotion buys), AI-skepticism, "benefit of the benefit."
 
 ### The Framework Breakdown — Tier B
 - **What:** a text post that takes one named system and unpacks it into its parts in plain language.
 - **Why it works here:** teaching posts train the interest-graph topic DNA (consistent pillars get distributed to interested strangers); a structured walk-through holds dwell and earns saves. The text-only cousin of the carousel — use it when the idea is strong but you don't have slides this slot.
 - **Skeleton:** [name the system + the problem it solves, pre-fold]. \n\n [why the usual approach fails]. \n\n Part 1 — [name]: [one line]. \n\n Part 2 — [name]: [one line]. \n\n [the order matters / how the parts compound]. \n\n [question]. Link in first comment.
 - **Hooks that fit:** The Reframe, The Numbered Framework, The Hidden Factor.
-- **Example (Jake's voice):** pre-fold: "Most messaging fails in a fixed order. Eight pieces, and almost everyone skips to the fifth." Body: they jump to the clever mechanism before they've earned attention or named the emotion. Core Attraction is the emotion they're buying. Attention Catalyst is the hook that earns three seconds. Skip either and the rest never gets read. "Which domino are you starting from — and is it actually the first one?" Get the truth in the first comment.
-- **Don't:** dump all eight Dominoes in one post (that's a carousel, or a series). No jargon names. Keep wizard nouns as decoration, never as the explanation (CONTENT_GUIDE §5.4).
-- **Best for:** Method, Myth. Subjects: the Eight Dominoes (one or two at a time), Share of Brand Voice, benefit-of-the-benefit.
+- **Example (Jake's voice):** pre-fold: "Most messaging fails in a fixed order. Eight pieces, and almost everyone skips to the fifth." Body: they jump to the clever mechanism before they've earned attention or named the emotion. The first piece is the emotion they're buying. The second is the hook that earns three seconds. Skip either and the rest never gets read. "Which piece are you starting from, and is it actually the first one?" Full breakdown on the blog — link in the first comment.
+- **Don't:** dump all eight messaging pieces in one post (that's a carousel, or a series). No jargon names. Keep wizard nouns as decoration, never as the explanation (CONTENT_GUIDE §5.4).
+- **Best for:** Method, Myth. Subjects: the messaging concepts (one or two at a time), Share of Brand Voice, benefit-of-the-benefit.
 
 ### The Myth-Bust Deck — Tier B (document)
 - **What:** a carousel built on belief-versus-reality, one myth corrected per slide (or one myth dismantled across the deck).
@@ -105,9 +116,9 @@
   - Slide 9 — The transferable rule.
   - Slide 10 — CTA + comment prompt.
 - **Hooks that fit:** The Before/After, The Reframe, The Callout.
-- **Example (Jake's voice):** cover slide: "This homepage explained how it works before it said why it mattered. I flipped it." Deck shows the original first line ("We build custom CRM integrations"), diagnoses the missing wound, rebuilds it as the stakes, ends on: "Lead with the wound. Name the mechanism second." Final slide: "Want yours torn down? Send the truth — link in the comments."
+- **Example (Jake's voice):** cover slide: "This homepage explained how it works before it said why it mattered. I flipped it." Deck shows the original first line ("We build custom CRM integrations"), diagnoses the missing wound, rebuilds it as the stakes, ends on: "Lead with the wound. Name the mechanism second." Final slide: "Want yours torn down? Book the half-day — link in the comments."
 - **Don't:** tear down a real, identifiable brand or a client's named work (use a composite or generic category example — CONTENT_MATRIX §3). Don't skip the "why" on each fix; the reasoning is the value. Tier C: highest production cost and easiest to get wrong.
-- **Best for:** Story, Method, Pitfall. Subjects: CRO, messaging/headline rewrites, benefit-of-the-benefit, Domino 03 Value Proposition.
+- **Best for:** Story, Method, Pitfall. Subjects: CRO, messaging/headline rewrites, benefit-of-the-benefit, Value Proposition (the promise).
 
 ### The Poll-as-Diagnosis — Tier B (poll)
 - **What:** a poll whose options are competing self-diagnoses, with a short framing line that makes choosing feel like thinking.
@@ -116,7 +127,7 @@
 - **Hooks that fit:** The Forced Choice, The Shared Struggle, The Sacred Cow.
 - **Example (Jake's voice):** framing: "Be honest about where the leak actually is." Options: "Not enough traffic" / "Traffic that doesn't convert." Follow-up line: "Pick one, then tell me the last change you made to fix it." (The follow-up post diagnoses why it's almost always the second.)
 - **Don't:** end on "Thoughts?" or "Agree?" — generic engagement-bait closes are actively downgraded in 2026. Don't run a poll with a foregone answer or four mushy options. Two sharp choices beat four soft ones. Tier B: it needs the follow-up post to pay off.
-- **Best for:** FAQ, Pitfall, Commentary. Subjects: traffic-vs-conversion, build-vs-buy on personal brand, which-Domino-are-you-stuck-on, AI-in-marketing.
+- **Best for:** FAQ, Pitfall, Commentary. Subjects: traffic-vs-conversion, build-vs-buy on personal brand, which-messaging-piece-are-you-stuck-on, AI-in-marketing.
 
 ---
 

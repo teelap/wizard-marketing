@@ -1,22 +1,31 @@
 # Format & Hook Library — TikTok
 
-**Version:** 1.0 · 2026-06-15 · the format deck for TikTok (@itsjakethewizard). Carousel-first for the Eight Dominoes launch.
+**Version:** 1.0 · 2026-06-15 · the format deck for TikTok (@itsjakethewizard). Carousel-first.
 **Reads with:** [platforms/tiktok.md](../platforms/tiktok.md) (cadence/algorithm/specs/SEO — every "why it works" anchors there) · [README.md](README.md) (schema, tiers, dealing rules) · [CONTENT_GUIDE](../CONTENT_GUIDE.md) · [VOICE_DOSSIER](../../VOICE_DOSSIER.md) (§3 has Jake's verbatim captions — already-proven hooks) · [CONTENT_MATRIX](../CONTENT_MATRIX.md).
 
 > Start from a card, then run the QA gate (format → voice → stop-slop). The hook = on-screen text + spoken first line (clips) + first 150 caption chars, all carrying the SEO keyword. Voice is lowercase, plainspoken teacher, mild deadpan, one takeaway (CONTENT_GUIDE §11; imitate the VOICE_DOSSIER §3 samples). No emoji, no exclamation marks, no em-dashes. Numbers only from CONTENT_GUIDE §2, never first-person. CTAs are in-world imperatives. Video cards are `***SHOOT VIDEO***` scripts for Jake to film.
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of real data → **emphasis annotations, not tier moves** (small-N rule: a card needs ≥3 uses AND ≥2 weeks, or a clean ≥2× pattern). Low confidence; re-test next week.
+
+- **W25 (first real read):** the 3 back-catalog VIDEOs cleared ~2.8–5.9% ER (top: the "8 content types" how-to, 629 imp / **5.88%**); the one new static IMAGE carousel (the Domino-08 card) bottomed at **306 imp / 0.65% ER** (~0.2× the video ER). Confounded (proven back-catalog video vs a brand-new static card), so it does **not** flip carousel-first — but **deal ≥1 video/clip per week and keep mining the back-catalog**; it is the highest-ROI unit on the platform right now.
+- **W25 — the Domino-08 static card failed the format pass AND a brand rule.** Its caption was a one-line assertion + "send this to whoever's stuck" share-bait (no diagnosis, no arc — it executed none of the Myth-Bust skeleton) and it named "domino 08 of the eight" off-book (banned by CONTENT_GUIDE §8 / book-branding-restraint). Thin share-bait + book-labels underperform; the caption still owes the diagnosis.
+
+---
+
 ## 1. Format cards
 
-### The One-Domino Carousel — Tier A
-- **What:** an 8-slide photo carousel that teaches one messaging domino, symptom-first, ending on the book CTA.
+### The One-Concept Carousel — Tier A
+- **What:** an 8-slide photo carousel that teaches one messaging concept, symptom-first, ending on the CTA.
 - **Why it works here:** carousels are TikTok's highest-leverage format (~81% more engagement, per tiktok.md); each swipe is its own dwell signal, and completion rate is the primary ranking input, so a keyworded slide 1 + caption wins TikTok SEO across all three index layers (audio, on-screen text, first 150 caption chars).
-- **Skeleton:** slide 1 = SEO-keyworded symptom hook ("the messaging mistake costing you customers") · 2 = name the real problem · 3–6 = the fix in beats, one idea per slide · 7 = the proof (a stat-bank number, framed as "a client") · 8 = "Get the truth" book CTA. Keyword lives in slide-1 text + caption first 150 chars (silent carousel = nothing spoken); 3–5 hashtags.
+- **Skeleton:** slide 1 = SEO-keyworded symptom hook ("the messaging mistake costing you customers") · 2 = name the real problem · 3–6 = the fix in beats, one idea per slide · 7 = the proof (a stat-bank number, framed as "a client") · 8 = the CTA (consulting "Book the call", the relevant blog post, or the newsletter — book/waitlist CTA paused for now, CONTENT_GUIDE §3). Keyword lives in slide-1 text + caption first 150 chars (silent carousel = nothing spoken); 3–5 hashtags.
 - **Hooks that fit:** the callout, the contrarian claim, the number cold-open.
-- **Example (Jake's voice):** slide 1: "the messaging mistake quietly costing you customers." caption: "how to fix your value proposition before it loses the sale. one domino at a time. #marketing #messaging #smallbusiness #copywriting"
+- **Example (Jake's voice):** slide 1: "the messaging mistake quietly costing you customers." caption: "how to fix your value proposition before it loses the sale. one fix at a time. #marketing #messaging #smallbusiness #copywriting"
 - **Don't:** a pretty cover with a vague title. slide 1 must name the wound and carry the keyword. don't save the payoff for slide 8 only; each middle slide earns the next swipe.
-- **Best for:** Pitfall, Method, Myth. Subjects: the Eight Dominoes, one at a time.
+- **Best for:** Pitfall, Method, Myth. Subjects: the messaging concepts, one at a time (taught plainly, not labeled "Dominoes" — CONTENT_GUIDE §8).
 
 ### The Count Carousel ("5 X mistakes") — Tier A
 - **What:** a numbered-list carousel, one item per slide, cataloging the mistakes (or fixes) in a topic Jake owns.
@@ -52,7 +61,7 @@
 - **Hooks that fit:** the diagnosis two-beat, the expert explainer, the callout.
 - **Example (Jake's voice):** on-screen + first line: "your product isn't the problem. your sequence is." caption: "most slow sales aren't a product problem. they're a sequence problem. here's how to tell. #marketing #messaging #smallbusiness"
 - **Don't:** open with "hey guys" or "okay so" or a slow windup. the diagnosis is the first words out of his mouth. don't run past 34s without a reason; padding tanks completion.
-- **Best for:** Takeaway, Pitfall, Commentary, FAQ. Subjects: any Domino, Share of Brand Voice, AI-skepticism.
+- **Best for:** Takeaway, Pitfall, Commentary, FAQ. Subjects: any messaging concept, Share of Brand Voice, AI-skepticism.
 
 ### The FAQ Answer Clip — Tier B `***SHOOT VIDEO***`
 - **What:** a 21–30s talking-head that answers one question Jake actually gets, framed as the question on screen.
@@ -74,7 +83,7 @@
 
 ### The Aphorism Card — Tier B
 - **What:** a 1–3 slide carousel (or static card) built around one of Jake's verbatim aphorisms, unpacked plainly.
-- **Why it works here:** rhyme-and-cadence lines read as more true (VOICE_DOSSIER Fact #36) and Jake's aphorisms are already proven, quotable lines (CONTENT_GUIDE §7); a quote card is high-save, and saves weigh heavily (tiktok.md). B-tier because it teaches less than a full domino — a between-the-spine riff, not a launch driver.
+- **Why it works here:** rhyme-and-cadence lines read as more true (VOICE_DOSSIER Fact #36) and Jake's aphorisms are already proven, quotable lines (CONTENT_GUIDE §7); a quote card is high-save, and saves weigh heavily (tiktok.md). B-tier because it teaches less than a full concept — a quick riff, not a launch driver.
 - **Skeleton:** slide 1 = the aphorism, clean, as the hook · slide 2 = what it means in two beats · slide 3 (optional) = how to use it today + CTA. Caption carries the topical keyword the aphorism implies, in the first 150 chars.
 - **Hooks that fit:** the aphorism, the contrarian claim, the takeaway.
 - **Example (Jake's voice):** slide 1: "people browse intellectually and buy emotionally." caption: "twenty years in, this is the line that changed how i write every offer. here's what it means for your copy. #marketing #copywriting #branding"
@@ -125,11 +134,11 @@ The hook = on-screen text + spoken first line (clips) + caption first 150 chars,
 
 ## 3. Tier index (for the dealer)
 
-- **A (lead ~70% of draws):** One-Domino Carousel · Count Carousel · Teardown Carousel · Myth-Bust Carousel · Diagnosis Clip
+- **A (lead ~70% of draws):** One-Concept Carousel · Count Carousel · Teardown Carousel · Myth-Bust Carousel · Diagnosis Clip
 - **B (solid, situational):** FAQ Answer Clip · Text-on-Screen Tip · Aphorism Card
 - **C (experimental, ~30% quota):** News-React Clip
 
-*Why:* the A cards sit on two stacked proofs — a documented TikTok mechanic (carousels = highest leverage; completion > views; contrarian/list/outcome hooks = top performers) AND a native Jake pattern (his back-catalog is teardowns, diagnosis-first captions, myth-busting, numbered how-tos). They carry the keyworded slide-1 + caption that wins TikTok SEO and map straight onto the Dominoes. B cards are proven but narrower (the FAQ needs a common question; the tip teaches one small thing; the aphorism is a riff). The News-React belongs to the daily-reactive layer — keeping it C protects the feed from going all-reaction.
+*Why:* the A cards sit on two stacked proofs — a documented TikTok mechanic (carousels = highest leverage; completion > views; contrarian/list/outcome hooks = top performers) AND a native Jake pattern (his back-catalog is teardowns, diagnosis-first captions, myth-busting, numbered how-tos). They carry the keyworded slide-1 + caption that wins TikTok SEO and map straight onto the messaging concepts. B cards are proven but narrower (the FAQ needs a common question; the tip teaches one small thing; the aphorism is a riff). The News-React belongs to the daily-reactive layer — keeping it C protects the feed from going all-reaction.
 
 **Healthy weekly spread:** ~5 A draws (mostly carousels + at least one shot Diagnosis Clip), 2 B (one faceless, one FAQ/aphorism), 1 C react. Satisfies the format dial while staying carousel-first.
 

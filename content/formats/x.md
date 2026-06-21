@@ -7,6 +7,15 @@
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
+
+- **W25 (first real read):** X is still cold — most original singles drew 2–10 impressions and ~0 interactions. **That is expected off a ~0-follower start; the metric here is follower/impression growth, not ER** — do not read a 0% ER as "the card failed." Best original was the personal-brand "exit-proof asset" single (**33 imp**); the largest reach spikes came from *replying into large accounts* (@rustybrick, 162 imp) — non-follower distribution via others' audiences. Keep dealing the personal-brand subject; the reply-into-big-threads mechanic travels while the account is small.
+- **W25 — carry-forward:** the Teardown (Tier C) has still never been dealt. Run it once through the daily-reactive pass ("diagnose the choice, not the human") to get the first non-follower-reach read.
+
+---
+
 ## 1. Format cards
 
 ### The Two-Beat Diagnosis — Tier A
@@ -64,20 +73,20 @@
 - **Best for:** Tip, Method.
 
 ### The Diagnosis Thread — Tier A
-- **What:** a contrarian one-line diagnosis that opens into the fix, one beat per tweet. The flagship X move for the Eight Dominoes.
-- **Why it works here:** threads pull ~3x engagement and are the best follower-growth format on x.md; the hook tweet must stand alone (most threads live or die on tweet 1), and a tight per-tweet payoff drives dwell + bookmarks. Link to the free chapter in the FIRST REPLY — links in-thread cut reach 30–90%.
+- **What:** a contrarian one-line diagnosis that opens into the fix, one beat per tweet. The flagship X move for teaching the messaging sequence.
+- **Why it works here:** threads pull ~3x engagement and are the best follower-growth format on x.md; the hook tweet must stand alone (most threads live or die on tweet 1), and a tight per-tweet payoff drives dwell + bookmarks. Put the link in the FIRST REPLY (the relevant Grimoire post or the newsletter) — links in-thread cut reach 30–90%.
 - **Skeleton (per tweet):**
   - **T1 (hook):** [confident wrong belief most founders hold]. [the shorter correction]. → one line that promises the fix below.
   - **T2:** name the real bottleneck. One sentence.
   - **T3:** why it stays hidden / why the obvious fix fails.
-  - **T4:** the lever that actually moves it (the Domino).
+  - **T4:** the lever that actually moves it (the core fix).
   - **T5:** a stat-bank receipt or a composite client beat as proof.
   - **T6 (close):** the takeaway in one repostable line + soft CTA.
-  - **First reply:** "Get the truth." + link to the free chapter.
+  - **First reply:** the CTA + link — the relevant Grimoire post or the newsletter (book/waitlist CTA paused for now, CONTENT_GUIDE §3).
 - **Hooks that fit:** The Reframe, The Contrarian Claim, The Diagnosis.
 - **Example (Jake's voice):** T1 — "Your product isn't the problem. Your sequence is. Here's the order most founders get backwards." … T6 — "Find the bottleneck. Fix the sequence. Compound the results."
 - **Don't:** bury the diagnosis under a "1/" throat-clear. Don't cram two ideas in one tweet. Don't put the link in T1. Don't let any tweet run past ~250 chars.
-- **Best for:** the Eight Dominoes (one per thread), Pitfall, Method.
+- **Best for:** the messaging concepts (one per thread), Pitfall, Method.
 
 ### The Listicle Thread — Tier B
 - **What:** a numbered promise in the hook, each item its own tweet, each item useful alone.
@@ -114,7 +123,7 @@ The first line of a single and the first tweet of a thread. The cure for flat op
    - "Most bad marketing isn't bad. It's invisible." · "Posting daily is not a strategy. It's a treadmill." · "Your brand voice is not your logo's job."
 3. **The Blunt Imperative** — *when you want a habit dead on the spot.* Open with a command.
    - "Stop describing your service." · "Delete your second headline. Nobody read it." · "Read your homepage out loud. Then watch yourself flinch."
-4. **The Diagnosis** — *as a thread opener for the Eight Dominoes.* Name the disease before the cure, with a promise the thread pays off.
+4. **The Diagnosis** — *as a thread opener for the messaging sequence.* Name the disease before the cure, with a promise the thread pays off.
    - "Your product isn't the problem. Your sequence is. Here's the order most founders get backwards." · "Slow sales are a symptom. Here's the message problem underneath."
 5. **The Receipt / Proof** — *when you have a real, stat-bank number.* Open on the outcome, third person.
    - "A client changed one button. 1.2% to 6.5%." · "Same market. Same budget. 3 crews to 9. The message moved, not the spend."

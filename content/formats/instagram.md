@@ -7,6 +7,15 @@
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
+
+- **W25 (first real read):** the "8 content types" REEL was the single biggest post across the entire program — **1,593 imp / 111 int / 6.97% ER**, ~10× the IG median. The Core-Attraction Reel beat both carousels on ER (3.82% vs the carousels' 0.77% / 3.47%). Same read as TikTok: **Reels (and back-catalog reposts) are the reach driver — deal ≥1 Reel/week and keep mining the back-catalog.** Carousels stay Tier A but were not where reach lived this week.
+- **W25:** the Domino-08 static CAROUSEL bottomed again (**130 imp / 0.77% ER**) — same thin-caption + off-book "domino 08" label miss flagged on TikTok. Captions owe the diagnosis.
+
+---
+
 ## 1. Format cards
 
 ### The Send-This Carousel — Tier A

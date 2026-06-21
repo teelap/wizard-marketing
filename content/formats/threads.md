@@ -7,6 +7,14 @@
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
+
+- **W25 (first real read):** the pure Reply-Bait Question ("what do you personally think is the best marketing channel right now?") was the top Threads post by a wide margin — **78 imp vs ~8 median (~10×)**. Confession / either-or / diagnosis-fragment posts trailed in single digits. Reinforces the deck's hero call: **lean Threads on the Reply-Bait Question and Hot-Take-and-Ask, and end every post on a forced reply.** Threads also runs ~2–3× X's impression baseline off the same cold start — it is the friendlier of the two text platforms right now.
+
+---
+
 ## 1. Format cards
 
 ### The Diagnosis Fragment — Tier A
@@ -16,7 +24,7 @@
 - **Hooks that fit:** Contrarian Diagnosis, The Callout, Reply-Bait Question.
 - **Example (Jake's voice):** "your funnel isn't broken. your message is. what's the last line of copy that actually stopped your scroll?" · "you don't have a traffic problem. you have a clarity problem. what does your homepage promise in the first six words?"
 - **Don't:** end on a period. no question = no replies = no reach. don't bait with "agree?"
-- **Best for:** Myth, Pitfall, Commentary. Subjects: the Eight Dominoes, CRO, Share of Brand Voice.
+- **Best for:** Myth, Pitfall, Commentary. Subjects: the messaging concepts, CRO, Share of Brand Voice.
 
 ### Hot Take + Open Floor — Tier A
 - **What:** one blunt opinion, then you hand the mic over instead of defending it.
@@ -43,7 +51,7 @@
 - **Hooks that fit:** The Confession, The Time-Stamp, Reply-Bait Question.
 - **Example (Jake's voice):** "i used to think the best copy was the cleverest. wrong. the best copy is the clearest. what's a line you finally cut that you'd been proud of?" · "spent years optimizing the funnel. the leak was the headline the whole time. what's the fix you avoided because it felt too simple?"
 - **Don't:** confess and then pitch. the admission is the whole post. don't fake a vulnerability you can't back.
-- **Best for:** Story, Takeaway, Pitfall. Subjects: messaging, CRO, the trenches, the Dominoes.
+- **Best for:** Story, Takeaway, Pitfall. Subjects: messaging, CRO, the trenches, the messaging sequence.
 
 ### The Relatable Callout — Tier B
 - **What:** a two-line "what they say / what they mean" that names a shared lie out loud.
