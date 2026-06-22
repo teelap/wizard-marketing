@@ -7,7 +7,6 @@ category: AI & Marketing
 description: "Google's new Business Agent puts a Gemini bot where your lead form was. Keep it off the first conversation. Product, feature, and price trend to the median. The handshake is all you have left."
 excerpt: "An AI agent can answer every question and still lose the sale. The first conversation is the experience, and the experience is the last thing the next guy can't copy."
 lead: "Google now wants a Gemini chat agent in the seat your lead form used to hold. Put it almost anywhere except the first conversation. That conversation is the experience, and the experience is the only edge you have left."
-draft: true
 faq:
   - q: "What is Google's Business Agent for Leads?"
     a: >
