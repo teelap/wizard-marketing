@@ -4,7 +4,6 @@ metaTitle: "Effort Is the Art"
 slug: effort-is-the-art
 date: 2026-06-25
 category: AI & Marketing
-draft: true
 description: "The 2026 'made by humans' backlash has the frame wrong. It is not humans versus AI. When capability goes free, capability stops being the product and the effort becomes the art."
 excerpt: "AI made capability free. So the value moves to the one part a machine can't fake: a human chose to put the effort in, and only one of these exists."
 lead: "AI made capability free, so capability stops being what you sell. The effort becomes the product, the one-of-one carries the premium, and the more the world fills with machine work, the more the handmade ceiling pays."
