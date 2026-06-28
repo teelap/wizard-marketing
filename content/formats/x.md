@@ -13,6 +13,7 @@
 
 - **W25 (first real read):** X is still cold — most original singles drew 2–10 impressions and ~0 interactions. **That is expected off a ~0-follower start; the metric here is follower/impression growth, not ER** — do not read a 0% ER as "the card failed." Best original was the personal-brand "exit-proof asset" single (**33 imp**); the largest reach spikes came from *replying into large accounts* (@rustybrick, 162 imp) — non-follower distribution via others' audiences. Keep dealing the personal-brand subject; the reply-into-big-threads mechanic travels while the account is small.
 - **W25 — carry-forward:** the Teardown (Tier C) has still never been dealt. Run it once through the daily-reactive pass ("diagnose the choice, not the human") to get the first non-follower-reach read.
+- **W26 (2nd read):** still cold (3 W26 originals: 6 / 9 / 25 imp). The lone bright spot was a **reactive newsjack** ("Shopify just made agent checkout the default", 25 imp / 1 int) — it out-reached both evergreen singles (The Receipt "17x roas" 6 imp / 0; the Contrarian One-Liner "name your method" 9 imp / 0). Off a cold base, **timely newsjacks travel further than evergreen one-liners** — lean the daily-reactive pass on X. Growth metric, not ER. **Teardown still never dealt (carry-forward, 2nd time).** Note: only 3 X originals published all week vs ~9 dealt — throughput, see W26 review §5.
 
 ---
 

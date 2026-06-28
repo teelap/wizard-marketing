@@ -12,6 +12,7 @@
 > From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
 
 - **W25 (first real read):** the pure Reply-Bait Question ("what do you personally think is the best marketing channel right now?") was the top Threads post by a wide margin — **78 imp vs ~8 median (~10×)**. Confession / either-or / diagnosis-fragment posts trailed in single digits. Reinforces the deck's hero call: **lean Threads on the Reply-Bait Question and Hot-Take-and-Ask, and end every post on a forced reply.** Threads also runs ~2–3× X's impression baseline off the same cold start — it is the friendlier of the two text platforms right now.
+- **W26 (2nd read):** the value-prop Diagnosis Fragment ended on a question ("what does your homepage actually promise in the first six words?") → **26 imp vs ~8 W25 median (~3×)** — the question-ender keeps over-indexing on reach. But it drew **0 replies** despite the reach, so the reach-vs-conversation gap is real: a soft open-ended ask earns the impression but not the reply. Make the ask **lower-effort / more answerable** (a binary or a one-word answer) rather than just present. n=1 (only 1 W26 Threads post published of ~6 dealt — throughput, see W26 review §5); re-test.
 
 ---
 

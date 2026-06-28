@@ -13,6 +13,7 @@
 
 - **W25 (first real read):** the 3 back-catalog VIDEOs cleared ~2.8–5.9% ER (top: the "8 content types" how-to, 629 imp / **5.88%**); the one new static IMAGE carousel (the Domino-08 card) bottomed at **306 imp / 0.65% ER** (~0.2× the video ER). Confounded (proven back-catalog video vs a brand-new static card), so it does **not** flip carousel-first — but **deal ≥1 video/clip per week and keep mining the back-catalog**; it is the highest-ROI unit on the platform right now.
 - **W25 — the Domino-08 static card failed the format pass AND a brand rule.** Its caption was a one-line assertion + "send this to whoever's stuck" share-bait (no diagnosis, no arc — it executed none of the Myth-Bust skeleton) and it named "domino 08 of the eight" off-book (banned by CONTENT_GUIDE §8 / book-branding-restraint). Thin share-bait + book-labels underperform; the caption still owes the diagnosis.
+- **W26 (2nd read — video > static holds):** back-catalog VIDEO ("#onthisday ahead of the bell curve") **642 imp / 3.58% ER**; the new CRO photo-carousel ("you don't have a traffic problem") **423 imp / 0.71% ER** — a ~5× ER gap, the *second straight week* static photo-carousels trail video on TikTok. Still confounded (proven back-catalog video vs a brand-new static card) and only n=1 per card, so **no tier move** — but the direction is now 2 weeks deep: hold the ≥1-video/week floor and treat photo-carousels as the secondary unit here, not the lead. (Only 2 TikToks published all week — throughput, see W26 review §5.)
 
 ---
 
