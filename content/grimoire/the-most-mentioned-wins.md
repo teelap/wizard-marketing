@@ -3,7 +3,6 @@ title: "The Most-Mentioned Wins: AI Counts Citations, Not Rankings"
 metaTitle: "The Most-Mentioned Wins"
 slug: the-most-mentioned-wins
 date: 2026-06-29
-draft: true
 category: AI & Search
 description: "Ranking #1 no longer guarantees the AI answer, but it isn't dead. A third of citations still come from the top 10. The new game is being the most-repeated answer."
 excerpt: "Search crowned one winner. AI counts mentions. Stop chasing a rank you can't hold and become the answer the model keeps finding."
