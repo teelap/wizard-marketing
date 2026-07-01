@@ -75,7 +75,7 @@
     }
     </script>
 
-    <link rel="preload" href="dev_assets/scenes/lofi-room.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="dev_assets/scenes/lofi-room-opt.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="styles.css?v=8.5">
     <link rel="stylesheet" href="scene.css?v=7">
     <link rel="stylesheet" href="grimoire.css?v=3">
@@ -83,12 +83,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+          referrerpolicy="no-referrer"
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 </head>
 <body class="parchment-theme">
 
@@ -120,11 +126,13 @@
         <section id="scene-hero" aria-label="The Wizard's study — a looping animated scene">
             <h1 class="visually-hidden">Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.</h1>
             <div class="scene">
-                <video id="scene-video" class="room" autoplay muted loop playsinline preload="auto"
-                       poster="dev_assets/scenes/lofi-room.webp"
+                <!-- Sources + playback are attached by scene.js AFTER load (and skipped on Save-Data/slow
+                     links) so the 12 MB of video never blocks LCP — the poster paints instantly instead. -->
+                <video id="scene-video" class="room" muted loop playsinline preload="none"
+                       poster="dev_assets/scenes/lofi-room-opt.webp"
+                       data-webm="dev_assets/scenes/lofi-loop-5-opt.webm"
+                       data-mp4="dev_assets/scenes/lofi-loop-5-opt.mp4"
                        aria-label="A cozy candle-lit study: Jake works at his glowing laptop while snow falls outside the castle window and an owl watches.">
-                    <source src="dev_assets/scenes/lofi-loop-5.webm" type="video/webm">
-                    <source src="dev_assets/scenes/lofi-loop-5.mp4" type="video/mp4">
                 </video>
                 <div class="scene-vignette" aria-hidden="true"></div>
             </div>
@@ -220,7 +228,7 @@
                 <div class="asymmetric-grid">
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">THE<br>BRUTAL<br>TRUTH.</h2>
-                        <img src="dev_assets/jake-headshot.png" alt="Jake Tlapek, The Wizard of Marketing" class="jake-bio-photo" loading="lazy" decoding="async">
+                        <img src="dev_assets/jake-headshot.webp" alt="Jake Tlapek, The Wizard of Marketing" class="jake-bio-photo" width="700" height="700" loading="lazy" decoding="async">
                     </div>
                     
                     <div class="asymmetric-right scroll-reveal" style="transition-delay: 200ms;">
@@ -375,7 +383,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/wizard.png" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <img src="dev_assets/wizard.webp" alt="" class="timeline-thumb" loading="lazy" decoding="async">
                             <span class="timeline-year">2018</span>
                             <h3 class="ink-stamp">Exit #2 — Wizard Marketing</h3>
                             <p>Built <strong>Wizard Marketing</strong> from zero to a seven-figure agency by obsessing over discoverability and conversion architecture. Acquired by <strong>Finch</strong>.</p>
@@ -384,7 +392,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/Cards.png" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <img src="dev_assets/Cards.webp" alt="" class="timeline-thumb" loading="lazy" decoding="async">
                             <span class="timeline-year">2016</span>
                             <h3 class="ink-stamp">Grifters: 300K Copies Sold</h3>
                             <p>Co-designed the hand-building card game <em>Grifters</em> with David Fulton. Published by Indie Boards & Cards, sold over 300,000 copies worldwide.</p>
@@ -402,7 +410,7 @@
                     <div class="timeline-item scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <img src="dev_assets/planes - old paper.png" alt="" class="timeline-thumb" loading="lazy" decoding="async">
+                            <img src="dev_assets/planes - old paper.webp" alt="" class="timeline-thumb" loading="lazy" decoding="async">
                             <span class="timeline-year">2008</span>
                             <h3 class="ink-stamp">The Foundation</h3>
                             <p>U.S. Air Force IT. Discipline, systems architecture, and learning to execute when the stakes are real.</p>

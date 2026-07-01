@@ -67,12 +67,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+          referrerpolicy="no-referrer"
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 </head>
 <body class="parchment-theme">
 
@@ -100,8 +106,8 @@
         <!-- Page Hero -->
         <section class="page-hero dark-theme-section page-hero--landing">
             <div class="hero-parallax-bg">
-                <img src="dev_assets/castel 2.png" class="floating-artifact a1" alt="" aria-hidden="true">
-                <img src="dev_assets/wizard.png" class="floating-artifact a2" alt="" aria-hidden="true">
+                <img src="dev_assets/castel 2.webp" class="floating-artifact a1" alt="" aria-hidden="true">
+                <img src="dev_assets/wizard.webp" class="floating-artifact a2" alt="" aria-hidden="true">
                 <img src="dev_assets/broom.png" class="floating-artifact a3" alt="" aria-hidden="true">
             </div>
             <div class="container page-hero-content">
@@ -164,7 +170,7 @@
                 <div class="asymmetric-grid">
                     <div class="asymmetric-left scroll-reveal">
                         <h2 class="massive-section-title">WHY<br>THIS<br>BOOK.</h2>
-                        <img src="dev_assets/jake-headshot.png" alt="Jake Tlapek, The Wizard of Marketing" class="jake-bio-photo" loading="lazy" decoding="async">
+                        <img src="dev_assets/jake-headshot.webp" alt="Jake Tlapek, The Wizard of Marketing" class="jake-bio-photo" width="700" height="700" loading="lazy" decoding="async">
                     </div>
                     <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
                         <div class="ink-text body-copy-large">

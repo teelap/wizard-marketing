@@ -11,11 +11,34 @@
   if (!hero) return;
   function $(s, r) { return (r || document).querySelector(s); }
 
-  /* ---------- looping video: honour reduced-motion (show the poster still) ---------- */
+  /* ---------- looping video: deferred + connection-aware ----------
+     The <video> ships with NO sources and preload="none", so it costs 0 bytes
+     up front — the poster paints instantly and drives LCP. We attach the sources
+     and play only AFTER the page has loaded, and never on reduced-motion,
+     Save-Data, or 2G-class links (the poster still stays). */
   var video = $('#scene-video', hero);
-  if (video) {
-    if (reduced) { try { video.removeAttribute('autoplay'); video.pause(); } catch (e) {} }
-    else { var p = video.play && video.play(); if (p && p.catch) p.catch(function () {}); }
+  function startScene() {
+    if (!video || video.dataset.loaded) return;
+    var c = navigator.connection || {};
+    var slow = c.saveData === true || /(^|\b)(slow-2g|2g)$/.test(c.effectiveType || '');
+    if (slow) return;                     // keep the lightweight poster on constrained links
+    video.dataset.loaded = '1';
+    var add = function (src, type) {
+      if (!src) return;
+      var s = document.createElement('source');
+      s.src = src; s.type = type;
+      video.appendChild(s);
+    };
+    add(video.getAttribute('data-webm'), 'video/webm');
+    add(video.getAttribute('data-mp4'), 'video/mp4');
+    try { video.load(); } catch (e) {}
+    var p = video.play && video.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  if (video && !reduced) {
+    var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+    if (document.readyState === 'complete') idle(startScene);
+    else addEventListener('load', function () { idle(startScene); }, { once: true });
   }
 
   /* ---------- ambient music: a 5-track playlist, ALWAYS opening with

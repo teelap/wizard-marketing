@@ -445,7 +445,7 @@ function renderPost(post, allPosts) {
                 <span class="grimoire-cat">${esc(post.category)}</span>
                 <h1 class="grimoire-title">${esc(post.title)}</h1>
                 <div class="grimoire-meta">
-                    <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-headshot.png" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
+                    <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-avatar-96.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
                     <span class="dot">&middot;</span><span>${prettyDate(post.date)}</span><span class="dot">&middot;</span><span>${post.readMinutes} min read</span>
                 </div>
             </header>

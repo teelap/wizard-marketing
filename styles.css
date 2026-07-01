@@ -67,7 +67,7 @@ body.parchment-theme {
        harsh yellow + busy motifs so text stays readable everywhere. */
     background-image:
         linear-gradient(rgba(248, 244, 235, 0.62), rgba(248, 244, 235, 0.62)),
-        url('dev_assets/wizpaper1.png');
+        url('dev_assets/wizpaper1.webp');
     background-size: cover;
     background-attachment: fixed;
     color: var(--text-day);
