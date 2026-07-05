@@ -13,6 +13,7 @@
 
 - **W25 (first real read):** the "8 content types" REEL was the single biggest post across the entire program — **1,593 imp / 111 int / 6.97% ER**, ~10× the IG median. The Core-Attraction Reel beat both carousels on ER (3.82% vs the carousels' 0.77% / 3.47%). Same read as TikTok: **Reels (and back-catalog reposts) are the reach driver — deal ≥1 Reel/week and keep mining the back-catalog.** Carousels stay Tier A but were not where reach lived this week.
 - **W25:** the Domino-08 static CAROUSEL bottomed again (**130 imp / 0.77% ER**) — same thin-caption + off-book "domino 08" label miss flagged on TikTok. Captions owe the diagnosis.
+- **W27 (Reels lead again; 0 engine posts):** the dealt batch published **0 posts** (approval gate, W27 review §5), so no card-level read. Jake's own Reels carried IG: the "new website is live" launch Reel **507 imp / 3.75% ER** (IG reach leader of the week) and the "Claude + Shopify" tip Reel **340 imp / 2.94%** — both first-person, both video. Same read as W25/W26: **Reels, especially first-person / hands-on ones, are the IG reach driver.** Hold the ≥1-Reel/week floor; carousels stay Tier A but were again not where reach lived.
 
 ---
 
