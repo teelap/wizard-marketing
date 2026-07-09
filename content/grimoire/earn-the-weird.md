@@ -4,7 +4,6 @@ metaTitle: "Earn the Weird"
 slug: earn-the-weird
 date: 2026-07-09
 category: Brand Strategy
-draft: true
 description: "The $175 banana and the fridge in a toy box aren't the strategy. They're the reward. Weird is a privilege of attention, and the fee is depth, not budget."
 excerpt: "The fridge in the toy box is not the strategy. It's the reward for already having the room, and the entry fee is depth, not size."
 lead: "You don't earn attention with weird. You earn weird with attention. The stunt is the reward, not the strategy, and the entry fee for a small business is depth, not budget. Get the room first. Then get strange."
