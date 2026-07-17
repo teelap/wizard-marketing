@@ -3,8 +3,8 @@ title: "Cult of the New: Google Chased the Shiny Thing and Handed Your Spot to a
 metaTitle: "Cult of the New"
 slug: cult-of-the-new
 date: 2026-07-16
+updated: 2026-07-17
 category: SEO
-draft: true
 description: "New is not better. It is just new. Google poured AI into a tool that worked for twenty years, dropped the guardrails, and small business is paying the tuition."
 excerpt: "Google did not get hacked. It chased the new, and now a stranger in the comments outranks the page you built to answer the question."
 lead: "New is not better. It is just new. Google confused the two, poured AI into a ranking system that worked for twenty years, and started rewarding unvetted community threads over pages built to answer the question. It is not Reddit's fault. It is Google's failing, and the small owner eats it."
