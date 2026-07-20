@@ -4,7 +4,6 @@ metaTitle: "The Live Line"
 slug: the-live-line
 date: 2026-07-20
 category: AI & Marketing
-draft: true
 description: "TikTok Shop banned AI voices from live shopping. It did not ban AI. It fenced the one format whose whole value is a real human, in real time."
 excerpt: "TikTok did not ban AI. It fenced off the human. Live selling only converts because a real person is on the other end, and presence is the one thing you cannot automate."
 lead: "TikTok Shop banned AI voices from live shopping, and an AI-marketing guy is cheering. It did not ban AI. It fenced the one format whose entire worth is that it cannot be faked. Use the machine everywhere it makes you faster. Keep it out of the live room."
