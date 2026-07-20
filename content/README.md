@@ -52,8 +52,9 @@ Don't take one idea and spread it across the whole week — even through differe
 
 ```
             ┌──────────────── THE WEEK'S DECK (the well of subjects) ─────────────────┐
-            │  Subject bank (CONTENT_MATRIX §2) · content/Ideas/ concepts · the Eight  │
-            │  Dominoes (folded in, no privilege) · recent Grimoire posts              │
+            │  Subject bank (CONTENT_MATRIX §2) · content/Ideas/ concepts ·            │
+            │  recent Grimoire posts   (messaging concepts taught plainly, NOT         │
+            │  labeled "Dominoes" off-book — CONTENT_GUIDE §6, §8)                     │
             └────────────────────────────────┬────────────────────────────────────────┘
                                               │   deal ONE distinct subject per slot
    TikTok          Instagram       LinkedIn         X                Threads      YouTube       Blog/Newsletter
@@ -72,7 +73,7 @@ This costs more net-new thinking than the old "atomize one core" model — but m
 | Platform | Steady cadence | Priority | Hero format | Detail |
 |---|---|---|---|---|
 | **TikTok** | ~1/day (4–7/wk) | ★★★ Primary | Photo carousels + talking-head clips | [tiktok.md](platforms/tiktok.md) |
-| **LinkedIn** | 3–5/wk + weekly newsletter | ★★★ Primary (B2B) | Document/carousel PDFs | [linkedin.md](platforms/linkedin.md) |
+| **LinkedIn** | 1 carousel + 4 text/wk (2 text w/ static image) + weekly newsletter | ★★★ Primary (B2B) | Document/carousel PDFs | [linkedin.md](platforms/linkedin.md) |
 | **Instagram** | 4–5/wk | ★★ Real effort | Carousels + Reels | [instagram.md](platforms/instagram.md) |
 | **X / Twitter** | 3–5/day + 1–2 threads/wk | ★★ Real effort (cheap, text) | Threads + hot-takes | [x.md](platforms/x.md) |
 | **Threads** | 1–2/day + replies | ★★ High ROI (cheapest) | Text fragments | [threads.md](platforms/threads.md) |
@@ -117,7 +118,7 @@ The site blog — **The Grimoire** (`/grimoire`, posts in `content/grimoire/*.md
 
 ## 6. JULY BOOK LAUNCH OVERLAY ("Eight Dominoes")
 
-Launch is **July 2026** — ramp now. The Eight Dominoes are **folded into the weekly deck as subjects** (no longer a privileged "one domino per week" hero — Jake's call, so the feed bounces). They still recur naturally through the rotation, each Domino post ending on the waitlist CTA; **near launch, weight the deck toward Dominoes** to tighten the drumbeat. Waitlist is built on **owned channels** (Resend email + LinkedIn newsletter) that the algorithm can't throttle. Near launch, amplify the 2–3 best-performing LinkedIn carousels via **Thought Leader Ads**. One free chapter = the lead magnet, hosted on the blog.
+Launch is **July 2026**. The eight messaging concepts live in the weekly deck as ordinary subjects (no privileged "one domino per week" hero — Jake's call, so the feed bounces), but **taught plainly, without the "Domino" / "Eight Dominoes" label** — the cold audience doesn't know the term (Jake's call 2026-06-19; CONTENT_GUIDE §6, §8). **The "Eight Dominoes" branding AND the book/waitlist CTA are reserved for posts specifically about the book and for the launch window — both are paused in the everyday engine until launch is closer.** Near launch: turn the book branding back on, weight the deck toward the framework to tighten the drumbeat, build the waitlist on **owned channels** (Resend email + LinkedIn newsletter) the algorithm can't throttle, and amplify the 2–3 best-performing LinkedIn carousels via **Thought Leader Ads**. One free chapter = the lead magnet, hosted on the blog.
 
 ---
 
@@ -126,10 +127,10 @@ Launch is **July 2026** — ramp now. The Eight Dominoes are **folded into the w
 **Have (confirmed live):** Claude (copy) · mcp-image (still graphics, 9:16/4:5/1:1, brand palette) · Gamma (carousels, docs, webpages) · Google Drive (asset library) · Metricool (schedule + data + Hashtag Tracker + **Adobe Express** design integration) · GA4/GSC (site) · Resend (newsletter).
 
 **Gaps to close (in priority order):**
-1. **Short-form video.** Carousel-first defers this, but TikTok/Reels/Shorts still want some video. *Plan:* Jake stays on camera as the hero format (on-brand — anti-AI-slop); we add (a) a long→short **clipping** capability to mine his back-catalog (Hold My Beard, TikTok lives, podcast spots) and (b) simple motion graphics from stills for stat reveals.
-2. **Transcription / clipping tool.** Lost with Blotato. *Plan:* `yt-dlp` + Whisper locally for transcripts (free, Claude can run it) feeding repurposing; evaluate an AI auto-clipper for Shorts.
+1. **Short-form video — ADDRESSED (2026-07-20).** The **video spine** now posts **2 back-catalog reels/day** (14/week) automatically, dealt from `content/video/catalog.json` (1,009 clips) by the `weekly-evergreen` batch. Jake stays on camera as the hero — he films + posts one fresh reel/day himself. Still open: motion graphics from stills for stat reveals (partly covered by `content/video/render.js`).
+2. **Transcription / clipping tool — SOLVED (2026-07-20).** No Whisper needed: the knowledge base already holds transcripts + written summaries for ~735 clips, and `content/video/build-catalog.js` joins them to the catalog (73% of clips matched). On-demand Whisper stays an option for any unmatched clip we specifically want to feature.
 3. **Design at scale.** Gamma + mcp-image cover most; **Canva** shows connected to claude.ai but its tools aren't callable in this environment (verify). *Plan:* lean on mcp-image brand templates + Metricool's Adobe Express for quick variants.
-4. **Public media hosting** for Metricool scheduling (needs reachable URLs). *Plan:* host generated assets under the site `/assets` or via Drive public links.
+4. **Public media hosting — SOLVED (proven).** The transient **side-branch → `raw.githubusercontent.com`** pipeline hosts each clip/graphic for Metricool to fetch (it copies to its own CDN on create), then the branch is deleted. Handles the 14 reels/week. Vercel Blob is the clean upgrade if volume ever warrants dropping the git housekeeping.
 
 ---
 
@@ -159,7 +160,7 @@ The "database" is just the calendar: a Markdown/CSV file per week here is the so
 
 ## 9. OPEN DECISIONS (need Jake's call)
 
-1. **Video approach:** confirm "Jake on camera as hero + we add clipping/captioning for the back-catalog" vs. exploring AI-generated video (the latter risks contradicting the anti-AI-slop brand).
+1. **Video approach — RESOLVED (2026-07-20, Jake's call):** Jake on camera as hero (he films + posts one fresh reel/day himself) **plus** an automated back-catalog **video spine** (2 reels/day from `content/video/catalog.json`). No AI-generated video. Hosting = the proven side-branch pipeline; sources = the TikTok back-catalog only for now (Downloads stash held back).
 2. **Brand docs location:** leave `VOICE_DOSSIER.md` + `JtW-BRAND-ASSET-SYSTEM.md` at root (shared with the website), or move copies into `content/brand/`?
 3. **X Premium / Verified:** research shows a 2–4x reach boost and it's now a ranking signal. Worth subscribing for the launch?
 4. **Facebook Group:** spin up an owned "Eight Dominoes / Share of Brand Voice" Group (5–10x the reach of a Page), or skip Facebook entirely?
