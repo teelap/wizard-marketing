@@ -17,12 +17,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+          referrerpolicy="no-referrer"
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 </head>
 <body class="parchment-theme">
 
@@ -123,7 +129,7 @@
                     <p>I may update this Cookie Policy as the Site&rsquo;s tools change. When I do, I&rsquo;ll revise the &ldquo;Last updated&rdquo; date above.</p>
 
                     <h2>Contact</h2>
-                    <p>Questions about cookies? Email <a href="mailto:jake@thewizard.marketing">jake@thewizard.marketing</a>.</p>
+                    <p>Questions about cookies? Email <a href="mailto:jake@jakethewizard.com">jake@jakethewizard.com</a>.</p>
                 </div>
             </div>
         </section>
