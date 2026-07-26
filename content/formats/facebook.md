@@ -7,6 +7,15 @@
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. One week of data → **emphasis annotations, not tier moves** (small-N rule). Low confidence; re-test next week.
+
+- **W30 (the first Facebook data this program has ever had):** seven cross-posted reels published — **1,233 imp / 12 int, median 198 imp / 1.01% ER**. The reel-only, cross-post-only strategy is **validated on reach**: FB delivered ~200 impressions per reel off a near-zero page base, more total reach than LinkedIn (1,182) and ~5x X (251). But **engagement is near-absent** — ER ran 0% to 1.54% (top: `blended-model-sizes` 260 imp / 4 int / 1.54%; `de-positioning` 210 imp / **0 int**). Read: **FB is a reach surface, not a conversation surface.** Keep it cross-post-only and spend zero new authoring effort here, exactly as this deck specifies. Since shares are the only escape from the 1–6% follower ceiling and no post earned meaningful interaction, don't expect compounding yet. *(W30 review §2.2, §2.5)*
+- **W30 — the container is the whole ballgame, and we got it wrong once.** The "9 AI tools I use" video went out as a **feed POST** (`facebookData.type: "POST"`) and drew **9 impressions**. The same asset published as a **REEL** on the same days averaged **~198**. A one-field container mistake cost roughly **20x the reach** — the single clearest mechanical finding of the week. **The Cross-Posted Reel card must always route as `type: REEL`, never as a feed post with video attached.** Flagged to the batch (W30 review §5.4).
+
+---
+
 ## 1. Format cards
 
 ### The Cross-Posted Reel — Tier A
