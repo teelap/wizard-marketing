@@ -352,6 +352,23 @@
                 return; // calendly is also outbound, but the conversion event is what matters
             }
 
+            // Business Arcanum join = primary conversion. The signup lives off-site
+            // (Voxento), so this click is the last thing we can measure — it replaces
+            // the CompleteRegistration the old on-site waiting-list form used to fire.
+            if (closest(link, '[data-cta="arcanum_join"]')) {
+                track('outbound_click', {
+                    link_url: href, link_domain: 'voxento.com',
+                    link_text: textOf(link), cta_location: sectionOf(link)
+                });
+                conversion({
+                    meta_event: 'CompleteRegistration',
+                    content_name: 'Business Arcanum',
+                    content_category: 'mastermind',
+                    status: 'arcanum_join'
+                });
+                return;
+            }
+
             if (/^mailto:/i.test(href)) {
                 track('email_click', { email: href.replace(/^mailto:/i, ''), cta_location: sectionOf(link) });
                 return;

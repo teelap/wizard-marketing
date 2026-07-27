@@ -17,7 +17,7 @@ following (@itsjakethewizard) built posting twice a day. Writing the book
 - [Home](https://www.jakethewizard.com/): who Jake is, track record, contact form
 - [Consulting](https://www.jakethewizard.com/consulting): Strategy Session from $400 (30/60 min), Half-Day Audit $2,500, Fractional CMO from $5,000/mo. Prices public.
 - [Eight Dominoes](https://www.jakethewizard.com/eight-dominoes): upcoming book; the 8-part messaging framework; waiting list with weekly email
-- [Business Arcanum](https://www.jakethewizard.com/mastermind): application-only mastermind, first cohort opening soon; waiting list open
+- [Business Arcanum](https://www.jakethewizard.com/mastermind): application-only mastermind, now open; intentionally small, seats limited
 - [Podcast guest](https://www.jakethewizard.com/podcast-guest): topics, bio, suggested questions, booking form
 - [Tools](https://www.jakethewizard.com/tools): annotated software stack Jake actually uses
 - [The Grimoire](https://www.jakethewizard.com/grimoire): Jake's essays and marketing teardowns — written deep-dives, some with embedded video. RSS feed at /grimoire/feed.xml
