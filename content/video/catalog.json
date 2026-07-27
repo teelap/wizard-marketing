@@ -1,8 +1,8 @@
 {
-  "builtAt": "2026-07-20T16:29:01.712Z",
+  "builtAt": "2026-07-27T15:13:23.001Z",
   "clipDir": "G:\\My Drive\\TikTok\\Old",
-  "totalFiles": 1163,
-  "uniqueClips": 1009,
+  "totalFiles": 1172,
+  "uniqueClips": 1018,
   "matchedTranscripts": 737,
   "clips": [
     {
@@ -42,8 +42,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-29"
+      ],
+      "platformsUsed": [
+        "tiktok"
+      ],
       "notes": ""
     },
     {
@@ -306,8 +310,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-31"
+      ],
+      "platformsUsed": [
+        "youtube"
+      ],
       "notes": ""
     },
     {
@@ -2698,8 +2706,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-28"
+      ],
+      "platformsUsed": [
+        "tiktok"
+      ],
       "notes": ""
     },
     {
@@ -2812,8 +2824,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-28"
+      ],
+      "platformsUsed": [
+        "youtube"
+      ],
       "notes": ""
     },
     {
@@ -5399,8 +5415,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-08-01"
+      ],
+      "platformsUsed": [
+        "instagram"
+      ],
       "notes": ""
     },
     {
@@ -6327,8 +6347,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-31"
+      ],
+      "platformsUsed": [
+        "tiktok"
+      ],
       "notes": ""
     },
     {
@@ -9116,8 +9140,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-08-02"
+      ],
+      "platformsUsed": [
+        "tiktok"
+      ],
       "notes": ""
     },
     {
@@ -10777,8 +10805,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-08-01"
+      ],
+      "platformsUsed": [
+        "youtube"
+      ],
       "notes": ""
     },
     {
@@ -12494,8 +12526,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-27"
+      ],
+      "platformsUsed": [
+        "tiktok"
+      ],
       "notes": ""
     },
     {
@@ -15208,8 +15244,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-08-02"
+      ],
+      "platformsUsed": [
+        "instagram"
+      ],
       "notes": ""
     },
     {
@@ -15526,8 +15566,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-30"
+      ],
+      "platformsUsed": [
+        "instagram"
+      ],
       "notes": ""
     },
     {
@@ -16206,8 +16250,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-30"
+      ],
+      "platformsUsed": [
+        "youtube"
+      ],
       "notes": ""
     },
     {
@@ -17863,8 +17911,12 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-29"
+      ],
+      "platformsUsed": [
+        "instagram"
+      ],
       "notes": ""
     },
     {
@@ -18938,8 +18990,12 @@
       "ratingPrior": "solid",
       "status": "active",
       "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
+      "usedDates": [
+        "2026-07-27"
+      ],
+      "platformsUsed": [
+        "instagram"
+      ],
       "notes": ""
     },
     {
@@ -27050,6 +27106,35 @@
       "notes": ""
     },
     {
+      "id": "ai-is-about-to-get-crazy-weird-with-blended-mode-cxoigh",
+      "title": "AI is about to get crazy weird with blended model sizes",
+      "file": "AI is about to get crazy weird with blended model sizes.mp4",
+      "files": [
+        "AI is about to get crazy weird with blended model sizes.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "ai-marketing",
+      "topics": [
+        "ai-marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "ai-isnt-there-yet-slow-down-i-have-seen-too-many-1f6b63f",
       "title": "AI isnt there yet. slow down. I have seen too many mistakes.",
       "file": "AI isnt there yet. slow down. I have seen too many mistakes..mp4",
@@ -27358,6 +27443,35 @@
       "topic": "web-design",
       "topics": [
         "web-design"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "big-companies-have-a-marketing-weakness-you-can--1kfd2rs",
+      "title": "Big companies have a marketing weakness you can take advantage.",
+      "file": "Big companies have a marketing weakness you can take advantage..mp4",
+      "files": [
+        "Big companies have a marketing weakness you can take advantage..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "strategy",
+      "topics": [
+        "strategy"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -28029,6 +28143,35 @@
       "topic": "marketing",
       "topics": [
         "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "de-positioning-is-a-powerful-concept-when-you-us-1yslym2",
+      "title": "de-positioning is a powerful concept when you use the negative space to market",
+      "file": "de-positioning is a powerful concept when you use the negative space to market.mp4",
+      "files": [
+        "de-positioning is a powerful concept when you use the negative space to market.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "messaging",
+      "topics": [
+        "messaging"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -32065,6 +32208,35 @@
       "notes": ""
     },
     {
+      "id": "people-buy-products-that-make-them-feel-understo-1ln220b",
+      "title": "People buy products that make them feel understood.",
+      "file": "People buy products that make them feel understood..mp4",
+      "files": [
+        "People buy products that make them feel understood..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "people-don-t-buy-features-they-buy-dreams-check--mptiev",
       "title": "people don't buy features they buy dreams. check it out at the brand new website, brand new wiz",
       "file": "people don't buy features they buy dreams. check it out at the brand new website, brand new wiz.mp4",
@@ -32078,6 +32250,35 @@
       "topics": [
         "web-design",
         "branding"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "people-will-pay-anything-to-have-their-dreams-co-oi0p6k",
+      "title": "people will pay anything to have their dreams come true",
+      "file": "people will pay anything to have their dreams come true.mp4",
+      "files": [
+        "people will pay anything to have their dreams come true.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -32477,6 +32678,35 @@
         "seo",
         "ai-marketing",
         "strategy"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "see-the-price-and-then-shut-up-lq9t40",
+      "title": "see the price and then shut up.",
+      "file": "see the price and then shut up..mp4",
+      "files": [
+        "see the price and then shut up..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "sales",
+      "topics": [
+        "sales"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -33453,6 +33683,37 @@
       "notes": ""
     },
     {
+      "id": "the-key-to-making-ai-work-in-marketing-is-by-und-8j1aq5",
+      "title": "The key to making AI work in marketing is by understanding your own messaging and ensuring that",
+      "file": "The key to making AI work in marketing is by understanding your own messaging and ensuring that.mp4",
+      "files": [
+        "The key to making AI work in marketing is by understanding your own messaging and ensuring that.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "messaging",
+      "topics": [
+        "messaging",
+        "ai-marketing",
+        "strategy"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "the-main-authority-isn-t-something-you-need-to-t-d1ss4r",
       "title": "the main authority isn't something you need to track",
       "file": "the main authority isn't something you need to track #seooptimization #seotips.mp4",
@@ -33501,6 +33762,35 @@
       "topic": "web-design",
       "topics": [
         "web-design"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "there-is-no-time-like-the-present-1vim0r5",
+      "title": "There is no time like the present!",
+      "file": "There is no time like the present!.mp4",
+      "files": [
+        "There is no time like the present!.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -33955,6 +34245,36 @@
       "topic": "strategy",
       "topics": [
         "strategy"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "this-is-the-stack-of-ai-tools-i-use-vercel-of-we-1eg76vk",
+      "title": "This is the stack of AI tools I Use Vercel of Web Hosting Gamma for deck slides Nano banana fo",
+      "file": "This is the stack of AI tools I Use  Vercel of Web Hosting Gamma for deck slides Nano banana fo.mp4",
+      "files": [
+        "This is the stack of AI tools I Use  Vercel of Web Hosting Gamma for deck slides Nano banana fo.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "web-design",
+      "topics": [
+        "web-design",
+        "ai-marketing"
       ],
       "hasTranscript": false,
       "kbId": null,

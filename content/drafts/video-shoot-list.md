@@ -95,3 +95,45 @@
 
 ## Once filmed
 Hand me the clip (or the Drive link once access is fixed) and I'll: trim to platform length, burn in the keyword-first captions + brand end-card, write the post caption through the voice + stop-slop gate, and stage it as a draft at a best-time slot.
+
+---
+
+# W31 (Mon 2026-07-27 → Sun 08-02) — one script per day
+
+Jake films and posts these himself (his call). The batch schedules only the 2 automated back-catalog reels/day — these ride on top. Keyword-first: the searchable phrase goes in the first spoken line, the on-screen text, and the caption's first 150 chars. Lowercase, no emoji, no exclamation marks. Book CTA paused — close on the blog or consulting.
+
+**★ Two are LIST REELS** (W30 review exp #2). The "9 AI tools I use" list reel took the program record at 1,486 views / 3.30% ER and simultaneously took X's top slot when cross-posted. One repetition tells us whether that was the format or the topic.
+
+### Mon — `share-of-brand-voice` × Method — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "the one marketing number that predicts next year's revenue. and almost nobody checks it."
+**Beats:** (1) name it — how much of the conversation in your category is you versus everyone else. (2) why it matters — the 95% not buying this quarter buy on memory later, and memory gets built now or never. (3) how to check it in ten minutes — search your category's core terms, count how often you show up against the top competitor across search, social, and the AI answers. that ratio is your number. (4) takeaway: "you can't grow a number you refuse to look at. check it this week. the full breakdown is on the blog."
+*Fourth week dealt, never filmed. It set the program's ER record in the concept-education register.*
+
+### ★ Tue — AI tool stack × Tip — LIST REEL (experimental register)
+**On-screen + first line:** "6 ai tools i actually use, and what each one is for."
+**Beats:** one tool per beat. name it, then the single job it does. no ranking, no affiliate energy, no "game-changer." keep it scannable — the record-setter worked because people screenshot it.
+**Close:** "none of these make the decision. that part is still yours. more on the blog."
+
+### Wed — `core-attraction` × Myth — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "people don't buy logically. you can't out-optimize the wrong emotion."
+**Beats:** the feeling they are actually buying → why testing headlines never fixes it → how to find the real emotion (ask what they were afraid of the day before they called you) → "diagnose the emotion before you write a word. more on the blog."
+
+### Thu — `the-impact-chain` × Method — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "nobody buys the feature. go five layers down."
+**Beats:** feature → benefit → the benefit of the benefit → what it costs them to not have it → the cost of that cost. land it on one real example.
+**Close:** "urgency lives at the bottom of that chain, not in a countdown timer. book the call."
+
+### ★ Fri — `show-up-everywhere` × Method — LIST REEL (second run)
+**On-screen + first line:** "4 places your ads should be that aren't google."
+**Beats:** one placement per beat, plainly named, with what each is good for.
+**Close:** "single channel is dead. they can't buy you if they don't know you exist. more on the blog."
+
+### Sat — `brand-before-logo` × Pitfall — FAQ Answer Clip · B (30–60s)
+**Question on screen:** "should i redesign my logo? almost certainly not yet."
+**Beats:** doctrine, messaging, positioning come first → the logo is the last decision, not the first → what a rebrand actually hides.
+**Close:** "fix what it says before you fix how it looks."
+
+### Sun — `why-this-then-why-you` × Method — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "every sale answers two questions in order. most businesses only answer the second."
+**Beats:** why this at all, then why you → skipping the first is why your best differentiator lands on nobody → how to write the demand question first.
+**Close:** "answer them in order. more on the blog."
