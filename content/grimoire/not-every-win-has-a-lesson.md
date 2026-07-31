@@ -4,7 +4,6 @@ metaTitle: "Not Every Win Has a Lesson"
 slug: not-every-win-has-a-lesson
 date: 2026-07-30
 category: Brand Strategy
-draft: true
 description: "KitKat lost 12 tonnes of chocolate and won a Cannes Grand Prix. There is no playbook in it. The only transferable lesson in an uncopyable win is readiness."
 excerpt: "Every big campaign win gets autopsied for a repeatable rule. Some wins do not have one, and forcing a lesson out of them costs you a quarter."
 lead: "KitKat lost twelve tonnes of chocolate and won a Cannes Grand Prix. Every marketing blog is now reverse-engineering the playbook. There is no playbook. Nobody schedules a truck robbery, and the only transferable lesson in an uncopyable win is watchfulness."
