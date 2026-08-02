@@ -7,6 +7,15 @@
 
 ---
 
+## Scoreboard notes — live tuning (emphasis only, no tier moves)
+
+> From `content/reviews/`. Emphasis annotations, not tier moves (small-N rule: a card needs ≥3 uses AND ≥2 weeks, or a clean ≥2× pattern). Low confidence; re-test next week.
+
+- **W31 (first YouTube note — and it is a measurement note, not a content one).** `getScheduledPosts` confirms **7 Shorts published this week** (`Ful3jkWpmzU`, `E5W9I5wsUQA`, `eWMpdmR5-VU`, `B-NDelPhiA0`, `CyKalr4yEzI`, `NyBCbrt7Gq8`, `ZTqQm3hNzm0`) — all of them Jake's own reels riding the multi-network cross-post. The `BSPO` analytics connector returned **one** YouTube row (3 imp). **Six of seven published Shorts are invisible to this review, for the second consecutive week.** Nothing in this file can be tuned on evidence until that closes: **YouTube is currently unmeasured, not underperforming — do not read its silence as failure.** Escalated to Jake (W31 review §6.7).
+- **W31 — all four dealt Shorts never published.** The video spine dealt YouTube Shorts on Tue / Thu / Fri / Sat (`how-often-should-i-post-for-seo`, `setting-up-an-a-b-test`, `what-marketing-metrics`, `value-proposition`); every one sat in drafts with a passed date. **No card on this page has ever been scored against real data.** The Shorts-feed-off-TikTok bet remains untested rather than disproven. *(W31 review §2.0)*
+
+---
+
 ## 1. Format cards
 
 ### The Search-Intent Long-Form — Tier A

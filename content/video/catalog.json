@@ -42,13 +42,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-29"
-      ],
-      "platformsUsed": [
-        "tiktok"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "6-ways-to-improve-your-seo-through-image-optimiz-a15cf8",
@@ -310,13 +306,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-31"
-      ],
-      "platformsUsed": [
-        "youtube"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "1-seo-is-a-marathon-not-a-sprint-2-google-search-1ffupzq",
@@ -2706,13 +2698,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-28"
-      ],
-      "platformsUsed": [
-        "tiktok"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "how-long-does-search-engine-optimization-actuall-1auwu5i",
@@ -2824,13 +2812,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-28"
-      ],
-      "platformsUsed": [
-        "youtube"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "how-to-add-your-seo-metatags-to-any-website-buil-i7w9a9",
@@ -5415,13 +5399,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-08-01"
-      ],
-      "platformsUsed": [
-        "instagram"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "these-are-the-three-things-that-pro-marketers-ar-9c652u",
@@ -6347,13 +6327,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-31"
-      ],
-      "platformsUsed": [
-        "tiktok"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "we-finally-can-begin-to-understand-how-people-ar-1l7g3u8",
@@ -9121,10 +9097,9 @@
         "ma"
       ],
       "durationSec": null,
-      "topic": "email",
+      "topic": "social-commerce",
       "topics": [
-        "email",
-        "social-content"
+        "social-commerce"
       ],
       "hasTranscript": true,
       "kbId": "dDBH8dHZSyna48ep0Lz1X",
@@ -9140,13 +9115,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-08-02"
-      ],
-      "platformsUsed": [
-        "tiktok"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool. | Topic corrected email -> social-commerce (clip is about listing Amazon products on TikTok Shop and Pinterest); mis-tag flagged by the W31 batch."
     },
     {
       "id": "avoid-these-three-mistakes-in-your-small-busines-1rk69d3",
@@ -10805,13 +10776,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-08-01"
-      ],
-      "platformsUsed": [
-        "youtube"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "this-simple-seo-technique-by-simon-cornelius-is--1ilheer",
@@ -12525,14 +12492,14 @@
       "priorTeaching": 8,
       "ratingPrior": "strong",
       "status": "active",
-      "rating": null,
+      "rating": "good",
       "usedDates": [
         "2026-07-27"
       ],
       "platformsUsed": [
         "tiktok"
       ],
-      "notes": ""
+      "notes": "2026-08-02: W31: published Tue 07-28, re-routed to all 7 networks. LinkedIn 104 imp = 2.04x LI median (51) and the top LinkedIn post of the week; TikTok 571 = 1.00x TT median; IG 183 = 0.92x; FB 201 = 0.99x; X 22 = 1.22x. ~885 imp from one back-catalog clip."
     },
     {
       "id": "drop-your-marketing-news-in-the-chat-top-three-s-1dg55la",
@@ -15244,13 +15211,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-08-02"
-      ],
-      "platformsUsed": [
-        "instagram"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "it-s-time-for-another-game-of-is-seo-dead-k3bg1p",
@@ -15566,13 +15529,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-30"
-      ],
-      "platformsUsed": [
-        "instagram"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "marketing-b2b-ai-become-a-marketing-specialist-a-ed4749",
@@ -16250,13 +16209,9 @@
       "ratingPrior": "strong",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-30"
-      ],
-      "platformsUsed": [
-        "youtube"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "should-b2b-do-seo-133mh1b",
@@ -17910,14 +17865,14 @@
       "priorTeaching": 8,
       "ratingPrior": "strong",
       "status": "active",
-      "rating": null,
+      "rating": "ok",
       "usedDates": [
         "2026-07-29"
       ],
       "platformsUsed": [
         "instagram"
       ],
-      "notes": ""
+      "notes": "2026-08-02: W31: published Wed 07-29 IG+FB as dealt. IG 199 imp = 1.00x IG reel median (199) - exactly at median. FB 4 imp vs median 203, but it was FB's 2nd post that day and n=1, so not scored as a miss. Held active."
     },
     {
       "id": "what-is-wordpress-and-other-common-questions-ans-1tvs2m3",
@@ -18990,13 +18945,9 @@
       "ratingPrior": "solid",
       "status": "active",
       "rating": null,
-      "usedDates": [
-        "2026-07-27"
-      ],
-      "platformsUsed": [
-        "instagram"
-      ],
-      "notes": ""
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
     },
     {
       "id": "all-these-courses-are-absolutely-amazing-1n0w9xh",
