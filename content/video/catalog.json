@@ -1,8 +1,8 @@
 {
-  "builtAt": "2026-07-27T15:13:23.001Z",
+  "builtAt": "2026-08-03T15:14:17.714Z",
   "clipDir": "G:\\My Drive\\TikTok\\Old",
-  "totalFiles": 1172,
-  "uniqueClips": 1018,
+  "totalFiles": 1179,
+  "uniqueClips": 1025,
   "matchedTranscripts": 737,
   "clips": [
     {
@@ -122,7 +122,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-06"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "how-to-make-a-facebook-look-like-audience-for-yo-fr6ows",
@@ -159,7 +165,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-04"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "it-s-along-with-all-of-the-technical-seo-checkli-1whuehh",
@@ -853,7 +865,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-07"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "if-you-can-execute-on-this-you-will-definitely-h-1cpge6f",
@@ -929,7 +947,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-03"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "1-use-entity-maps-when-creating-page-content-2-a-1dqrey4",
@@ -1104,7 +1128,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-08"
+      ],
+      "platformsDealt": [
+        "all7"
+      ]
     },
     {
       "id": "3-seo-mistakes-i-see-all-the-time-132mmnu",
@@ -1872,7 +1902,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-05"
+      ],
+      "platformsDealt": [
+        "all7"
+      ]
     },
     {
       "id": "easy-seo-tips-that-matter-1v1dkc3",
@@ -5964,7 +6000,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-09"
+      ],
+      "platformsDealt": [
+        "all7"
+      ]
     },
     {
       "id": "this-is-the-process-that-i-use-for-creating-cont-3xzopq",
@@ -6516,7 +6558,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-07"
+      ],
+      "platformsDealt": [
+        "all7"
+      ]
     },
     {
       "id": "when-it-comes-to-seo-search-console-is-your-frie-1rdtcry",
@@ -9099,7 +9147,8 @@
       "durationSec": null,
       "topic": "social-commerce",
       "topics": [
-        "social-commerce"
+        "email",
+        "social-content"
       ],
       "hasTranscript": true,
       "kbId": "dDBH8dHZSyna48ep0Lz1X",
@@ -9117,7 +9166,14 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool. | Topic corrected email -> social-commerce (clip is about listing Amazon products on TikTok Shop and Pinterest); mis-tag flagged by the W31 batch."
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool. | Topic corrected email -> social-commerce (clip is about listing Amazon products on TikTok Shop and Pinterest); mis-tag flagged by the W31 batch. Retagged email->social-commerce (W31 review); topicFixed so rebuilds keep it.",
+      "dealtDates": [
+        "2026-08-05"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ],
+      "topicFixed": true
     },
     {
       "id": "avoid-these-three-mistakes-in-your-small-busines-1rk69d3",
@@ -9681,7 +9737,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-06"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "fake-results-are-original-results-and-google-doe-qcnefp",
@@ -11506,7 +11568,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-04"
+      ],
+      "platformsDealt": [
+        "all7"
+      ]
     },
     {
       "id": "i-also-forgot-monitor-and-optimize-see-it-s-so-e-186ocrb",
@@ -13349,7 +13417,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-08"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "build-a-business-marketing-mandate-in-3-steps-m2fchl",
@@ -15885,7 +15959,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-09"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "reviewing-this-awesome-custom-pinata-site-1alpxjx",
@@ -19977,7 +20057,13 @@
       "rating": null,
       "usedDates": [],
       "platformsUsed": [],
-      "notes": ""
+      "notes": "",
+      "dealtDates": [
+        "2026-08-03"
+      ],
+      "platformsDealt": [
+        "tiktok"
+      ]
     },
     {
       "id": "website-review-of-an-ai-ecommerce-website-builde-iijotg",
@@ -27931,6 +28017,35 @@
       "notes": ""
     },
     {
+      "id": "check-out-my-latest-post-13p6lan",
+      "title": "Check out my latest post",
+      "file": "Check out my latest post.mp4",
+      "files": [
+        "Check out my latest post.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "check-out-my-latest-video-n8y0to",
       "title": "Check out my latest video",
       "file": "Check out my latest video.mp4",
@@ -29220,6 +29335,35 @@
       "notes": ""
     },
     {
+      "id": "google-has-changed-the-deal-pray-they-do-not-alt-dzvwgt",
+      "title": "Google has changed the deal. Pray they do not alter it further.....",
+      "file": "Google has changed the deal. Pray they do not alter it further......mp4",
+      "files": [
+        "Google has changed the deal. Pray they do not alter it further......mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "google-search-console-is-a-pain-1ddmocf",
       "title": "Google search console is a pain.",
       "file": "#Meme #MemeCut #CapCut Google search console is a pain..mp4",
@@ -29329,6 +29473,35 @@
       "topic": "marketing",
       "topics": [
         "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "great-marketing-is-risky-cfos-dont-like-that-7zl8nv",
+      "title": "Great marketing is risky. CFOs dont like that.",
+      "file": "Great marketing is risky. CFOs dont like that..mp4",
+      "files": [
+        "Great marketing is risky. CFOs dont like that..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "strategy",
+      "topics": [
+        "strategy"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -34868,6 +35041,35 @@
       "notes": ""
     },
     {
+      "id": "what-is-a-brand-and-how-to-tell-if-yours-is-work-1rvvboy",
+      "title": "what is a brand, and how to tell if yours is working. a brand is not the logo. it is how people",
+      "file": "what is a brand, and how to tell if yours is working. a brand is not the logo. it is how people.mp4",
+      "files": [
+        "what is a brand, and how to tell if yours is working. a brand is not the logo. it is how people.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "branding",
+      "topics": [
+        "branding"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "what-is-an-ad-you-will-never-forget-16xl05m",
       "title": "What is an ad you will never forget",
       "file": "What is an ad you will never forget .mp4",
@@ -35114,6 +35316,35 @@
       "notes": ""
     },
     {
+      "id": "what-you-do-is-the-best-content-1g2vzca",
+      "title": "What you do is the best content.",
+      "file": "What you do is the best content..mp4",
+      "files": [
+        "What you do is the best content..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "social-content",
+      "topics": [
+        "social-content"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
       "id": "what-s-keeping-you-up-at-night-11bootl",
       "title": "what's keeping you up at night",
       "file": "what's keeping you up at night  #marketing.mp4",
@@ -35194,6 +35425,35 @@
       "topics": [
         "seo",
         "strategy"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "whether-you-like-it-or-not-everything-is-a-brand-102gxsc",
+      "title": "Whether you like it or not, everything is a branding choice.",
+      "file": "Whether you like it or not, everything is a branding choice..mp4",
+      "files": [
+        "Whether you like it or not, everything is a branding choice..mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "branding",
+      "topics": [
+        "branding"
       ],
       "hasTranscript": false,
       "kbId": null,
@@ -35476,6 +35736,35 @@
       "file": "you need to use human inspiration and intellect to create things that are actually magnetic and.mp4",
       "files": [
         "you need to use human inspiration and intellect to create things that are actually magnetic and.mp4"
+      ],
+      "dupeCount": 1,
+      "tags": [],
+      "durationSec": null,
+      "topic": "marketing",
+      "topics": [
+        "marketing"
+      ],
+      "hasTranscript": false,
+      "kbId": null,
+      "kbTopics": [],
+      "summary": "",
+      "contentType": "",
+      "wordCount": null,
+      "priorScore": null,
+      "priorTeaching": null,
+      "ratingPrior": null,
+      "status": "active",
+      "rating": null,
+      "usedDates": [],
+      "platformsUsed": [],
+      "notes": ""
+    },
+    {
+      "id": "you-re-not-going-to-save-your-customers-they-can-hj6yte",
+      "title": "You're not going to save your customers, they can only save themselves. Give them the tools to",
+      "file": "You're not going to save your customers, they can only save themselves. Give them the tools to .mp4",
+      "files": [
+        "You're not going to save your customers, they can only save themselves. Give them the tools to .mp4"
       ],
       "dupeCount": 1,
       "tags": [],

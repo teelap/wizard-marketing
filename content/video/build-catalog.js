@@ -310,7 +310,12 @@ function main() {
       rec.rating = old.rating != null ? old.rating : rec.rating;
       rec.usedDates = Array.isArray(old.usedDates) ? old.usedDates : rec.usedDates;
       rec.platformsUsed = Array.isArray(old.platformsUsed) ? old.platformsUsed : rec.platformsUsed;
+      rec.dealtDates = Array.isArray(old.dealtDates) ? old.dealtDates : [];
+      rec.platformsDealt = Array.isArray(old.platformsDealt) ? old.platformsDealt : [];
       rec.notes = old.notes || rec.notes;
+      // Hand-corrected topics survive a rebuild. The W31 review retagged one clip
+      // from `email` to `social-commerce` and this rebuild silently reverted it.
+      if (old.topicFixed) { rec.topic = old.topic; rec.topicFixed = true; }
       if (rec.status !== 'active' || rec.rating || rec.usedDates.length) carried++;
     }
 

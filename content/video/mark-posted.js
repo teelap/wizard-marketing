@@ -20,9 +20,16 @@ const path = require('path');
 const CATALOG = path.join(__dirname, 'catalog.json');
 
 function main() {
-  const [id, isoDate, network] = process.argv.slice(2);
+  const argv = process.argv.slice(2);
+  // --dealt records that the batch DRAFTED this clip; publication is not implied.
+  // Without it the script records a real publish (usedDates), which is what starts
+  // the 12-week cooldown and what the Sunday review scores. Keeping those apart is
+  // the W31 review's §6.3 fix: 12 clips were stamped "posted" at draft time, never
+  // published, and would have been retired as duds on evidence that did not exist.
+  const dealtOnly = argv.includes('--dealt');
+  const [id, isoDate, network] = argv.filter(a => a !== '--dealt');
   if (!id || !isoDate || !network) {
-    console.error('Usage: node mark-posted.js <clipId> <isoDate> <network>');
+    console.error('Usage: node mark-posted.js <clipId> <isoDate> <network> [--dealt]');
     process.exit(1);
   }
   if (!/^\d{4}-\d{2}-\d{2}/.test(isoDate)) {
@@ -38,14 +45,17 @@ function main() {
   }
 
   const day = isoDate.slice(0, 10);
-  clip.usedDates = clip.usedDates || [];
-  clip.platformsUsed = clip.platformsUsed || [];
-  const already = clip.usedDates.includes(day) && clip.platformsUsed.includes(network);
-  if (!clip.usedDates.includes(day)) clip.usedDates.push(day);
-  if (!clip.platformsUsed.includes(network)) clip.platformsUsed.push(network);
+  const dateField = dealtOnly ? 'dealtDates' : 'usedDates';
+  const netField = dealtOnly ? 'platformsDealt' : 'platformsUsed';
+  clip[dateField] = clip[dateField] || [];
+  clip[netField] = clip[netField] || [];
+  const already = clip[dateField].includes(day) && clip[netField].includes(network);
+  if (!clip[dateField].includes(day)) clip[dateField].push(day);
+  if (!clip[netField].includes(network)) clip[netField].push(network);
 
   fs.writeFileSync(CATALOG, JSON.stringify(manifest, null, 2));
-  console.log(`${already ? '(no change) ' : ''}marked ${id} · ${day} · ${network} — used ${clip.usedDates.length}x, on [${clip.platformsUsed.join(', ')}]`);
+  const verb = dealtOnly ? 'dealt' : 'posted';
+  console.log(`${already ? '(no change) ' : ''}marked ${id} · ${day} · ${network} — ${verb} ${clip[dateField].length}x, on [${clip[netField].join(', ')}]`);
 }
 
 main();

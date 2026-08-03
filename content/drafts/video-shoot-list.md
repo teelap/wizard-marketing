@@ -137,3 +137,45 @@ Jake films and posts these himself (his call). The batch schedules only the 2 au
 **On-screen + first line:** "every sale answers two questions in order. most businesses only answer the second."
 **Beats:** why this at all, then why you → skipping the first is why your best differentiator lands on nobody → how to write the demand question first.
 **Close:** "answer them in order. more on the blog."
+
+---
+
+## Week of 2026-08-03 (W32) — Jake films + posts these himself
+
+> The batch schedules the 2 automated back-catalog reels/day. These seven ride on top and are **not** scheduled.
+> **All seven W31 anchors went unfilmed (4th straight week), so both list-reel scripts are held over rather than replaced — that test has still never run.**
+
+### ★ Mon — AI tool stack × Tip — LIST REEL (held over, 2nd attempt)
+**On-screen + first line:** "6 ai tools i actually use, and what each one is for."
+**Beats:** one tool per beat, named, with the single job it does. Keep it scannable — the W30 record-setter was screenshot-able.
+**Close:** "none of these make the decision. that part is still yours. more on the blog."
+
+### Tue — `the-center-point` × Commentary — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "ai cannot have your idea. it can only build it."
+**Beats:** it returns the most probable answer, and probable means average → same model plus same brief as your competitor equals the same ad → it can look like a leap because averaging two existing things reads as new.
+**Close:** "bring the idea. put it at the center. let the machine do the work underneath. more on the blog."
+
+### Wed — `your-website-has-three-jobs` × Pitfall — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "your website has three jobs. most sites fail at least one."
+**Beats:** load fast → work on a phone → answer what is this, why am i here, what do i do next. Land on the third, the one most people miss.
+**Close:** "open your homepage on your phone and time it. book the call if it fails."
+
+### Thu — `the-vulture-tax` × Myth — FAQ Answer Clip · B (30–60s)
+**On-screen + first line:** "should i jump on every buying signal? that is how you become the vulture of your category."
+**Beats:** signal selling is quantity marketing with a tiny win rate → automation dropped everyone into the same crowd chasing the same trigger → brand voice is what lets you send less and still win.
+**Close:** "land the deal, lose the room. pick which one you are optimizing for."
+
+### ★ Fri — `show-up-everywhere` × Method — LIST REEL (held over, 2nd attempt)
+**On-screen + first line:** "4 places your ads should be that aren't google."
+**Beats:** one placement per beat, plainly named, with what each is good for.
+**Close:** "single channel is dead. they can't buy you if they don't know you exist. more on the blog."
+
+### Sat — `the-reward-is-the-rudder` × Commentary — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "tiktok didn't kill short form. it stopped paying for the disposable version."
+**Beats:** short still gets watched and still wins reach → the money moved to mid-form, which raises the floor → a platform doesn't ban the format it is tired of, it stops rewarding it.
+**Close:** "read what a platform pays for, not what it posts. more on the blog."
+
+### Sun — `taste-and-clarity` × Takeaway — Diagnosis Clip · A (45–90s)
+**On-screen + first line:** "clear beats clever, every single time."
+**Beats:** clever is written for other marketers → clear is written for the person deciding → the test is whether a stranger can repeat your offer back after one read.
+**Close:** "read it out loud to someone outside your industry. if they hesitate, rewrite it."

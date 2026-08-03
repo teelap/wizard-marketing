@@ -35,6 +35,10 @@ function arg(name, def) {
 const WEEK = arg('--week', 'default-week');
 const COUNT = parseInt(arg('--count', '14'), 10);
 let COOLDOWN_WEEKS = parseInt(arg('--cooldown', '12'), 10);
+// Short guard so a clip still sitting unpublished in the planner is not dealt
+// again next Monday. Much shorter than the post-publish cooldown.
+const DEALT_WINDOW_WEEKS = parseInt(arg('--dealt-window', '3'), 10);
+const DEALT_WINDOW_MS = DEALT_WINDOW_WEEKS * 7 * 24 * 3600 * 1000;
 const JSON_OUT = process.argv.includes('--json');
 const PLATFORMS = ['tiktok', 'instagram', 'youtube'];
 
@@ -59,6 +63,14 @@ function lastUsed(c) {
   if (!c.usedDates || !c.usedDates.length) return 0;
   return Math.max(...c.usedDates.map(d => Date.parse(d) || 0));
 }
+// Last time a clip was DEALT into a draft (whether or not it ever published).
+// Separate from usedDates on purpose — see the W31 review §4/§6.3: stamping a
+// draft as "posted" locked good clips out for a cooldown they never earned and
+// would have had a later review retire them as "posted, zero performance".
+function lastDealt(c) {
+  if (!c.dealtDates || !c.dealtDates.length) return 0;
+  return Math.max(...c.dealtDates.map(d => Date.parse(d) || 0));
+}
 function score(c) {
   let s = 0;
   if (c.rating === 'good') s += 100;
@@ -74,7 +86,8 @@ function eligible(clips, now, cooldownMs) {
   return clips.filter(c =>
     c.status !== 'retired' &&
     c.rating !== 'bad' &&
-    (now - lastUsed(c) > cooldownMs));
+    (now - lastUsed(c) > cooldownMs) &&
+    (now - lastDealt(c) > DEALT_WINDOW_MS));
 }
 
 function deal(clips, now) {
