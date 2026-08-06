@@ -4,7 +4,7 @@ Copy this to `content/calendar/2026-Wnn.md` each week. Fill it in during the Mon
 
 ---
 
-## Week of: ____  ·  The deck this week: ____  (list the distinct subjects you're dealing — e.g. "SoBV · CRO · Domino 03 · benefit-of-the-benefit · TikTok SEO · AI-skepticism · personal brand")
+## Week of: ____  ·  The deck this week: ____  (list the distinct subjects you're dealing — e.g. "SoBV · CRO · Value Proposition · benefit-of-the-benefit · TikTok SEO · AI-skepticism · personal brand")
 
 **Distinct subjects dealt:** ____ (count) · **Topic Types used (rotate; don't repeat last week's):** ____ · **Format cards dealt (aim ~70/30 proven/experimental):** ____ · **Last week's subjects + cards (don't re-run):** ____  → see [CONTENT_MATRIX.md](../CONTENT_MATRIX.md) + [formats/](../formats/README.md)
 
@@ -42,9 +42,9 @@ Copy this to `content/calendar/2026-Wnn.md` each week. Fill it in during the Mon
 - [ ] ____
 - [ ] ____
 
-### Book-launch overlay (until July)
-- This week's waitlist CTA placement: ____
-- Lead magnet / free-chapter mention: ____
+### CTA overlay
+- Book CTA is **LIVE** (published 2026-08-03; pause lifted 2026-08-06) — "Buy the book" → `https://www.amazon.com/dp/B0HD48KJGD`. Framework names usable; teach the concept before reaching for the label (CONTENT_GUIDE §3, §6, §8). "Get the truth" stays retired.
+- This week's CTA placement (book "Buy the book" / consulting "Book the call" / Grimoire post / newsletter): ____
 
 ### Post-week review (Stage 4)
 - Best performer: ____ · Worst: ____ · Carry into next week: ____

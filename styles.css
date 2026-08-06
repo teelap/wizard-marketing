@@ -396,7 +396,7 @@ a:hover { color: var(--gold); }
     .asymmetric-left { flex: 0 0 35%; position: sticky; top: 120px; }
     .asymmetric-right { flex: 1; margin-top: clamp(2rem, 8vh, 6rem); }
 }
-.jake-bio-photo { width: 100%; max-width: 350px; margin-top: 2rem; border-radius: var(--radius-md); }
+.jake-bio-photo { display: block; width: 100%; height: auto; max-width: 350px; margin-top: 2rem; border-radius: var(--radius-md); }
 .body-copy-large p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; color: var(--text-day); opacity: 0.92; }
 
 /* ─── Eight Dominoes Section ────────────────────────────────── */
@@ -1560,3 +1560,184 @@ a.logo:hover { color: var(--wax-red); }
 .description { font-family: var(--font-accent); font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
 .center-text { text-align: center; }
 .description.center-text { margin: 0.75rem auto 0; max-width: 600px; }
+
+/* ==========================================================================
+   BOOK LAUNCH — Eight Dominoes (shipped Aug 2026)
+   The hero buy panel, spec sheet, endorsement and press blocks. Replaces the
+   pre-launch waiting-list treatment; see eight-dominoes.html and media-kit.html.
+   ========================================================================== */
+
+/* Hero: cover beside the buy column. Stacks under 860px. */
+.book-buy-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    text-align: center;
+}
+@media (min-width: 860px) {
+    .book-buy-panel {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: clamp(2rem, 5vw, 3.5rem);
+        text-align: left;
+    }
+}
+
+.book-cover-hero {
+    flex: 0 0 auto;
+    width: clamp(180px, 46vw, 268px);
+    display: block;
+    height: auto;
+    filter: drop-shadow(10px 16px 34px rgba(0, 0, 0, 0.45));
+    transform: rotate(-2deg);
+    transition: transform var(--transition);
+}
+.book-cover-hero:hover { transform: rotate(0deg) translateY(-5px); }
+@media (prefers-reduced-motion: reduce) {
+    .book-cover-hero,
+    .book-cover-hero:hover { transform: none; transition: none; }
+}
+
+.book-buy-col { flex: 1 1 auto; min-width: 0; }
+
+/* Format pills — paperback / Kindle / audiobook status. */
+.book-formats {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+@media (min-width: 860px) { .book-formats { justify-content: flex-start; } }
+.book-formats li {
+    font-family: var(--font-accent);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid currentColor;
+    border-radius: var(--radius-pill);
+    opacity: 0.85;
+}
+.book-formats li.is-pending { opacity: 0.55; font-style: italic; }
+
+.book-buy-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+@media (min-width: 860px) { .book-buy-actions { justify-content: flex-start; } }
+
+.book-price {
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    margin-top: 0.85rem;
+    opacity: 0.85;
+}
+
+/* Endorsement — the Marty Marion pull quote. */
+.book-endorsement {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-md) 0;
+}
+.book-endorsement blockquote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.25;
+    margin: 0;
+}
+.book-endorsement cite {
+    display: block;
+    margin-top: var(--space-sm);
+    font-family: var(--font-accent);
+    font-style: normal;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+.book-endorsement cite strong { display: block; font-size: 1.05rem; letter-spacing: 0; }
+
+/* Spec sheet — the fact-sheet rows on the book and media-kit pages. */
+.book-specs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: var(--space-md) 0 0;
+    border-top: 1px solid var(--edge-burn);
+}
+@media (min-width: 640px) { .book-specs { grid-template-columns: 1fr 1fr; column-gap: var(--space-lg); } }
+.book-specs div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--edge-burn);
+}
+.book-specs dt {
+    font-family: var(--font-accent);
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin: 0;
+}
+.book-specs dd {
+    margin: 0;
+    text-align: right;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+/* Media kit — asset download cards and the copy-block list. */
+.kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+.kit-card {
+    border: 1px solid var(--edge-burn);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+.kit-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.kit-card img {
+    width: 100%;
+    height: 168px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 0.4rem;
+}
+.kit-card h3 { font-family: var(--font-heading); font-size: 1.05rem; margin: 0; }
+.kit-card p { font-size: 0.85rem; opacity: 0.8; margin: 0; flex: 1 1 auto; }
+.kit-card a { font-family: var(--font-accent); font-size: 0.9rem; letter-spacing: 1px; color: var(--wax-red); font-weight: 700; }
+
+/* Copy blocks a journalist can lift verbatim. */
+.kit-copy {
+    border-left: 3px solid var(--wax-red);
+    padding: 0.2rem 0 0.2rem var(--space-sm);
+    margin: var(--space-md) 0;
+}
+.kit-copy h3 {
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin: 0 0 0.5rem;
+}
+.kit-copy p { margin: 0 0 0.75rem; }
+.kit-copy p:last-child { margin-bottom: 0; }

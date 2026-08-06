@@ -19,6 +19,7 @@ duplicated**:
 - `content/CONTENT_MATRIX.md` — the 8 Topic Types (rotate the angle, don't repeat the queue).
 - `content/formats/` — the **format deck**: per-platform proven structures + hook banks. Deal a format card + hook (different from the recent queue) instead of writing from a blank page. Reactive posts lean on the news-friendly cards (X *Teardown* / *News React* hook, Threads *Hot Take + Open Floor*, the *Diagnosis Fragment*).
 - `content/README.md` §4 — the approval workflow.
+- `content/COMPETITORS.md` — the competitor feed: how to pull tracked competitors' recent posts via the MCP + the field-ID cheat sheet (the `…CP…`/`…CV…` post-level metrics you scan here).
 - `content/Ideas/` — Jake's permanent top-concepts library (concept docs with per-channel cuts). Fallback source for a Short post when nothing's timely; borrow a line. **Nothing consumes this bank** — never stamp, retire, or move a concept.
 - `VOICE_DOSSIER.md` (repo root) — Jake's voice.
 
@@ -29,9 +30,10 @@ tools only load in a **fresh** session.
 - **Nothing publishes.** `draft: true` (+ `autoPublish: true`). Jake approves in the planner.
 - **Stat integrity.** Stat bank only, and NEVER as a first-person claim ("I did/saw X") — the auto-mode classifier blocks it. Frame as "a client" / third-person, or omit the number.
 - **Silence beats slop.** If nothing is genuinely timely, pull the **Short post** cut from a `content/Ideas/` concept (`ready`/`building`) instead of forcing a hot take. Borrow a line — the Ideas bank is a permanent library; **nothing consumes it** (no stamping, no `Used/`).
+- **The book CTA is LIVE.** *Eight Dominoes* published 2026-08-03; Jake lifted the pre-launch pause on 2026-08-06. "Buy the book" is a legal close (`https://www.amazon.com/dp/B0HD48KJGD`), and the framework names are usable (CONTENT_GUIDE §3, §6, §8) — just don't open a cold-audience post on the jargon. "Get the truth" stays **retired**. Otherwise close on consulting, the relevant Grimoire post, or the newsletter.
 
 ## 1. Scan (what's moving today)
-- `getBrandSettings` → confirm brand. Pull competitor posts via Metricool if available.
+- `getBrandSettings` → confirm brand. **Pull the competitor posts/videos feed** (recipe + field IDs in `content/COMPETITORS.md`): `getAnalyticsDataByMetrics` with `IGCP` / `TTCP` / `YTCV` over the **last ~3–7 days** → what's landing for competitors right now, trending subjects, and content gaps Jake can own. Study the reach mechanics; never copy off-brand ones (comment-to-DM guru funnels are banned by CONTENT_GUIDE). Plus a manual TikTok scan (Metricool can't track TikTok competitors).
 - Check what's live in marketing / SEO / AI today (a couple of searches). Note 1–2 angles Jake has a real, earned POV on — not just a reaction.
 - `getScheduledPosts` for the next few days → see what's already queued so you do NOT repeat a **subject**, Topic Type, format card, or hook the evergreen deck already placed.
 

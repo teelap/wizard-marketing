@@ -88,7 +88,7 @@
   - **T4:** the lever that actually moves it (the core fix).
   - **T5:** a stat-bank receipt or a composite client beat as proof.
   - **T6 (close):** the takeaway in one repostable line + soft CTA.
-  - **First reply:** the CTA + link — the relevant Grimoire post or the newsletter (book/waitlist CTA paused for now, CONTENT_GUIDE §3).
+  - **First reply:** the CTA + link — the relevant Grimoire post or the newsletter, or the book "Buy the book" (CTA live, CONTENT_GUIDE §3).
 - **Hooks that fit:** The Reframe, The Contrarian Claim, The Diagnosis.
 - **Example (Jake's voice):** T1 — "Your product isn't the problem. Your sequence is. Here's the order most founders get backwards." … T6 — "Find the bottleneck. Fix the sequence. Compound the results."
 - **Don't:** bury the diagnosis under a "1/" throat-clear. Don't cram two ideas in one tweet. Don't put the link in T1. Don't let any tweet run past ~250 chars.

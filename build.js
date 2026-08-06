@@ -48,6 +48,7 @@ const PUBLIC_FILES = [
     'consulting.html',
     'mastermind.html',
     'eight-dominoes.html',
+    'media-kit.html',
     'podcast-guest.html',
     'tools.html',
     'privacy.html',
@@ -76,7 +77,10 @@ const PUBLIC_FILES = [
     '32451bfd49b298c9e7229c3f53a31e24.txt',
 ];
 
-const PUBLIC_DIRS = ['dev_assets'];
+// press/ holds the full-resolution cover art, author photography and the
+// media-kit zip that /media-kit links for download. Kept out of dev_assets so
+// the originals stay untouched by the WebP/optimised pipeline.
+const PUBLIC_DIRS = ['dev_assets', 'press'];
 
 const YT_CONTAINER_RE = /<div class="video-wrapper" id="youtube-feed-container">[\s\S]*?<\/div>/;
 const TT_CONTAINER_RE = /<div class="video-wrapper tiktok-wrapper" id="tiktok-feed-container">[\s\S]*?<\/div>/;

@@ -117,9 +117,17 @@ The site blog — **The Grimoire** (`/grimoire`, posts in `content/grimoire/*.md
 
 ---
 
-## 6. JULY BOOK LAUNCH OVERLAY ("Eight Dominoes")
+## 6. BOOK LAUNCH OVERLAY ("Eight Dominoes") — **LIVE**
 
-Launch is **July 2026**. The eight messaging concepts live in the weekly deck as ordinary subjects (no privileged "one domino per week" hero — Jake's call, so the feed bounces), but **taught plainly, without the "Domino" / "Eight Dominoes" label** — the cold audience doesn't know the term (Jake's call 2026-06-19; CONTENT_GUIDE §6, §8). **The "Eight Dominoes" branding AND the book/waitlist CTA are reserved for posts specifically about the book and for the launch window — both are paused in the everyday engine until launch is closer.** Near launch: turn the book branding back on, weight the deck toward the framework to tighten the drumbeat, build the waitlist on **owned channels** (Resend email + LinkedIn newsletter) the algorithm can't throttle, and amplify the 2–3 best-performing LinkedIn carousels via **Thought Leader Ads**. One free chapter = the lead magnet, hosted on the blog.
+**The book shipped 2026-08-03.** Jake lifted the pre-launch pause on **2026-08-06**, which also closes the standing escalation the W31 review raised (it had asked him to confirm the un-pause after he hand-added a book CTA to a published comment).
+
+What that changes:
+- **The "Eight Dominoes" branding is ON.** The framework names are usable on any post, not just book-specific ones (CONTENT_GUIDE §6, §8). Judgement still applies: teach the concept first, name it second, so a cold audience meets the idea before the jargon.
+- **The book CTA is a legal close** — "Buy the book," `https://www.amazon.com/dp/B0HD48KJGD`. During the launch window it's the *default* close on any post about messaging or the framework; consulting / Grimoire / newsletter stay in rotation for everything else.
+- **The eight concepts stay ordinary subjects in the deck** — no privileged "one domino per week" hero (Jake's call, so the feed still bounces). The branding coming back is not licence to turn the week into eight book ads.
+- Facts, prices, ISBN and the Marty Marion endorsement are now in the approved stat bank (CONTENT_GUIDE §2). Press assets live at `/media-kit`; the source kit is in `press/`.
+
+Still to run: weight the deck toward the framework during the launch drumbeat, push on **owned channels** (Resend email + LinkedIn newsletter) the algorithm can't throttle, and amplify the 2–3 best-performing LinkedIn carousels via **Thought Leader Ads**. One free chapter as a lead magnet on the blog remains unbuilt.
 
 ---
 
