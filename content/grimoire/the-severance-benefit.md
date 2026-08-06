@@ -4,7 +4,6 @@ metaTitle: "The Severance Benefit"
 slug: the-severance-benefit
 date: 2026-08-06
 category: Brand Strategy
-draft: true
 description: "Gap opened its creator program to its own employees. The fear is they leave and take the audience. They do. You still win, and here is the math on why."
 excerpt: "Employee-generated content looks like funding personal brands you will never own. The content stays, the reach already landed, and the person walks out an advocate."
 lead: "Gap just opened its creator program to its own employees, and it is the right call for most businesses. The people already inside carry the brand linkage that rented creators keep failing to fake. When one of them leaves, nothing breaks: the posts stay up, the reach already landed, and they walk out with an audience they built on your dime. Portability is the benefit, not the risk."
