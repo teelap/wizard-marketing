@@ -11565,10 +11565,14 @@
       "priorTeaching": 8,
       "ratingPrior": "strong",
       "status": "active",
-      "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
-      "notes": "",
+      "rating": "good",
+      "usedDates": [
+        "2026-08-04"
+      ],
+      "platformsUsed": [
+        "all7"
+      ],
+      "notes": "2026-08-09: W32: dealt Tue all-7 and published as dealt. Beat median on 4 of 5 measured networks: LinkedIn 76=1.31x, X 26=1.27x, TikTok 718=1.26x (top TikTok reach of the week), IG 119=1.21x; FB 74=0.71x the only miss. ~1,013 imp / 35 int total - the best-performing DEALT item in the program's history.",
       "dealtDates": [
         "2026-08-04"
       ],
@@ -15284,10 +15288,14 @@
       "priorTeaching": 8,
       "ratingPrior": "strong",
       "status": "active",
-      "rating": null,
-      "usedDates": [],
-      "platformsUsed": [],
-      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool."
+      "rating": "good",
+      "usedDates": [
+        "2026-08-03"
+      ],
+      "platformsUsed": [
+        "all7"
+      ],
+      "notes": "W31 review: dealt 2026-W31 but the draft never published (publish-through gap). False usedDates stamp cleared so the 12-week cooldown does not lock an unposted clip out, and so a future review cannot mis-read it as a zero-performance post. Returned to the pool. | 2026-08-09: W32: W31 leftover, Jake re-routed IG+FB to all 7 by hand and shipped Mon. Took the top IG reel (207=2.11x median) AND the top FB reel (217=2.08x) of the week; TikTok 492=0.86x, LinkedIn 53=0.91x, X 15=0.73x. ~988 imp / 24 int. Second clip in two weeks to prove back-catalog beats fresh footage on Meta surfaces."
     },
     {
       "id": "it-s-time-for-another-game-of-is-seo-dead-k3bg1p",
