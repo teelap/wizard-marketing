@@ -7,7 +7,6 @@ category: Brand Strategy
 description: "Show up everywhere is still the rule. Everywhere means everywhere in reality. EA just built an ad business on the wrong side of that fence."
 excerpt: "EA turned its games into ad inventory and told its studios to design around it. Escapism is the one room where showing up costs you the room."
 lead: "Show up everywhere still holds. Everywhere means everywhere in reality. Follow a customer into the escape they paid for and you do not win attention, you lose the customer."
-draft: true
 faq:
   - q: "Should brands advertise inside video games?"
     a: >
