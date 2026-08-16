@@ -2,9 +2,8 @@
 title: "The Center Point: AI Cannot Have Your Idea"
 metaTitle: "The Center Point"
 slug: the-center-point
-date: 2026-08-03
+date: 2026-08-16
 category: AI & Marketing
-draft: true
 description: "AI is an aggregate, not a creative. It returns the average, which is why 86% of marketers have already seen AI output that resembles a competitor's."
 excerpt: "AI returns the most likely answer, and the most likely answer is the average. That is why your ad looks like your competitor's, and why a better prompt will not save you."
 lead: "AI is not a creative. It is an aggregate. It hands back the most likely answer, the most likely answer is the average, and that is why 86% of marketers have already seen AI output that resembles a competitor's. It cannot have your idea. It can only build it."
