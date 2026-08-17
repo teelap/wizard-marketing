@@ -4,7 +4,6 @@ metaTitle: "Pressure Is Not a Plan"
 slug: pressure-is-not-a-plan
 date: 2026-08-17
 category: AI & Marketing
-draft: true
 description: "80% of marketing leaders feel pressure to adopt AI. 15% have a plan with an owner and metrics. That gap is not a readiness problem. It is a bill coming due."
 excerpt: "Feeling behind is a mood. A plan is a decision. Most companies have the first, call it adoption, and never notice the difference."
 lead: "Eighty percent of marketing leaders feel pressure to adopt AI within a year. Fifteen percent have a plan with a named owner and real metrics. That gap is not a soft readiness problem. It is a business about to get hurt."
