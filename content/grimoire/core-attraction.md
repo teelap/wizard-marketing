@@ -4,7 +4,6 @@ metaTitle: "The Emotion Behind Every Purchase"
 slug: core-attraction
 date: 2026-08-24
 category: Messaging & Strategy
-draft: true
 description: "People browse intellectually and buy emotionally. Core Attraction is the one emotion your buyer already runs on, and no funnel fix outranks it."
 excerpt: "The cleanest funnel in your category still dies if it sits on top of an emotion your customer does not feel."
 lead: "People browse intellectually and buy emotionally. Lead with the wrong emotion and no amount of optimization saves you, because the funnel was never the thing that was broken."
