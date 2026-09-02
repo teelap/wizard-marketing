@@ -3,7 +3,6 @@ title: "Your Hook Earns Three Seconds. Your Promise Earns the Next Sixty."
 metaTitle: "The Promise That Earns 60 Seconds"
 slug: the-sixty-second-promise
 date: 2026-08-27
-draft: true
 category: Messaging & Strategy
 description: "Your hook buys three seconds. Your value proposition has to earn the next sixty. Most marketing wins the first fight and dies in the second one."
 excerpt: "Most businesses write one value proposition when the job needs two, and the missing one is where the audience walks out."
