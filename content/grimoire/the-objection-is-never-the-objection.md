@@ -1,6 +1,6 @@
 ---
 title: "The Objection Is Never the Objection"
-metaTitle: "The Objection Is Never Real"
+metaTitle: "The Objection Is Never the Objection"
 slug: the-objection-is-never-the-objection
 date: 2026-09-03
 category: Sales
@@ -45,7 +45,6 @@ faq:
       conversations found 56% of no-decision losses came from indecision and
       fear of failure rather than a preference for the status quo, and most
       of that never gets voiced at all.
-draft: true
 ---
 
 ## The objection is a symptom. The belief is the disease.
