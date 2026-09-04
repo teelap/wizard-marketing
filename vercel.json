@@ -6,7 +6,10 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/book", "destination": "/eight-dominoes", "permanent": true },
-    { "source": "/8-dominoes", "destination": "/eight-dominoes", "permanent": true }
+    { "source": "/8-dominoes", "destination": "/eight-dominoes", "permanent": true },
+    { "source": "/arcanum", "destination": "/mastermind", "permanent": true },
+    { "source": "/business-arcanum", "destination": "/mastermind", "permanent": true },
+    { "source": "/community", "destination": "/mastermind", "permanent": true }
   ],
   "headers": [
     {

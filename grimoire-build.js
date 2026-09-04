@@ -168,7 +168,7 @@ function navHtml() {
             <ul id="primary-nav" class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Arcanum</a></li>
+                <li><a href="/mastermind">Mastermind</a></li>
                 <li><a href="/eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/podcast-guest">Podcast</a></li>
                 <li><a href="/tools">Tools</a></li>
@@ -188,7 +188,7 @@ function footerHtml() {
             <nav aria-label="Footer navigation" style="margin-top:1rem;">
                 ${link('/', 'Home')}
                 ${link('/consulting', 'Consulting')}
-                ${link('/mastermind', 'Arcanum')}
+                ${link('/mastermind', 'Mastermind')}
                 ${link('/eight-dominoes', 'Eight Dominoes')}
                 ${link('/podcast-guest', 'Podcast')}
                 ${link('/tools', 'Tools')}

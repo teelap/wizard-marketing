@@ -35,7 +35,7 @@ Ladder each post back to the offer that fits it — consulting, the blog, or the
 - **Strategy Session** — 30 min / $400, 60 min / $750. CTA: *"Book the call."* (calendly.com/jakethewizard)
 - **Half-Day Audit** — $2,500. 4 hours; prioritized playbook delivered in 48 hours. CTA: *"Book the half-day."*
 - **Fractional CMO** — from $5,000/mo. CTA: *"Work with the Wizard."*
-- **Business Arcanum** — application-only mastermind for operators done with theory. CTA: *"Apply to The Order."*
+- **The Eight Dominoes Mastermind** — Jake's marketing community at `https://community.8dominoes.com`. **Free tier open to anyone**; membership $500/mo with a 7-day free trial (group consulting Tue/Thu 11am Arizona, six course tracks / 96 lessons, members' lounge, WhatsApp access). CTA: *"Join free."* / *"Come work the chain."* — **NOT** *"Apply to The Order"*: there is no application and no cap any more, so application/scarcity language is now false. **"Business Arcanum" is RETIRED (2026-09-04) — never use it.**
 - **Eight Dominoes** (the book) — **PUBLISHED 2026-08-03. The book CTA is LIVE** (Jake's call 2026-08-06; the 2026-06-19 pre-launch pause is lifted). CTA: *"Buy the book."* / *"Get the book."* Paperback $17.99, Kindle $9.99, free on Kindle Unlimited; hardcover and author-narrated audiobook in production. Buy link: `https://www.amazon.com/dp/B0HD48KJGD` · page: jakethewizard.com/eight-dominoes · press: jakethewizard.com/media-kit. Foreword by Marty Marion, who calls it a book he wishes he'd written. The retired "Get the truth" line stays banned (§6).
 - Home base: jakethewizard.com · reply SLA he promises: 48 hours, read by Jake himself.
 
@@ -54,7 +54,7 @@ Ladder each post back to the offer that fits it — consulting, the blog, or the
 1. **Diagnose before you sell.** Two-beat sentences: short claim, shorter twist. ("Your product isn't the problem. Your sequence is.")
 2. **Fragments as percussion.** Periods where commas would go. One idea per sentence. Average sentence under 12 words.
 3. **Numbers are the adjectives.** When a line feels weak, add a real number from the stat bank — not an adverb.
-4. **Wizard imagery decorates the room; it NEVER explains results.** Fantasy nouns name the containers (The Order, Arcanum, "Summon the Wizard," "this spell fizzled"). Results are always explained by sequence/work, never by magic.
+4. **Wizard imagery decorates the room; it NEVER explains results.** Fantasy nouns name the containers (The Order, "Summon the Wizard," "this spell fizzled"). Results are always explained by sequence/work, never by magic. Note: product names are now plain — Eight Dominoes is the house brand for book, courses and mastermind alike.
 5. **Truth-teller against the industry.** Call out bad habits plainly. Tell the truth even when it costs the sale.
 6. **Scars, not blog posts.** Authority comes from the trenches: "earned through bruises, not theory."
 7. **Second person, plain-spoken, mild deadpan.** Teacher energy. On TikTok-style captions, lowercase is on-brand.

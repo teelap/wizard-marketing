@@ -319,7 +319,7 @@
         var cls = (form.className || '').toLowerCase();
         var cat = page.page_category;
         if (cat === 'consulting') return 'consulting_intake';
-        if (cat === 'mastermind') return 'arcanum_waitlist';
+        if (cat === 'mastermind') return 'community_signup';
         if (cat === 'podcast') return 'podcast_booking';
         if (cat === 'book') return 'book_waitlist';
         if (cat === 'home') return /dominoes/.test(cls) ? 'eight_dominoes_waitlist' : 'home_contact';
@@ -352,19 +352,26 @@
                 return; // calendly is also outbound, but the conversion event is what matters
             }
 
-            // Business Arcanum join = primary conversion. The signup lives off-site
-            // (Voxento), so this click is the last thing we can measure — it replaces
-            // the CompleteRegistration the old on-site waiting-list form used to fire.
-            if (closest(link, '[data-cta="arcanum_join"]')) {
+            // Eight Dominoes community signup = primary conversion. The signup lives
+            // off-site (Circle), so this click is the last thing we can measure — it
+            // replaces the CompleteRegistration the old on-site waiting-list form fired.
+            //
+            // Renamed 2026-09-04 when "Business Arcanum" was retired and the community
+            // moved off Voxento onto Circle. GA4 event names ('outbound_click',
+            // 'conversion') are unchanged, so nothing broke — but reports segmented by
+            // content_name / status split at that date: rows before it read
+            // 'Business Arcanum' / 'arcanum_join', rows after read the values below.
+            if (closest(link, '[data-cta="community_join"], [data-cta="membership_trial"]')) {
+                var isTrial = !!closest(link, '[data-cta="membership_trial"]');
                 track('outbound_click', {
-                    link_url: href, link_domain: 'voxento.com',
+                    link_url: href, link_domain: 'community.8dominoes.com',
                     link_text: textOf(link), cta_location: sectionOf(link)
                 });
                 conversion({
-                    meta_event: 'CompleteRegistration',
-                    content_name: 'Business Arcanum',
+                    meta_event: isTrial ? 'StartTrial' : 'CompleteRegistration',
+                    content_name: 'Eight Dominoes Community',
                     content_category: 'mastermind',
-                    status: 'arcanum_join'
+                    status: isTrial ? 'membership_trial' : 'community_join'
                 });
                 return;
             }

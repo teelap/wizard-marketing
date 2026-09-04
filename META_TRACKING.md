@@ -27,13 +27,14 @@ off until *Accept* in the EEA/UK/Switzerland, and off anywhere a visitor clicks 
 | Visitor action | dataLayer event | Meta event | Channel | Value |
 |---|---|---|---|---|
 | Any page view | (Base tag) | `PageView` | Pixel | — |
-| View consulting/arcanum/book/podcast/tools | `page_data` | `ViewContent` | Pixel | — |
+| View consulting/mastermind/book/podcast/tools | `page_data` | `ViewContent` | Pixel | — |
 | Click Calendly 30-min | `book_consultation` → `conversion` | `Schedule` | Pixel + CAPI | $400 |
 | Click Calendly 60-min | `book_consultation` → `conversion` | `Schedule` | Pixel + CAPI | $750 |
 | Consulting intake form ✓ | `conversion` | `Lead` | Pixel + CAPI | — |
 | Podcast inquiry form ✓ | `conversion` | `Lead` | Pixel + CAPI | — |
 | Home contact form ✓ | `conversion` | `Lead` | Pixel + CAPI | — |
-| Arcanum waitlist ✓ | `conversion` | `CompleteRegistration` | Pixel + CAPI | — |
+| Join the community (free) | `conversion` | `CompleteRegistration` | Pixel + CAPI | — |
+| Start the membership trial | `conversion` | `StartTrial` | Pixel + CAPI | — |
 | Eight Dominoes / book waitlist ✓ | `conversion` | `CompleteRegistration` | Pixel + CAPI | — |
 | Click email / phone link | `email_click` / `tel_click` | `Contact` | Pixel | — |
 | Focus a form field | `form_start` | `FormStart` (custom) | Pixel | — |

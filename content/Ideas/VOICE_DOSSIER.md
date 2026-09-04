@@ -47,7 +47,7 @@ interviews, podcast appearances), and primary-source marketing research.
    he "grew Finch to 50 people." [VERIFIED that he holds a C-level role at
    Finch; the "acquired by Finch" framing is SELF-REPORTED — no press release
    found. See Open Questions #3]
-6. Now: solo consulting, **Business Arcanum** (mastermind, pre-launch),
+6. Now: solo consulting, the **Eight Dominoes Mastermind** (community, live),
    **Vox & Coin** ("business media network," 2025), and the book
    **Eight Dominoes** (in progress, no ISBN/publisher found). [SELF-REPORTED]
 
@@ -109,7 +109,7 @@ interviews, podcast appearances), and primary-source marketing research.
    compound the results."* / *"He showed up, told the truth, and left
    something worth using."* Three verbs, escalating, concrete.
 4. **The wizard skin wraps anti-magic substance.** Fantasy nouns name the
-   *containers* (Arcanum, The Order, "Summon the Wizard," "This spell
+   *containers* (The Order, "Summon the Wizard," "This spell
    fizzled," "See the arsenal," castle/owl/candle scene) — but the *message*
    is always "there is no magic, only sequence/work/scars." Never use magic
    to explain results; use it to decorate the room. His agency-era channel
@@ -312,8 +312,8 @@ TikTok is. Don't cite YouTube numbers anywhere on the site.
   Messaging System."
 - **Steal:** identity-promise hero for the Eight Dominoes waitlist ("Become
   the clearest message in your category"); exact counts ("2,417 on the
-  waiting list") once real; branded product names (he already has Arcanum —
-  extend the pattern).
+  waiting list") once real; branded product names (Eight Dominoes is the
+  house name now — extend that, don't invent a third brand).
 
 **Dave Gerhardt — exitfive.com**
 - "Join 40,000+ marketers getting smarter every week." / "The only newsletter
@@ -589,7 +589,8 @@ Mapped to Jake's themes; every item carries its primary source. Items marked
     Applied Social Psychology*, 1994. Odd-specific numbers stop the script.
 38. **Scarcity, measured:** cookies from a jar of 2 were rated more
     desirable than identical cookies from a jar of 10 — Worchel, Lee &
-    Adewole, *JPSP*, 1975. (Cohort caps on Arcanum: cite this.)
+    Adewole, *JPSP*, 1975. (Use only for genuinely capped things — the
+    mastermind is NOT capped any more; the free tier is open to anyone.)
 39. **IKEA effect:** people value things more when they helped build them —
     Norton, Mochon & Ariely, *J. Consumer Psychology*, 2012. (Why the
     book's "apply each chapter this week" framing sells.)
@@ -670,7 +671,8 @@ Mapped to Jake's themes; every item carries its primary source. Items marked
 - Offer/price bank: Strategy Session 30min $400 / 60min $750 (Calendly:
   calendly.com/jakethewizard) · Half-Day Audit $2,500 (4hrs, playbook in
   48hrs, 60-day async Q&A) · Fractional CMO from $5,000/mo (half-day/week
-  + comms) · Arcanum: application-only, waitlist · Book: waitlist +
+  + comms) · Eight Dominoes Mastermind: free tier + $500/mo membership
+  (7-day trial), community.8dominoes.com · Book: $17.99 paperback +
   weekly email ("One email a week. Unsubscribe anytime.")
 - The Eight Dominoes (canonical wording): 01 Core Attraction — the emotion
   your customer is actually buying · 02 Attention Catalyst — the hook that
@@ -681,5 +683,5 @@ Mapped to Jake's themes; every item carries its primary source. Items marked
   deals · 07 Embracing Limitations — turning your weakness into proof ·
   08 New Opportunity — replacing the category instead of competing in it.
 - Forms: all POST to formspree.io/f/xzdjjjlo with `_form_type` of
-  `contact` / `consulting` / `eight_dominoes` / `arcanum_waitlist` /
+  `contact` / `consulting` / `eight_dominoes` / `community_signup` /
   `podcast_inquiry`.

@@ -46,7 +46,7 @@ plate). `scene.css`/`scene.js` are in `build.js` PUBLIC_FILES.
 | crystal orb (far left) | `#a-social` (button) | Socials — blooms the **orb fan** (TikTok/LI/YT/IG/X) |
 | desk potions (right) | `#h-tools` | Tools |
 | headphones (on Jake) | `#h-podcast` | Podcast |
-| castle in window | `#h-arcanum` | Mastermind / Arcanum |
+| castle in window | `#h-arcanum` | Mastermind (hotspot id unchanged) |
 | **owl** outside window | `#h-contact` | Contact (`#contact` form below) — *Jake: owl = "get a hold of Jake"* |
 Easter eggs (`[data-egg]`, toast only): `lamp`, `hat` (One Piece), `ship`, `rat` (Ratatouille) + Konami.
 

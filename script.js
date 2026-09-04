@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // CompleteRegistration; substantive inquiries are Lead.
     const META_MAP = {
         eight_dominoes:   { meta_event: 'CompleteRegistration', content_name: 'Eight Dominoes Waitlist',   content_category: 'book',       status: 'book_waitlist' },
-        arcanum_waitlist: { meta_event: 'CompleteRegistration', content_name: 'Business Arcanum Waitlist', content_category: 'mastermind', status: 'arcanum_waitlist' },
+        // Renamed from arcanum_waitlist 2026-09-04 (Business Arcanum retired). No form
+        // currently posts this type — /mastermind sends people to Circle instead — but
+        // the mapping stays so a future mastermind form is tagged correctly.
+        community_signup: { meta_event: 'CompleteRegistration', content_name: 'Eight Dominoes Community', content_category: 'mastermind', status: 'community_signup' },
         grimoire:         { meta_event: 'CompleteRegistration', content_name: 'Grimoire Newsletter',       content_category: 'newsletter', status: 'newsletter' },
         consulting:       { meta_event: 'Lead', content_name: 'Consulting Inquiry',    content_category: 'consulting' },
         podcast_inquiry:  { meta_event: 'Lead', content_name: 'Podcast Guest Inquiry', content_category: 'podcast' },

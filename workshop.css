@@ -65,7 +65,7 @@ body.reveal .actor{filter:drop-shadow(0 0 16px var(--glow)) drop-shadow(0 10px 1
 #a-seer{left:37%;bottom:13%;width:16.5%;z-index:10}         /* orb, center stage, midground (clear of satchel) */
 #a-brewer{left:45%;top:35.8%;width:12.5%;z-index:6}         /* cauldron up on the loft, background */
 
-/* Arcanum doorway: invisible clickable over the painted RIGHT door (steps up = ascend) */
+/* Mastermind doorway: invisible clickable over the painted RIGHT door (steps up = ascend) */
 #a-door{position:absolute;left:78.5%;top:52%;width:9.5%;height:21%;cursor:pointer;border:none;background:none;z-index:4}
 #a-door::after{content:"";position:absolute;inset:0;border-radius:8px 8px 0 0;
   background:radial-gradient(closest-side,rgba(184,134,11,.55),transparent 75%);opacity:0;transition:opacity .3s}
