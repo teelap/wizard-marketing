@@ -57,6 +57,9 @@ const PUBLIC_FILES = [
     'ai-information.html',
     '404.html',
     'styles.css',
+    // Eight Dominoes brand stylesheet — /mastermind is a full Eight Dominoes
+    // surface and loads this INSTEAD of styles.css, not alongside it.
+    'eight-dominoes.css',
     'script.js',
     'cookie-consent.js',
     'analytics.js',

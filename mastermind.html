@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Eight Dominoes Mastermind — Jake Tlapek's Marketing Community</title>
-    <meta name="description" content="The Eight Dominoes Mastermind: Jake Tlapek's marketing community. Free to join. Membership is $500 a month with a seven-day free trial — group consulting twice a week, six course tracks, and Jake on WhatsApp.">
+    <meta name="description" content="The Eight Dominoes Mastermind: Jake Tlapek's marketing community. Free to join. Membership is $500 a month or $5,000 a year with a seven-day free trial — group consulting twice a week, six course tracks, and Jake on WhatsApp.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#0E0E0E">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/mastermind" />
     <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-32.png">
@@ -27,22 +27,40 @@
     <meta property="twitter:description" content="Read the book, then come work the chain with the people running it. Free to join. Membership is $500 a month, seven days free first.">
     <meta property="twitter:image" content="https://www.jakethewizard.com/dev_assets/jake-og-card.jpg">
 
-    <link rel="stylesheet" href="styles.css?v=8.7">
+    <!-- Eight Dominoes brand stylesheet. This page deliberately does NOT load
+         styles.css — it is a full Eight Dominoes surface, not the parchment theme. -->
+    <link rel="stylesheet" href="eight-dominoes.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Stand-in faces per tokens/fonts.css: the real stack (DIN Condensed, Gotham,
+         Cocogoose Pro, Minion Pro) is licensed and unsupplied. Loaded async so they
+         never block first paint; <noscript> keeps them for no-JS. -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap">
     </noscript>
+
+    <!-- Reveal-on-scroll, self-contained: this page loads no animation library.
+         .ed-motion is added only when IntersectionObserver exists, so a browser
+         that cannot reveal never hides. The observer is wired here rather than
+         relying on script.js, so the two can't race. script.js also adds .active
+         on its own pass; that is idempotent. -->
+    <script>
+        (function () {
+            if (!('IntersectionObserver' in window)) return;
+            document.documentElement.classList.add('ed-motion');
+            document.addEventListener('DOMContentLoaded', function () {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                document.querySelectorAll('.scroll-reveal').forEach(function (el) { io.observe(el); });
+            });
+        })();
+    </script>
 
     <script type="application/ld+json">
     {
@@ -83,297 +101,285 @@
     }
     </script>
 </head>
-<body class="parchment-theme">
+<body class="ed-theme">
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
+    <nav id="navbar" class="ed-nav">
+        <div class="ed-nav__inner">
+            <a href="/" class="ed-nav__brand">
+                <span class="ed-domino ed-domino--sm ed-domino--ink" role="img" aria-label="Eight Dominoes">
+                    <span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span>
+                    <span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span>
+                </span>
+                Eight Dominoes
+            </a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
             <ul id="primary-nav" class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/consulting">Consulting</a></li>
                 <li><a href="/mastermind" aria-current="page">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+                <li><a href="/eight-dominoes">The Book</a></li>
                 <li><a href="/podcast-guest">Podcast</a></li>
                 <li><a href="/tools">Tools</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
-                <li><a href="/#contact">Speak</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="content-wrapper">
+    <main>
 
-        <!-- Page Hero -->
-        <section class="page-hero dark-theme-section">
-            <div class="hero-parallax-bg">
-                <img src="dev_assets/castel 1.webp" class="floating-artifact a1" alt="" aria-hidden="true">
-                <img src="dev_assets/Skull.png" class="floating-artifact a4" alt="" aria-hidden="true">
-                <img src="dev_assets/Cards.webp" class="floating-artifact a3" alt="" aria-hidden="true">
-            </div>
-            <div class="container page-hero-content">
-                <div class="breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> The Mastermind</div>
-                <span class="eyebrow">Free To Join &bull; Membership $500/mo</span>
-                <h1 class="massive-section-title">THE EIGHT<br>DOMINOES<br>MASTERMIND.</h1>
-                <p class="hero-role text-night" style="margin-top:1rem;">The book gave you the chain. This is the room where people run it &mdash; on their own numbers, out loud, with me in there twice a week.</p>
-                <div class="hero-ctas" style="margin-top:2rem;">
-                    <a href="https://community.8dominoes.com"
-                       class="btn btn-primary"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-cta="community_join"
-                       data-cta-location="hero">Join Free</a>
-                    <a href="#membership" class="btn btn-ghost-light">See What Membership Includes</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Proof Strip -->
-        <section class="proof-strip" aria-label="Track record">
-            <div class="proof-strip-inner">
-                <div class="proof-item">
-                    <span class="proof-number">$100M+</span>
-                    <span class="proof-label">Generated by Jake for clients. This is the thinking you get access to.</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">100K+</span>
-                    <span class="proof-label">Followers who trust Jake's unfiltered marketing insights</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">2 Exits</span>
-                    <span class="proof-label">Built from zero and sold on his terms. Now he runs the room.</span>
+        <!-- Hero — flat yellow field, flat display title, pip rule, cast-shadowed cover -->
+        <section class="ed-hero ed-band-yellow">
+            <div class="ed-container">
+                <div class="ed-breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>The Mastermind</div>
+                <div class="ed-hero__grid">
+                    <div>
+                        <span class="ed-label">Free to join &middot; Membership $500/mo</span>
+                        <h1 class="ed-display" style="margin-top:var(--sp-6);">The Eight Dominoes Mastermind</h1>
+                        <div class="ed-pip-rule" aria-hidden="true"></div>
+                        <p class="ed-lead">The book gave you the chain. This is the room where people run it &mdash; on their own numbers, out loud, with me in there twice a week.</p>
+                        <div class="ed-btn-row">
+                            <a href="https://community.8dominoes.com"
+                               class="ed-btn"
+                               target="_blank" rel="noopener noreferrer"
+                               data-cta="community_join" data-cta-location="hero">Join Free</a>
+                            <a href="#membership" class="ed-btn ed-btn--outline">See Membership</a>
+                        </div>
+                    </div>
+                    <img src="dev_assets/eight-dominoes-cover.webp"
+                         alt="Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients, by Jake &quot;The Wizard&quot; Tlapek"
+                         class="ed-hero__cover" width="800" height="1192" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </section>
 
-        <!-- What It Is -->
-        <section id="what-it-is" class="section padding-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">ONE<br>ROOM.<br>TWO WAYS IN.</h2>
+        <!-- Proof band — ink band of StatBlocks -->
+        <section class="ed-band-ink" style="padding:var(--sp-16) 0;" aria-label="Track record">
+            <div class="ed-container">
+                <div class="ed-stats">
+                    <div class="ed-stat">
+                        <span class="ed-stat__value">$100M+</span>
+                        <span class="ed-stat__label">Generated for clients</span>
                     </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p>Everything I teach now lives in one place, under one name. The book is <a href="/eight-dominoes"><em>Eight Dominoes</em></a>. The room is the <strong>Eight Dominoes Mastermind</strong>. Same framework, same order, same language &mdash; so nothing you learn in one has to be re-translated for the other.</p>
-                            <p><strong>The free side is open to anyone.</strong> Walk in, read the Start Here post, say what you sell and what's stuck. People answer. It costs nothing and I'm not going to make you sit through a call to get it.</p>
-                            <p><strong>Membership is where I'm actually in the room with you</strong> &mdash; twice a week, live, working on your numbers rather than talking about mine. Plus the full course library and my WhatsApp.</p>
-                            <p>You bring real numbers, real problems, and the willingness to hear the truth and act on it. That part hasn't changed.</p>
-                        </div>
+                    <div class="ed-stat">
+                        <span class="ed-stat__value">100K+</span>
+                        <span class="ed-stat__label">Followers who trust the unfiltered version</span>
+                    </div>
+                    <div class="ed-stat">
+                        <span class="ed-stat__value">2 Exits</span>
+                        <span class="ed-stat__label">Built from zero, sold on his terms</span>
                     </div>
                 </div>
-                <aside class="ink-text" style="max-width:680px; margin:3rem auto 0; font-size:0.9rem; font-style:italic; opacity:0.8; border-left:2px solid var(--edge-burn); padding-left:1rem;">
-                    <p style="margin:0;"><strong style="font-style:normal;">Margin note from the Wizard:</strong> the idea is older than the buzzword. Napoleon Hill documented the "master mind alliance" in 1937 after two decades studying Andrew Carnegie's circle &mdash; coordinated minds, borrowed pattern recognition. The tools changed. The mechanism didn't.</p>
-                </aside>
             </div>
         </section>
 
-        <!-- The free tier -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">What Free Gets You</h2>
-                <p class="description center-text">Anyone can walk in. There's nothing to apply for and no card to hand over.</p>
-                <div class="benefits-grid">
-                    <div class="benefit-item scroll-reveal">
-                        <div class="benefit-icon"><i class="fas fa-door-open" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>The Feed &amp; Start Here</h3>
-                            <p>The main room. What's working this week, what just broke, what someone tried that you were about to try. Read it without posting if you'd rather warm up first.</p>
-                        </div>
+        <!-- One room, two ways in -->
+        <section id="what-it-is" class="ed-section ed-band-paper">
+            <div class="ed-container">
+                <div class="ed-split">
+                    <div class="ed-section-head scroll-reveal">
+                        <span class="ed-label ed-label--outline">The House</span>
+                        <h2 class="ed-display" style="margin-top:var(--sp-5);">One Room. Two Ways In.</h2>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:100ms;">
-                        <div class="benefit-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>Ask the Room</h3>
-                            <p>Post what you sell, who you sell it to, and the one thing that's stuck. Other operators answer. So do I, when I've got something useful to add.</p>
-                        </div>
+                    <div class="ed-copy scroll-reveal">
+                        <p>Everything I teach now lives in one place, under one name. The book is <a href="/eight-dominoes"><em>Eight Dominoes</em></a>. The room is the <strong>Eight Dominoes Mastermind</strong>. Same framework, same order, same language &mdash; so nothing you learn in one has to be re-translated for the other.</p>
+                        <p><strong>The free side is open to anyone.</strong> Walk in, read the Start Here post, say what you sell and what's stuck. People answer. It costs nothing and I'm not going to make you sit through a call to get it.</p>
+                        <p><strong>Membership is where I'm actually in the room with you</strong> &mdash; twice a week, live, working on your numbers rather than talking about mine. Plus the full course library and my WhatsApp.</p>
+                        <p>You bring real numbers, real problems, and the willingness to hear the truth and act on it. That part hasn't changed.</p>
+                        <aside class="ed-aside">
+                            <p><strong>Margin note from the Wizard</strong>The idea is older than the buzzword. Napoleon Hill documented the &ldquo;master mind alliance&rdquo; in 1937 after two decades studying Andrew Carnegie's circle &mdash; coordinated minds, borrowed pattern recognition. The tools changed. The mechanism didn't.</p>
+                        </aside>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:200ms;">
-                        <div class="benefit-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>Book Readers</h3>
-                            <p>Finished <a href="/eight-dominoes"><em>Eight Dominoes</em></a> and want to argue with a chapter, or work out which domino is actually yours? That happens here.</p>
-                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free tier -->
+        <section class="ed-section ed-band-sunk">
+            <div class="ed-container">
+                <div class="ed-section-head">
+                    <span class="ed-label ed-label--outline">Free</span>
+                    <h2 class="ed-display" style="margin-top:var(--sp-5);">What Free Gets You</h2>
+                </div>
+                <p class="ed-section-intro">Anyone can walk in. There's nothing to apply for and no card to hand over.</p>
+                <div class="ed-cards">
+                    <div class="ed-card scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="domino 1-8" aria-hidden="false"><span class="ed-domino__half"><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <h3 class="ed-card__title">The Feed &amp; Start Here</h3>
+                        <p>The main room. What's working this week, what just broke, what someone tried that you were about to try. Read it without posting if you'd rather warm up first.</p>
+                    </div>
+                    <div class="ed-card scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="domino 2-8"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <h3 class="ed-card__title">Ask The Room</h3>
+                        <p>Post what you sell, who you sell it to, and the one thing that's stuck. Other operators answer. So do I, when I've got something useful to add.</p>
+                    </div>
+                    <div class="ed-card scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="domino 3-8"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <h3 class="ed-card__title">Book Readers</h3>
+                        <p>Finished <a href="/eight-dominoes"><em>Eight Dominoes</em></a> and want to argue with a chapter, or work out which domino is actually yours? That happens here.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Membership -->
-        <section id="membership" class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">What Membership Gets You</h2>
-                <p class="description center-text">$500 a month, or $5,000 a year and you get two of them free. Seven days free first either way, so you can look before you pay.</p>
-                <div class="benefits-grid">
-                    <div class="benefit-item scroll-reveal">
-                        <div class="benefit-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>Group Consulting, Twice a Week</h3>
-                            <p>Tuesdays and Thursdays, 11am Arizona. Live working calls I run myself &mdash; hot seats, case reviews, decisions made in the hour. Come with a real problem. This is a working room, not a listening room.</p>
-                        </div>
+        <section id="membership" class="ed-section ed-band-ink">
+            <div class="ed-container">
+                <div class="ed-section-head">
+                    <span class="ed-label ed-label--yellow">Membership</span>
+                    <h2 class="ed-display" style="margin-top:var(--sp-5);">What Membership Gets You</h2>
+                </div>
+                <p class="ed-section-intro">$500 a month, or $5,000 a year and you get two of them free. Seven days free first either way, so you can look before you pay.</p>
+                <div class="ed-cards">
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--yellow-500);">
+                        <h3 class="ed-card__title">Group Consulting, Twice A Week</h3>
+                        <p>Tuesdays and Thursdays, 11am Arizona. Live working calls I run myself &mdash; hot seats, case reviews, decisions made in the hour. Come with a real problem. This is a working room, not a listening room.</p>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:100ms;">
-                        <div class="benefit-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>Six Course Tracks, 96 Lessons</h3>
-                            <p>Eight Dominoes (11) &middot; SEO &amp; Websites (17) &middot; Content &amp; Social (16) &middot; Paid &amp; Conversion (18) &middot; Analytics (17) &middot; Local Marketing (17). Each track runs beginner to advanced in three stages. All 96 unlock on day one &mdash; nothing is drip-fed.</p>
-                        </div>
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--ink-700);">
+                        <h3 class="ed-card__title">Six Course Tracks, 96 Lessons</h3>
+                        <p>Eight Dominoes (11) &middot; SEO &amp; Websites (17) &middot; Content &amp; Social (16) &middot; Paid &amp; Conversion (18) &middot; Analytics (17) &middot; Local Marketing (17). Each track runs beginner to advanced in three stages. All 96 unlock on day one &mdash; nothing is drip-fed.</p>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:200ms;">
-                        <div class="benefit-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>My WhatsApp</h3>
-                            <p>Direct access, not a ticket queue. Sent to members once the first payment clears. It's a phone number, so use it like one.</p>
-                        </div>
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--ink-700);">
+                        <h3 class="ed-card__title">My WhatsApp</h3>
+                        <p>Direct access, not a ticket queue. Sent to members once the first payment clears. It's a phone number, so use it like one.</p>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:300ms;">
-                        <div class="benefit-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>The Members' Lounge</h3>
-                            <p>The private half of the room, where numbers get posted that nobody wants on the open feed. Same people every week, so the accountability is real rather than performed.</p>
-                        </div>
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--ink-700);">
+                        <h3 class="ed-card__title">The Members' Lounge</h3>
+                        <p>The private half of the room, where numbers get posted that nobody wants on the open feed. Same people every week, so the accountability is real rather than performed.</p>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:400ms;">
-                        <div class="benefit-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>The Framework On Your Business</h3>
-                            <p>The eight dominoes run in order against your actual offer, on a call, with the room watching. Reading the book tells you the sequence. This tells you where <em>yours</em> is jammed.</p>
-                        </div>
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--ink-700);">
+                        <h3 class="ed-card__title">The Framework On Your Business</h3>
+                        <p>The eight dominoes run in order against your actual offer, on a call, with the room watching. Reading the book tells you the sequence. This tells you where <em>yours</em> is jammed.</p>
                     </div>
-                    <div class="benefit-item scroll-reveal" style="transition-delay:500ms;">
-                        <div class="benefit-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
-                        <div>
-                            <h3>First Call On My Calendar</h3>
-                            <p>Members get new consulting availability before it's posted anywhere else, and priority booking for one-on-one sessions.</p>
-                        </div>
+                    <div class="ed-card ed-card--ink scroll-reveal" style="box-shadow:inset 0 0 0 2px var(--ink-700);">
+                        <h3 class="ed-card__title">First Call On My Calendar</h3>
+                        <p>Members get new consulting availability before it's posted anywhere else, and priority booking for one-on-one sessions.</p>
                     </div>
                 </div>
-                <p class="fine-print center-text" style="margin-top:2rem;">Cancel from inside the room whenever you want &mdash; you won't have to book a call to do it.</p>
+                <p class="ed-fine">Cancel from inside the room whenever you want &mdash; you won't have to book a call to do it.</p>
             </div>
         </section>
 
-        <!-- What actually happens when you join -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Your First Week</h2>
-                <p class="description center-text">Most communities go quiet the moment you pay. Here's the actual sequence.</p>
-                <div class="ink-text body-copy-large" style="max-width:720px; margin:2.5rem auto 0;">
-                    <p class="scroll-reveal"><strong>The minute you're in.</strong> You land on Start Here, not on an empty feed. It tells you where everything is and what the room is for, in about ninety seconds of reading.</p>
-                    <p class="scroll-reveal" style="transition-delay:100ms;"><strong>Your first post.</strong> The onboarding list asks you to introduce yourself in Ask the Room: what you sell, who you sell it to, and the one thing that's stuck right now. One paragraph is plenty. That post is what gets you useful answers instead of polite hellos &mdash; people reply to a specific problem, not to "excited to be here."</p>
-                    <p class="scroll-reveal" style="transition-delay:200ms;"><strong>The course library, immediately.</strong> All 96 lessons are open on day one. Most people start with the Eight Dominoes track and run the eight in order against their own offer, because that's the vocabulary everything else on the calls assumes.</p>
-                    <p class="scroll-reveal" style="transition-delay:300ms;"><strong>Your first call.</strong> Whichever comes first, Tuesday or Thursday, 11am Arizona. You do not have to take a hot seat on day one &mdash; plenty of people watch two before they put their own numbers up, and watching someone else get taken apart is most of the value anyway.</p>
-                    <p class="scroll-reveal" style="transition-delay:400ms;"><strong>Day seven.</strong> The trial ends and the first payment runs. If it wasn't worth it, cancel before then and you've paid nothing. If it was, my WhatsApp number arrives in your inbox that day.</p>
+        <!-- Your first week — domino tiles as step markers, counting position in pips -->
+        <section class="ed-section ed-band-paper">
+            <div class="ed-container">
+                <div class="ed-section-head">
+                    <span class="ed-label ed-label--outline">The Sequence</span>
+                    <h2 class="ed-display" style="margin-top:var(--sp-5);">Your First Week</h2>
                 </div>
+                <p class="ed-section-intro">Most communities go quiet the moment you pay. Here's the actual sequence.</p>
+                <ol class="ed-steps" style="list-style:none; padding:0;">
+                    <li class="ed-step scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="step 1"><span class="ed-domino__half"><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <div class="ed-step__body"><span class="ed-step__title">The minute you're in</span><p>You land on Start Here, not on an empty feed. It tells you where everything is and what the room is for, in about ninety seconds of reading.</p></div>
+                    </li>
+                    <li class="ed-step scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="step 2"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <div class="ed-step__body"><span class="ed-step__title">Your first post</span><p>The onboarding list asks you to introduce yourself in Ask the Room: what you sell, who you sell it to, and the one thing that's stuck right now. One paragraph is plenty. That post is what gets you useful answers instead of polite hellos &mdash; people reply to a specific problem, not to &ldquo;excited to be here.&rdquo;</p></div>
+                    </li>
+                    <li class="ed-step scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="step 3"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <div class="ed-step__body"><span class="ed-step__title">The course library, immediately</span><p>All 96 lessons are open on day one. Most people start with the Eight Dominoes track and run the eight in order against their own offer, because that's the vocabulary everything else on the calls assumes.</p></div>
+                    </li>
+                    <li class="ed-step scroll-reveal">
+                        <span class="ed-domino" role="img" aria-label="step 4"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <div class="ed-step__body"><span class="ed-step__title">Your first call</span><p>Whichever comes first, Tuesday or Thursday, 11am Arizona. You do not have to take a hot seat on day one &mdash; plenty of people watch two before they put their own numbers up, and watching someone else get taken apart is most of the value anyway.</p></div>
+                    </li>
+                    <li class="ed-step scroll-reveal">
+                        <span class="ed-domino ed-domino--ink" role="img" aria-label="step 5"><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
+                        <div class="ed-step__body"><span class="ed-step__title">Day seven</span><p>The trial ends and the first payment runs. If it wasn't worth it, cancel before then and you've paid nothing. If it was, my WhatsApp number arrives in your inbox that day.</p></div>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <!-- Pull Quote -->
-        <section class="section" style="padding:5rem 1.5rem;">
-            <div class="container center-text">
-                <blockquote class="ink-text scroll-reveal" style="max-width:760px; margin:0 auto; font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw, 2.4rem); font-style:italic; line-height:1.35;">
-                    &ldquo;Thirteen years of marketing taught me the hardest system to debug is people.&rdquo;
+        <!-- Pull quote -->
+        <section class="ed-band-ink" style="padding:var(--sp-24) 0;">
+            <div class="ed-container">
+                <blockquote class="ed-quote scroll-reveal">
+                    <span class="ed-quote__slab" aria-hidden="true"></span>
+                    <p>Thirteen years of marketing taught me the hardest system to debug is people.</p>
+                    <footer>Jake, on why the room matters more than the playbook</footer>
                 </blockquote>
-                <p class="ink-text" style="margin-top:1rem; font-size:0.9rem; opacity:0.7;">&mdash; Jake, on why the room matters more than the playbook</p>
             </div>
         </section>
 
-        <!-- Who It's For -->
-        <section class="section padding-section dark-theme-section">
-            <div class="container">
-                <h2 class="section-title ink-stamp text-night">Who Membership Is Actually For</h2>
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <span class="stat-number">Real</span>
-                        <span class="stat-label">Revenue. Not ideas.<br>Existing business.</span>
+        <!-- Who it's for -->
+        <section class="ed-section ed-band-paper">
+            <div class="ed-container">
+                <div class="ed-split">
+                    <div class="ed-section-head scroll-reveal">
+                        <span class="ed-label ed-label--outline">Straight Talk</span>
+                        <h2 class="ed-display" style="margin-top:var(--sp-5);">Don't Pay Me Yet</h2>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Done</span>
-                        <span class="stat-label">With theory. Ready<br>to act on truth.</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Open</span>
-                        <span class="stat-label">To feedback, even<br>when it stings.</span>
-                    </div>
-                </div>
-                <div class="asymmetric-grid" style="margin-top:var(--space-xl);">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h3 class="massive-section-title" style="font-size:clamp(2rem,5vw,4rem);">DON'T PAY<br>ME YET.</h3>
-                    </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p class="text-night">There's no application any more and there's no gate on the front door, so I'll say the quiet part here instead: <strong>$500 a month is wrong for a lot of people</strong>, and I'd rather tell you now than take a month's money to find out together.</p>
-                            <p class="text-night">It's worth it for a <strong>founder or marketing leader</strong> who has crossed the starting line &mdash; real product, real customers, real problems &mdash; and who will actually show up on a Tuesday and put their numbers on the screen. The calls are the product. Skip them and you're paying for a course library.</p>
-                            <p class="text-night">If you're pre-revenue, still deciding what you sell, or you know you won't make the calls: <strong>join free and stay free.</strong> Read the room, use the Book Readers space, come back when the calls would pay for themselves. The free side isn't a trial that runs out.</p>
-                        </div>
+                    <div class="ed-copy scroll-reveal">
+                        <p>There's no application any more and there's no gate on the front door, so I'll say the quiet part here instead: <strong>$500 a month is wrong for a lot of people</strong>, and I'd rather tell you now than take a month's money to find out together.</p>
+                        <p>It's worth it for a <strong>founder or marketing leader</strong> who has crossed the starting line &mdash; real product, real customers, real problems &mdash; and who will actually show up on a Tuesday and put their numbers on the screen. The calls are the product. Skip them and you're paying for a course library.</p>
+                        <p>If you're pre-revenue, still deciding what you sell, or you know you won't make the calls: <strong>join free and stay free.</strong> Read the room, use the Book Readers space, come back when the calls would pay for themselves. The free side isn't a trial that runs out.</p>
+                        <aside class="ed-aside">
+                            <p><strong>Margin note from the Wizard</strong>The free tier isn't a loss leader I'm tolerating. A room where only paying members can speak turns into a room where nobody says anything that might look stupid &mdash; and the stupid-looking question is usually the one worth answering. The free side keeps the traffic honest.</p>
+                        </aside>
                     </div>
                 </div>
-                <aside class="ink-text text-night" style="max-width:680px; margin:3rem auto 0; font-size:0.9rem; font-style:italic; opacity:0.85; border-left:2px solid rgba(244,238,224,0.35); padding-left:1rem;">
-                    <p style="margin:0;"><strong style="font-style:normal;">Margin note from the Wizard:</strong> the free tier isn't a loss leader I'm tolerating. A room where only paying members can speak turns into a room where nobody says anything that might look stupid &mdash; and the stupid-looking question is usually the one worth answering. The free side keeps the traffic honest.</p>
-                </aside>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="mastermind-faq" class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container" style="max-width:760px;">
-                <h2 class="section-title ink-stamp">Before You Ask</h2>
-                <div class="ink-text" style="margin-top:2rem;">
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">What does it cost?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Joining is free and stays free. Membership is $500 a month, or $5,000 a year if you'd rather pay once and get two months free. Either way it starts with seven days free and nothing due today, and you can cancel any time from inside the room.</p>
+        <section id="mastermind-faq" class="ed-section ed-band-sunk">
+            <div class="ed-container">
+                <div class="ed-section-head">
+                    <span class="ed-label ed-label--outline">FAQ</span>
+                    <h2 class="ed-display" style="margin-top:var(--sp-5);">Before You Ask</h2>
+                </div>
+                <div class="ed-faq">
+                    <details class="scroll-reveal">
+                        <summary>What does it cost?</summary>
+                        <p>Joining is free and stays free. Membership is $500 a month, or $5,000 a year if you'd rather pay once and get two months free. Either way it starts with seven days free and nothing due today, and you can cancel any time from inside the room.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">What's the difference between free and paid?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Free gets you the feed, Start Here, Ask the Room and Book Readers &mdash; the parts where people talk to each other. Membership adds the parts where I'm in it: group consulting twice a week, all six course tracks, the members' lounge, and my WhatsApp. You can see the locked spaces from the free side, so you know exactly what you're deciding about.</p>
+                    <details class="scroll-reveal">
+                        <summary>What's the difference between free and paid?</summary>
+                        <p>Free gets you the feed, Start Here, Ask the Room and Book Readers &mdash; the parts where people talk to each other. Membership adds the parts where I'm in it: group consulting twice a week, all six course tracks, the members' lounge, and my WhatsApp. You can see the locked spaces from the free side, so you know exactly what you're deciding about.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">When are the calls, and what happens on them?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Tuesdays and Thursdays at 11am Arizona &mdash; and Arizona doesn't do daylight saving, so check what that is where you are twice a year. Hot seats and case reviews. Somebody puts a real problem on the screen and we work it. Recordings go up for the members who couldn't make it, but the value is being in the seat.</p>
+                    <details class="scroll-reveal">
+                        <summary>When are the calls, and what happens on them?</summary>
+                        <p>Tuesdays and Thursdays at 11am Arizona &mdash; and Arizona doesn't do daylight saving, so check what that is where you are twice a year. Hot seats and case reviews. Somebody puts a real problem on the screen and we work it. Recordings go up for the members who couldn't make it, but the value is being in the seat.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Do I need to read the book first?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">No. <a href="/eight-dominoes"><em>Eight Dominoes</em></a> is the framework the room runs on, and there's a space for people who arrive from it &mdash; but the Eight Dominoes course track covers the same ground from domino one. The book is the cheapest way to find out whether you like how I think.</p>
+                    <details class="scroll-reveal">
+                        <summary>Do I need to read the book first?</summary>
+                        <p>No. <a href="/eight-dominoes"><em>Eight Dominoes</em></a> is the framework the room runs on, and there's a space for people who arrive from it &mdash; but the Eight Dominoes course track covers the same ground from domino one. The book is the cheapest way to find out whether you like how I think.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">How many people are in there?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Not many yet, and I'm not going to pretend otherwise. The room reopened on Circle in September 2026 and I moved everything across &mdash; all six course tracks, all 96 lessons, the calls on the calendar. What I don't have yet is a wall of member testimonials, because the people who'd write them only just walked in. If a big number is what would convince you, wait six months and check back. If getting me on a call twice a week before the room fills up sounds better than being member 4,000, come now.</p>
+                    <details class="scroll-reveal">
+                        <summary>How many people are in there?</summary>
+                        <p>Not many yet, and I'm not going to pretend otherwise. The room reopened on Circle in September 2026 and I moved everything across &mdash; all six course tracks, all 96 lessons, the calls on the calendar. What I don't have yet is a wall of member testimonials, because the people who'd write them only just walked in. If a big number is what would convince you, wait six months and check back. If getting me on a call twice a week before the room fills up sounds better than being member 4,000, come now.</p>
                     </details>
-                    <details class="scroll-reveal" style="padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Isn't this the thing that used to be called Business Arcanum?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">It is. I retired that name in September 2026 and folded it into Eight Dominoes. Three brands competing for the same attention was two too many, and "Arcanum" told you nothing about what you were buying. Same room, same person running it, a name that says what it does. Anyone who joined under the old name keeps their access.</p>
+                    <details class="scroll-reveal">
+                        <summary>Isn't this the thing that used to be called Business Arcanum?</summary>
+                        <p>It is. I retired that name in September 2026 and folded it into Eight Dominoes. Three brands competing for the same attention was two too many, and &ldquo;Arcanum&rdquo; told you nothing about what you were buying. Same room, same person running it, a name that says what it does. Anyone who joined under the old name keeps their access.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- Join (anchor kept as #waitlist so existing inbound links still land here) -->
-        <section id="waitlist" class="section padding-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">THE DOOR<br>IS<br>OPEN.</h2>
-                        <p class="ink-text" style="margin-top:1.5rem;">The Eight Dominoes Mastermind is live at <strong>community.8dominoes.com</strong>. Free costs nothing and asks for nothing but an email address.</p>
-                        <p class="ink-text" style="margin-top:1rem;">If you already know you want the calls, start the trial instead &mdash; seven days, nothing due today, then $500 a month or $5,000 a year.</p>
+        <section id="waitlist" class="ed-section ed-band-yellow">
+            <div class="ed-container">
+                <div class="ed-split">
+                    <div class="scroll-reveal">
+                        <h2 class="ed-display" style="font-size:clamp(48px,8vw,var(--fs-5xl));">The Door Is Open</h2>
+                        <div class="ed-pip-rule" aria-hidden="true"></div>
+                        <p class="ed-copy">The Eight Dominoes Mastermind is live at <strong>community.8dominoes.com</strong>. Free costs nothing and asks for nothing but an email address.</p>
+                        <p class="ed-copy" style="margin-top:var(--sp-5);">If you already know you want the calls, start the trial instead &mdash; seven days, nothing due today, then $500 a month or $5,000 a year.</p>
                     </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
+                    <div class="scroll-reveal">
                         <a href="https://community.8dominoes.com"
-                           class="btn btn-primary w-100"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           data-cta="community_join"
-                           data-cta-location="footer">Join Free</a>
+                           class="ed-btn ed-btn--block"
+                           target="_blank" rel="noopener noreferrer"
+                           data-cta="community_join" data-cta-location="footer">Join Free</a>
                         <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
-                           class="btn btn-secondary w-100"
-                           style="margin-top:0.75rem;"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           data-cta="membership_trial"
-                           data-cta-location="footer">Start The 7-Day Trial</a>
-                        <p class="fine-print" style="margin-top:1rem;">Free tier: no card. Trial: nothing due today, then $500/month &mdash; or $5,000/year, which is two months free.</p>
+                           class="ed-btn ed-btn--outline ed-btn--block"
+                           style="margin-top:var(--sp-3);"
+                           target="_blank" rel="noopener noreferrer"
+                           data-cta="membership_trial" data-cta-location="footer">Start The 7-Day Trial</a>
+                        <p class="ed-fine">Free tier: no card. Trial: nothing due today, then $500/month &mdash; or $5,000/year, which is two months free.</p>
                     </div>
                 </div>
             </div>
@@ -381,20 +387,20 @@
 
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
+    <footer class="ed-footer">
+        <div class="ed-container">
+            <div class="ed-footer__mark">Eight Dominoes</div>
+            <p>&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
+            <nav aria-label="Footer navigation">
+                <a href="/">Home</a>
+                <a href="/consulting">Consulting</a>
+                <a href="/mastermind">Mastermind</a>
+                <a href="/eight-dominoes">The Book</a>
+                <a href="/podcast-guest">Podcast</a>
+                <a href="/tools">Tools</a>
+                <a href="/grimoire">Grimoire</a>
             </nav>
-            <nav class="footer-legal" aria-label="Legal links">
+            <nav class="ed-footer__legal" aria-label="Legal links">
                 <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms &amp; Conditions</a>
                 <a href="/cookies">Cookie Policy</a>
@@ -403,16 +409,6 @@
         </div>
     </footer>
 
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-            integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-            integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.6"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>

@@ -1,0 +1,568 @@
+/* ============================================================================
+   Eight Dominoes — brand stylesheet
+   ----------------------------------------------------------------------------
+   Ported from the Eight Dominoes design system (Claude Design project
+   0161c5bb-cdbb-430e-b22d-cbd17bce31fa) into plain CSS, because this site is
+   static HTML and the system ships React.
+
+   Token values are copied verbatim from tokens/*.css. The component rules below
+   are ports of components/core/* and components/brand/*.
+
+   Non-negotiables carried over from the system readme:
+     - Three colours. Yellow #F9CE1B, Ink, White/Bone. Ramps are for hovers,
+       rules and greys only — never new brand colours.
+     - Three legal pairings: ink on yellow, yellow on ink, ink on white.
+     - THE INTERFACE IS FLAT. No shadow on buttons, tags, labels, bands or type.
+       `cast` is for physical objects only (cover art); `lift` only for a paper
+       card on a paper page.
+     - Square by default (--radius-0). 10px rounding belongs to domino tiles.
+     - Keylines are 2px ink, drawn as inset box-shadow so they cost no layout.
+     - Display type is set FLAT — no extrude, outline, bevel or text-shadow.
+     - Dominoes tip and land; nothing floats. Opacity never animates alone.
+
+   This page loads ONLY this stylesheet, not styles.css — /mastermind is a full
+   Eight Dominoes surface, so it must not inherit the parchment theme.
+   ========================================================================== */
+
+/* ── tokens/colors.css ─────────────────────────────────────────────────── */
+:root {
+    --yellow-900:#A57F00; --yellow-700:#DEAC00; --yellow-600:#F3C200;
+    --yellow-500:#F9CE1B; /* Domino Yellow — the brand */
+    --yellow-400:#FFDC2E; --yellow-300:#FFE873; --yellow-100:#FFF8D6;
+
+    --ink-900:#0E0E0E; --ink-800:#191919; --ink-700:#2B2B2B;
+    --ink-600:#454545; --ink-400:#7A7A7A; --ink-200:#C9C9C9; --ink-100:#E6E4DF;
+
+    --bone-100:#FFFFFF; --bone-200:#FAF8F3; --bone-300:#F1EDE3; --bone-400:#DFD8C7;
+
+    --signal-good:#1E7A4B; --signal-warn:#B3630B; --signal-bad:#B3271E;
+
+    --brand:var(--yellow-500);
+    --surface-page:var(--bone-200);
+    --surface-card:var(--bone-100);
+    --surface-inverse:var(--ink-800);
+    --surface-brand:var(--yellow-500);
+    --surface-sunk:var(--bone-300);
+
+    --text-body:var(--ink-700);
+    --text-strong:var(--ink-900);
+    --text-muted:var(--ink-400);
+    --text-on-brand:var(--ink-900);
+    --text-on-inverse:var(--bone-100);
+    --focus-ring:var(--ink-900);
+
+    --bg-yellow-field:radial-gradient(125% 105% at 16% 6%, var(--yellow-400) 0%, var(--yellow-500) 46%, var(--yellow-600) 100%);
+    --bg-ink-field:radial-gradient(120% 100% at 20% 0%, #262626 0%, var(--ink-800) 55%, var(--ink-900) 100%);
+
+    /* ── tokens/typography.css ─────────────────────────────────────────── */
+    --font-display:"DIN Condensed","Bebas Neue Pro","Bebas Neue","Oswald",system-ui,sans-serif;
+    --font-heavy:"Gotham","Cocogoose Pro","Montserrat",system-ui,sans-serif;
+    --font-head:"Cocogoose Pro","Montserrat",system-ui,sans-serif;
+    --font-body:"Cocogoose Pro","Poppins",system-ui,sans-serif;
+    --font-serif:"Minion Pro","Source Serif 4",Georgia,serif;
+
+    --fw-light:300; --fw-regular:400; --fw-medium:500;
+    --fw-semibold:600; --fw-bold:700; --fw-extrabold:800; --fw-black:900;
+
+    --fs-3xs:11px; --fs-2xs:12px; --fs-xs:14px; --fs-sm:16px; --fs-md:18px;
+    --fs-lg:22px; --fs-xl:28px; --fs-2xl:36px; --fs-3xl:48px; --fs-4xl:64px;
+    --fs-5xl:88px; --fs-6xl:120px; --fs-7xl:168px;
+
+    --lh-tight:0.88; --lh-snug:1.0; --lh-head:1.06; --lh-body:1.62; --lh-loose:1.75;
+
+    --ls-display:0.01em; --ls-heavy:-0.02em; --ls-head:-0.01em;
+    --ls-body:0em; --ls-label:0.14em; --ls-vertical:0.18em;
+
+    /* ── tokens/spacing.css ────────────────────────────────────────────── */
+    --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
+    --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px; --sp-20:80px;
+    --sp-24:96px; --sp-32:128px; --sp-40:160px;
+
+    --radius-0:0px; --radius-sm:3px; --radius-md:6px; --radius-domino:10px;
+    --bw-hair:1px; --bw-rule:2px; --bw-bold:3px; --bw-slab:6px;
+
+    --measure-copy:62ch; --measure-narrow:44ch;
+    --container-page:1200px; --container-wide:1440px;
+    --gutter-page:var(--sp-8); --gutter-page-lg:var(--sp-16);
+
+    /* ── tokens/effects.css ────────────────────────────────────────────── */
+    --shadow-cast-sm:6px 6px 0 rgba(14,14,14,0.14);
+    --shadow-cast-md:12px 12px 0 rgba(14,14,14,0.16);
+    --shadow-cast-lg:24px 24px 0 rgba(14,14,14,0.18);
+    --shadow-lift-md:0 4px 14px rgba(14,14,14,0.10);
+    --pattern-pips:radial-gradient(circle, var(--ink-900) 1.6px, transparent 1.7px);
+    --pattern-pips-size:18px 18px;
+
+    /* ── tokens/motion.css ─────────────────────────────────────────────── */
+    --ease-topple:cubic-bezier(0.32,0,0.24,1);
+    --ease-snap:cubic-bezier(0.2,0.9,0.2,1);
+    --ease-settle:cubic-bezier(0.34,1.32,0.6,1);
+    --dur-fast:140ms; --dur-base:240ms; --dur-slow:420ms; --dur-fall:700ms;
+    --stagger-domino:90ms;
+    --transition-ui:background-color var(--dur-fast) var(--ease-snap),
+                    color var(--dur-fast) var(--ease-snap),
+                    box-shadow var(--dur-fast) var(--ease-snap),
+                    transform var(--dur-fast) var(--ease-snap);
+}
+
+@media (prefers-reduced-motion:reduce) {
+    :root { --dur-fast:0ms; --dur-base:0ms; --dur-slow:0ms; --dur-fall:0ms; --stagger-domino:0ms; }
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body.ed-theme {
+    margin: 0;
+    background: var(--surface-page);
+    color: var(--text-body);
+    font: var(--fw-light) var(--fs-md)/var(--lh-body) var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+.ed-theme img { max-width: 100%; height: auto; }
+
+/* Display type is set FLAT — the system forbids extrude/outline/shadow on type. */
+.ed-theme h1, .ed-theme h2, .ed-theme h3 {
+    margin: 0;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+.ed-display {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-display);
+    color: var(--text-strong);
+}
+/* Headline face. ALL CAPS at every size below 48px, per the type rules. */
+.ed-headline {
+    font-family: var(--font-head);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-head);
+    letter-spacing: var(--ls-head);
+    color: var(--text-strong);
+}
+.ed-subhead {
+    font-family: var(--font-head);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-lg);
+    line-height: 1.2;
+    letter-spacing: var(--ls-head);
+    color: var(--text-strong);
+}
+
+.ed-lead { font-size: var(--fs-lg); line-height: 1.5; max-width: var(--measure-copy); }
+.ed-copy { max-width: var(--measure-copy); }
+.ed-copy p { margin: 0 0 var(--sp-5); }
+.ed-copy p:last-child { margin-bottom: 0; }
+.ed-copy strong { font-weight: var(--fw-semibold); color: var(--text-strong); }
+
+/* The one place the brand is quiet: the book's own reading face. */
+.ed-aside {
+    font-family: var(--font-serif);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-loose);
+    max-width: var(--measure-copy);
+    margin: var(--sp-12) 0 0;
+    padding-left: var(--sp-5);
+    border-left: var(--bw-slab) solid var(--ink-900);
+}
+.ed-aside p { margin: 0; }
+.ed-aside strong { font-family: var(--font-head); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--ls-label); font-size: var(--fs-2xs); display: block; margin-bottom: var(--sp-2); }
+
+/* Link styling is SCOPED TO PROSE, never applied blanket to `a`.
+   A `.ed-theme a` rule (0,1,1) out-specifies single-class component rules like
+   .ed-btn (0,1,0) and made the primary button ink-on-ink; adding :not() guards
+   only pushed it to (0,3,1), where it then beat .ed-nav .nav-links a (0,2,1)
+   and blanked the nav. Scoping by container keeps specificity low and leaks
+   into nothing. */
+.ed-copy a, .ed-card p a, .ed-faq p a, .ed-aside a, .ed-step__body a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+.ed-copy a:hover, .ed-card p a:hover, .ed-faq p a:hover,
+.ed-aside a:hover, .ed-step__body a:hover { color: var(--yellow-700); }
+.ed-card--ink p a, .ed-band-ink .ed-copy a { color: var(--yellow-500); }
+.ed-card--ink p a:hover, .ed-band-ink .ed-copy a:hover { color: var(--yellow-400); }
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+.ed-container { max-width: var(--container-page); margin: 0 auto; padding: 0 var(--gutter-page); }
+.ed-section { padding: var(--sp-20) 0; }
+@media (min-width: 900px) { .ed-section { padding: var(--sp-24) 0; } }
+
+.ed-band-ink { background: var(--bg-ink-field); color: var(--text-on-inverse); }
+.ed-band-ink .ed-display, .ed-band-ink .ed-headline, .ed-band-ink h2, .ed-band-ink h3 { color: var(--bone-100); }
+/* Prose-link colour on ink is handled in the scoped link block below; a blanket
+   `.ed-band-ink a` (0,1,1) would out-specify .ed-btn (0,1,0) and recolour any
+   button dropped into an ink band. */
+.ed-band-ink .ed-aside { border-left-color: var(--yellow-500); }
+
+.ed-band-yellow { background: var(--bg-yellow-field); color: var(--text-on-brand); }
+.ed-band-yellow .ed-display, .ed-band-yellow .ed-headline { color: var(--ink-900); }
+
+.ed-band-paper { background: var(--surface-page); }
+.ed-band-sunk  { background: var(--surface-sunk); }
+
+/* Asymmetric, left-aligned, unafraid of empty yellow. */
+.ed-split { display: grid; gap: var(--sp-10); }
+@media (min-width: 900px) { .ed-split { grid-template-columns: minmax(0,0.85fr) minmax(0,1.15fr); gap: var(--sp-16); align-items: start; } }
+
+/* ── Pip rule — the dotted divider under the cover subtitle ────────────── */
+.ed-pip-rule {
+    height: 18px;
+    background-image: var(--pattern-pips);
+    background-size: var(--pattern-pips-size);
+    background-repeat: repeat-x;
+    background-position: left center;
+    margin: var(--sp-6) 0;
+}
+.ed-band-ink .ed-pip-rule, .ed-pip-rule--yellow {
+    background-image: radial-gradient(circle, var(--yellow-500) 1.6px, transparent 1.7px);
+}
+
+/* ── SectionLabel (components/brand/SectionLabel.jsx) ──────────────────── */
+.ed-label {
+    display: inline-block;
+    padding: var(--sp-2) var(--sp-4);
+    font-family: var(--font-head);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-xs);
+    line-height: 1;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    border-radius: var(--radius-0);
+    background: var(--ink-900);
+    color: var(--yellow-500);
+}
+.ed-label--yellow  { background: var(--yellow-500); color: var(--ink-900); }
+.ed-label--outline { background: transparent; color: var(--ink-900); box-shadow: inset 0 0 0 var(--bw-rule) var(--ink-900); }
+.ed-band-ink .ed-label--outline { color: var(--bone-100); box-shadow: inset 0 0 0 var(--bw-rule) var(--yellow-500); }
+
+/* ── Button (components/core/Button.jsx) — FLAT, square, tracked caps ──── */
+.ed-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+    padding: 18px 34px;
+    font-family: var(--font-head);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    line-height: 1;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-0);
+    cursor: pointer;
+    transition: var(--transition-ui);
+    background: var(--ink-900);
+    color: var(--yellow-500);
+}
+.ed-btn:hover  { background: var(--ink-700); color: var(--yellow-500); }
+.ed-btn:active { background: var(--ink-900); transform: translate(2px, 2px); }
+
+.ed-btn--yellow  { background: var(--yellow-500); color: var(--ink-900); }
+.ed-btn--yellow:hover  { background: var(--yellow-400); color: var(--ink-900); }
+.ed-btn--yellow:active { background: var(--yellow-600); }
+
+/* Outline inverts on hover — never an opacity-only state. */
+.ed-btn--outline { background: transparent; color: var(--ink-900); box-shadow: inset 0 0 0 var(--bw-rule) var(--ink-900); }
+.ed-btn--outline:hover { background: var(--ink-900); color: var(--yellow-500); }
+.ed-band-ink .ed-btn--outline { color: var(--bone-100); box-shadow: inset 0 0 0 var(--bw-rule) var(--yellow-500); }
+.ed-band-ink .ed-btn--outline:hover { background: var(--yellow-500); color: var(--ink-900); }
+
+.ed-btn--block { display: flex; width: 100%; }
+
+.ed-theme :is(a, button, summary, input):focus-visible {
+    outline: var(--bw-rule) solid var(--focus-ring);
+    outline-offset: 2px;
+}
+.ed-band-ink :is(a, button, summary):focus-visible,
+.ed-band-yellow :is(a, button):focus-visible { outline-color: var(--ink-900); }
+.ed-band-ink :is(a, button, summary):focus-visible { outline-color: var(--yellow-500); }
+
+.ed-btn-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-top: var(--sp-8); }
+
+/* ── DominoTile (components/brand/DominoTile.jsx) ──────────────────────── */
+.ed-domino {
+    --dw: 44px;
+    width: var(--dw); height: calc(var(--dw) * 2);
+    border: var(--bw-rule) solid var(--ink-900);
+    border-radius: var(--radius-domino);
+    flex: 0 0 auto;
+    background: transparent;
+    display: flex; flex-direction: column;
+}
+.ed-domino--sm { --dw: 28px; }
+.ed-domino--lg { --dw: 72px; }
+.ed-domino__half {
+    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+    padding: calc(var(--dw) * 0.1);
+}
+.ed-domino__half:first-child { border-bottom: var(--bw-rule) solid var(--ink-900); }
+.ed-domino__pip { width: calc(var(--dw) * 0.145); height: calc(var(--dw) * 0.145); border-radius: 50%; background: transparent; }
+.ed-domino__pip.is-on { background: var(--ink-900); }
+
+/* The last tile in a sequence is always the solid ink one. */
+.ed-domino--ink { background: var(--ink-900); }
+.ed-domino--ink .ed-domino__pip.is-on { background: var(--yellow-500); }
+.ed-domino--ink .ed-domino__half:first-child { border-bottom-color: var(--yellow-500); }
+
+.ed-band-ink .ed-domino { border-color: var(--yellow-500); }
+.ed-band-ink .ed-domino__half:first-child { border-bottom-color: var(--yellow-500); }
+.ed-band-ink .ed-domino__pip.is-on { background: var(--yellow-500); }
+
+/* ── StatBlock (components/brand/StatBlock.jsx) ────────────────────────── */
+.ed-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-10); }
+.ed-stat { display: flex; flex-direction: column; gap: var(--sp-2); }
+.ed-stat__value {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-4xl);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-display);
+    color: var(--bone-100);
+}
+.ed-stat__label {
+    font-family: var(--font-head);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-2xs);
+    line-height: 1.5;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--bone-100);
+    opacity: 0.75;
+}
+
+/* ── Card (components/core/Card.jsx) ───────────────────────────────────── */
+.ed-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-6); margin-top: var(--sp-12); }
+.ed-card {
+    padding: var(--sp-8);
+    border-radius: var(--radius-0);
+    background: var(--surface-card);
+    color: var(--text-body);
+    box-shadow: var(--shadow-lift-md); /* paper on paper — the only sanctioned lift */
+}
+.ed-card--outline { background: transparent; box-shadow: inset 0 0 0 var(--bw-rule) var(--ink-900); }
+.ed-card--ink { background: var(--surface-inverse); color: var(--text-on-inverse); box-shadow: none; }
+.ed-card--ink .ed-card__title { color: var(--bone-100); }
+.ed-card--ink a { color: var(--yellow-500); }
+.ed-card--yellow { background: var(--surface-brand); color: var(--text-on-brand); box-shadow: none; }
+
+.ed-card__title {
+    font-family: var(--font-head);
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-lg);
+    line-height: 1.15;
+    letter-spacing: var(--ls-head);
+    text-transform: uppercase;
+    color: var(--text-strong);
+    margin: var(--sp-5) 0 var(--sp-3);
+}
+.ed-card p { margin: 0; font-size: var(--fs-sm); }
+
+/* ── PullQuote (components/brand/PullQuote.jsx) ────────────────────────── */
+.ed-quote { margin: 0 auto; display: flex; flex-direction: column; gap: var(--sp-5); max-width: var(--measure-narrow); }
+.ed-quote__slab { width: 64px; height: var(--bw-slab); background: var(--yellow-500); }
+.ed-quote p {
+    margin: 0;
+    font-family: var(--font-head);
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-2xl);
+    line-height: var(--lh-head);
+    letter-spacing: var(--ls-head);
+    text-wrap: balance;
+}
+.ed-quote footer {
+    font-family: var(--font-head);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-2xs);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+}
+
+/* ── First-week steps: domino tiles as step markers ────────────────────── */
+.ed-steps { margin-top: var(--sp-12); display: flex; flex-direction: column; gap: var(--sp-8); max-width: 780px; }
+.ed-step { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-6); align-items: start; }
+.ed-step__body p { margin: 0; }
+.ed-step__title {
+    font-family: var(--font-head);
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: var(--sp-2);
+    color: var(--text-strong);
+}
+.ed-band-ink .ed-step__title { color: var(--yellow-500); }
+
+/* ── FAQ ───────────────────────────────────────────────────────────────── */
+.ed-faq { max-width: 760px; margin-top: var(--sp-12); }
+.ed-faq details { border-top: var(--bw-rule) solid var(--ink-900); padding: var(--sp-5) 0; }
+.ed-faq details:last-of-type { border-bottom: var(--bw-rule) solid var(--ink-900); }
+.ed-faq summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-head);
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-head);
+    text-transform: uppercase;
+    color: var(--text-strong);
+    display: flex; justify-content: space-between; gap: var(--sp-4); align-items: center;
+}
+.ed-faq summary::-webkit-details-marker { display: none; }
+.ed-faq summary::after {
+    content: "+";
+    font-family: var(--font-head); font-weight: var(--fw-black);
+    font-size: var(--fs-lg); line-height: 1; flex: 0 0 auto;
+    transition: transform var(--dur-fast) var(--ease-snap);
+}
+.ed-faq details[open] summary::after { transform: rotate(45deg); }
+.ed-faq p { margin: var(--sp-4) 0 0; max-width: var(--measure-copy); }
+
+/* ── Nav — sticky ink bar ──────────────────────────────────────────────── */
+.ed-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink-900);
+    border-bottom: var(--bw-rule) solid var(--ink-900);
+    transition: transform var(--dur-base) var(--ease-snap);
+}
+.ed-nav.nav-hidden { transform: translateY(-100%); }
+.ed-nav__inner {
+    max-width: var(--container-wide); margin: 0 auto;
+    padding: var(--sp-3) var(--gutter-page);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+}
+.ed-nav__brand {
+    display: inline-flex; align-items: center; gap: var(--sp-3);
+    font-family: var(--font-head); font-weight: var(--fw-black);
+    font-size: var(--fs-xs); letter-spacing: var(--ls-label);
+    text-transform: uppercase; color: var(--bone-100); text-decoration: none;
+}
+.ed-nav__brand:hover { color: var(--yellow-500); }
+.ed-nav .nav-links {
+    display: flex; align-items: center; gap: var(--sp-1);
+    list-style: none; margin: 0; padding: 0;
+}
+.ed-nav .nav-links a {
+    display: block; padding: var(--sp-3) var(--sp-4);
+    font-family: var(--font-head); font-weight: var(--fw-bold);
+    font-size: var(--fs-2xs); letter-spacing: var(--ls-label);
+    text-transform: uppercase; color: var(--bone-100); text-decoration: none;
+    transition: var(--transition-ui);
+}
+.ed-nav .nav-links a:hover { background: var(--ink-700); color: var(--yellow-500); }
+/* Selected inverts — solid ink with yellow type becomes solid yellow with ink type. */
+.ed-nav .nav-links a[aria-current="page"] { background: var(--yellow-500); color: var(--ink-900); }
+/* Menu icon drawn in CSS. The system ships no icon font, and its only sanctioned
+   non-Lucide glyph is the dismiss ×, so the bars are rules and the close is an ×. */
+.ed-nav .menu-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: var(--sp-3); width: 44px; height: 44px; position: relative;
+}
+.ed-nav .menu-toggle span,
+.ed-nav .menu-toggle span::before,
+.ed-nav .menu-toggle span::after {
+    position: absolute; left: 10px; width: 24px; height: var(--bw-bold);
+    background: var(--bone-100); content: "";
+    transition: transform var(--dur-fast) var(--ease-snap), opacity var(--dur-fast) var(--ease-snap);
+}
+.ed-nav .menu-toggle span { top: 50%; margin-top: calc(var(--bw-bold) / -2); }
+.ed-nav .menu-toggle span::before { top: -8px; left: 0; }
+.ed-nav .menu-toggle span::after  { top: 8px;  left: 0; }
+.ed-nav .menu-toggle[aria-expanded="true"] span { background: transparent; }
+.ed-nav .menu-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); background: var(--yellow-500); }
+.ed-nav .menu-toggle[aria-expanded="true"] span::after  { top: 0; transform: rotate(-45deg); background: var(--yellow-500); }
+@media (max-width: 980px) {
+    .ed-nav .menu-toggle { display: block; }
+    .ed-nav .nav-links {
+        display: none; position: absolute; left: 0; right: 0; top: 100%;
+        flex-direction: column; align-items: stretch;
+        background: var(--ink-900); padding: var(--sp-2) var(--gutter-page) var(--sp-6);
+        border-top: var(--bw-rule) solid var(--ink-700);
+    }
+    .ed-nav .nav-links.active { display: flex; }
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.ed-footer { background: var(--ink-900); color: var(--bone-100); padding: var(--sp-16) 0 var(--sp-12); }
+.ed-footer__mark { font-family: var(--font-display); font-size: var(--fs-2xl); letter-spacing: var(--ls-display); text-transform: uppercase; color: var(--yellow-500); }
+.ed-footer p { font-size: var(--fs-xs); color: var(--ink-200); }
+.ed-footer nav { display: flex; flex-wrap: wrap; gap: var(--sp-5); margin-top: var(--sp-6); }
+.ed-footer nav a {
+    font-family: var(--font-head); font-weight: var(--fw-bold);
+    font-size: var(--fs-2xs); letter-spacing: var(--ls-label);
+    text-transform: uppercase; color: var(--bone-100); text-decoration: none;
+}
+.ed-footer nav a:hover { color: var(--yellow-500); }
+.ed-footer__legal { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: var(--bw-hair) solid var(--ink-700); }
+.ed-footer__legal a { color: var(--ink-200); }
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.ed-hero { padding: var(--sp-20) 0 var(--sp-24); }
+.ed-hero__grid { display: grid; gap: var(--sp-12); align-items: center; }
+@media (min-width: 900px) { .ed-hero__grid { grid-template-columns: minmax(0,1.25fr) minmax(0,0.75fr); gap: var(--sp-16); } }
+.ed-hero h1 { font-size: clamp(56px, 11vw, var(--fs-6xl)); max-width: 14ch; }
+.ed-hero .ed-lead { margin: 0; max-width: 46ch; font-weight: var(--fw-light); }
+/* Cover art is a physical object — the one place a hard cast shadow belongs. */
+.ed-hero__cover { display: none; }
+@media (min-width: 900px) {
+    .ed-hero__cover { display: block; justify-self: end; max-width: 340px; box-shadow: var(--shadow-cast-lg); }
+}
+.ed-breadcrumb {
+    font-family: var(--font-head); font-weight: var(--fw-bold);
+    font-size: var(--fs-2xs); letter-spacing: var(--ls-label);
+    text-transform: uppercase; margin-bottom: var(--sp-6);
+}
+.ed-breadcrumb a { text-decoration: none; }
+.ed-breadcrumb span { opacity: 0.55; margin: 0 var(--sp-2); }
+
+.ed-section-head { max-width: 24ch; }
+.ed-section-head h2 { font-size: clamp(36px, 6vw, var(--fs-4xl)); }
+.ed-section-intro { margin: var(--sp-5) 0 0; max-width: var(--measure-copy); font-size: var(--fs-md); }
+
+.ed-fine {
+    font-family: var(--font-body); font-weight: var(--fw-light);
+    font-size: var(--fs-xs); line-height: 1.5; margin-top: var(--sp-5);
+    color: var(--text-body);
+}
+.ed-band-ink .ed-fine { color: var(--ink-200); }
+.ed-band-yellow .ed-fine { color: var(--ink-700); }
+
+/* ── Motion: dominoes tip and land. Opacity never animates alone. ────────
+   Gated on .ed-motion, which the page's inline head script sets only when JS
+   and IntersectionObserver are both present — so with no JS nothing is ever
+   hidden. script.js's observer adds .active. This page loads no animation
+   library; the topple is a two-property CSS transition. */
+.ed-motion .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px) rotate(-1.2deg);
+    transform-origin: bottom left;
+    transition: opacity var(--dur-slow) var(--ease-topple),
+                transform var(--dur-slow) var(--ease-topple);
+}
+.ed-motion .scroll-reveal.active { opacity: 1; transform: none; }
+
+/* Stagger cards and steps so a row falls like a line of dominoes. */
+.ed-motion .ed-cards > .scroll-reveal:nth-child(2),
+.ed-motion .ed-steps > .scroll-reveal:nth-child(2) { transition-delay: var(--stagger-domino); }
+.ed-motion .ed-cards > .scroll-reveal:nth-child(3),
+.ed-motion .ed-steps > .scroll-reveal:nth-child(3) { transition-delay: calc(var(--stagger-domino) * 2); }
+.ed-motion .ed-cards > .scroll-reveal:nth-child(4),
+.ed-motion .ed-steps > .scroll-reveal:nth-child(4) { transition-delay: calc(var(--stagger-domino) * 3); }
+.ed-motion .ed-cards > .scroll-reveal:nth-child(5),
+.ed-motion .ed-steps > .scroll-reveal:nth-child(5) { transition-delay: calc(var(--stagger-domino) * 4); }
+.ed-motion .ed-cards > .scroll-reveal:nth-child(6) { transition-delay: calc(var(--stagger-domino) * 5); }
+
+@media (prefers-reduced-motion: reduce) {
+    .ed-motion .scroll-reveal { opacity: 1; transform: none; transition: none; transition-delay: 0s; }
+    .ed-theme * { animation: none !important; }
+}
