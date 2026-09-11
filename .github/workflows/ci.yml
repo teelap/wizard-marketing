@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate index.html
-        run: npm run validate
+      - name: Validate site and newsletter consent
+        run: npm test
 
       - name: Dry-run build (tolerant)
         run: npm run build

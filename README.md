@@ -61,7 +61,7 @@ All settings can be overridden with environment variables (see [`.env.example`](
 
 ```sh
 npm run validate   # asserts core SEO/OG/JSON-LD tags are present in index.html
-npm test           # alias for `npm run validate`
+npm test           # validation plus mocked newsletter consent regression tests (no emails sent)
 ```
 
 ## Deployment

@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalLabel = submitBtn.textContent;
             const formType = form.querySelector('input[name="_form_type"]')?.value || 'contact';
+            const newsletterCheckbox = form.querySelector('input[type="checkbox"][name="newsletter_optin"]');
+            // Capture consent at submission. Inquiry forms need an affirmative
+            // checkbox; the two dedicated newsletter forms are themselves opt-ins.
+            const newsletterOptIn = newsletterCheckbox
+                ? newsletterCheckbox.checked
+                : ['grimoire', 'eight_dominoes'].includes(formType);
 
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sealing the scroll\u2026';
@@ -49,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    renderFormSuccess(form, formType);
+                    renderFormSuccess(form, formType, newsletterOptIn);
                 } else {
                     renderFormError(form, submitBtn, originalLabel);
                 }
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contact:          { meta_event: 'Lead', content_name: 'Contact Inquiry',       content_category: 'contact' }
     };
 
-    function renderFormSuccess(form, formType) {
+    function renderFormSuccess(form, formType, newsletterOptIn) {
         // Fire the Meta conversion on CONFIRMED success, before the form leaves the DOM.
         try {
             if (window.WizAnalytics && typeof window.WizAnalytics.conversion === 'function') {
@@ -96,12 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (e) { /* tracking must never block the success UI */ }
 
-        // Add the subscriber to the Resend audience (the newsletter / email list).
+        // Subscribe only when the visitor opted into the newsletter.
         // Fire-and-forget with keepalive so it survives the form being replaced;
         // it must never block or break the success UI.
         try {
             const subEmail = (form.querySelector('input[type="email"], input[name="email"]') || {}).value || '';
-            if (subEmail) {
+            if (subEmail && newsletterOptIn) {
                 const subName = (form.querySelector('input[name="name"]') || {}).value || '';
                 const subParts = subName.trim().split(/\s+/).filter(Boolean);
                 fetch('/api/subscribe', {
@@ -109,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         email: subEmail,
+                        newsletter_optin: true,
                         first_name: subParts[0] || '',
                         last_name: subParts.length > 1 ? subParts[subParts.length - 1] : '',
                         source: formType || 'contact',

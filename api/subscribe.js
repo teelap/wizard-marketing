@@ -1,11 +1,13 @@
 /**
- * /api/subscribe — add a confirmed form submitter to the Resend audience.
+ * /api/subscribe — add an opted-in form submitter to the Resend audience.
  * ----------------------------------------------------------------------------
  * The site's forms POST to Formspree (which emails Jake) and, on CONFIRMED
- * success, fire-and-forget a copy of {email, name} here. This function adds the
- * person to the Resend "Audience" (the master subscriber list) so newsletters /
+ * success and explicit newsletter opt-in, fire-and-forget the signup here.
+ * This function requires newsletter_optin: true and adds a new contact to the
+ * Resend "Audience" (the master subscriber list) so newsletters /
  * broadcasts can be sent to them later. We only capture on confirmed success, so
- * failed/abandoned submits never create contacts.
+ * failed/abandoned submits never create contacts through the site's form flow.
+ * Existing contacts are left untouched, including previous unsubscribes.
  *
  * Required env (Vercel → Project → Settings → Environment Variables):
  *   RESEND_API_KEY        Resend API key (SECRET — never commit). Until this is
@@ -25,6 +27,7 @@
 'use strict';
 
 const RESEND_API = 'https://api.resend.com';
+const { createHash } = require('node:crypto');
 
 // Cached across warm invocations (Vercel reuses function instances) so we only
 // look the audience up once.
@@ -107,6 +110,17 @@ module.exports = async (req, res) => {
     return res.end(JSON.stringify({ ok: false, error: 'bad_json' }));
   }
 
+  if (!body || typeof body !== 'object' || Array.isArray(body)) {
+    res.statusCode = 400;
+    return res.end(JSON.stringify({ ok: false, error: 'bad_json' }));
+  }
+  // A page/source tag is not consent, and truthy strings such as "false" are
+  // not consent either. Old clients without this flag must safely do nothing.
+  if (body.newsletter_optin !== true) {
+    res.statusCode = 200;
+    return res.end(JSON.stringify({ ok: false, skipped: 'not_opted_in' }));
+  }
+
   const email = String(body.email || '').trim().toLowerCase();
   if (!isEmail(email)) {
     res.statusCode = 400;
@@ -121,6 +135,33 @@ module.exports = async (req, res) => {
   const signupPage = String(body.signup_page || '').trim().slice(0, 120);
   const sourceTag = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 50);
 
+  // Resend's current contact model stores unsubscribe status globally, across
+  // audiences/segments. Look up the email globally before any contact write.
+  // Never upsert an existing contact or send it another welcome email. A lookup
+  // failure must not be mistaken for permission to create/resubscribe someone.
+  try {
+    const existing = await fetch(RESEND_API + '/contacts/' + encodeURIComponent(email), {
+      headers: { Authorization: 'Bearer ' + KEY },
+    });
+    if (existing.ok) {
+      const contact = await existing.json().catch(() => null);
+      if (!contact || !contact.id || typeof contact.unsubscribed !== 'boolean') {
+        res.statusCode = 502;
+        return res.end(JSON.stringify({ ok: false, error: 'resend_lookup_failed' }));
+      }
+      // Return the same response for subscribed and unsubscribed addresses.
+      res.statusCode = 200;
+      return res.end(JSON.stringify({ ok: true }));
+    }
+    if (existing.status !== 404) {
+      res.statusCode = 502;
+      return res.end(JSON.stringify({ ok: false, error: 'resend_lookup_failed' }));
+    }
+  } catch (e) {
+    res.statusCode = 502;
+    return res.end(JSON.stringify({ ok: false, error: 'resend_unreachable' }));
+  }
+
   let audienceId;
   try {
     audienceId = await resolveAudienceId(KEY);
@@ -132,7 +173,8 @@ module.exports = async (req, res) => {
     return res.end(JSON.stringify({ ok: false, error: 'no_audience' }));
   }
 
-  // Add (upsert) the contact. A duplicate email is a success for our purposes.
+  // Create only after confirming the email is new. Do not supply unsubscribed:
+  // an overlapping signup must never reset a preference already stored by Resend.
   try {
     const r = await fetch(RESEND_API + '/audiences/' + audienceId + '/contacts', {
       method: 'POST',
@@ -141,17 +183,19 @@ module.exports = async (req, res) => {
         email: email,
         first_name: firstName || undefined,
         last_name: lastName || undefined,
-        unsubscribed: false,
-        // Custom properties (Resend's newer contact model). Harmless if the
-        // account/audience doesn't support them — the contact is still added.
+        // These properties must already be configured in the Resend account.
         properties: (source || signupPage)
           ? { source: source || undefined, signup_page: signupPage || undefined }
           : undefined,
       }),
     });
     const j = await r.json().catch(() => ({}));
-    const duplicate = j && j.message && /already|exists/i.test(j.message);
-    if (!r.ok && !duplicate) {
+    const duplicate = r.status === 409 && /already|exists/i.test(j.message || '');
+    if (duplicate) {
+      res.statusCode = 200;
+      return res.end(JSON.stringify({ ok: true }));
+    }
+    if (!r.ok || !j.id) {
       res.statusCode = 502;
       return res.end(JSON.stringify({ ok: false, error: 'resend_add_failed' }));
     }
@@ -167,7 +211,12 @@ module.exports = async (req, res) => {
     try {
       await fetch(RESEND_API + '/emails', {
         method: 'POST',
-        headers: { Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json' },
+        headers: {
+          Authorization: 'Bearer ' + KEY,
+          'Content-Type': 'application/json',
+          'Idempotency-Key': 'newsletter-welcome/' + createHash('sha256')
+            .update(audienceId + ':' + email).digest('hex'),
+        },
         body: JSON.stringify({
           from: FROM,
           to: [email],

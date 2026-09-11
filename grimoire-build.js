@@ -205,7 +205,7 @@ function footerHtml() {
 }
 
 function scriptsHtml() {
-    return `    <script defer src="/script.js?v=7.6"></script>
+    return `    <script defer src="/script.js?v=7.7"></script>
     <script defer src="/cookie-consent.js?v=2"></script>
     <script defer src="/grimoire.js?v=1"></script>`;
 }
