@@ -55,6 +55,9 @@ const PUBLIC_FILES = [
     'terms.html',
     'cookies.html',
     'ai-information.html',
+    'alice-video.html',
+    'alice-video-privacy.html',
+    'alice-video-terms.html',
     '404.html',
     'styles.css',
     // Eight Dominoes brand stylesheet — /mastermind is a full Eight Dominoes
@@ -279,7 +282,8 @@ function injectAnalytics(extraFiles = []) {
     const headBlock = analyticsHeadBlock(CONFIG.gtmContainerId, CONFIG.clarityProjectId);
     const noscript = analyticsNoscript(CONFIG.gtmContainerId);
     const staticFiles = PUBLIC_FILES
-        .filter((f) => f.endsWith('.html'))
+        // Private assistant connection notices do not use marketing analytics.
+        .filter((f) => f.endsWith('.html') && !['alice-video.html', 'alice-video-privacy.html', 'alice-video-terms.html'].includes(f))
         .map((f) => path.join(CONFIG.outputDir, f));
     // extraFiles are absolute paths to generated pages (e.g. the Grimoire) that
     // also need the GTM/Consent bootstrap.
