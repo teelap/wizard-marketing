@@ -87,7 +87,7 @@
     }
     </script>
 
-    <link rel="preload" href="dev_assets/scenes/lofi-room-opt.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="dev_assets/scenes/lofi-study-v4.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="styles.css?v=8.7">
     <link rel="stylesheet" href="scene.css?v=7">
     <link rel="stylesheet" href="grimoire.css?v=3">
@@ -138,12 +138,12 @@
         <section id="scene-hero" aria-label="The Wizard's study — a looping animated scene">
             <h1 class="visually-hidden">Jake Tlapek — The Wizard of Marketing. Author of Eight Dominoes.</h1>
             <div class="scene">
-                <!-- Sources + playback are attached by scene.js AFTER load (and skipped on Save-Data/slow
-                     links) so the 12 MB of video never blocks LCP — the poster paints instantly instead. -->
+                <!-- The matching still paints first. scene.js loads the silent animation after the page,
+                     respects reduced motion / data saving, and pauses it outside the viewport. -->
                 <video id="scene-video" class="room" muted loop playsinline preload="none"
-                       poster="dev_assets/scenes/lofi-room-opt.webp"
-                       data-webm="dev_assets/scenes/lofi-loop-5-opt.webm"
-                       data-mp4="dev_assets/scenes/lofi-loop-5-opt.mp4"
+                       poster="dev_assets/scenes/lofi-study-v4.webp"
+                       data-webm="dev_assets/scenes/lofi-study-v4-1600.webm"
+                       data-mp4="dev_assets/scenes/lofi-study-v4-1600.mp4"
                        aria-label="A cozy candle-lit study: Jake works at his glowing laptop while snow falls outside the castle window and an owl watches.">
                 </video>
                 <div class="scene-vignette" aria-hidden="true"></div>
@@ -659,7 +659,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.7"></script>
-    <script defer src="scene.js?v=6"></script>
+    <script defer src="scene.js?v=7"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

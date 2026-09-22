@@ -6,7 +6,8 @@
    ===================================================================== */
 (function () {
   "use strict";
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  var reduced = motionPreference.matches;
   var hero = document.getElementById('scene-hero');
   if (!hero) return;
   function $(s, r) { return (r || document).querySelector(s); }
@@ -15,30 +16,56 @@
      The <video> ships with NO sources and preload="none", so it costs 0 bytes
      up front — the poster paints instantly and drives LCP. We attach the sources
      and play only AFTER the page has loaded, and never on reduced-motion,
-     Save-Data, or 2G-class links (the poster still stays). */
+     Save-Data, or 2G-class links (the poster still stays). Pause decoding when
+     the scene is out of view or the tab is hidden; music stays independent. */
   var video = $('#scene-video', hero);
-  function startScene() {
-    if (!video || video.dataset.loaded) return;
-    var c = navigator.connection || {};
-    var slow = c.saveData === true || /(^|\b)(slow-2g|2g)$/.test(c.effectiveType || '');
-    if (slow) return;                     // keep the lightweight poster on constrained links
-    video.dataset.loaded = '1';
-    var add = function (src, type) {
-      if (!src) return;
-      var s = document.createElement('source');
-      s.src = src; s.type = type;
-      video.appendChild(s);
-    };
-    add(video.getAttribute('data-webm'), 'video/webm');
-    add(video.getAttribute('data-mp4'), 'video/mp4');
-    try { video.load(); } catch (e) {}
-    var p = video.play && video.play();
-    if (p && p.catch) p.catch(function () {});
+  var connection = navigator.connection || {};
+  var sceneReady = false;
+  var sceneVisible = false;
+  function updateScene() {
+    if (!video) return;
+    var slow = connection.saveData === true || /(^|\b)(slow-2g|2g)$/.test(connection.effectiveType || '');
+    if (!sceneReady || !sceneVisible || document.hidden || reduced || slow) {
+      if (!video.paused) video.pause();
+      return;
+    }
+    if (!video.dataset.loaded) {
+      video.dataset.loaded = '1';
+      var add = function (src, type) {
+        if (!src) return;
+        var s = document.createElement('source');
+        s.src = src; s.type = type;
+        video.appendChild(s);
+      };
+      add(video.getAttribute('data-webm'), 'video/webm');
+      add(video.getAttribute('data-mp4'), 'video/mp4');
+      try { video.load(); } catch (e) {}
+    }
+    if (video.paused) {
+      var p = video.play && video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
   }
-  if (video && !reduced) {
+  if (video) {
+    var rect = video.getBoundingClientRect();
+    sceneVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        sceneVisible = entries[0].isIntersecting;
+        updateScene();
+      });
+      observer.observe(video);
+    }
+    document.addEventListener('visibilitychange', updateScene);
+    motionPreference.addEventListener('change', function () {
+      reduced = motionPreference.matches;
+      updateScene();
+    });
+    if (connection.addEventListener) connection.addEventListener('change', updateScene);
     var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
-    if (document.readyState === 'complete') idle(startScene);
-    else addEventListener('load', function () { idle(startScene); }, { once: true });
+    function startScene() { sceneReady = true; updateScene(); }
+    if (document.readyState === 'complete') idle(startScene, { timeout: 1000 });
+    else addEventListener('load', function () { idle(startScene, { timeout: 1000 }); }, { once: true });
   }
 
   /* ---------- ambient music: a 5-track playlist, ALWAYS opening with
