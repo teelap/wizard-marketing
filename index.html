@@ -91,6 +91,7 @@
     <link rel="stylesheet" href="styles.css?v=8.7">
     <link rel="stylesheet" href="scene.css?v=7">
     <link rel="stylesheet" href="grimoire.css?v=3">
+    <link rel="stylesheet" href="social-feed.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -519,6 +520,53 @@
             </div>
         </section>
 
+        <!-- New Lessons Every Day: Jake's newest posts, one tab per network.
+             social-feed.js fetches /api/social-feed (Metricool + YouTube RSS,
+             CDN-cached) once the section nears the viewport, then renders the
+             spotlight, tabs and rail. Without JS, or if the feed can't load,
+             the follow links below are what visitors see. -->
+        <section id="feed" class="section padding-section" aria-labelledby="feed-title">
+            <div class="container">
+                <h2 id="feed-title" class="section-title ink-stamp">New Lessons Every Day</h2>
+                <p class="description center-text">Short marketing lessons Jake posts on his socials. These are the newest, pulled straight from each platform.</p>
+
+                <div class="feed-layout" data-state="idle">
+                    <article class="feed-spotlight" id="feed-spotlight" hidden></article>
+
+                    <div class="feed-main">
+                        <div class="feed-tabs" role="tablist" aria-label="Choose a platform" id="feed-tabs"></div>
+                        <div class="feed-panel" role="tabpanel" id="feed-panel" tabindex="-1" aria-busy="true">
+                            <ul class="feed-rail feed-rail--loading" aria-hidden="true">
+                                <li class="feed-skeleton"></li><li class="feed-skeleton"></li><li class="feed-skeleton"></li><li class="feed-skeleton"></li><li class="feed-skeleton"></li>
+                            </ul>
+                        </div>
+
+                        <div class="feed-foot">
+                            <div class="feed-follow" id="feed-follow">
+                                <p class="feed-fallback" id="feed-fallback">See the newest posts on
+                                    <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer">TikTok</a>,
+                                    <a href="https://www.instagram.com/itsjakethewizard/" target="_blank" rel="noopener noreferrer">Instagram</a>,
+                                    <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer">YouTube</a>, and
+                                    <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+                            </div>
+                            <div class="feed-rail-controls" id="feed-rail-controls" hidden>
+                                <button type="button" class="feed-arrow" data-dir="-1" aria-label="Scroll to newer posts"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                <button type="button" class="feed-arrow" data-dir="1" aria-label="Scroll to older posts"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <dialog class="feed-player" id="feed-player" aria-label="Video player">
+                <div class="feed-player-frame" id="feed-player-frame"></div>
+                <div class="feed-player-bar">
+                    <a class="feed-player-out" id="feed-player-out" href="#" target="_blank" rel="noopener noreferrer"></a>
+                    <button type="button" class="feed-player-close" id="feed-player-close" aria-label="Close video" autofocus><i class="fas fa-xmark" aria-hidden="true"></i></button>
+                </div>
+            </dialog>
+        </section>
+
         <!-- Latest from the Grimoire (cards injected at build time by build.js) -->
         <section id="grimoire-home" class="section padding-section" aria-label="Latest writing from The Grimoire">
             <div class="container">
@@ -658,6 +706,7 @@
             referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.7"></script>
     <script defer src="scene.js?v=7"></script>
+    <script defer src="social-feed.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

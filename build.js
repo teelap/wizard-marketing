@@ -78,6 +78,9 @@ const PUBLIC_FILES = [
     'workshop.js',
     'grimoire.css',
     'grimoire.js',
+    // Homepage "Latest from the Feed": renders /api/social-feed (api/social-feed.js).
+    'social-feed.css',
+    'social-feed.js',
     'parchment-bg-v4.jpg',
     'favicon.ico',
     'robots.txt',
