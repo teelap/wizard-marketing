@@ -70,7 +70,7 @@
 **CTA:** stop competing. replace the category. book the call. link in bio.
 > External brand facts pulled from the published blog — keep them as stated, don't inflate.
 
-### ***SHOOT VIDEO*** — 06 · "stop using AI to write your posts" (AI skepticism / Commentary · ~30s)
+### ***SHOOT VIDEO*** — 06 · "stop using AI to write your posts" (Using AI correctly / Commentary · ~30s)
 **Keyword title:** why AI-written marketing is killing your brand
 **On-screen text (open):** ai is the center of the bell curve.
 **Script:**

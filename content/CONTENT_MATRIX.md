@@ -45,7 +45,7 @@ These already live in [CONTENT_GUIDE §4](CONTENT_GUIDE.md). Each is a category 
 - **AI-in-marketing skepticism** — human-first beats automation
 - **Personal brand as an exit-proof asset**
 - **Benefit of the benefit** — the messaging exercise
-- **Marketing-news commentary** (*Hold My Beard* mode)
+- **Marketing-news commentary** (news-react mode)
 
 The Dominoes are the spine for the July launch; the rest are the riffs between them.
 
@@ -62,7 +62,7 @@ Jake's eight, with his definitions and a brand example each. Run any subtopic th
 | 3 | **Method** | How do you actually do the thing? (guide / list / walkthrough) | *TikTok SEO × Method* — "How to get a new post ranking on Google fast." |
 | 4 | **FAQ** | What do people keep asking you? | *CRO × FAQ* — "Do I need more traffic, or better conversion?" Usually the second. |
 | 5 | **Story** | What happened when you did this? | *CRO × Story* — a client's single button change lifted conversion ~1.2% → 6.5%. |
-| 6 | **Takeaway** | What did 20 years teach you? | "People browse intellectually and buy emotionally." (an aphorism, told plainly) |
+| 6 | **Takeaway** | What did 13 years teach you? | "People browse intellectually and buy emotionally." (an aphorism, told plainly) |
 | 7 | **Tip** | What can they use *today*? | *Messaging × Tip* — rewrite your headline as the wound, not the service. Ship it now. |
 | 8 | **Commentary** | What's your POV on what's happening / how you know what you know? | *AI-in-marketing × Commentary* — "When you use AI, you accept the center of the bell curve." |
 
@@ -95,7 +95,7 @@ Plan **slot-first.** The old reflex — take one core and repeat it across seven
 > - **TikTok carousel** → *Share of Brand Voice × Method* — "how to measure the metric you're ignoring"
 > - **LinkedIn doc** → *CRO × Story* — a client's button change, 1.2% → 6.5%
 > - **IG carousel** → *Benefit-of-the-benefit × Tip* — "rewrite your headline as the wound"
-> - **X thread** → *AI-skepticism × Commentary* — "AI is the center of the bell curve"
+> - **X thread** → *Using AI correctly × Commentary* — "AI is the center of the bell curve"
 > - **X singles** → *TikTok SEO × FAQ* · *Personal brand × Takeaway* · *Domino 03 × Pitfall* … (each its own subject)
 > - **Threads** → *Marketing-news × Commentary* · *Messaging × Myth* … (each its own subject)
 >

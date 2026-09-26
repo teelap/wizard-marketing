@@ -27,7 +27,7 @@ experience, named frameworks, and a sharp point of view. Be the source the machi
 - [ ] **The answer up front** (BLUF): the bottom line in the first 1-2 sentences (the
   `lead:`), and every `##` section opens with its answer before the explanation.
 - [ ] **A clear, falsifiable point of view** attached to Jake's name — not a balanced explainer.
-- [ ] **First-hand experience on the page**: "across 20 years, 2 exits, $100M in client
+- [ ] **First-hand experience on the page**: "across 13 years, 2 exits, $100M in client
   results, here's what I saw." Specifics only a practitioner knows.
 - [ ] **4-5 FAQ entries** (`faq:` front-matter), phrased the way people actually ask.
   These get schema'd and are prime AI-extraction targets.

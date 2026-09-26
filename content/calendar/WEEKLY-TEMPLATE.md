@@ -4,7 +4,7 @@ Copy this to `content/calendar/2026-Wnn.md` each week. Fill it in during the Mon
 
 ---
 
-## Week of: ____  ·  The deck this week: ____  (list the distinct subjects you're dealing — e.g. "SoBV · CRO · Value Proposition · benefit-of-the-benefit · TikTok SEO · AI-skepticism · personal brand")
+## Week of: ____  ·  The deck this week: ____  (list the distinct subjects you're dealing — e.g. "SoBV · CRO · Value Proposition · benefit-of-the-benefit · TikTok SEO · using AI correctly · personal brand")
 
 **Distinct subjects dealt:** ____ (count) · **Topic Types used (rotate; don't repeat last week's):** ____ · **Format cards dealt (aim ~70/30 proven/experimental):** ____ · **Last week's subjects + cards (don't re-run):** ____  → see [CONTENT_MATRIX.md](../CONTENT_MATRIX.md) + [formats/](../formats/README.md)
 
