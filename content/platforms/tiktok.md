@@ -30,7 +30,7 @@
 **One-domino-per-carousel series** for the Eight Dominoes launch: slide 1 = SEO-keyworded hook ("the messaging mistake costing you customers"), final slide = book CTA. Carousels' high save-rate seeds a retargetable audience before July.
 
 ## Repurpose from
-Book chapters → carousels · client teardowns → "here's what was broken" carousels · top past TikToks → carousels · AI-skeptic takes → text-on-screen.
+Book chapters → carousels · client teardowns → "here's what was broken" carousels · top past TikToks → carousels · using-AI-correctly takes → text-on-screen.
 
 ## Sources
 - Buffer — TikTok Algorithm Guide 2026 (Dec 2025) · Fanpage Karma — Carousels vs Video (2025) · TikTok Newsroom — TikTok Next 2026 (Jan 14 2026) · Hootsuite — TikTok Algorithm 2026.

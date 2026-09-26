@@ -52,7 +52,7 @@
 - **Hooks that fit:** The Sacred Cow, The Reverse Recommendation, The Uncomfortable Truth.
 - **Example (Jake's voice):** pre-fold: "More traffic is the most expensive way to fix a conversion problem." Body: everyone buys traffic because it feels like visible progress. But a leak upstream means you are paying to pour more into the same broken sequence. Fix the message a stranger meets first, then scale the spend. "Are you actually short on traffic, or short on a reason to stay?" Book the call in the first comment.
 - **Don't:** be contrarian about something you don't believe to farm comments. No strawman. No "unpopular opinion:" preamble — state the opinion. The stance must survive a smart reply.
-- **Best for:** Myth, Commentary, Pitfall. Subjects: AI-skepticism, Share of Brand Voice, traffic-vs-conversion, DSP vs siloed PPC.
+- **Best for:** Myth, Commentary, Pitfall. Subjects: using AI correctly, Share of Brand Voice, traffic-vs-conversion, DSP vs siloed PPC.
 
 ### The N-Things List — Tier A
 - **What:** a numbered text post. One promise up top, N tight items, each a fragment of value.
@@ -85,7 +85,7 @@
 - **Hooks that fit:** The Confession, The Counterintuitive Confession, The Turning Point.
 - **Example (Jake's voice):** pre-fold: "For years I led with the mechanism. The named system. The clever part." Body: I thought the framework was the sell. It wasn't. People browse intellectually and buy emotionally, and I was handing them logic before I had earned the feeling. Corrected rule: lead with the emotion they are actually buying, name the mechanism second. "What are you explaining before you've made anyone care?" Book the call in the first comment.
 - **Don't:** fake a reversal you never lived, or stage humility ("my only flaw is I care too much"). Tier B because over-used it reads performative — rotate it, don't lead every week with it.
-- **Best for:** Takeaway, Commentary, Story. Subjects: Core Attraction (emotion buys), AI-skepticism, "benefit of the benefit."
+- **Best for:** Takeaway, Commentary, Story. Subjects: Core Attraction (emotion buys), using AI correctly, "benefit of the benefit."
 
 ### The Framework Breakdown — Tier B
 - **What:** a text post that takes one named system and unpacks it into its parts in plain language.

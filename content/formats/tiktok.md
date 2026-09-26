@@ -64,7 +64,7 @@
 - **Hooks that fit:** the myth-correction, the contrarian claim, the callout.
 - **Example (Jake's voice):** slide 1: "a rebrand will fix your slow sales. it won't." caption: "the rebrand myth, and what actually fixes slow sales. it was never the logo. #marketing #branding #smallbusiness #messaging"
 - **Don't:** bust a myth you can't replace. if slide 1 says "it won't," slides 3–6 owe the audience what does. don't strawman; name a belief people actually hold.
-- **Best for:** Myth, Commentary, Takeaway. Subjects: branding, AI-skepticism, Share of Brand Voice, personal brand.
+- **Best for:** Myth, Commentary, Takeaway. Subjects: branding, using AI correctly, Share of Brand Voice, personal brand.
 
 ### The Diagnosis Clip — Tier A `***SHOOT VIDEO***`
 - **What:** a 21–34s talking-head where Jake names a symptom, diagnoses the real cause, gives one proof, lands one takeaway.
@@ -73,7 +73,7 @@
 - **Hooks that fit:** the diagnosis two-beat, the expert explainer, the callout.
 - **Example (Jake's voice):** on-screen + first line: "your product isn't the problem. your sequence is." caption: "most slow sales aren't a product problem. they're a sequence problem. here's how to tell. #marketing #messaging #smallbusiness"
 - **Don't:** open with "hey guys" or "okay so" or a slow windup. the diagnosis is the first words out of his mouth. don't run past 34s without a reason; padding tanks completion.
-- **Best for:** Takeaway, Pitfall, Commentary, FAQ. Subjects: any messaging concept, Share of Brand Voice, AI-skepticism.
+- **Best for:** Takeaway, Pitfall, Commentary, FAQ. Subjects: any messaging concept, Share of Brand Voice, using AI correctly.
 
 ### The FAQ Answer Clip — Tier B `***SHOOT VIDEO***`
 - **What:** a 21–30s talking-head that answers one question Jake actually gets, framed as the question on screen.
@@ -100,11 +100,11 @@
 - **Hooks that fit:** the aphorism, the contrarian claim, the takeaway.
 - **Example (Jake's voice):** slide 1: "people browse intellectually and buy emotionally." caption: "thirteen years in, this is the line that changed how i write every offer. here's what it means for your copy. #marketing #copywriting #branding"
 - **Don't:** stack three aphorisms on one card; one line, room to breathe. don't invent a new aphorism — use the §7 list verbatim.
-- **Best for:** Takeaway, Commentary, Myth. Subjects: emotion-buys, AI-skepticism, personal brand, revenue-as-metric.
+- **Best for:** Takeaway, Commentary, Myth. Subjects: emotion-buys, using AI correctly, personal brand, revenue-as-metric.
 
 ### The News-React Clip — Tier C `***SHOOT VIDEO***`
-- **What:** a 21–45s "Hold My Beard mode" reaction to a current marketing/SEO/AI story, with Jake's POV and a joke.
-- **Why it works here:** reacting to a live story rides existing search and trend demand, and Hold-My-Beard commentary is a documented Jake mode (CONTENT_GUIDE §4.9). C-tier and trend-driven by nature: timely, lower-evergreen, fits the ~30% experimental quota and the daily-reactive layer.
+- **What:** a 21–45s "news-react mode" reaction to a current marketing/SEO/AI story, with Jake's POV and a joke.
+- **Why it works here:** reacting to a live story rides existing search and trend demand, and news-react commentary is a documented Jake mode (CONTENT_GUIDE §4.9). C-tier and trend-driven by nature: timely, lower-evergreen, fits the ~30% experimental quota and the daily-reactive layer.
 - **Skeleton:** 0–3s = the news + Jake's verdict in one breath, keyword = the topic ("google's new update isn't the problem you think it is") · 3–20s = what actually changed · 20–35s = what to do about it · 35–45s = takeaway + CTA. Say the topic keyword early; mirror in caption first 150 chars; add a trending hashtag alongside the evergreen 3–5.
 - **Hooks that fit:** the news react, the contrarian claim, the diagnosis two-beat.
 - **Example (Jake's voice):** on-screen + first line: "everyone's panicking about this google update. don't." caption: "the latest google update, and why it's not the emergency your feed says it is. #marketing #seo #googleupdate #smallbusiness"

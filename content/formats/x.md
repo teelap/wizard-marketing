@@ -118,7 +118,7 @@
 - **Hooks that fit:** The News React, The Callout, The Reframe.
 - **Example (Jake's voice):** "This homepage is gorgeous. It also never says what they sell. Pretty isn't a value prop." · "Everyone loved that ad. It moved zero product. Awareness you can't convert is a costume."
 - **Don't:** dunk on a small business or a person. Teardown the choice, not the human. Don't fake a take on something Jake hasn't actually looked at. No subtweeting without the receipt.
-- **Best for:** Commentary, Myth, marketing-news (*Hold My Beard* mode).
+- **Best for:** Commentary, Myth, marketing-news (news-react mode).
 
 ---
 

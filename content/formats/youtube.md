@@ -1,6 +1,6 @@
 # Format & Hook Library — YouTube
 
-**Version:** 1.0 · 2026-06-15 · the format deck for YouTube (@itsjakethewizard, ~979 subs). The SEARCH + AUTHORITY bet — long-form ranks for buyer queries; Shorts feed off TikTok; the dormant **Hold My Beard** two-host news-riff is the discovery engine to revive video-first.
+**Version:** 1.0 · 2026-06-15 · the format deck for YouTube (@itsjakethewizard, ~979 subs). The SEARCH + AUTHORITY bet — long-form ranks for buyer queries; Shorts feed off TikTok; **The News Desk**, Jake's solo news-riff built video-first, is the discovery engine.
 **Reads with:** [platforms/youtube.md](../platforms/youtube.md) (cadence/algorithm/specs — every "why it works" anchors there) · [README.md](README.md) (schema, tiers, dealing rules) · [CONTENT_GUIDE](../CONTENT_GUIDE.md) · [VOICE_DOSSIER](../../VOICE_DOSSIER.md) · [CONTENT_MATRIX](../CONTENT_MATRIX.md).
 
 > **The unit of YouTube is not the video. It's the packaging.** Title + thumbnail get optimized as one object before a single beat is scripted — half these cards are packaging cards for that reason. Great script behind flat packaging never gets the click; great packaging on an empty video gets the click and tanks the satisfaction score. Deal both. Voice rules hold: no emoji in titles/scripts, no exclamation marks, no em-dashes, diagnosis-first, numbers only from CONTENT_GUIDE §2 (never first-person invented), in-world CTAs. Nerd/pop-culture title humor is allowed (VOICE_DOSSIER #13) as long as the search keyword survives.
@@ -47,22 +47,22 @@
 - **Best for:** Tip, Pitfall, Myth, FAQ.
 
 ### The Clip-from-the-Pod — Tier A
-- **What:** a self-contained 2–8 min long-form clip (or <60s Short) cut from a Hold My Beard episode or a live, posted on the **main** channel. One filmed session = 1 long-form + 5–10 clips.
+- **What:** a self-contained 2–8 min long-form clip (or <60s Short) cut from a News Desk episode, a podcast guest appearance, or a live, posted on the **main** channel. One filmed session = 1 long-form + 5–10 clips.
 - **Why it works here:** highest leverage for his limited native capability (youtube.md format rank #1) and clips are the documented discovery engine for video podcasts — the first interaction a new viewer has before committing to the full episode. Posted on the main channel (not a clips channel) so the watch-history cluster compounds. Each clip is re-packaged as its own object with its own title + thumbnail.
-- **Skeleton:** pick a moment that stands alone · re-cut so the first 1–2s is the sharpest line, not the lead-in · title = the claim as a curiosity gap or verdict · thumbnail = the two hosts OR the one claim, ≤4 words · keyword in caption · end on the punchline, hard cut, no trail-off.
+- **Skeleton:** pick a moment that stands alone · re-cut so the first 1–2s is the sharpest line, not the lead-in · title = the claim as a curiosity gap or verdict · thumbnail = Jake (plus the host, on a guest spot) OR the one claim, ≤4 words · keyword in caption · end on the punchline, hard cut, no trail-off.
 - **Hooks that fit:** contrarian claim, the verdict cold-open, news-react, the callout.
 - **Example (Jake's voice):** clip title: "We ranked every social platform for marketers. One surprised us." First line (re-cut to lead): "everyone defends the platform they're already on. so we ranked them cold." Short caption: "we ranked social platforms for marketers and one was underrated #marketing #social"
 - **Don't:** post the moment with its original throat-clearing lead-in. Don't let the clip end mid-thought. Don't dump raw clips with no per-clip packaging — that's a dump, not a funnel.
 - **Best for:** Commentary, Story, Takeaway, FAQ.
 
-### Hold My Beard (Video-First Revival) — Tier B
-- **What:** the two-host marketing-news riff — Jake + co-host reacting to the week's marketing/SEO/AI news with timestamps and jokes. Revived built-for-video, not audio-repurposed.
-- **Why it works here:** video podcasts are the default discovery format (youtube.md "Emerging"), and YouTube is now the #1 service for podcast consumption — a show appears in **Suggested** and **Search** where an audio-only feed never would. The chaptered, timestamped, two-host shape is itself the retention engine (a topic switch every few minutes is a built-in pattern interrupt). It's his existing format (31+ episodes), so reviving beats inventing. Tier B because it needs a second person and a filmed session.
-- **Skeleton:** title = the week's biggest story as a curiosity gap or verdict (keyword-first) · thumbnail = both hosts + the one story prop, ≤4 words · 0–30s = cold-open on the spiciest take, then "here's what we're getting into" · chaptered news blocks (one story = one chapter, timestamps in description) · a verdict or takeaway per block · CTA. Cut 5–10 clips after (feeds The Clip-from-the-Pod).
+### The News Desk (Video-First) — Tier B
+- **What:** Jake's solo marketing-news riff: reacting to the week's marketing/SEO/AI news with timestamps and jokes. Built for video, not audio-repurposed. (Replaces the retired Hold My Beard revival plan; Jake is no longer part of that show and hosts no podcast. See CONTENT_GUIDE §2.)
+- **Why it works here:** video podcasts are the default discovery format (youtube.md "Emerging"), and YouTube is now the #1 service for podcast consumption — a show appears in **Suggested** and **Search** where an audio-only feed never would. The chaptered, timestamped shape is itself the retention engine (a topic switch every few minutes is a built-in pattern interrupt). It's a format Jake owns outright, so there's no co-host to schedule. Tier B because it needs a filmed session and a weekly commitment.
+- **Skeleton:** title = the week's biggest story as a curiosity gap or verdict (keyword-first) · thumbnail = Jake + the one story prop, ≤4 words · 0–30s = cold-open on the spiciest take, then "here's what i'm getting into" · chaptered news blocks (one story = one chapter, timestamps in description) · a verdict or takeaway per block · CTA. Cut 5–10 clips after (feeds The Clip-from-the-Pod).
 - **Hooks that fit:** news-react, contrarian claim, the verdict cold-open.
-- **Example (Jake's voice):** title: "Reddit is changing marketing forever — what we'd actually do about it." First line: "google's putting reddit threads at the top of everything. so the question isn't is it real. it's what you do monday." Chapter verdict: "stop treating reddit like a billboard. it's a conversation you have to earn. earn it."
-- **Don't:** record audio-first and slap a static frame on it — youtube.md is explicit: revive it video-first. Don't let the riff wander off the news into theory. Don't skip the timestamps; chapters are the retention mechanic.
-- **Best for:** Commentary, Myth, Takeaway (Hold My Beard mode is the home of marketing-news commentary).
+- **Example (Jake's voice):** title: "Reddit is changing marketing forever — what i'd actually do about it." First line: "google's putting reddit threads at the top of everything. so the question isn't is it real. it's what you do monday." Chapter verdict: "stop treating reddit like a billboard. it's a conversation you have to earn. earn it."
+- **Don't:** record audio-first and slap a static frame on it — youtube.md is explicit: build it video-first. Don't let the riff wander off the news into theory. Don't skip the timestamps; chapters are the retention mechanic.
+- **Best for:** Commentary, Myth, Takeaway (news-react mode is the home of marketing-news commentary).
 
 ### The Eight Dominoes Series — Tier B `BOOK-SPECIFIC — LIVE, launch window open`
 - **What:** a named, numbered long-form series — one Domino per episode (01 Core Attraction → 08 The New Opportunity). The book, taught one piece at a time. **Unpaused 2026-08-06** now that the book has shipped (CONTENT_GUIDE §8) — this is the format that most directly converts to a sale, so it's the highest-value thing to run during the launch window. Use the canonical names verbatim; never paraphrase them.
@@ -103,7 +103,7 @@ Title formulas + the opening line (first 1–2s on a Short, first 30s on long-fo
 - **Number cold-open** — *when a count sets the promise.* "3 messaging mistakes quietly killing your conversion." Opening line: "three. not ten. the three that actually move revenue."
 - **The callout ("you're doing X and calling it Y")** — *when the viewer is mislabeling their own mistake.* Short 0–2s: "you call it a branding problem. it's a sequence problem." · "you're posting. you're not ranking. those aren't the same thing."
 - **The reframe ("X isn't the problem. Y is.")** — *his signature two-beat, the diagnosis-first engine.* "Your product isn't the problem. Your sequence is." · "It's not a traffic problem. It's a conversion problem." · "The logo was never the problem."
-- **News-react** — *when a marketing/SEO/AI story is moving (Hold My Beard mode).* "Reddit is changing marketing forever — what we'd actually do." Opening line: "google just put reddit at the top of everything. here's what changes monday."
+- **News-react** — *when a marketing/SEO/AI story is moving (news-react mode).* "Reddit is changing marketing forever — what i'd actually do." Opening line: "google just put reddit at the top of everything. here's what changes monday."
 - **The insider reveal ("what X knows that you don't")** — *when positioning a method as earned-in-the-trenches knowledge.* "What 13 years in the trenches taught me about slow sales." · "What agencies know about your messaging that they won't tell you."
 - **Blunt imperative** — *when the takeaway is one action, today.* "Stop describing. Start diagnosing." · "Rewrite your headline as the wound. Ship it." Lands best as a Short's 0–2s on-screen line.
 - **The pop-culture title (nerd humor)** — *when the subject can carry a wink and still keep its keyword (VOICE_DOSSIER #13).* "Yer a Hero, Harry — the customer's hero journey." · "Oops, All SEO — fixing a site that won't rank." The keyword survives the joke, or the joke is cut.
@@ -115,10 +115,10 @@ Title formulas + the opening line (first 1–2s on a Short, first 30s on long-fo
 ## 3. Tier index (for the dealer)
 
 - **A (lead ~70% of draws):** Search-Intent Long-Form · Need It or Yeet It · Diagnosis Cold-Open (Shorts) · Clip-from-the-Pod
-- **B (solid, situational):** Hold My Beard Revival · Eight Dominoes Series · "X Is Lying" Contrarian
+- **B (solid, situational):** The News Desk · Eight Dominoes Series · "X Is Lying" Contrarian
 - **C (experimental, ~30% quota):** Number Listicle
 
-*Why:* the A cards are proven on YouTube (keyword-first search ranking, curiosity-gap verdicts, the ~75% viewed-vs-swiped Shorts threshold, clips as the podcast discovery engine) and native to the search/authority bet — two of them are repurposing engines (Shorts mirror + pod clips) that match his limited native capability. The B cards each need a commitment (a filmed session with a second host, or a sustained numbered run) or carry trust risk (the contrarian) — central to the brand, B on effort/risk, not fit. The Number Listicle is the most generic shape on the platform — high CTR, closest to the bot voice Jake bans — so it earns a slot to keep the deck varied and feed the scoreboard, but must clear the voice pass every time.
+*Why:* the A cards are proven on YouTube (keyword-first search ranking, curiosity-gap verdicts, the ~75% viewed-vs-swiped Shorts threshold, clips as the podcast discovery engine) and native to the search/authority bet — two of them are repurposing engines (Shorts mirror + pod clips) that match his limited native capability. The B cards each need a commitment (a filmed weekly session, or a sustained numbered run) or carry trust risk (the contrarian) — central to the brand, B on effort/risk, not fit. The Number Listicle is the most generic shape on the platform — high CTR, closest to the bot voice Jake bans — so it earns a slot to keep the deck varied and feed the scoreboard, but must clear the voice pass every time.
 
 **Spread:** long-form and Shorts are both represented in Tier A, so the search asset and the cheap feeder both have proven shapes to deal.
 

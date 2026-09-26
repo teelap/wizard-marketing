@@ -38,7 +38,7 @@
 - **Hooks that fit:** Contrarian Diagnosis, Unpopular Truth, The Either/Or.
 - **Example (Jake's voice):** "most rebrands are procrastination with a design budget. the logo was never the problem. tell me the real reason you want to rebrand." · "ai writes the center of the bell curve. that's the ceiling, not the floor. where has ai copy actually beaten a human for you?"
 - **Don't:** stack three defenses after the claim. that's a broadcast, not an opening. don't soften it to a maybe.
-- **Best for:** Commentary, Myth, Takeaway. Subjects: AI skepticism, marketing-news, personal brand.
+- **Best for:** Commentary, Myth, Takeaway. Subjects: using AI correctly, marketing-news, personal brand.
 
 ### The Either/Or — Tier A
 - **What:** a forced binary that makes scrolling past feel like dodging the question.
