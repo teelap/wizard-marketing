@@ -25,6 +25,7 @@ Core thesis: "The best product doesn't win. The best-understood product does."
 - [The Eight Dominoes Mastermind](https://www.jakethewizard.com/mastermind): Jake's marketing community at community.8dominoes.com; free to join, $500/mo or $5,000/yr membership with a 7-day trial (group consulting Tue/Thu, six course tracks, 96 lessons, WhatsApp access).
 - [Podcast guest](https://www.jakethewizard.com/podcast-guest): topics, bio, suggested questions, booking form
 - [Tools](https://www.jakethewizard.com/tools): annotated software stack Jake actually uses
+- [Projects](https://www.jakethewizard.com/projects): The Experiment Journal, Jake's side projects bound as a page-turning book, each with a dated current-status entry: Quizards (co-op trivia dungeon crawl, live at quizards.app), Alice (private AI office assistant, in development), Foeforge (D&D encounter builder, live at foeforge.com), Big Ideas (business storybooks for kids 6 to 9, in production), NAUTILUS (Jules Verne pinball table in Visual Pinball), Local Dictation (private offline voice typing), Another Day at the Office (D&D adventure, first draft), Plot Twist Goods (LitRPG reader merch, live at plottwistgoods.com)
 - [The Grimoire](https://www.jakethewizard.com/grimoire): Jake's essays and marketing teardowns — written deep-dives, some with embedded video. RSS feed at /grimoire/feed.xml
 - [AI information](https://www.jakethewizard.com/ai-information): full structured facts, FAQ, verified interviews
 

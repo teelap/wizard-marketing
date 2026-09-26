@@ -51,6 +51,7 @@ const PUBLIC_FILES = [
     'media-kit.html',
     'podcast-guest.html',
     'tools.html',
+    'projects.html',
     'privacy.html',
     'terms.html',
     'cookies.html',
@@ -60,6 +61,11 @@ const PUBLIC_FILES = [
     'alice-video-terms.html',
     '404.html',
     'styles.css',
+    // /projects: the page-turning tome. tome.js is compiled from src/tome/*.ts
+    // by `npm run build:tome` and committed, so a deploy never depends on a
+    // compiler being present; test/tome-bundle.test.js fails if it goes stale.
+    'projects.css',
+    'tome.js',
     // Eight Dominoes brand stylesheet — /mastermind is a full Eight Dominoes
     // surface and loads this INSTEAD of styles.css, not alongside it.
     'eight-dominoes.css',

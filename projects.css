@@ -1,0 +1,871 @@
+/* ==========================================================================
+   /projects: Side Quests, the interactive tome.
+   Book materials in the site palette: oxblood leather, parchment leaves,
+   ink, wax red, gold. Page typography scales with the page (container units)
+   so the book reads like print at every size.
+   ========================================================================== */
+
+.tome-stage {
+    --leather: #4e1d15;
+    --leather-deep: #2e0f0a;
+    --foil: #d6b263;
+    --foil-dim: #b8934a;
+    --leaf: #f0e5cc;
+    position: relative;
+    padding: clamp(5.75rem, 12vh, 7rem) var(--edge-pad) var(--space-lg);
+    background:
+        radial-gradient(60% 55% at 50% 42%, rgba(255, 196, 120, 0.16), rgba(255, 196, 120, 0) 70%),
+        radial-gradient(120% 90% at 50% 40%, #35251a 0%, #1f1610 48%, #110c08 100%);
+    color: var(--text-night);
+    overflow: hidden;
+}
+
+.tome {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+html.js-tome .tome:not(.is-live) {
+    visibility: hidden;
+    height: min(78vh, 720px);
+    overflow: hidden;
+}
+
+.tome-inner {
+    position: relative;
+    touch-action: pan-y;
+}
+
+/* Page-edge stacks: thickness tracks how many leaves sit on each side. */
+.tome.is-live .tome-inner::before,
+.tome.is-live .tome-inner::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    background: repeating-linear-gradient(to right, #efe3c8 0 1px, #c8b690 1px 2px);
+    pointer-events: none;
+}
+.tome.is-live .tome-inner::before {
+    right: 100%;
+    width: var(--edge-left, 0px);
+    border-radius: 3px 0 0 3px;
+}
+.tome.is-live .tome-inner::after {
+    left: 100%;
+    width: var(--edge-right, 0px);
+    border-radius: 0 3px 3px 0;
+}
+
+/* Leather boards showing around an open book. */
+.tome-board {
+    position: absolute;
+    inset: -11px calc(-11px - var(--edge-right, 0px)) -11px calc(-11px - var(--edge-left, 0px));
+    border-radius: 7px;
+    background:
+        radial-gradient(80% 70% at 30% 20%, rgba(255, 200, 150, 0.08), rgba(0, 0, 0, 0) 60%),
+        linear-gradient(135deg, var(--leather), var(--leather-deep));
+    box-shadow:
+        0 40px 70px -24px rgba(0, 0, 0, 0.75),
+        0 12px 24px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 1px rgba(214, 178, 99, 0.18);
+    pointer-events: none;
+}
+/* While a cover swings, only the half of the book that has pages gets a board. */
+.tome[data-board="right"] .tome-board { left: calc(50% - 11px); }
+.tome[data-board="left"] .tome-board { right: calc(50% - 11px); }
+
+.tome-pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ----------------------------------------------------------------- leaves */
+
+.tome-page {
+    position: absolute;
+    top: 0;
+    width: var(--page-w, 440px);
+    height: var(--page-h, 586px);
+    container-type: size;
+    overflow: hidden;
+    transform-origin: 0 0;
+    display: flex;
+    flex-direction: column;
+    /* The page is its own size container, so its children use cqw; the page's
+       own box can't query itself and scales from --page-w instead. */
+    --pw: var(--page-w, 440px);
+    padding: calc(var(--pw) * 0.08) calc(var(--pw) * 0.1) calc(var(--pw) * 0.12);
+    background-color: var(--leaf);
+    background-image: url('parchment-bg-v4.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--ink-dark);
+    font-family: var(--font-body);
+    font-size: clamp(12.5px, calc(var(--pw) * 0.0315), 17px);
+    line-height: 1.5;
+}
+
+/* Gutter shading where the paper curves into the spine. */
+.tome-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.tome-page--recto::before,
+.tome[data-mode="single"] .tome-page::before {
+    background: linear-gradient(to right, rgba(58, 34, 14, 0.34), rgba(58, 34, 14, 0.1) 5%, rgba(58, 34, 14, 0) 13%);
+}
+.tome[data-mode="spread"] .tome-page--verso::before {
+    background: linear-gradient(to left, rgba(58, 34, 14, 0.34), rgba(58, 34, 14, 0.1) 5%, rgba(58, 34, 14, 0) 13%);
+}
+.tome-page--cover::before,
+.tome-page--back-cover::before,
+.tome-page--endpaper::before {
+    background: none;
+}
+
+.tome-page ::selection { background: rgba(195, 43, 57, 0.22); }
+
+/* Lighting bands laid along the fold while a page turns. */
+.tome-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+.tome-band {
+    position: absolute;
+    display: none;
+    transform-origin: 50% 0;
+    pointer-events: none;
+}
+.tome-cast {
+    position: absolute;
+    top: 0;
+    width: var(--page-w);
+    height: var(--page-h);
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.tome-page--blank {
+    display: none;
+    background-color: #e9dcbf;
+}
+
+/* ------------------------------------------------------------ typography */
+
+.tome-running {
+    margin: 0 0 4.5cqw;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.82em;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    text-align: center;
+}
+
+.tome-folio {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5cqw;
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-accent);
+    font-size: 0.9em;
+    color: var(--ink-muted);
+    font-variant-numeric: oldstyle-nums;
+}
+
+.tome-heading {
+    margin: 0 0 3.5cqw;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(20px, 7.4cqw, 40px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    color: var(--ink-dark);
+}
+
+.tome-intro {
+    margin: 0 0 4cqw;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.08em;
+    color: var(--ink-light);
+}
+
+.tome-copy p {
+    margin: 0 0 0.85em;
+    text-wrap: pretty;
+}
+/* Contain the drop cap so a one-line lede never indents the next paragraph. */
+.tome-lede { display: flow-root; }
+.tome-lede::first-letter {
+    float: left;
+    margin: 0.06em 0.1em 0 0;
+    font-family: var(--font-accent);
+    font-size: 3.35em;
+    line-height: 0.78;
+    color: var(--wax-red);
+}
+
+.tome-aside {
+    margin: 3cqw 0 0;
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------------- art pages */
+
+.tome-page--art {
+    align-items: center;
+}
+.tome-plate {
+    margin: 0;
+    width: 92%;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+}
+.tome-plate img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* White paper drops out; only the ink lands on the parchment. */
+    mix-blend-mode: multiply;
+    filter: contrast(1.08);
+}
+.tome-chapter {
+    margin: 3cqw 0 1.5cqw;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(24px, 10cqw, 54px);
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: balance;
+    color: var(--ink-dark);
+}
+.tome-chapter--long {
+    font-size: clamp(18px, 6.6cqw, 36px);
+}
+.tome-sub {
+    margin: 0;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.14em;
+    text-align: center;
+    color: var(--ink-light);
+}
+.tome-chapter:focus-visible,
+.tome-heading:focus-visible {
+    outline: none;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 0.12em;
+}
+
+/* ------------------------------------------------------------ text pages */
+
+.tome-page--text .tome-copy {
+    padding-right: 2cqw;
+}
+
+.tome-seal {
+    position: absolute;
+    top: 2.2cqw;
+    right: 3.4cqw;
+    width: 16cqw;
+    height: 16cqw;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    transform: rotate(-11deg);
+    border-radius: 48% 52% 50% 50% / 53% 47% 53% 47%;
+    background: radial-gradient(circle at 36% 30%, #de5a63 0%, #c32b39 36%, #8c1b26 100%);
+    box-shadow:
+        0 2px 6px rgba(70, 12, 18, 0.38),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.28),
+        inset 0 2px 3px rgba(255, 200, 200, 0.28);
+    color: #f7ebdc;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(7.5px, 2.2cqw, 12px);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 1;
+}
+.tome-seal::before {
+    content: '';
+    position: absolute;
+    inset: 13%;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 232, 220, 0.5);
+}
+
+/* Current Status: a dated journal entry on ruled lines. */
+.tome-journal {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin: 0.4em 0 0.9em;
+    padding-top: 2.4cqw;
+    border-top: 1px solid rgba(24, 20, 18, 0.18);
+}
+.tome-journal-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.74em;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dark);
+}
+.tome-journal-date {
+    margin: 0.2em 0 0.3em;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.95em;
+    color: var(--wax-red);
+}
+.tome-journal-entry {
+    flex: 1 1 auto;
+    margin: 0;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.06em;
+    line-height: 1.5;
+    color: var(--ink-light);
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent calc(1.5em - 1px),
+        rgba(24, 20, 18, 0.13) calc(1.5em - 1px),
+        rgba(24, 20, 18, 0.13) 1.5em
+    );
+}
+
+.tome-notes {
+    margin: auto 0 0;
+    padding-top: 2.6cqw;
+    border-top: 1px solid rgba(24, 20, 18, 0.22);
+    font-size: 0.88em;
+}
+.tome-notes div {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 0.5em;
+    padding: 0.15em 0;
+}
+.tome-notes div::before {
+    content: '';
+    grid-column: 2;
+    grid-row: 1;
+    border-bottom: 1px dotted rgba(24, 20, 18, 0.35);
+    transform: translateY(-0.3em);
+}
+.tome-notes dt {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--ink-muted);
+}
+.tome-notes dd {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    text-align: right;
+    font-weight: 600;
+}
+
+.tome-link {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: 3.2cqw;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.12em;
+    color: var(--wax-red);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    transition: color 0.2s ease;
+}
+.tome-link i { font-size: 0.7em; }
+.tome-link:hover { color: var(--wax-red-hover); }
+.tome-page a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------------- contents */
+
+.tome-toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: none;
+}
+.tome-toc li { margin: 0; }
+.tome-toc a {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 0.5em;
+    padding: 0.2em 0;
+    color: var(--ink-dark);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.94em;
+    line-height: 1.3;
+}
+.tome-toc a::after {
+    content: '';
+    grid-column: 2;
+    grid-row: 1;
+    border-bottom: 1px dotted rgba(24, 20, 18, 0.4);
+    transform: translateY(-0.3em);
+}
+.tome-toc a > span:first-child { grid-column: 1; grid-row: 1; }
+.tome-toc-page {
+    grid-column: 3;
+    grid-row: 1;
+    font-family: var(--font-accent);
+    font-weight: 400;
+    font-variant-numeric: oldstyle-nums;
+    color: var(--ink-muted);
+}
+.tome-toc a:hover > span:first-child { color: var(--wax-red); }
+.tome-toc-back a {
+    font-family: var(--font-accent);
+    font-weight: 400;
+    font-style: italic;
+}
+.tome-toc li.tome-toc-back:nth-last-child(2) { margin-top: 0.45em; }
+
+/* --------------------------------------------------------------- covers */
+
+.tome-page--cover,
+.tome-page--back-cover {
+    padding: 0;
+    background-color: var(--leather);
+    background-image: url('dev_assets/tome/cover.webp');
+    background-size: cover;
+    background-position: center;
+    color: var(--foil);
+    text-align: center;
+}
+.tome-page--back-cover {
+    background-image: none;
+}
+.tome-page--back-cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('dev_assets/tome/cover.webp') center / cover;
+    transform: scaleX(-1);
+    filter: saturate(0.9) brightness(0.92);
+}
+.tome-page--back-cover > * { position: relative; z-index: 1; }
+
+.tome-cover-author,
+.tome-cover-title,
+.tome-cover-sub {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    margin: 0;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.7),
+        0 -1px 0 rgba(255, 228, 170, 0.22),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+}
+.tome-cover-author {
+    top: 13%;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(10px, 3.6cqw, 18px);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--foil-dim);
+}
+.tome-cover-title {
+    top: 68.5%;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(20px, 9.4cqw, 50px);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: var(--foil);
+}
+.tome-cover-sub {
+    top: 78.5%;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: clamp(12px, 4.6cqw, 24px);
+    color: var(--foil-dim);
+}
+
+.tome-back-line,
+.tome-back-url {
+    margin: 0;
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--foil-dim);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+.tome-back-line {
+    margin-top: 70%;
+    padding: 0 16%;
+    font-size: clamp(12px, 4.2cqw, 20px);
+}
+.tome-back-url {
+    margin-top: 4cqw;
+    font-family: var(--font-heading);
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(9px, 2.8cqw, 14px);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------ endpapers */
+
+.tome-page--endpaper {
+    background-image: url('dev_assets/tome/endpaper.webp');
+    align-items: center;
+    justify-content: center;
+}
+.tome-bookplate {
+    width: 58%;
+    padding: 7cqw 5cqw;
+    text-align: center;
+    background: var(--leaf) url('parchment-bg-v4.jpg') center / cover;
+    border: 1px solid rgba(24, 20, 18, 0.55);
+    outline: 1px solid rgba(24, 20, 18, 0.35);
+    outline-offset: -2.2cqw;
+    box-shadow: 0 6px 16px rgba(20, 10, 4, 0.35);
+}
+.tome-bookplate p { margin: 0; }
+.tome-bookplate-kicker {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.95em;
+    color: var(--ink-muted);
+}
+.tome-bookplate-name {
+    margin-top: 1.5cqw !important;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(16px, 6cqw, 32px);
+    line-height: 1.05;
+    color: var(--ink-dark);
+}
+.tome-bookplate-note {
+    margin-top: 1.5cqw !important;
+    font-family: var(--font-accent);
+    font-size: 0.9em;
+    color: var(--wax-red);
+}
+.tome-return {
+    padding: 0.7em 1.2em;
+    background: var(--leaf) url('parchment-bg-v4.jpg') center / cover;
+    border: 1px solid rgba(24, 20, 18, 0.5);
+    box-shadow: 0 6px 16px rgba(20, 10, 4, 0.35);
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--ink-dark);
+    text-decoration: none;
+}
+.tome-return:hover { color: var(--wax-red); }
+
+/* ------------------------------------------------------------ the close */
+
+.tome-doors {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3cqw;
+}
+.tome-doors .btn { font-size: clamp(12px, 3.2cqw, 16px); }
+.tome-door {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.12em;
+    color: var(--wax-red);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+}
+.tome-door i { font-size: 0.7em; }
+
+
+/* ----------------------------------------------------------- the waking */
+
+.tome-stage {
+    isolation: isolate;
+    perspective: 1800px;
+    perspective-origin: 50% 18%;
+}
+.tome-desk {
+    position: absolute;
+    inset: -2%;
+    z-index: 0;
+    background: #120c08 url('dev_assets/tome/desk.webp') center / cover no-repeat;
+    opacity: 0.26;
+    filter: blur(9px) saturate(0.85);
+    pointer-events: none;
+    transition: opacity 2.8s ease, filter 2.8s ease;
+}
+.tome-stage.intro-rest .tome-desk {
+    opacity: 1;
+    filter: none;
+}
+.tome-shadow {
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    transform: translate(-50%, -38%) scale(0.72, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.4s ease, transform 2.8s cubic-bezier(0.45, 0.05, 0.2, 1);
+}
+.tome-stage.intro-rest .tome-shadow { opacity: 0.85; }
+.tome-stage.intro-rising .tome-shadow { opacity: 0; transform: translate(-50%, -38%) scale(0.45, 0.3); }
+
+.tome-motes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.tome-motes--back { z-index: 2; }
+.tome-motes--front { z-index: 4; }
+
+.tome {
+    z-index: 3;
+    transform-origin: 50% 55%;
+    transition: transform 2.8s cubic-bezier(0.45, 0.05, 0.2, 1);
+}
+/* Glow that gathers under the journal as it lifts. */
+.tome::before {
+    content: '';
+    position: absolute;
+    inset: -14% -6%;
+    z-index: -1;
+    background: radial-gradient(closest-side, rgba(255, 196, 110, 0.42), rgba(255, 196, 110, 0));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.6s ease;
+}
+.tome-stage.is-intro .tome-inner { pointer-events: none; }
+.tome-stage.intro-rest .tome {
+    transform: translateY(7%) rotateX(52deg) scale(0.7);
+    cursor: pointer;
+}
+.tome-stage.intro-rising .tome::before,
+.tome-stage.intro-hover .tome::before { opacity: 1; }
+.tome-stage.intro-hover .tome { animation: tome-hover 1.9s ease-in-out infinite; }
+.tome-stage.intro-settling .tome::before { opacity: 0; }
+
+@keyframes tome-hover {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+.tome-controls { position: relative; z-index: 5; }
+.tome-hint { position: relative; z-index: 5; }
+.tome-stage.is-intro .tome-controls > :not(.tome-wake-bar),
+.tome-stage.is-intro .tome-hint { visibility: hidden; }
+.tome-stage.intro-settling .tome-controls > :not(.tome-wake-bar),
+.tome-stage.intro-settling .tome-hint {
+    visibility: visible;
+    animation: tome-appear 0.8s ease both;
+}
+@keyframes tome-appear {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.tome-wake-bar {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1rem;
+    pointer-events: none;
+}
+.tome-wake-bar > * { pointer-events: auto; }
+.tome-wake {
+    appearance: none;
+    min-height: 46px;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid rgba(214, 178, 99, 0.55);
+    border-radius: var(--radius-pill);
+    background: rgba(20, 12, 6, 0.55);
+    color: #efd9a4;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.1rem;
+    cursor: pointer;
+    animation: tome-beckon 2.6s ease-in-out infinite;
+}
+.tome-wake:hover { background: rgba(40, 24, 10, 0.75); border-color: rgba(214, 178, 99, 0.85); }
+.tome-wake:focus-visible { outline: 2px solid #d6b263; outline-offset: 3px; }
+.tome-skip {
+    appearance: none;
+    min-height: 44px;
+    padding: 0 0.4rem;
+    border: 0;
+    background: none;
+    color: rgba(244, 238, 224, 0.7);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}
+.tome-skip:hover { color: #f4eee0; }
+.tome-skip:focus-visible { outline: 2px solid #d6b263; outline-offset: 3px; }
+@keyframes tome-beckon {
+    0%, 100% { box-shadow: 0 0 0 rgba(255, 196, 110, 0); }
+    50% { box-shadow: 0 0 22px rgba(255, 196, 110, 0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tome, .tome-desk, .tome-shadow { transition: none; }
+    .tome-wake { animation: none; }
+}
+
+/* ------------------------------------------------------------- controls */
+
+.tome-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-top: 2.4rem;
+}
+.tome-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.6rem 1.15rem;
+    border: 1px solid rgba(244, 238, 224, 0.28);
+    border-radius: var(--radius-pill);
+    background: rgba(244, 238, 224, 0.06);
+    color: var(--text-night);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+.tome-btn:hover { background: rgba(244, 238, 224, 0.14); border-color: rgba(244, 238, 224, 0.5); }
+.tome-btn:focus-visible { outline: 2px solid var(--foil, #d6b263); outline-offset: 3px; }
+.tome-btn:disabled { opacity: 0.35; cursor: default; background: transparent; }
+.tome-btn--icon { width: 44px; justify-content: center; padding: 0; }
+.tome-btn[aria-pressed="false"] { color: rgba(244, 238, 224, 0.55); }
+
+.tome-status {
+    min-width: 13ch;
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #e9ddc3;
+}
+.tome-hint {
+    margin: 0.8rem 0 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(244, 238, 224, 0.62);
+}
+
+.tome.is-dragging,
+.tome.is-dragging * { cursor: grabbing !important; user-select: none; }
+
+/* ------------------------------------------------ the short version list */
+
+.tome-index {
+    list-style: none;
+    max-width: 880px;
+    margin: var(--space-lg) auto 0;
+    padding: 0;
+    border-top: 1px solid var(--edge-burn);
+}
+.tome-index li {
+    display: grid;
+    grid-template-columns: minmax(11rem, 15rem) 1fr auto;
+    gap: 0.4rem 1.5rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--edge-burn);
+}
+.tome-index a {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink-dark);
+    text-decoration: none;
+}
+.tome-index a:hover { color: var(--wax-red); }
+.tome-index a:focus-visible { outline: 2px solid var(--wax-red); outline-offset: 3px; }
+.tome-index-what { color: var(--ink-light); }
+.tome-index-status {
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--wax-red);
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------- no-JS: stacked sheets */
+
+.tome:not(.is-live) .tome-pages {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+}
+.tome:not(.is-live) .tome-page {
+    position: relative;
+    width: min(480px, 100%);
+    height: auto;
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 16px 30px -12px rgba(0, 0, 0, 0.6);
+}
+.tome:not(.is-live) .tome-page::before { background: none; }
+
+@media (max-width: 719px) {
+    .tome-stage { padding-top: calc(var(--space-xl) + 3.5rem); }
+    .tome-index li { grid-template-columns: 1fr auto; }
+    .tome-index-what { grid-column: 1 / -1; grid-row: 2; }
+    .tome-btn { padding: 0.55rem 0.9rem; }
+    .tome-status { order: -1; flex-basis: 100%; }
+}
