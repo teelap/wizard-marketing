@@ -166,13 +166,11 @@ function navHtml() {
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <ul id="primary-nav" class="nav-links">
-                <li><a href="/">Home</a></li>
                 <li><a href="/consulting">Consulting</a></li>
                 <li><a href="/mastermind">Mastermind</a></li>
                 <li><a href="/eight-dominoes">Eight Dominoes</a></li>
-                <li><a href="/podcast-guest">Podcast</a></li>
-                <li><a href="/tools">Tools</a></li>
                 <li><a href="/grimoire" aria-current="page">Grimoire</a></li>
+                <li><a href="/projects">Projects</a></li>
             </ul>
         </div>
     </nav>`;
@@ -193,6 +191,7 @@ function footerHtml() {
                 ${link('/podcast-guest', 'Podcast')}
                 ${link('/tools', 'Tools')}
                 ${link('/grimoire', 'Grimoire')}
+                ${link('/projects', 'Projects')}
             </nav>
             <nav class="footer-legal" aria-label="Legal links">
                 <a href="/privacy">Privacy Policy</a>
