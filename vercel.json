@@ -5,6 +5,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/summit", "destination": "https://event.aipractitionerhq.com/?sc=oHKgJ1jn&ac=gh6Iz9Rd", "permanent": false },
     { "source": "/book", "destination": "/eight-dominoes", "permanent": true },
     { "source": "/8-dominoes", "destination": "/eight-dominoes", "permanent": true },
     { "source": "/arcanum", "destination": "/mastermind", "permanent": true },
