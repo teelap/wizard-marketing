@@ -537,6 +537,7 @@ body.ed-theme {
     color: var(--text-body);
 }
 .ed-band-ink .ed-fine { color: var(--ink-200); }
+.ed-fine a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .ed-band-yellow .ed-fine { color: var(--ink-700); }
 
 /* ── Motion: dominoes tip and land. Opacity never animates alone. ────────

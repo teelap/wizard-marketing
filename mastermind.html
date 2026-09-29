@@ -29,7 +29,7 @@
 
     <!-- Eight Dominoes brand stylesheet. This page deliberately does NOT load
          styles.css — it is a full Eight Dominoes surface, not the parchment theme. -->
-    <link rel="stylesheet" href="eight-dominoes.css?v=1">
+    <link rel="stylesheet" href="eight-dominoes.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Stand-in faces per tokens/fonts.css: the real stack (DIN Condensed, Gotham,
@@ -136,12 +136,16 @@
                         <div class="ed-pip-rule" aria-hidden="true"></div>
                         <p class="ed-lead">The book gave you the chain. This is the room where people run it &mdash; on their own numbers, out loud, with me in there twice a week.</p>
                         <div class="ed-btn-row">
-                            <a href="https://community.8dominoes.com"
+                            <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
                                class="ed-btn"
                                target="_blank" rel="noopener noreferrer"
+                               data-cta="membership_trial" data-cta-location="hero">Start The 7-Day Trial</a>
+                            <a href="https://community.8dominoes.com"
+                               class="ed-btn ed-btn--outline"
+                               target="_blank" rel="noopener noreferrer"
                                data-cta="community_join" data-cta-location="hero">Join Free</a>
-                            <a href="#membership" class="ed-btn ed-btn--outline">See Membership</a>
                         </div>
+                        <p class="ed-fine">The trial is the membership: group consulting twice a week and all 96 lessons. Nothing due today, then $500/month or $5,000/year. Joining free gets you the discussion spaces only &mdash; not the calls or the courses. <a href="#membership">See what membership includes</a>.</p>
                     </div>
                     <img src="dev_assets/eight-dominoes-cover.webp"
                          alt="Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients, by Jake &quot;The Wizard&quot; Tlapek"
@@ -253,7 +257,13 @@
                         <p>Members get new consulting availability before it's posted anywhere else, and priority booking for one-on-one sessions.</p>
                     </div>
                 </div>
-                <p class="ed-fine">Cancel from inside the room whenever you want &mdash; you won't have to book a call to do it.</p>
+                <div class="ed-btn-row">
+                    <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
+                       class="ed-btn"
+                       target="_blank" rel="noopener noreferrer"
+                       data-cta="membership_trial" data-cta-location="membership">Start The 7-Day Trial</a>
+                </div>
+                <p class="ed-fine">Nothing due today. Cancel from inside the room whenever you want &mdash; you won't have to book a call to do it.</p>
             </div>
         </section>
 
@@ -264,7 +274,7 @@
                     <span class="ed-label ed-label--outline">The Sequence</span>
                     <h2 class="ed-display" style="margin-top:var(--sp-5);">Your First Week</h2>
                 </div>
-                <p class="ed-section-intro">Most communities go quiet the moment you pay. Here's the actual sequence.</p>
+                <p class="ed-section-intro">Most communities go quiet the moment you pay. Here's the actual first week of a membership trial.</p>
                 <ol class="ed-steps" style="list-style:none; padding:0;">
                     <li class="ed-step scroll-reveal">
                         <span class="ed-domino" role="img" aria-label="step 1"><span class="ed-domino__half"><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip"></i></span><span class="ed-domino__half"><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i><i class="ed-domino__pip is-on"></i></span></span>
@@ -360,20 +370,20 @@
                     <div class="scroll-reveal">
                         <h2 class="ed-display" style="font-size:clamp(48px,8vw,var(--fs-5xl));">The Door Is Open</h2>
                         <div class="ed-pip-rule" aria-hidden="true"></div>
-                        <p class="ed-copy">The Eight Dominoes Mastermind is live at <strong>community.8dominoes.com</strong>. Free costs nothing and asks for nothing but an email address.</p>
-                        <p class="ed-copy" style="margin-top:var(--sp-5);">If you already know you want the calls, start the trial instead &mdash; seven days, nothing due today, then $500 a month or $5,000 a year.</p>
+                        <p class="ed-copy">The Eight Dominoes Mastermind is live at <strong>community.8dominoes.com</strong>. If you want the calls, start the trial &mdash; seven days, nothing due today, then $500 a month or $5,000 a year.</p>
+                        <p class="ed-copy" style="margin-top:var(--sp-5);">If you just want to look around, join free. It costs nothing and asks for nothing but an email address, but the calls and the courses stay locked until you start the trial.</p>
                     </div>
                     <div class="scroll-reveal">
-                        <a href="https://community.8dominoes.com"
+                        <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
                            class="ed-btn ed-btn--block"
                            target="_blank" rel="noopener noreferrer"
-                           data-cta="community_join" data-cta-location="footer">Join Free</a>
-                        <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
+                           data-cta="membership_trial" data-cta-location="footer">Start The 7-Day Trial</a>
+                        <a href="https://community.8dominoes.com"
                            class="ed-btn ed-btn--outline ed-btn--block"
                            style="margin-top:var(--sp-3);"
                            target="_blank" rel="noopener noreferrer"
-                           data-cta="membership_trial" data-cta-location="footer">Start The 7-Day Trial</a>
-                        <p class="ed-fine">Free tier: no card. Trial: nothing due today, then $500/month &mdash; or $5,000/year, which is two months free.</p>
+                           data-cta="community_join" data-cta-location="footer">Join Free</a>
+                        <p class="ed-fine">Trial: nothing due today, then $500/month &mdash; or $5,000/year, which is two months free. Free: no card, and no calls or courses.</p>
                     </div>
                 </div>
             </div>
