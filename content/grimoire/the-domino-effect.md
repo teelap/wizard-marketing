@@ -78,7 +78,7 @@ Most businesses do three or four of these well and wonder why the work stalls. T
 
 ## Same crew, same stone, different chain
 
-The proof I trust most is a Chicagoland landscaper who changed nothing about the work and changed everything about the result. Same crews. Same skills. Same stone going in the same ground.
+The proof I trust most is a landscaper who changed nothing about the work and changed everything about the result. Same crews. Same skills. Same stone going in the same ground.
 
 What moved was the chain. We fixed the order the message arrived in, the emotion it led with, the way it explained itself. The company went from three crews to nine, and from $1.2M to over $10M in revenue. The product didn't improve. The sequence did. That's the part nobody wants to hear, because fixing the sequence is harder than buying more ads, and it doesn't come with a dashboard.
 

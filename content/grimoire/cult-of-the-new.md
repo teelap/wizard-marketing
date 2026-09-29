@@ -39,7 +39,7 @@ faq:
       cannot be.
 ---
 
-For about twenty years, Google ran on a contract. Build something real, answer the question better than the next site, and you get the spot. It was slow and it was frustrating and it mostly worked. I built an agency on that contract. I took a Chicagoland landscaper from three crews to nine, $1.2 million to over $10 million, and a large share of that was pages that earned their ranking by being the best answer on the internet for what that customer typed.
+For about twenty years, Google ran on a contract. Build something real, answer the question better than the next site, and you get the spot. It was slow and it was frustrating and it mostly worked. I built an agency on that contract. I took a landscaper from three crews to nine, $1.2 million to over $10 million, and a large share of that was pages that earned their ranking by being the best answer on the internet for what that customer typed.
 
 That contract is broken. Not bent. Broken.
 
