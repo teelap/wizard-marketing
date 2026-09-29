@@ -132,7 +132,7 @@ interviews, podcast appearances), and primary-source marketing research.
    by showing up and telling the truth."* / *"Called out the industry's worst
    habits in public. Did it without permission."* / *"Followers who stayed
    for the truth, not the pitch."* CTA literally says **"Send Truth."**
-9. **Systems/debugging metaphors from his IT past.** *"Twenty years of
+9. **Systems/debugging metaphors from his IT past.** *"Thirteen years of
    marketing taught me the hardest system to debug is people."* / framework
    as "operating system." Engineering language grounds the wizard shtick.
 10. **Velvet rope honesty.** *"Jake doesn't work with everyone."* / *"THIS IS

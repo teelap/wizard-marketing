@@ -1,7 +1,8 @@
 /**
  * submit-indexnow.js — one-shot IndexNow submitter for jakethewizard.com.
  *
- * Reads the sitemap, then notifies IndexNow (Bing + partners) of every URL so they
+ * Reads the LIVE sitemap (the deployed one, which includes every Grimoire post), falling
+ * back to the built public/sitemap.xml, then notifies IndexNow (Bing + partners) of every URL so they
  * recrawl promptly instead of waiting for the next scheduled crawl. IndexNow verifies
  * ownership by fetching https://<host>/<key>.txt, which build.js ships to the site root.
  *
@@ -14,8 +15,8 @@
  * Env overrides:
  *   INDEXNOW_KEY   ownership key (default: the committed key)
  *   SITE_HOST      host to submit for (default www.jakethewizard.com)
- *   SITEMAP_URL    remote sitemap to read (default: local ./sitemap.xml)
- *   SITEMAP_PATH   local sitemap path (default ./sitemap.xml)
+ *   SITEMAP_URL    remote sitemap to read (default https://<SITE_HOST>/sitemap.xml)
+ *   SITEMAP_PATH   fallback local sitemap (default ./public/sitemap.xml — run `npm run build` first)
  */
 'use strict';
 
@@ -25,7 +26,10 @@ const path = require('path');
 const KEY = process.env.INDEXNOW_KEY || '32451bfd49b298c9e7229c3f53a31e24';
 const HOST = process.env.SITE_HOST || 'www.jakethewizard.com';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
-const SITEMAP_PATH = path.resolve(process.env.SITEMAP_PATH || path.join(__dirname, 'sitemap.xml'));
+const SITEMAP_URL = process.env.SITEMAP_URL || `https://${HOST}/sitemap.xml`;
+// Fallback only. The root ./sitemap.xml lists static pages alone; the build copies it to
+// public/ and appends the Grimoire posts, so the built file is the complete one.
+const SITEMAP_PATH = path.resolve(process.env.SITEMAP_PATH || path.join(__dirname, 'public', 'sitemap.xml'));
 
 /** Pull every <loc> URL out of a sitemap document. */
 function extractUrls(xml) {
@@ -37,12 +41,17 @@ function extractUrls(xml) {
 }
 
 async function readSitemapXml() {
-    if (process.env.SITEMAP_URL) {
-        const res = await fetch(process.env.SITEMAP_URL);
-        if (!res.ok) throw new Error(`sitemap fetch failed: ${res.status}`);
-        return res.text();
+    try {
+        const res = await fetch(SITEMAP_URL);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const xml = await res.text();
+        if (!xml.includes('<urlset')) throw new Error('response is not a sitemap');
+        console.log(`[indexnow] read live sitemap ${SITEMAP_URL}`);
+        return xml;
+    } catch (err) {
+        console.warn(`[indexnow] live sitemap unavailable (${err.message}); falling back to ${SITEMAP_PATH}`);
     }
-    if (!fs.existsSync(SITEMAP_PATH)) throw new Error(`sitemap not found: ${SITEMAP_PATH}`);
+    if (!fs.existsSync(SITEMAP_PATH)) throw new Error(`sitemap not found: ${SITEMAP_PATH} (run npm run build first)`);
     return fs.readFileSync(SITEMAP_PATH, 'utf8');
 }
 
