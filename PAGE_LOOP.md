@@ -129,7 +129,7 @@ output), `_*.html` (dev scraps).
   card added: The Service Providers Edge #162 (Frederick Dudek) — the
   episode that carries ALL his flagship stories (17x ROAS, landscaper,
   6.5% button, TikTok SEO); booker-facing proof strip after the hero
-  (100K+ followers / 31 episodes hosting his own show, "he knows both
+  (110K+ followers / 31 episodes hosting his own show, "he knows both
   chairs" / 5-day max reply).
 - **2026-06-10 — mastermind.html (pass 2/3).** Pull quote ("the hardest
   system to debug is people" — on why the room matters more than the
@@ -143,7 +143,7 @@ output), `_*.html` (dev scraps).
   Scene untouched.
 - **2026-06-10 — eight-dominoes.html (pass 2/3).** Author proof strip after
   the hook ($100M+ / 300K Grifters copies "he ships things people use" /
-  100K+ truth-telling) bridging game-designer cred to book cred; "Before
+  110K+ truth-telling) bridging game-designer cred to book cred; "Before
   You Ask" 3-item FAQ (ship date honesty, weekly email contents, no
   background needed) + matching FAQPage JSON-LD.
 - **2026-06-10 — consulting.html (pass 2/3). ROUND 2 BEGINS.** Proof strip
@@ -197,7 +197,7 @@ output), `_*.html` (dev scraps).
   dead Inspiring Business link → live Videosocials episode page; MTAFW card
   deep-links episode #1162; domino physics line now sourced (Whitehead 1983),
   matching the book page; TikTok timeline entry tells his real origin story
-  (400 followers month one → viral video → 10K overnight → 100K+ stayed);
+  (400 followers month one → viral video → 10K overnight → 110K+ stayed);
   Person JSON-LD gains BGG designer page (verified) + Share of Brand Voice /
   TikTok SEO in knowsAbout. VERIFIED: @itsjakethewizard is the correct,
   live TikTok handle (oembed check) — dossier's mismatch flag was stale.

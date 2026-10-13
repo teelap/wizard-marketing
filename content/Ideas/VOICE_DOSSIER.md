@@ -89,7 +89,7 @@ interviews, podcast appearances), and primary-source marketing research.
 ### Claims that exist ONLY on his site (treat as locked brand canon, not facts)
 - "$100M+ generated for F500 clients across 3 continents"
 - "2 Exits — Brio Studio & Wizard Marketing… acquired by Finch"
-- "100K+ followers" (true via @thewizardmarketing)
+- "110K+ followers" (true via @thewizardmarketing)
 - Testimonials: Adam (Archademia), Kyla (Kingdom & Co.), Danielle (Just Men's
   Rings). Note: **Archademia and Just Men's Rings appear on finch.com's
   homepage as Finch clients** — so these are agency-era clients. [VERIFIED
@@ -128,7 +128,7 @@ interviews, podcast appearances), and primary-source marketing research.
    *"Scars from the Trenches"* (timeline), *"earned his insights through
    bruises, not blog posts,"* *"I didn't learn marketing in a classroom.
    I learned it in the trenches."* Failure tuition = authority.
-8. **Truth-teller-against-the-industry positioning.** *"Built 100K+ followers
+8. **Truth-teller-against-the-industry positioning.** *"Built 110K+ followers
    by showing up and telling the truth."* / *"Called out the industry's worst
    habits in public. Did it without permission."* / *"Followers who stayed
    for the truth, not the pitch."* CTA literally says **"Send Truth."**

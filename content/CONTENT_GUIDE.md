@@ -104,7 +104,7 @@ Case studies the book uses, safe to reference: Domino's admitting its pizza was 
 - "This is how to get your new blog post or website to start ranking on Google really fast."
 - "get started with this local business marketing strategy."
 
-Signature site lines (the "scars" register): "Built 100K+ followers by showing up and telling the truth." · "No fluff. No drip sequence." · "Find the bottleneck, fix the message, compound the results." · "Built with scars."
+Signature site lines (the "scars" register): "Built 110K+ followers by showing up and telling the truth." · "No fluff. No drip sequence." · "Find the bottleneck, fix the message, compound the results." · "Built with scars."
 
 ## 10. HASHTAGS & CTAs
 - Hashtags: sparse and functional, lowercase, topical only (#marketing #seo #dsp #branding #smallbusiness). Never hashtag-stuff. Never use hype tags (#entrepreneurlife, #hustle, #grindset).
