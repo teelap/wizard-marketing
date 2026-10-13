@@ -96,7 +96,7 @@ function main() {
     }
 
     const cover = downscaleToDataUri(coverSrc, COVER_W * 2, COVER_H * 2);
-    const icon = downscaleToDataUri(path.join(ROOT, 'dev_assets', 'jake-icon-512.png'), 112, 112);
+    const icon = downscaleToDataUri(path.join(ROOT, 'dev_assets', 'jake-icon-2026-512.png'), 112, 112);
     const texture = downscaleToDataUri(path.join(ROOT, 'dev_assets', 'wizpaper1.png'), W, H);
 
     const svg = buildSvg({ cover, icon, texture });

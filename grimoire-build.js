@@ -44,7 +44,7 @@ const SITE = {
     standfirst:
         'Marketing truths, teardowns, and the occasional spell. The thinking behind the sequence, written down. No fluff.',
     formspree: 'https://formspree.io/f/xzdjjjlo',
-    defaultImage: '/dev_assets/jake-headshot.png',
+    defaultImage: '/dev_assets/jake-headshot-2026.png',
     includeDrafts: process.env.GRIMOIRE_DRAFTS === '1',
 };
 
@@ -161,7 +161,7 @@ function readPosts(contentDir) {
 function navHtml() {
     return `    <nav id="navbar" class="pill-nav">
         <div class="nav-content">
-            <a href="/" class="logo"><img src="/dev_assets/jake-icon-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
+            <a href="/" class="logo"><img src="/dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
             <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
@@ -224,8 +224,8 @@ function headHtml({ title, ogTitle, description, canonical, ogType, image, image
     <meta name="theme-color" content="#181412">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${esc(canonical)}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/jake-icon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/jake-icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/jake-icon-2026-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/jake-icon-2026-180.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/rss+xml" title="The Grimoire — Jake Tlapek" href="/grimoire/feed.xml">
 
@@ -245,7 +245,7 @@ ${articleMeta || ''}
     <meta property="twitter:image" content="${esc(img)}">
     <meta property="twitter:image:alt" content="${altText}">
 
-    <link rel="stylesheet" href="/styles.css?v=8.5">
+    <link rel="stylesheet" href="/styles.css?v=8.8">
     <link rel="stylesheet" href="/grimoire.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -372,7 +372,7 @@ function renderPost(post, allPosts) {
                 publisher: {
                     '@type': 'Organization',
                     name: 'Jake Tlapek — The Wizard of Marketing',
-                    logo: { '@type': 'ImageObject', url: absUrl('/dev_assets/jake-icon-512.png') },
+                    logo: { '@type': 'ImageObject', url: absUrl('/dev_assets/jake-icon-2026-512.png') },
                 },
                 mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
                 articleSection: post.category,
@@ -444,7 +444,7 @@ function renderPost(post, allPosts) {
                 <span class="grimoire-cat">${esc(post.category)}</span>
                 <h1 class="grimoire-title">${esc(post.title)}</h1>
                 <div class="grimoire-meta">
-                    <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-avatar-96.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
+                    <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-avatar-2026-96.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
                     <span class="dot">&middot;</span><span>${prettyDate(post.date)}</span><span class="dot">&middot;</span><span>${post.readMinutes} min read</span>
                 </div>
             </header>

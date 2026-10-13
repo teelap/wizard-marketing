@@ -1741,3 +1741,41 @@ a.logo:hover { color: var(--wax-red); }
 }
 .kit-copy p { margin: 0 0 0.75rem; }
 .kit-copy p:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   PHOTOGRAPHY — Oct 2026 shoot (Photo: Nichole Gibbons)
+   Real photos live in the lamplit world as mounted prints: a parchment mat,
+   the book cover's drop shadow, and the same 2° tilt as .book-cover-hero.
+   ========================================================================== */
+.photo-print {
+    margin: 0;
+    padding: 10px 10px 12px;
+    background: var(--parchment-light);
+    border-radius: var(--radius-sm);
+    box-shadow: 10px 16px 34px rgba(0, 0, 0, 0.45);
+    transform: rotate(2deg);
+}
+.photo-print img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.photo-print--left { transform: rotate(-2deg); }
+@media (prefers-reduced-motion: reduce) {
+    .photo-print, .photo-print--left { transform: none; }
+}
+
+/* Interior hero with a portrait beside the copy. Stacks under 900px. */
+.page-hero--photo .page-hero-content {
+    display: grid;
+    gap: clamp(2.25rem, 5vw, 3.5rem);
+    align-items: center;
+}
+.page-hero--photo .hero-photo { justify-self: center; width: min(72vw, 300px); }
+@media (min-width: 900px) {
+    .page-hero--photo .page-hero-content { grid-template-columns: minmax(0, 1fr) 320px; }
+    .page-hero--photo .hero-photo { justify-self: end; width: 100%; }
+}
+
+/* "Summon the Wizard": the cloak photo under the social links. */
+.contact-photo { width: min(70vw, 280px); margin-top: var(--space-md); }
+
+/* Media kit: author photography cards crop to fill, unlike the cover art. */
+.kit-subhead { font-family: var(--font-heading); font-size: 1.5rem; margin: var(--space-lg) 0 0.4rem; }
+.kit-card--photo img { height: 240px; object-fit: cover; object-position: center 8%; border-radius: 2px; }

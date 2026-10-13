@@ -10,7 +10,7 @@
   var CARDS = {
     jake: {
       title: "Jake — the Wizard of Marketing", role: "Consultant · Author · $100M+ generated",
-      portrait: "dev_assets/jake-headshot.png",
+      portrait: "dev_assets/jake-headshot-2026.png",
       body: "That's me at the arcane laptop — 20 years, two exits, $100M+ generated. Two ways in: book me for 1-on-1 consulting, or grab my upcoming book, Eight Dominoes.",
       cta: { label: "Work with Jake → Consulting", href: "/consulting" },
       cta2: { label: "Get the book →", href: "/eight-dominoes" }

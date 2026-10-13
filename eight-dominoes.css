@@ -569,3 +569,13 @@ body.ed-theme {
     .ed-motion .scroll-reveal { opacity: 1; transform: none; transition: none; transition-delay: 0s; }
     .ed-theme * { animation: none !important; }
 }
+
+/* ── Photo beside the pull quote (Oct 2026 shoot) ───────────────────────────
+   Photography follows the cover rules: square corners, hard cast shadow —
+   here a yellow slab on the ink band. */
+.ed-quote-split { display: grid; gap: var(--sp-12); align-items: center; justify-items: center; }
+.ed-quote-split__photo { display: block; width: min(70vw, 300px); height: auto; box-shadow: 16px 16px 0 var(--yellow-500); }
+@media (min-width: 900px) {
+    .ed-quote-split { grid-template-columns: 300px minmax(0, 1fr); justify-items: start; gap: var(--sp-16); }
+    .ed-quote-split .ed-quote { margin: 0; }
+}

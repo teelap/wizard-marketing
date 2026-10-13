@@ -29,7 +29,7 @@ function init(root) {
         const f = path.join(root, 'assets', 'fonts', 'PlayfairDisplay.ttf');
         if (!fs.existsSync(f)) return false;
         fontFile = f;
-        const iconPath = path.join(root, 'dev_assets', 'jake-icon-512.png');
+        const iconPath = path.join(root, 'dev_assets', 'jake-icon-2026-512.png');
         if (fs.existsSync(iconPath)) {
             iconDataUri = 'data:image/png;base64,' + fs.readFileSync(iconPath).toString('base64');
         }
