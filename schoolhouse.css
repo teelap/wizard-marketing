@@ -27,6 +27,8 @@ body::after{content:"";position:fixed;inset:-80px;pointer-events:none;z-index:90
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 [hidden]{display:none!important}
 img{display:block;max-width:100%;height:auto}
+/* long URLs and words break instead of pushing past a phone screen */
+p,li,dd,td,th,figcaption,blockquote{overflow-wrap:break-word}
 a{color:inherit}
 strong,b{font-weight:900}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:4px dashed var(--red);outline-offset:4px}
@@ -527,6 +529,10 @@ html body .wiz-cc__btn:focus-visible{outline:3px dashed var(--red)}
   .faq details > div,.faq details > p{padding:0 18px 18px}
   .price{font-size:2rem}
   .card--pad{padding:24px 18px 28px}
+}
+/* small phones: long display words ("information.", "Mastermind.") need a smaller floor */
+@media (max-width:400px){
+  .hero h1,.hero .hero-title{font-size:clamp(2rem,11vw,2.8rem)}
 }
 @media print{
   body::after,.nav,.skip-link,.wiz-cc{display:none!important}

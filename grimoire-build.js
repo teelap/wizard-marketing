@@ -30,6 +30,10 @@ const md = new MarkdownIt({
     breaks: false,
 });
 
+// Wide tables scroll inside their own box instead of stretching the page on phones.
+md.renderer.rules.table_open = () => '<div class="table-wrap"><table>\n';
+md.renderer.rules.table_close = () => '</table></div>\n';
+
 // Frontmatter fields (e.g. the lead standfirst) render inline WITHOUT raw HTML,
 // so a stray tag in the YAML header can never inject markup into the page.
 const mdInline = new MarkdownIt({ html: false, linkify: true, typographer: true });
@@ -248,7 +252,7 @@ ${articleMeta || ''}
     <meta property="twitter:image" content="${esc(img)}">
     <meta property="twitter:image:alt" content="${altText}">
 
-    <link rel="stylesheet" href="/schoolhouse.css?v=1">
+    <link rel="stylesheet" href="/schoolhouse.css?v=2">
     <link rel="stylesheet" href="/grimoire.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

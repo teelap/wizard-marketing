@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="stylesheet" href="/schoolhouse.css?v=1">
+    <link rel="stylesheet" href="/schoolhouse.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -41,18 +41,18 @@
         .lost-doors .svc-top{height:64px}
         .lost-doors .svc-icon{left:20px;bottom:-30px;width:60px;height:60px;font-size:22px}
         .lost-doors .svc-body{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:46px 22px 24px}
-        .lost-doors .svc-name{font-family:var(--disp);font-weight:900;font-size:1.55rem;line-height:1.05}
+        .lost-doors .svc-name{flex:1 1 auto;min-width:0;font-family:var(--disp);font-weight:900;font-size:1.55rem;line-height:1.05}
         .lost-doors .svc-body > i{flex:none;font-size:1.15rem}
         .lost-order{padding:34px clamp(22px,5vw,48px) 38px}
         .lost-order h2{font-size:clamp(2rem,4vw,2.9rem);line-height:1.02}
         .lost-order > p{margin-top:18px;font-size:1.12rem}
         .lost-order form{margin-top:26px}
         @media (max-width:600px){
-            .lost-doors{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}
+            .lost-doors{grid-template-columns:minmax(0,1fr);max-width:440px;margin-inline:auto;gap:26px}
+            .lost-doors .svc-top{height:52px}
             .lost-doors .svc-icon{left:14px;width:52px;height:52px;bottom:-26px;font-size:19px}
-            .lost-doors .svc-body{padding:40px 14px 18px}
-            .lost-doors .svc-name{font-size:1.15rem}
-            .lost-doors .svc-body > i{display:none}
+            .lost-doors .svc-body{padding:36px 18px 18px}
+            .lost-doors .svc-name{font-size:1.3rem}
         }
     </style>
 </head>
