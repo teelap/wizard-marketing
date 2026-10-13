@@ -6,7 +6,7 @@
     <title>Jake Tlapek — The Wizard of Marketing</title>
     <meta name="description" content="Jake Tlapek — The Wizard of Marketing. $100M+ generated. 2 exits. Author of Eight Dominoes.">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
 
     <!-- Open Graph (for link previews when shared) -->
     <meta property="og:type" content="profile">
@@ -15,412 +15,125 @@
     <meta property="og:description" content="$100M+ generated. 2 exits. Author of Eight Dominoes. The book, the mastermind, consulting, podcast — pick a door.">
     <meta property="og:image" content="https://www.jakethewizard.com/dev_assets/jake-og-card-2026.jpg">
 
-    <meta name="theme-color" content="#181412">
+    <meta name="theme-color" content="#FFF1D6">
 
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+          referrerpolicy="no-referrer"
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 
+    <!-- Link-in-bio layout on the Schoolhouse kit. Everything else comes from schoolhouse.css. -->
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg: #181412;
-            --bg-card: #221c18;
-            --bg-card-hover: #2c2420;
-            --border: rgba(244, 238, 224, 0.12);
-            --border-hover: rgba(244, 238, 224, 0.28);
-            --text: #F4EEE0;
-            --text-muted: #9a8a7e;
-            --accent: #c32b39;
-            --accent-hover: #e03040;
-            --gold: #b8860b;
-            --font-head: 'Playfair Display', Georgia, serif;
-            --font-accent: 'IM Fell English', Georgia, serif;
-            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Arial, sans-serif;
-            --radius: 12px;
-            --radius-sm: 8px;
-            --transition: 0.22s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        html {
-            background: var(--bg);
-            font-size: 16px;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-body);
-            min-height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
-        }
-
-        .page {
-            width: 100%;
-            max-width: 480px;
-            padding: 3rem 1.25rem 4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-        }
-
-        /* ── Avatar ── */
-        .avatar-wrap {
-            position: relative;
-            margin-bottom: 1.25rem;
-        }
-        .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: top center;
-            border: 2px solid var(--border);
-            display: block;
-        }
-        .avatar-badge {
-            position: absolute;
-            bottom: 2px;
-            right: 2px;
-            width: 22px;
-            height: 22px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 2px solid var(--bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.55rem;
-            color: #fff;
-        }
-
-        /* ── Identity ── */
-        .identity {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .identity-name {
-            font-family: var(--font-head);
-            font-size: 1.55rem;
-            font-weight: 900;
-            color: var(--text);
-            letter-spacing: -0.01em;
-            line-height: 1.1;
-        }
-        .identity-title {
-            font-family: var(--font-accent);
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-top: 0.3rem;
-            line-height: 1.4;
-        }
-        .identity-tagline {
-            font-family: var(--font-head);
-            font-style: italic;
-            font-size: 0.88rem;
-            color: var(--text);
-            opacity: 0.85;
-            margin-top: 0.6rem;
-            line-height: 1.45;
-        }
-        .identity-proof {
-            display: flex;
-            gap: 0.9rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 0.85rem;
-        }
-        .proof-pill {
-            font-family: var(--font-body);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            background: rgba(244, 238, 224, 0.06);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            padding: 0.3rem 0.75rem;
-            white-space: nowrap;
-        }
-
-        /* ── Section label ── */
-        .section-label {
-            align-self: flex-start;
-            font-family: var(--font-body);
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-            margin-top: 1.5rem;
-            padding-left: 0.1rem;
-        }
-        .section-label:first-of-type { margin-top: 0; }
-
-        /* ── Link Cards ── */
-        .links-list {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .link-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            width: 100%;
-            padding: 0.95rem 1.1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            color: var(--text);
-            text-decoration: none;
-            transition: background var(--transition), border-color var(--transition), transform var(--transition);
-            -webkit-tap-highlight-color: transparent;
-            cursor: pointer;
-        }
-        .link-card:hover,
-        .link-card:focus-visible {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-1px);
-            color: var(--text);
-        }
-        .link-card:active {
-            transform: translateY(0);
-        }
-        .link-card:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        .link-card.featured {
-            border-color: rgba(195, 43, 57, 0.4);
-            background: rgba(195, 43, 57, 0.08);
-        }
-        .link-card.featured:hover {
-            border-color: rgba(195, 43, 57, 0.7);
-            background: rgba(195, 43, 57, 0.14);
-        }
-
-        /* Coming-soon: looks featured, but not yet clickable */
-        .link-card.coming-soon { cursor: default; }
-        .link-card.coming-soon:hover {
-            transform: none;
-            border-color: rgba(195, 43, 57, 0.4);
-            background: rgba(195, 43, 57, 0.08);
-        }
-        .link-card.coming-soon:hover .link-icon {
-            color: var(--accent);
-            background: rgba(195, 43, 57, 0.15);
-        }
-        .soon-badge {
-            flex-shrink: 0;
-            font-family: var(--font-body);
-            font-size: 0.62rem;
-            font-weight: 800;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            color: #e9c46a;
-            background: rgba(184, 134, 11, 0.15);
-            border: 1px solid rgba(184, 134, 11, 0.45);
-            border-radius: 50px;
-            padding: 0.3rem 0.6rem;
-            white-space: nowrap;
-        }
-
-        .link-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: var(--radius-sm);
-            background: rgba(244, 238, 224, 0.07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1rem;
-            color: var(--text-muted);
-            transition: color var(--transition), background var(--transition);
-        }
-        .link-card.featured .link-icon {
-            background: rgba(195, 43, 57, 0.15);
-            color: var(--accent);
-        }
-        .link-card:hover .link-icon {
-            background: rgba(244, 238, 224, 0.1);
-            color: var(--text);
-        }
-        .link-card.featured:hover .link-icon {
-            color: var(--accent-hover);
-        }
-
-        .link-text {
-            flex: 1;
-            min-width: 0;
-        }
-        .link-title {
-            font-family: var(--font-body);
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: var(--text);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            line-height: 1.3;
-        }
-        .link-sub {
-            font-family: var(--font-accent);
-            font-style: italic;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 0.1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .link-arrow {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            flex-shrink: 0;
-            transition: color var(--transition), transform var(--transition);
-        }
-        .link-card:hover .link-arrow {
-            color: var(--text);
-            transform: translateX(2px);
-        }
-
-        /* ── Email Capture ── */
-        .capture-card {
-            width: 100%;
-            margin-top: 1.4rem;
-            padding: 1.1rem 1.1rem 1.25rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(195, 43, 57, 0.4);
-            border-radius: var(--radius);
-            text-align: center;
-        }
-        .capture-title { font-family: var(--font-head); font-weight: 700; font-size: 1.02rem; }
-        .capture-sub { font-family: var(--font-accent); font-style: italic; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
-        .capture-form { display: flex; gap: 0.5rem; margin-top: 0.85rem; }
-        .capture-form input[type="email"] {
-            flex: 1; min-width: 0;
-            background: rgba(244, 238, 224, 0.06);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 0.65rem 0.8rem;
-            color: var(--text);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-        }
-        .capture-form input::placeholder { color: var(--text-muted); }
-        .capture-form button {
-            background: var(--accent); color: #fff; border: 0;
-            border-radius: var(--radius-sm);
-            padding: 0.65rem 1rem;
-            font-weight: 700; font-family: var(--font-body);
-            cursor: pointer;
-            transition: background var(--transition);
-        }
-        .capture-form button:hover { background: var(--accent-hover); }
-        .capture-thanks { display: none; margin-top: 0.85rem; font-family: var(--font-accent); font-style: italic; color: var(--text); }
-
-        /* ── Social Row ── */
-        .social-row {
-            display: flex;
-            gap: 0.6rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-            margin-top: 1rem;
-        }
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 1.05rem;
-            transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
-            -webkit-tap-highlight-color: transparent;
-        }
-        .social-btn:hover,
-        .social-btn:focus-visible {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            color: var(--text);
-            transform: translateY(-2px);
-        }
-        .social-btn:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        /* ── Footer ── */
-        .links-footer {
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-        .links-footer a {
-            font-family: var(--font-body);
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-        .links-footer a:hover { color: var(--text); }
-
-        @media (prefers-reduced-motion: reduce) {
-            .link-card, .social-btn, .link-arrow { transition: none; }
-        }
+        .lib-top{display:flex;justify-content:center;padding:10px var(--gutter);border-bottom:4px solid var(--ink)}
+        main.page{position:relative;max-width:520px;margin:0 auto;padding:30px max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;align-items:center}
+        /* avatar: round TV frame in front of a rainbow arch (sizes in % of the block's width) */
+        .avatar-wrap{position:relative;width:min(100%,300px);aspect-ratio:100/75;container-type:inline-size;margin-bottom:22px}
+        .avatar-arc{position:absolute;left:0;top:-17cqw;width:100%}
+        .avatar-wrap .tv{position:absolute;left:25cqw;top:24.7cqw;width:50cqw;aspect-ratio:1;border-width:5px;border-radius:50%;box-shadow:8px 8px 0 var(--ink)}
+        .avatar-wrap .tv img{scale:1.6;transform-origin:52% 46%}
+        .avatar-badge{position:absolute;left:65cqw;top:59cqw;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:var(--yellow);border:4px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-size:20px;rotate:-10deg;z-index:2}
+        /* identity */
+        .identity{display:flex;flex-direction:column;align-items:center;text-align:center}
+        .identity-name{font-size:clamp(2.6rem,11vw,3.4rem);margin-top:16px}
+        .identity-tagline{font-size:clamp(1.45rem,6vw,1.75rem);line-height:1.12;margin-top:14px;max-width:16em}
+        .identity-tagline .pop{font-size:1.18em}
+        .identity-proof{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+        .identity-proof .pill{font-size:11px;letter-spacing:.08em;padding:7px 10px 6px}
+        /* link buttons */
+        .links-list{width:100%;display:flex;flex-direction:column;gap:20px;margin-top:36px}
+        .link-card{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px 14px 14px;background:var(--paper);border:4px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+        .link-card:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+        .link-card:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+        .link-card.featured{background:var(--c);rotate:-1deg}
+        .link-card.featured + .featured{rotate:.8deg}
+        .link-icon{flex:none;width:50px;height:50px;display:grid;place-items:center;border-radius:50%;background:var(--c);border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-size:19px}
+        .featured .link-icon{background:var(--paper)}
+        .link-icon--art,.featured .link-icon--art{background:none;border:none;box-shadow:none;width:58px;height:58px}
+        .link-icon--art img{width:100%;height:100%;object-fit:contain}
+        .avatar-badge--art{background:none;border:none;box-shadow:none;width:66px;height:66px}
+        .avatar-badge--art img{width:100%;height:100%}
+        .link-text{flex:1;min-width:0}
+        .link-title{font-family:var(--disp);font-size:1.16rem;line-height:1.12;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144}
+        .link-sub{margin-top:4px;font-size:.86rem;line-height:1.35}
+        .link-arrow{flex:none;font-size:.95rem;transition:translate .15s}
+        .link-card:hover .link-arrow{translate:3px 0}
+        .link-card:hover .link-icon{animation:jelly .55s ease}
+        /* email capture: the deck's brief card */
+        .capture-card{width:100%;margin-top:48px;overflow:hidden;box-shadow:8px 8px 0 var(--ink)}
+        .capture-title.brief-head{font-size:1.5rem;line-height:1.1;padding:14px 20px}
+        .capture-body{padding:16px 20px 22px}
+        .capture-sub{font-size:1rem}
+        .capture-form.inline-form{margin-top:16px;gap:12px}
+        .capture-form.inline-form input[type="email"]{flex:3 1 190px;padding:13px 18px}
+        .capture-form .btn{flex:1 0 auto;font-size:1.15rem;padding:13px 24px 14px}
+        .capture-thanks{display:none;margin-top:14px;font-family:var(--marker);font-size:1.25rem;color:var(--red-ink)}
+        .social-row.socials{margin-top:44px}
+        /* footer: legal links inside the rainbow arch */
+        .links-footer{position:relative;overflow:hidden;margin-top:48px}
+        .links-footer .arch{width:min(560px,150vw);margin-top:0}
+        .links-footer .inside{display:grid;gap:6px;bottom:18px}
+        .links-footer .inside > a{font-size:1rem;font-weight:900}
+        @media (max-width:1100px){main.page .art-star{display:none}}
+        @media (max-width:600px){.identity-proof .pill{font-size:10px;padding:6px 8px 5px}.link-title{font-size:1.08rem}}
     </style>
 </head>
 <body>
-    <main class="page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="lib-top">
+        <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+    </header>
+
+    <main class="page" id="main">
+        <span class="art-star" data-star="yellow" style="left:-34%;top:90px;width:54px" aria-hidden="true"></span>
+        <span class="art-star" data-star="pink" style="left:-22%;top:260px;width:30px" aria-hidden="true"></span>
+        <span class="art-star" data-star="yellow" style="right:-30%;top:150px;width:40px" aria-hidden="true"></span>
+        <span class="art-star" data-star="paper" style="right:-40%;top:520px;width:46px" aria-hidden="true"></span>
 
         <!-- Avatar -->
         <div class="avatar-wrap">
-            <img
-                src="dev_assets/jake-avatar-2026-96.webp"
-                alt="Jake Tlapek — The Wizard of Marketing"
-                class="avatar"
-                width="96"
-                height="96"
-                fetchpriority="high"
-            >
-            <div class="avatar-badge" aria-hidden="true">
-                <i class="fas fa-hat-wizard"></i>
+            <div class="avatar-arc" data-art="arc" aria-hidden="true"></div>
+            <div class="tv">
+                <img
+                    src="dev_assets/photos/jake-rainbow-wall-5686-800.webp"
+                    srcset="dev_assets/photos/jake-rainbow-wall-5686-800.webp 800w, dev_assets/photos/jake-rainbow-wall-5686-1600.webp 1600w"
+                    sizes="180px"
+                    alt="Jake Tlapek in front of a rainbow-striped mural, hands raised like he’s casting a spell"
+                    class="avatar"
+                    width="800"
+                    height="533"
+                    fetchpriority="high"
+                    decoding="async"
+                    style="object-position:53% 50%"
+                >
+            </div>
+            <div class="avatar-badge avatar-badge--art" aria-hidden="true">
+                <img src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="64" height="64" alt="">
             </div>
         </div>
 
         <!-- Identity -->
         <div class="identity">
-            <h1 class="identity-name">Jake Tlapek</h1>
-            <p class="identity-title">The Wizard of Marketing</p>
-            <p class="identity-tagline">&ldquo;People don't buy features. They buy dreams.&rdquo;</p>
-            <div class="identity-proof">
-                <span class="proof-pill">$100M+ Generated</span>
-                <span class="proof-pill">2 Exits</span>
-                <span class="proof-pill">100K+ Followers</span>
+            <p class="identity-title kicker intro" style="--d:.05s">The Wizard of Marketing</p>
+            <h1 class="identity-name intro" style="--d:.12s">Jake Tlapek</h1>
+            <p class="identity-tagline disp intro" style="--d:.2s">&ldquo;People don't buy features.<br>They buy <span class="pop rainbow">dreams.</span>&rdquo;</p>
+            <div class="identity-proof intro" style="--d:.28s">
+                <span class="proof-pill pill" style="--c:var(--yellow)">$100M+ Generated</span>
+                <span class="proof-pill pill" style="--c:var(--mint)">2 Exits</span>
+                <span class="proof-pill pill" style="--c:var(--pink)">100K+ Followers</span>
             </div>
         </div>
 
@@ -429,12 +142,13 @@
 
             <!-- AI Practitioners Summit, temporary: remove after 2026-10-25 along with the /summit redirect in vercel.json -->
             <a href="/summit"
-               class="link-card featured"
+               class="link-card featured intro"
+               style="--c:var(--sky);--d:.34s"
                target="_blank"
                rel="noopener noreferrer"
                data-cta="summit_register"
                data-cta-location="links">
-                <div class="link-icon"><i class="fas fa-microphone" aria-hidden="true"></i></div>
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-podcast.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Hear My Talk — AI Practitioners Summit</div>
                     <div class="link-sub">Fri Oct 23, 1:45 PM MST &bull; online, free</div>
@@ -443,11 +157,12 @@
             </a>
 
             <a href="https://www.amazon.com/dp/B0HD48KJGD"
-               class="link-card featured"
+               class="link-card featured intro"
+               style="--c:var(--yellow);--d:.4s"
                target="_blank"
                rel="noopener noreferrer"
                data-cta="book_buy">
-                <div class="link-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-dominoes.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Eight Dominoes — Out Now</div>
                     <div class="link-sub">Buy the book &bull; Paperback, Kindle, free on KU</div>
@@ -456,12 +171,13 @@
             </a>
 
             <a href="https://community.8dominoes.com/checkout/eight-dominoes-membership"
-               class="link-card"
+               class="link-card intro"
+               style="--c:var(--teal);--d:.46s"
                target="_blank"
                rel="noopener noreferrer"
                data-cta="membership_trial"
                data-cta-location="links">
-                <div class="link-icon"><i class="fas fa-hat-wizard" aria-hidden="true"></i></div>
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-mastermind.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Join The Eight Dominoes Mastermind</div>
                     <div class="link-sub">Group consulting with me, twice a week &bull; 7 days free, then $500/mo</div>
@@ -469,8 +185,8 @@
                 <i class="fas fa-chevron-right link-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="/eight-dominoes" class="link-card">
-                <div class="link-icon"><i class="fas fa-scroll" aria-hidden="true"></i></div>
+            <a href="/eight-dominoes" class="link-card intro" style="--c:var(--pink);--d:.52s">
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/spellbook-480.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">What's In The Book</div>
                     <div class="link-sub">Why people buy &bull; and who it's for</div>
@@ -478,8 +194,8 @@
                 <i class="fas fa-chevron-right link-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="/consulting" class="link-card">
-                <div class="link-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
+            <a href="/consulting" class="link-card intro" style="--c:var(--red);--d:.58s">
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-consulting.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Private Consulting</div>
                     <div class="link-sub">Sessions, audits &amp; fractional CMO &bull; prices on the page</div>
@@ -487,8 +203,8 @@
                 <i class="fas fa-chevron-right link-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="/mastermind" class="link-card">
-                <div class="link-icon"><i class="fas fa-scroll" aria-hidden="true"></i></div>
+            <a href="/mastermind" class="link-card intro" style="--c:var(--mint);--d:.64s">
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/spellbook-480.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">What's Inside The Mastermind</div>
                     <div class="link-sub">Free vs membership &bull; what the calls actually are</div>
@@ -496,8 +212,8 @@
                 <i class="fas fa-chevron-right link-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="/podcast-guest" class="link-card">
-                <div class="link-icon"><i class="fas fa-microphone" aria-hidden="true"></i></div>
+            <a href="/podcast-guest" class="link-card intro" style="--c:var(--salmon);--d:.7s">
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-podcast.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Book Jake for Your Podcast</div>
                     <div class="link-sub">Topics, bio, and booking form</div>
@@ -505,8 +221,8 @@
                 <i class="fas fa-chevron-right link-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="/tools" class="link-card">
-                <div class="link-icon"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+            <a href="/tools" class="link-card intro" style="--c:var(--yellow);--d:.76s">
+                <div class="link-icon link-icon--art"><img src="/dev_assets/brand/icon-tools.webp" width="58" height="58" alt="" loading="lazy" decoding="async"></div>
                 <div class="link-text">
                     <div class="link-title">Jake's Favorite Tools</div>
                     <div class="link-sub">The software stack, annotated</div>
@@ -517,49 +233,57 @@
         </div>
 
         <!-- Email capture -->
-        <div class="capture-card">
-            <p class="capture-title">One marketing truth a week</p>
-            <p class="capture-sub">A real example, a number, and what to do with it. No spam, unsubscribe anytime.</p>
-            <form id="links-capture" class="capture-form" action="https://formspree.io/f/xzdjjjlo" method="POST">
-                <input type="email" name="email" placeholder="Your best email" autocomplete="email" required aria-label="Your email address">
-                <input type="hidden" name="_subject" value="Newsletter Signup — links page">
-                <input type="hidden" name="_form_type" value="eight_dominoes">
-                <button type="submit">Join</button>
-            </form>
-            <p class="capture-thanks" id="links-thanks">You're on the list. Talk soon. &mdash;Jake</p>
+        <div class="capture-card card reveal" style="--c:var(--yellow)">
+            <p class="capture-title brief-head">One marketing truth a week</p>
+            <div class="capture-body">
+                <p class="capture-sub">A real example, a number, and what to do with it. No spam, unsubscribe anytime.</p>
+                <form id="links-capture" class="capture-form inline-form" action="https://formspree.io/f/xzdjjjlo" method="POST">
+                    <input type="email" name="email" placeholder="Your best email" autocomplete="email" required aria-label="Your email address">
+                    <input type="hidden" name="_subject" value="Newsletter Signup — links page">
+                    <input type="hidden" name="_form_type" value="eight_dominoes">
+                    <button type="submit" class="btn btn-red">Join</button>
+                </form>
+                <p class="capture-thanks" id="links-thanks">You're on the list. Talk soon. &mdash;Jake</p>
+            </div>
         </div>
 
         <!-- Social row -->
-        <div class="social-row" style="margin-top:2rem;">
-            <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TikTok">
+        <div class="social-row socials reveal">
+            <a href="https://www.tiktok.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--pink)" aria-label="TikTok">
                 <i class="fab fa-tiktok" aria-hidden="true"></i>
             </a>
-            <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube">
+            <a href="https://www.youtube.com/@itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--red)" aria-label="YouTube">
                 <i class="fab fa-youtube" aria-hidden="true"></i>
             </a>
-            <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--sky)" aria-label="LinkedIn">
                 <i class="fab fa-linkedin-in" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com/itsjakethewizard/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+            <a href="https://www.instagram.com/itsjakethewizard/" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--yellow)" aria-label="Instagram">
                 <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+            <a href="https://www.facebook.com/itsjakethewizard" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--mint)" aria-label="Facebook">
                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a href="https://twitter.com/JakeTtheWizard" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter)">
+            <a href="https://twitter.com/JakeTtheWizard" target="_blank" rel="noopener noreferrer" class="social-btn" style="--c:var(--salmon)" aria-label="X (Twitter)">
                 <i class="fab fa-x-twitter" aria-hidden="true"></i>
             </a>
         </div>
 
-        <!-- Footer -->
-        <div class="links-footer">
-            <a href="/">jakethewizard.com</a>
-            <div style="margin-top:0.55rem; color:var(--text-muted); font-size:0.72rem;">
-                <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/cookies">Cookies</a> &middot; <a href="/ai-information">AI Info</a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="links-footer">
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:2%;top:34%;font-size:clamp(36px,9vw,60px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:3%;top:26%;font-size:clamp(40px,10vw,66px);rotate:10deg">♫</span>
+            <div class="inside">
+                <a href="/">jakethewizard.com</a>
+                <div><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/cookies">Cookies</a> &middot; <a href="/ai-information">AI Info</a></div>
             </div>
         </div>
+    </footer>
 
-    </main>
     <script>
     (function () {
         var form = document.getElementById('links-capture');
@@ -593,6 +317,9 @@
         });
     })();
     </script>
+    <!-- schoolhouse.js only draws the art and motion; it never touches the form above (script.js is
+         deliberately not loaded here, so the inline handler stays the only submit listener). -->
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

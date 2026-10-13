@@ -1,6 +1,7 @@
 /**
  * Branded social-share card generator for The Grimoire.
- * Renders a 1200x630 PNG (parchment + Playfair title + wizard mark) per post,
+ * Renders a 1200x630 PNG (the summit deck's look: cream paper, rainbow bend,
+ * Fraunces Black title, wizard hat, yellow URL sticker) per post,
  * so every article has an on-brand OG/Twitter image with zero manual work.
  *
  * Fault-tolerant by design: if the rasterizer or font is unavailable, every
@@ -16,38 +17,27 @@ const path = require('path');
 let Resvg = null;
 try { ({ Resvg } = require('@resvg/resvg-js')); } catch (e) { Resvg = null; }
 
-let fontFile = null;
-let iconDataUri = '';
-let textureDataUri = ''; // downscaled arcane-paper texture (optional)
+let fontFiles = null;
 let initState = null; // null = not tried, true/false = result
+
+// Family names as stored inside the TTFs (resvg matches on these).
+const DISPLAY = 'Fraunces 144pt SuperSoft Wonky';
+const BODY = 'Nunito';
 
 function init(root) {
     if (initState !== null) return initState;
     initState = false;
     if (!Resvg) return false;
-    try {
-        const f = path.join(root, 'assets', 'fonts', 'PlayfairDisplay.ttf');
-        if (!fs.existsSync(f)) return false;
-        fontFile = f;
-        const iconPath = path.join(root, 'dev_assets', 'jake-icon-2026-512.png');
-        if (fs.existsSync(iconPath)) {
-            iconDataUri = 'data:image/png;base64,' + fs.readFileSync(iconPath).toString('base64');
-        }
-        // Pre-render the arcane-paper texture once (the 4MB source is too large to
-        // embed per card). Optional: cards fall back to plain parchment if it fails.
-        try {
-            const wp = path.join(root, 'dev_assets', 'wizpaper1.png');
-            if (fs.existsSync(wp)) {
-                const big = 'data:image/png;base64,' + fs.readFileSync(wp).toString('base64');
-                const texSvg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><image href="${big}" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/></svg>`;
-                const texPng = new Resvg(texSvg, { fitTo: { mode: 'original' } }).render().asPng();
-                textureDataUri = 'data:image/png;base64,' + Buffer.from(texPng).toString('base64');
-            }
-        } catch (e) { textureDataUri = ''; }
-        initState = true;
-    } catch (e) {
-        initState = false;
+    const files = ['Fraunces-Black-Soft.ttf', 'Nunito-Black.ttf'].map((f) => path.join(root, 'assets', 'fonts', f));
+    const missing = files.filter((f) => !fs.existsSync(f));
+    if (missing.length) {
+        console.warn(`[grimoire] OG cards skipped: missing font ${missing.map((f) => path.basename(f)).join(', ')}`);
+        return false;
     }
+    fontFiles = files;
+    const hat = path.join(root, 'assets', 'brand', 'wizard-hat-512.png');
+    if (fs.existsSync(hat)) hatDataUri = 'data:image/png;base64,' + fs.readFileSync(hat).toString('base64');
+    initState = true;
     return initState;
 }
 
@@ -56,7 +46,14 @@ function xesc(s) {
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-const CONTENT_W = 1040; // 80px margins on each side
+// Palette + rainbow order from the summit deck (build_deck.py), same as schoolhouse.js.
+const INK = '#1B1A17';
+const CREAM = '#FFF1D6';
+const YELLOW = '#FFC928';
+const RAINBOW = ['#12A4A4', '#F6A8CB', '#E5322B', '#FF9473', '#FFC928', '#17271F', '#91DE87', '#8B1D3D', '#5DB6EC'];
+
+const TITLE_X = 196;
+const CONTENT_W = 1120 - TITLE_X;
 
 function wrap(text, maxChars) {
     const words = String(text).split(/\s+/).filter(Boolean);
@@ -71,47 +68,64 @@ function wrap(text, maxChars) {
     return lines;
 }
 
-// Playfair advances at roughly half the point size; size the title down for
-// longer headlines so it always fits in <= 4 lines without crowding.
+// Fraunces Black advances at roughly 0.56 of the point size; size the title down
+// for longer headlines so it always fits in <= 4 lines without crowding.
 function layoutTitle(title) {
-    let F = title.length <= 22 ? 84 : title.length <= 38 ? 76 : title.length <= 55 ? 64 : 54;
-    let lines = wrap(title, Math.max(8, Math.floor(CONTENT_W / (0.5 * F))));
-    while (lines.length > 3 && F > 48) {
-        F -= 8;
-        lines = wrap(title, Math.max(8, Math.floor(CONTENT_W / (0.5 * F))));
+    const perLine = (F) => Math.max(8, Math.floor(CONTENT_W / (0.56 * F)));
+    const longestWord = Math.max(...String(title).split(/\s+/).map((w) => w.length));
+    let F = title.length <= 22 ? 92 : title.length <= 38 ? 80 : title.length <= 55 ? 68 : 58;
+    // A single very long word cannot wrap: shrink until it fits on one line.
+    while (perLine(F) < longestWord && F > 36) F -= 4;
+    let lines = wrap(title, perLine(F));
+    while (lines.length > 3 && F > 50) {
+        F -= 6;
+        lines = wrap(title, perLine(F));
     }
     if (lines.length > 4) { lines = lines.slice(0, 3); lines.push(lines.pop() + '…'); }
-    return { F, lines, lineH: Math.round(F * 1.16) };
+    return { F, lines, lineH: Math.round(F * 1.02) };
 }
+
+// The deck's rainbow bend: down the left edge, a 90° turn, then off the right edge.
+function bendSvg() {
+    const w = 12, n = RAINBOW.length, o = 6, r0 = 40, xl = 36, yb = 630 - 34;
+    const R = r0 + n * w, cx = xl + R, cy = yb - R;
+    const d = (r) => `M ${cx - r} -20 L ${cx - r} ${cy} A ${r} ${r} 0 0 0 ${cx} ${cy + r} L 1220 ${cy + r}`;
+    const casing = `<path d="${d(r0 + n * w / 2)}" stroke="${INK}" stroke-width="${n * w + 2 * o}" fill="none"/>`;
+    return casing + RAINBOW.map((c, i) => `<path d="${d(R - (i + 0.5) * w)}" stroke="${c}" stroke-width="${w + 0.6}" fill="none"/>`).join('');
+}
+
+// The wizard-hat logo (assets/brand/wizard-hat-512.png, from the redesign's generated art).
+let hatDataUri = '';
+const hatSvg = () => hatDataUri ? `<image href="${hatDataUri}" x="1014" y="30" width="118" height="118"/>` : '';
 
 function buildSvg(title, category) {
     const { F, lines, lineH } = layoutTitle(title);
-    const block = lines.length * lineH;
-    let first = Math.round(380 - (block - lineH) / 2);
-    first = Math.max(330, first);
-    if (first + (lines.length - 1) * lineH > 512) first = 512 - (lines.length - 1) * lineH;
+    // Centre the title block in the space between the kicker (y≈130) and the band (y≈430).
+    const block = (lines.length - 1) * lineH;
+    const first = Math.round(Math.max(150 + F * 0.78, 300 - block / 2 + F * 0.36));
 
     const titleSvg = lines.map((ln, i) =>
-        `<text x="80" y="${first + i * lineH}" font-family="Playfair Display" font-size="${F}" font-weight="900" fill="#181412">${xesc(ln)}</text>`
+        `<text x="${TITLE_X}" y="${first + i * lineH}" font-family="${DISPLAY}" font-size="${F}" font-weight="900" fill="${INK}">${xesc(ln)}</text>`
     ).join('\n  ');
 
-    const iconSvg = iconDataUri
-        ? `<image href="${iconDataUri}" x="80" y="64" width="56" height="56"/>\n  <text x="150" y="104"`
-        : `<text x="80" y="104"`;
-
-    const texture = textureDataUri
-        ? `\n  <image href="${textureDataUri}" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>\n  <rect width="1200" height="630" fill="#F8F4EB" fill-opacity="0.62"/>`
-        : '';
+    // Nunito Black 21px + 3px tracking runs ~17.5px a character; long categories are trimmed to fit the row.
+    let kicker = `THE GRIMOIRE · ${String(category).toUpperCase()}`;
+    const maxChars = Math.floor((1000 - TITLE_X - 48) / 17.5);
+    if (kicker.length > maxChars) kicker = kicker.slice(0, maxChars - 1).trimEnd() + '…';
+    const kickerW = Math.round(kicker.length * 17.5 + 48);
 
     return `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#F4EEE0"/>${texture}
-  <rect x="22" y="22" width="1156" height="586" fill="none" stroke="#1e1208" stroke-opacity="0.22" stroke-width="2" rx="16"/>
-  ${iconSvg} font-family="Playfair Display" font-size="30" font-weight="700" fill="#181412" letter-spacing="3">THE GRIMOIRE</text>
-  <text x="80" y="250" font-family="Playfair Display" font-size="26" font-weight="700" fill="#c32b39" letter-spacing="4">${xesc(String(category).toUpperCase())}</text>
-  <rect x="80" y="270" width="96" height="6" fill="#c32b39"/>
+  <rect width="1200" height="630" fill="${CREAM}"/>
+  ${bendSvg()}
+  <rect x="${TITLE_X}" y="62" width="${kickerW}" height="50" rx="25" fill="${INK}"/>
+  <text x="${TITLE_X + 24}" y="95" font-family="${BODY}" font-size="21" font-weight="900" fill="${CREAM}" letter-spacing="3">${xesc(kicker)}</text>
+  ${hatSvg()}
   ${titleSvg}
-  <text x="80" y="566" font-family="Playfair Display" font-size="26" font-weight="700" fill="#6b5c52">jakethewizard.com</text>
-  <text x="1120" y="566" text-anchor="end" font-family="Playfair Display" font-size="26" font-weight="400" font-style="italic" fill="#6b5c52">By Jake the Wizard</text>
+  <g transform="rotate(-3 990 520)">
+    <rect x="828" y="487" width="336" height="70" rx="35" fill="${INK}"/>
+    <rect x="818" y="477" width="336" height="70" rx="35" fill="${YELLOW}" stroke="${INK}" stroke-width="5"/>
+    <text x="986" y="524" text-anchor="middle" font-family="${DISPLAY}" font-size="30" font-weight="900" fill="${INK}">jakethewizard.com</text>
+  </g>
 </svg>`;
 }
 
@@ -124,7 +138,7 @@ function generateCard({ root, outDir, slug, title, category }) {
     try {
         const svg = buildSvg(title, category || 'The Grimoire');
         const resvg = new Resvg(svg, {
-            font: { fontFiles: [fontFile], loadSystemFonts: false, defaultFontFamily: 'Playfair Display' },
+            font: { fontFiles, loadSystemFonts: false, defaultFontFamily: BODY },
             fitTo: { mode: 'original' },
         });
         fs.mkdirSync(outDir, { recursive: true });

@@ -6,11 +6,11 @@
     <title>Consulting — Work With Jake Tlapek, The Wizard of Marketing</title>
     <meta name="description" content="Private marketing consulting with Jake Tlapek. Two exits, $100M+ in client results, zero theory. Find the bottleneck, fix the message, leave with a roadmap — from $400, prices on the page.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#FFF1D6">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/consulting" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
@@ -27,12 +27,14 @@
     <meta property="twitter:description" content="Bring your hardest problem. Leave with the message that fixes it. Two exits, $100M+ in client results, prices on the page.">
     <meta property="twitter:image" content="https://www.jakethewizard.com/dev_assets/jake-og-card-2026.jpg">
 
-    <link rel="stylesheet" href="styles.css?v=8.8">
+
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
@@ -40,9 +42,20 @@
           referrerpolicy="no-referrer"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
+    <style>
+        /* Consulting only: offer cards are kit .svc cards holding a .price, .checks and a button stack.
+           .svc lets every <p> grow (flex:1); here only the button stack is pushed down. Promote to the kit if reused. */
+        .offer .svc-body > *{flex:none}
+        .offer .price{align-self:flex-start;margin:4px 0 18px;font-size:clamp(1.8rem,2.3vw,2.3rem)}
+        .offer .checks{margin-top:28px;gap:24px;font-size:1rem}
+        .offer .checks li{min-height:34px;padding-top:4px}
+        .offer-ctas{display:grid;gap:18px;margin-top:auto;padding-top:32px}
+        .offer-ctas .btn{font-size:1.1rem}
+        .offer .fine{margin-top:16px;text-align:center}
+    </style>
 
     <script type="application/ld+json">
     {
@@ -107,350 +120,340 @@
     }
     </script>
 </head>
-<body class="parchment-theme">
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting" aria-current="page">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting" aria-current="page">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <main class="content-wrapper">
+    <main id="main">
 
-        <!-- Page Hero -->
-        <section class="page-hero page-hero--photo dark-theme-section">
-            <div class="hero-parallax-bg">
-                <img src="dev_assets/Hat.png" class="floating-artifact a2" alt="" aria-hidden="true">
-                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="" aria-hidden="true">
-            </div>
-            <div class="container page-hero-content">
-                <div class="page-hero-copy">
-                    <div class="breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Consulting</div>
-                    <span class="eyebrow">Private &amp; Hourly</span>
-                    <h1 class="massive-section-title">WORK WITH<br>THE WIZARD.</h1>
-                    <p class="hero-role text-night">Bring your hardest problem. Leave with the message that fixes it.</p>
-                    <p class="text-night" style="margin-top:0.75rem; font-size:0.95rem; opacity:0.85;">Two exits &middot; $100M+ in client results &middot; zero slide decks of theory</p>
-                    <div class="hero-ctas" style="margin-top:2rem;">
-                        <a href="#offers" class="btn btn-primary">Book a Session</a>
-                        <a href="#what-i-do" class="btn btn-ghost-light">Read the Diagnosis First</a>
+        <!-- HERO · rainbow bend on the left, TV-framed photo -->
+        <section class="hero" id="hero" aria-labelledby="hero-h1">
+            <div class="hero-art" aria-hidden="true"></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <nav class="fine intro" aria-label="Breadcrumb" style="--d:0s;margin-bottom:18px"><a href="/">Home</a> <span aria-hidden="true">/</span> Consulting</nav>
+                    <span class="kicker intro" style="--d:.1s">Private &amp; Hourly</span>
+                    <h1 class="intro" id="hero-h1" style="--d:.25s">Work with<br>the <span class="pop rainbow">wizard.</span></h1>
+                    <p class="lede intro" style="--d:.7s">Bring your hardest problem. Leave with the message that fixes it.</p>
+                    <p class="fine intro" style="--d:.78s;margin-top:14px">Two exits &middot; $100M+ in client results &middot; zero slide decks of theory</p>
+                    <div class="cta-row intro" style="--d:.85s">
+                        <a class="btn" href="#offers">Book a Session</a>
+                        <a class="btn btn-ghost" href="#what-i-do">Read the Diagnosis First</a>
                     </div>
-                    <p class="text-night" style="margin-top:1rem; font-size:0.85rem; opacity:0.7;">Prices are on this page. No discovery-call maze.</p>
+                    <p class="fine intro" style="--d:.95s;margin-top:22px">Prices are on this page. No discovery-call maze.</p>
                 </div>
-                <figure class="photo-print hero-photo">
-                    <img src="dev_assets/photos/jake-consulting-hero-5781-600.webp"
-                         srcset="dev_assets/photos/jake-consulting-hero-5781-600.webp 600w, dev_assets/photos/jake-consulting-hero-5781-1200.webp 1200w"
-                         sizes="(min-width: 900px) 340px, 78vw"
-                         alt="Jake Tlapek laughing with his arms crossed, wearing a cream blazer" width="600" height="750" fetchpriority="high" decoding="async">
-                </figure>
+                <div class="hero-photo">
+                    <a class="sticker" href="#offers" data-burst="yellow" aria-label="Strategy Sessions from $400">
+                        <span><small>From</small><b style="font-size:36px">$400</b></span>
+                    </a>
+                    <div class="tv">
+                        <img src="dev_assets/photos/jake-rainbow-wall-5678-800.webp"
+                             srcset="dev_assets/photos/jake-rainbow-wall-5678-800.webp 800w, dev_assets/photos/jake-rainbow-wall-5678-1600.webp 1600w"
+                             sizes="(min-width: 860px) 450px, 80vw" width="800" height="533" fetchpriority="high" decoding="async"
+                             alt="Jake Tlapek standing hands on hips in sunglasses in front of a rainbow-striped brick mural" style="object-position:55% 40%">
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- The Problem -->
-        <section id="what-i-do" class="section padding-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">THE<br>REAL<br>PROBLEM.</h2>
-                    </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p>People don&rsquo;t buy features. They buy dreams. Your buyer is paying for the life they want on the other side of the purchase, and most marketing never mentions it. The product is almost never the issue.</p>
-                            <p>People browse intellectually and buy emotionally. Most funnels are built backwards: all logic, no feeling, and a "Buy Now" button before anyone has pictured what changes for them. That's not a traffic problem. That's a message problem.</p>
-                            <p>One of Jake's clients, a landscaping company, went from 3 crews to 9 and from $1.2M to over $10M. Same trucks. Same service. Different message.</p>
-                            <p>He's been doing this for 13 years, for companies of every size. Two exits and $100M+ generated for clients later, the framework is the same. The bottleneck is the same. The fix is simpler than you expect.</p>
-                        </div>
-                    </div>
+        <section class="sec" id="what-i-do" aria-labelledby="problem-h" style="padding-block:clamp(24px,4vw,56px) clamp(40px,5vw,64px)">
+            <div class="wrap split" style="align-items:start">
+                <div class="head head--left reveal" style="margin-bottom:0">
+                    <span class="kicker">The diagnosis</span>
+                    <h2 class="has-hl" id="problem-h">The real <span class="hl">problem.</span></h2>
+                </div>
+                <div class="prose reveal" style="--i:1;font-size:1.15rem">
+                    <p>People don&rsquo;t buy features. They buy dreams. Your buyer is paying for the life they want on the other side of the purchase, and most marketing never mentions it. The product is almost never the issue.</p>
+                    <p>People browse intellectually and buy emotionally. Most funnels are built backwards: all logic, no feeling, and a "Buy Now" button before anyone has pictured what changes for them. That's not a traffic problem. That's a message problem.</p>
+                    <p>One of Jake's clients, a landscaping company, went from 3 crews to 9 and from $1.2M to over $10M. Same trucks. Same service. Different message.</p>
+                    <p>He's been doing this for 13 years, for companies of every size. Two exits and $100M+ generated for clients later, the framework is the same. The bottleneck is the same. The fix is simpler than you expect.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Numbers from the client files -->
-        <section class="proof-strip" aria-label="Results from Jake's client files">
-            <div class="proof-strip-inner">
-                <div class="proof-item">
-                    <span class="proof-number">1.2% &rarr; 6.5%</span>
-                    <span class="proof-label">Page conversion after one surgical UX change</span>
+        <!-- Numbers from the client files · starburst seals -->
+        <section class="proof" aria-label="Results from Jake's client files">
+            <div class="wrap proof-grid">
+                <div class="proof-item reveal" style="--i:0">
+                    <div class="seal" data-fill="sky" data-burst="pink" data-rot="0"><b style="font-size:12.5cqi"><span>1.2% &rarr;<br>6.5%</span></b></div>
+                    <p>Page conversion after one surgical UX change</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">17&times;</span>
-                    <span class="proof-label">Return on ad spend from a DSP rebuild</span>
+                <div class="proof-item reveal" style="--i:1">
+                    <div class="seal" data-fill="yellow" data-burst="mint" data-rot="7" data-spin="rev"><b style="font-size:19cqi">17&times;</b></div>
+                    <p>Return on ad spend from a DSP rebuild</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">$1.2M &rarr; $10M+</span>
-                    <span class="proof-label">Landscaping client, 3 crews to 9. Same trucks.</span>
+                <div class="proof-item reveal" style="--i:2">
+                    <div class="seal" data-fill="red" data-burst="orange" data-rot="14"><b style="color:var(--cream);font-size:12cqi"><span>$1.2M &rarr;<br>$10M+</span></b></div>
+                    <p>Landscaping client, 3 crews to 9. Same trucks.</p>
                 </div>
             </div>
         </section>
+
+        <div class="stripes" aria-hidden="true"></div>
 
         <!-- Offers -->
-        <section id="offers" class="section padding-section" style="background: rgba(244,238,224,0.4); border-top:1px solid var(--edge-burn); border-bottom:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Pick Your Engagement</h2>
-                <p class="description center-text">Three ways to work with Jake. Every price is on the page.</p>
-                <div class="offers-grid">
+        <section class="sec sec--yellow" id="offers" aria-labelledby="offers-h">
+            <span class="art-star" data-star="paper" style="left:4%;top:6%;width:44px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="right:5%;top:12%;width:34px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">Prices on the page</span>
+                    <h2 class="has-hl" id="offers-h">Pick your <span class="hl">engagement.</span></h2>
+                    <p>Three ways to work with Jake. Every price is on the page.</p>
+                </div>
+                <div class="svc-grid">
 
-                    <div class="offer-card scroll-reveal">
-                        <span class="offer-label">Single Session</span>
-                        <h3 class="offer-title">Strategy Session</h3>
-                        <div class="offer-price">From $400</div>
-                        <p class="offer-price-note">30 or 60 minutes. One focused problem.</p>
-                        <p class="offer-desc">Bring your most pressing challenge. Jake diagnoses fast and hands you a clear, prioritized roadmap you can act on that afternoon. Take 30 minutes for one sharp question, or a full hour to go deep.</p>
-                        <ul class="offer-includes">
-                            <li>Live 1:1 session with Jake</li>
-                            <li>One focused problem, diagnosed fast</li>
-                            <li>Recording sent after</li>
-                            <li>Written action summary</li>
-                        </ul>
-                        <div class="offer-cta-group">
-                            <a href="https://calendly.com/jakethewizard/30-min-consultation" class="btn btn-secondary w-100" target="_blank" rel="noopener noreferrer">Book 30 min &middot; $400</a>
-                            <a href="https://calendly.com/jakethewizard/1-hour-consultation" class="btn btn-secondary w-100" target="_blank" rel="noopener noreferrer">Book 60 min &middot; $750</a>
+                    <article class="svc card offer reveal" style="--c:var(--red);--i:0">
+                        <div class="svc-top"><span class="svc-icon"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></span><span class="svc-tag">Single Session</span></div>
+                        <div class="svc-body">
+                            <h3>Strategy Session</h3>
+                            <p class="price">From $400</p>
+                            <p><strong>30 or 60 minutes. One focused problem.</strong></p>
+                            <p style="margin-top:12px">Bring your most pressing challenge. Jake diagnoses fast and hands you a clear, prioritized roadmap you can act on that afternoon. Take 30 minutes for one sharp question, or a full hour to go deep.</p>
+                            <ul class="checks">
+                                <li>Live 1:1 session with Jake</li>
+                                <li>One focused problem, diagnosed fast</li>
+                                <li>Recording sent after</li>
+                                <li>Written action summary</li>
+                            </ul>
+                            <div class="offer-ctas">
+                                <a href="https://calendly.com/jakethewizard/30-min-consultation" class="btn btn-red btn-block" target="_blank" rel="noopener noreferrer">Book 30 min &middot; $400</a>
+                                <a href="https://calendly.com/jakethewizard/1-hour-consultation" class="btn btn-red btn-block" target="_blank" rel="noopener noreferrer">Book 60 min &middot; $750</a>
+                            </div>
+                            <p class="fine">Both include the recording and a written action summary.</p>
                         </div>
-                        <p class="offer-price-note" style="margin-top:0.75rem; text-align:center;">Both include the recording and a written action summary.</p>
-                    </div>
+                    </article>
 
-                    <div class="offer-card scroll-reveal" style="transition-delay:100ms;">
-                        <span class="offer-label">Deep Dive</span>
-                        <h3 class="offer-title">Marketing Audit</h3>
-                        <div class="offer-price">$2,000</div>
-                        <p class="offer-price-note">One full review. Credited if you continue.</p>
-                        <p class="offer-desc">Jake goes through your whole marketing operation and tells you what's broken and what to fix first. If you keep working with him after, the $2,000 counts toward it.</p>
-                        <ul class="offer-includes">
-                            <li>Your whole marketing operation reviewed</li>
-                            <li>What's broken, in plain language</li>
-                            <li>What to fix first</li>
-                            <li>Credited toward ongoing work</li>
-                        </ul>
-                        <a href="#book-session" class="btn btn-secondary w-100">Request the Audit</a>
-                    </div>
+                    <article class="svc card offer reveal" style="--c:var(--teal);--i:1">
+                        <div class="svc-top"><span class="svc-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></span><span class="svc-tag">Deep Dive</span></div>
+                        <div class="svc-body">
+                            <h3>Marketing Audit</h3>
+                            <p class="price">$2,000</p>
+                            <p><strong>One full review. Credited if you continue.</strong></p>
+                            <p style="margin-top:12px">Jake goes through your whole marketing operation and tells you what's broken and what to fix first. If you keep working with him after, the $2,000 counts toward it.</p>
+                            <ul class="checks">
+                                <li>Your whole marketing operation reviewed</li>
+                                <li>What's broken, in plain language</li>
+                                <li>What to fix first</li>
+                                <li>Credited toward ongoing work</li>
+                            </ul>
+                            <div class="offer-ctas">
+                                <a href="#book-session" class="btn btn-ghost btn-block">Request the Audit</a>
+                            </div>
+                        </div>
+                    </article>
 
-                    <div class="offer-card scroll-reveal" style="transition-delay:200ms;">
-                        <span class="offer-label">Ongoing</span>
-                        <h3 class="offer-title">Fractional CMO</h3>
-                        <div class="offer-price">From $2,500<span style="font-size:1rem; font-style:normal; color:var(--ink-muted);">/mo</span></div>
-                        <p class="offer-price-note">Monthly. Hands-on, inside your team.</p>
-                        <p class="offer-desc">Jake works inside your team and builds your in-house marketer while he's there. The day you don't need him is the day it worked.</p>
-                        <ul class="offer-includes">
-                            <li>Hands-on work inside your team</li>
-                            <li>Builds your in-house marketer</li>
-                            <li>The goal: you fire Jake</li>
-                        </ul>
-                        <a href="#book-session" class="btn btn-secondary w-100">Work with the Wizard</a>
-                    </div>
+                    <article class="svc card offer reveal" style="--c:var(--sky);--i:2">
+                        <div class="svc-top"><span class="svc-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span><span class="svc-tag">Ongoing</span></div>
+                        <div class="svc-body">
+                            <h3>Fractional CMO</h3>
+                            <p class="price">From $2,500<small>/mo</small></p>
+                            <p><strong>Monthly. Hands-on, inside your team.</strong></p>
+                            <p style="margin-top:12px">Jake works inside your team and builds your in-house marketer while he's there. The day you don't need him is the day it worked.</p>
+                            <ul class="checks">
+                                <li>Hands-on work inside your team</li>
+                                <li>Builds your in-house marketer</li>
+                                <li>The goal: you fire Jake</li>
+                            </ul>
+                            <div class="offer-ctas">
+                                <a href="#book-session" class="btn btn-ghost btn-block">Work with the Wizard</a>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
+
+                <!-- Pull quote · vinyl record -->
+                <figure class="quote reveal" style="margin-top:clamp(80px,10vw,120px)">
+                    <div class="rec" data-art="record" aria-hidden="true"></div>
+                    <div>
+                        <span class="mark" aria-hidden="true">&ldquo;</span>
+                        <blockquote>If the needle doesn&rsquo;t move, was there really value?&rdquo;</blockquote>
+                        <cite>&mdash; Jake, on why he counts revenue, not likes</cite>
+                    </div>
+                </figure>
             </div>
         </section>
 
-        <!-- Pull Quote -->
-        <section class="section" style="padding:5rem 1.5rem;">
-            <div class="container center-text">
-                <blockquote class="ink-text scroll-reveal" style="max-width:760px; margin:0 auto; font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw, 2.4rem); font-style:italic; line-height:1.35;">
-                    &ldquo;If the needle doesn&rsquo;t move, was there really value?&rdquo;
-                </blockquote>
-                <p class="ink-text" style="margin-top:1rem; font-size:0.9rem; opacity:0.7;">&mdash; Jake, on why he counts revenue, not likes</p>
-            </div>
-        </section>
+        <div class="stripes" aria-hidden="true"></div>
 
         <!-- How It Works -->
-        <section class="section padding-section">
-            <div class="container">
-                <h2 class="section-title ink-stamp">How It Works</h2>
-                <div class="process-steps">
-                    <div class="process-step scroll-reveal">
-                        <span class="process-step-num">01</span>
-                        <h3>You Book</h3>
-                        <p>Strategy Sessions book straight through Calendly. Choose 30 or 60 minutes and pick a time. For the Marketing Audit or the Fractional CMO, send the short form below. Use it too if you have a question before booking.</p>
-                    </div>
-                    <div class="process-step scroll-reveal" style="transition-delay:100ms;">
-                        <span class="process-step-num">02</span>
-                        <h3>Jake Diagnoses</h3>
-                        <p>You come prepared. Jake comes ready. No small talk. Straight into the bottleneck. You leave knowing exactly what's broken and why.</p>
-                    </div>
-                    <div class="process-step scroll-reveal" style="transition-delay:200ms;">
-                        <span class="process-step-num">03</span>
-                        <h3>You Execute</h3>
-                        <p>You get a written action summary within 24 hours. Async Q&amp;A access means no question gets left hanging while you implement.</p>
-                    </div>
+        <section class="sec" aria-labelledby="how-h">
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">No discovery-call maze</span>
+                    <h2 id="how-h">How it works.</h2>
                 </div>
-                <aside class="ink-text" style="max-width:680px; margin:3rem auto 0; font-size:0.9rem; font-style:italic; opacity:0.8; border-left:2px solid var(--edge-burn); padding-left:1rem;">
-                    <p style="margin:0;"><strong style="font-style:normal;">Margin note:</strong> the 24-hour summary isn&rsquo;t politeness, it&rsquo;s physics. A Harvard Business Review study of 1.25 million leads found ones worked within an hour qualified at 7&times; the rate of ones left overnight. Momentum decays fast. Jake builds the method around it.</p>
-                </aside>
-            </div>
-        </section>
-
-        <!-- Who It's For -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Who Jake Works With</h2>
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <img src="dev_assets/photos/jake-consulting-who-5825-600.webp" srcset="dev_assets/photos/jake-consulting-who-5825-600.webp 600w, dev_assets/photos/jake-consulting-who-5825-1200.webp 1200w" sizes="(min-width: 900px) 350px, 90vw" alt="Jake Tlapek in a cream blazer with a calm half smile" class="jake-bio-photo" width="600" height="750" loading="lazy" decoding="async">
-                    </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p>Jake doesn't work with everyone. His method only works when the person across the table is ready to act on what they hear.</p>
-                            <p>The right client is a <strong>founder or marketing leader</strong> who has a real business, has real revenue (or is close), and is hitting a wall they can't explain. They've tried things. Some worked. Most didn't. They need someone to look at the whole picture and tell them the truth.</p>
-                            <p>Come ready to hear what's broken. If you want validation for decisions you've already made, Jake isn't the right call.</p>
-                        </div>
-                    </div>
+                <div class="split" style="align-items:start">
+                    <ol class="steps">
+                        <li class="reveal" style="--i:0"><span class="num" style="--c:var(--red);color:var(--cream)">01</span><div><h3>You Book</h3><p>Strategy Sessions book straight through Calendly. Choose 30 or 60 minutes and pick a time. For the Marketing Audit or the Fractional CMO, send the short form below. Use it too if you have a question before booking.</p></div></li>
+                        <li class="reveal" style="--i:1"><span class="num" style="--c:var(--teal)">02</span><div><h3>Jake Diagnoses</h3><p>You come prepared. Jake comes ready. No small talk. Straight into the bottleneck. You leave knowing exactly what's broken and why.</p></div></li>
+                        <li class="reveal" style="--i:2"><span class="num" style="--c:var(--yellow)">03</span><div><h3>You Execute</h3><p>You get a written action summary within 24 hours. Async Q&amp;A access means no question gets left hanging while you implement.</p></div></li>
+                    </ol>
+                    <aside class="card card--sticky card--pad reveal" style="--i:1;max-width:460px;justify-self:center;margin-top:12px">
+                        <p><strong>Margin note:</strong> the 24-hour summary isn&rsquo;t politeness, it&rsquo;s physics. A Harvard Business Review study of 1.25 million leads found ones worked within an hour qualified at 7&times; the rate of ones left overnight. Momentum decays fast. Jake builds the method around it.</p>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section class="section padding-section" style="background: rgba(244,238,224,0.4); border-top:1px solid var(--edge-burn); border-bottom:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">The Verdict</h2>
-                <div class="testimonial-grid">
-                    <figure class="testimonial-card scroll-reveal">
-                        <div class="testimonial-mark" aria-hidden="true">&ldquo;</div>
-                        <blockquote class="testimonial-quote">Jake is everything we hoped for. We saw impressive results in a quicker time frame than expected.</blockquote>
-                        <figcaption class="testimonial-attrib">
-                            <span class="testimonial-name">Adam</span>
-                            <span class="testimonial-company">Archademia</span>
-                        </figcaption>
+        <!-- Who It's For · photo over a rainbow arch -->
+        <section class="sec" aria-labelledby="who-h" style="padding-top:clamp(24px,4vw,48px)">
+            <div class="wrap about-grid">
+                <div class="about-art reveal">
+                    <div class="arc" data-art="arc" aria-hidden="true"></div>
+                    <div class="tv">
+                        <img src="dev_assets/photos/jake-consulting-who-5825-600.webp"
+                             srcset="dev_assets/photos/jake-consulting-who-5825-600.webp 600w, dev_assets/photos/jake-consulting-who-5825-1200.webp 1200w"
+                             sizes="(min-width: 860px) 440px, 80vw" width="600" height="750" loading="lazy" decoding="async"
+                             alt="Jake Tlapek in a cream blazer with a calm half smile">
+                    </div>
+                </div>
+                <div class="about-copy reveal" style="--i:1">
+                    <span class="kicker">The right client</span>
+                    <h2 id="who-h">Who Jake works with.</h2>
+                    <p class="lead-in">Jake doesn't work with everyone. His method only works when the person across the table is ready to act on what they hear.</p>
+                    <p>The right client is a <strong>founder or marketing leader</strong> who has a real business, has real revenue (or is close), and is hitting a wall they can't explain. They've tried things. Some worked. Most didn't. They need someone to look at the whole picture and tell them the truth.</p>
+                    <p>Come ready to hear what's broken. If you want validation for decisions you've already made, Jake isn't the right call.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The verdict · graded report cards -->
+        <section class="sec sec--teal" aria-labelledby="verdict-h">
+            <span class="art-star" data-star="yellow" style="left:6%;top:12%;width:54px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="left:13%;top:24%;width:30px" aria-hidden="true"></span>
+            <span class="art-star" data-star="yellow" style="right:7%;top:16%;width:40px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">Client results</span>
+                    <h2 id="verdict-h">The verdict.</h2>
+                </div>
+                <div class="grid grid-3 report-grid">
+                    <figure class="report card reveal" style="--c:var(--yellow);--i:0">
+                        <div class="rhead"><span class="rpill">Archademia</span><span class="grade" aria-hidden="true">A+</span></div>
+                        <blockquote>&ldquo;Jake is everything we hoped for. We saw impressive results in a quicker time frame than expected.&rdquo;</blockquote>
+                        <figcaption>Adam <span>&middot; Archademia</span></figcaption>
                     </figure>
-                    <figure class="testimonial-card scroll-reveal" style="transition-delay:100ms;">
-                        <div class="testimonial-mark" aria-hidden="true">&ldquo;</div>
-                        <blockquote class="testimonial-quote">The most transparent experience I've had. Weekly updates. I recommend Jake to every company I know.</blockquote>
-                        <figcaption class="testimonial-attrib">
-                            <span class="testimonial-name">Kyla</span>
-                            <span class="testimonial-company">Kingdom &amp; Co.</span>
-                        </figcaption>
+                    <figure class="report card reveal" style="--c:var(--pink);--i:1">
+                        <div class="rhead"><span class="rpill">Kingdom &amp; Co.</span><span class="grade" aria-hidden="true">A+</span></div>
+                        <blockquote>&ldquo;The most transparent experience I've had. Weekly updates. I recommend Jake to every company I know.&rdquo;</blockquote>
+                        <figcaption>Kyla <span>&middot; Kingdom &amp; Co.</span></figcaption>
                     </figure>
-                    <figure class="testimonial-card scroll-reveal" style="transition-delay:200ms;">
-                        <div class="testimonial-mark" aria-hidden="true">&ldquo;</div>
-                        <blockquote class="testimonial-quote">Jake consistently goes above and beyond. His expertise has significantly contributed to our success.</blockquote>
-                        <figcaption class="testimonial-attrib">
-                            <span class="testimonial-name">Danielle</span>
-                            <span class="testimonial-company">Just Men's Rings</span>
-                        </figcaption>
+                    <figure class="report card reveal" style="--c:var(--mint);--i:2">
+                        <div class="rhead"><span class="rpill">Just Men's Rings</span><span class="grade" aria-hidden="true">A+</span></div>
+                        <blockquote>&ldquo;Jake consistently goes above and beyond. His expertise has significantly contributed to our success.&rdquo;</blockquote>
+                        <figcaption>Danielle <span>&middot; Just Men's Rings</span></figcaption>
                     </figure>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="section padding-section">
-            <div class="container" style="max-width:760px;">
-                <h2 class="section-title ink-stamp">Straight Answers</h2>
-                <p class="description center-text">The questions people ask before they book. Answered the way Jake answers them.</p>
-                <div class="ink-text" style="margin-top:2.5rem;">
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">What if I'm pre-revenue?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Book the 30. Pre-revenue means every dollar matters, so start with one focused question and the time you need. The messaging problems are the same at every size &mdash; yours are just cheaper to fix right now.</p>
+        <section class="sec" id="faq" aria-labelledby="faq-h">
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">Before you book</span>
+                    <h2 id="faq-h">Straight answers.</h2>
+                    <p>The questions people ask before they book. Answered the way Jake answers them.</p>
+                </div>
+                <div class="faq">
+                    <details class="reveal" style="--i:0">
+                        <summary>What if I'm pre-revenue?</summary>
+                        <p>Book the 30. Pre-revenue means every dollar matters, so start with one focused question and the time you need. The messaging problems are the same at every size &mdash; yours are just cheaper to fix right now.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Do you do the implementation too?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">On a Strategy Session or an audit, no. Jake diagnoses the problem, writes the plan, and arms you, your team, or your agency with exactly what to do next. If you need hands, he'll tell you which hands to hire. The Fractional CMO is the exception. Jake works hands-on inside your team and builds your in-house marketer. The goal is for you to fire him.</p>
+                    <details class="reveal" style="--i:1">
+                        <summary>Do you do the implementation too?</summary>
+                        <p>On a Strategy Session or an audit, no. Jake diagnoses the problem, writes the plan, and arms you, your team, or your agency with exactly what to do next. If you need hands, he'll tell you which hands to hire. The Fractional CMO is the exception. Jake works hands-on inside your team and builds your in-house marketer. The goal is for you to fire him.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Why is there no free discovery call?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Because a "free discovery call" is usually a sales pitch wearing a trench coat. Your first minute with Jake is already work. That's why the prices are on the page.</p>
+                    <details class="reveal" style="--i:2">
+                        <summary>Why is there no free discovery call?</summary>
+                        <p>Because a "free discovery call" is usually a sales pitch wearing a trench coat. Your first minute with Jake is already work. That's why the prices are on the page.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">What should I bring to a session?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Your numbers and your sharpest question. Traffic, conversion rate, close rate, ticket size &mdash; whatever you actually have. Jake can find a bottleneck from surprisingly little, but real numbers make it surgical.</p>
+                    <details class="reveal" style="--i:3">
+                        <summary>What should I bring to a session?</summary>
+                        <p>Your numbers and your sharpest question. Traffic, conversion rate, close rate, ticket size &mdash; whatever you actually have. Jake can find a bottleneck from surprisingly little, but real numbers make it surgical.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">What if you can't help me?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Then Jake says so &mdash; before the clock starts, if he can see it from your intake. He turns down work where he can't see a path to impact. If the needle doesn't move, was there really value?</p>
+                    <details class="reveal" style="--i:4">
+                        <summary>What if you can't help me?</summary>
+                        <p>Then Jake says so &mdash; before the clock starts, if he can see it from your intake. He turns down work where he can't see a path to impact. If the needle doesn't move, was there really value?</p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <!-- Book a Session -->
-        <section id="book-session" class="section padding-section dark-theme-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">READY<br>TO<br>START?</h2>
-                        <p class="ink-text text-night" style="margin-top:1.5rem;">Use this form to request the Marketing Audit or the Fractional CMO, ask a question before you book, or get help with an existing engagement. To book a 30- or 60-minute Strategy Session, choose a time from the card above.</p>
-                    </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <form action="https://formspree.io/f/xeeyzpez" method="POST" class="magic-form intake-form">
-                            <input type="hidden" name="_form_type" value="consulting">
-                            <input type="hidden" name="_subject" value="Consulting Inquiry — Jake the Wizard">
-                            <div class="form-group">
-                                <label for="c-name" class="text-night">Your name</label>
-                                <input type="text" id="c-name" name="name" class="text-night dark-input" autocomplete="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="c-email" class="text-night">Your email</label>
-                                <input type="email" id="c-email" name="email" class="text-night dark-input" autocomplete="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="c-type" class="text-night">How can we help?</label>
-                                <select id="c-type" name="engagement_type" class="text-night dark-input" required>
-                                    <option value="" disabled selected>Select one</option>
-                                    <option value="marketing-audit">Marketing Audit ($2,000)</option>
-                                    <option value="fractional-cmo">Fractional CMO (from $2,500/mo)</option>
-                                    <option value="session-question">Question about a Strategy Session</option>
-                                    <option value="existing-engagement">Help with an existing engagement</option>
-                                    <option value="unsure">Not sure which one fits</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="c-biz" class="text-night">Tell me about your business and what's broken</label>
-                                <textarea id="c-biz" name="message" rows="5" class="text-night dark-input" required placeholder="Revenue range, industry, and the specific problem you're trying to solve"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Send Your Inquiry</button>
-                        </form>
-                    </div>
+        <div class="stripes" aria-hidden="true"></div>
+
+        <!-- Book a Session · ribbon banner + intake brief -->
+        <section class="sec" id="book-session" aria-labelledby="start-h">
+            <div class="wrap wrap--narrow">
+                <div class="center reveal">
+                    <div class="ribbon"><h2 id="start-h">Ready to start?</h2></div>
+                    <p style="margin:40px auto 0;max-width:52ch;font-size:1.18rem">Use this form to request the Marketing Audit or the Fractional CMO, ask a question before you book, or get help with an existing engagement. To book a 30- or 60-minute Strategy Session, choose a time from the card above.</p>
+                </div>
+                <div class="brief card reveal" style="--c:var(--pink);max-width:760px;margin:clamp(40px,5vw,56px) auto 0">
+                    <div class="brief-head">Your inquiry <span>To: Jake</span></div>
+                    <form action="https://formspree.io/f/xeeyzpez" method="POST">
+                        <input type="hidden" name="_form_type" value="consulting">
+                        <input type="hidden" name="_subject" value="Consulting Inquiry — Jake the Wizard">
+                        <label class="field" for="c-name"><span>Your name</span><input type="text" id="c-name" name="name" autocomplete="name" required></label>
+                        <label class="field" for="c-email"><span>Your email</span><input type="email" id="c-email" name="email" autocomplete="email" required></label>
+                        <label class="field" for="c-type"><span>How can we help?</span>
+                            <select id="c-type" name="engagement_type" required>
+                                <option value="" disabled selected>Select one</option>
+                                <option value="marketing-audit">Marketing Audit ($2,000)</option>
+                                <option value="fractional-cmo">Fractional CMO (from $2,500/mo)</option>
+                                <option value="session-question">Question about a Strategy Session</option>
+                                <option value="existing-engagement">Help with an existing engagement</option>
+                                <option value="unsure">Not sure which one fits</option>
+                            </select>
+                        </label>
+                        <label class="field" for="c-biz"><span>Tell me about your business and what's broken</span><textarea id="c-biz" name="message" rows="5" required placeholder="Revenue range, industry, and the specific problem you're trying to solve"></textarea></label>
+                        <button type="submit" class="btn btn-red">Send Your Inquiry</button>
+                    </form>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-            integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-            integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.7"></script>
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

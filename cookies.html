@@ -6,19 +6,20 @@
     <title>Cookie Policy — Jake Tlapek, The Wizard of Marketing</title>
     <meta name="description" content="How jakethewizard.com uses cookies and similar technologies, and how to control them.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#FFF1D6">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/cookies" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <link rel="stylesheet" href="styles.css?v=8.8">
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
@@ -26,138 +27,147 @@
           referrerpolicy="no-referrer"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
-</head>
-<body class="parchment-theme">
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+    <!-- Page-specific styling (kit tokens only): on phones the long-text card gives its words more room -->
+    <style>
+        @media (max-width:600px){.legal-doc{padding:24px 18px 28px}}
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <main class="content-wrapper">
+    <main id="main">
 
-        <!-- Page Hero -->
-        <section class="page-hero dark-theme-section">
-            <div class="container page-hero-content">
-                <div class="breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Cookies</div>
-                <span class="eyebrow">The Fine Print</span>
-                <h1 class="massive-section-title">COOKIE<br>POLICY.</h1>
-                <p class="hero-role text-night">What gets stored in your browser, and how to control it.</p>
-            </div>
-        </section>
-
-        <section class="section padding-section">
-            <div class="container">
-                <div class="legal-prose">
-                    <p class="legal-updated">Last updated: June 5, 2026</p>
-
-                    <p>This Cookie Policy explains how <strong>jakethewizard.com</strong> (the &ldquo;Site&rdquo;), operated by Jake Tlapek, uses cookies and similar technologies. It should be read together with the <a href="/privacy">Privacy Policy</a>.</p>
-
-                    <h2>What are cookies?</h2>
-                    <p>Cookies are small text files that a website (or a third-party service it uses) stores in your browser. They&rsquo;re widely used to make sites work, to remember preferences, and to understand how a site is used. &ldquo;Similar technologies&rdquo; include things like <em>localStorage</em>, which I use to remember that you&rsquo;ve seen the cookie notice.</p>
-
-                    <h2>The cookies this Site uses</h2>
-                    <p>The Site itself is intentionally light. The main categories are:</p>
-                    <table>
-                        <thead>
-                            <tr><th>Category</th><th>Purpose</th><th>Set by</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Essential</td>
-                                <td>Remember your cookie-notice choice and keep the Site secure and functioning. The Site can&rsquo;t work properly without these.</td>
-                                <td>This Site (first-party)</td>
-                            </tr>
-                            <tr>
-                                <td>Embedded media</td>
-                                <td>When a page embeds a video or social post, the provider may set cookies to deliver content and measure engagement.</td>
-                                <td>YouTube, TikTok</td>
-                            </tr>
-                            <tr>
-                                <td>Scheduling</td>
-                                <td>If you book a call, the scheduling provider may set cookies to run the booking flow.</td>
-                                <td>Calendly</td>
-                            </tr>
-                            <tr>
-                                <td>Analytics</td>
-                                <td>Understand how the Site is used &mdash; pages viewed, traffic sources, and which actions convert &mdash; so I can improve it. Governed by your consent and Google&rsquo;s Consent Mode.</td>
-                                <td>Google Analytics 4, Google Tag Manager</td>
-                            </tr>
-                            <tr>
-                                <td>Advertising &amp; measurement</td>
-                                <td>Measure how my advertising performs and reach relevant audiences on Facebook and Instagram. The Meta Pixel and Conversions API record key actions (such as form submissions and bookings) and match them to Meta accounts using hashed identifiers. Active by default outside the EEA/UK; off until you Accept inside the EEA/UK; and switched off anywhere if you Decline.</td>
-                                <td>Meta (Facebook) Pixel &amp; Conversions API</td>
-                            </tr>
-                            <tr>
-                                <td>Delivery &amp; fonts</td>
-                                <td>Serving fonts, icons, and scripts efficiently via a content-delivery network.</td>
-                                <td>Google Fonts, CDN</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>Third-party cookies are governed by the providers that set them. I don&rsquo;t control their cookies and recommend reviewing their policies for specifics.</p>
-
-                    <h2>Advertising &amp; measurement</h2>
-                    <p>I use the <strong>Meta (Facebook) Pixel</strong> and Meta&rsquo;s <strong>Conversions API</strong> to measure how my advertising performs and to reach relevant audiences on Facebook and Instagram. When you take a key action &mdash; such as submitting a form or starting a booking &mdash; that event is shared with Meta together with hashed identifiers (for example, a hashed version of your email) used only to match the action to a Meta account. I do <strong>not</strong> sell your personal information. Outside the EEA and UK these tools are on by default; you can switch them off at any time by choosing <strong>Decline</strong> on the cookie notice. Inside the EEA and UK they stay off until you choose <strong>Accept</strong>.</p>
-
-                    <h2>How to control cookies</h2>
-                    <p>You&rsquo;re in control. You can:</p>
-                    <ul>
-                        <li>Use the <strong>Decline</strong> option on the cookie notice to record that preference.</li>
-                        <li>Adjust your browser settings to block or delete cookies. Most browsers let you do this per-site or globally &mdash; see the help pages for Chrome, Safari, Firefox, or Edge.</li>
-                        <li>Block third-party content (such as embedded video) using your browser&rsquo;s privacy controls or an extension. Note that blocking some cookies may affect how parts of the Site work.</li>
-                    </ul>
-
-                    <h2>Changes to this policy</h2>
-                    <p>I may update this Cookie Policy as the Site&rsquo;s tools change. When I do, I&rsquo;ll revise the &ldquo;Last updated&rdquo; date above.</p>
-
-                    <h2>Contact</h2>
-                    <p>Questions about cookies? Email <a href="mailto:jake@jakethewizard.com">jake@jakethewizard.com</a>.</p>
+        <!-- Hero · compact, no photo: the rainbow bend frames the title -->
+        <section class="hero hero--solo" id="hero" aria-labelledby="page-title">
+            <div class="hero-art" aria-hidden="true"></div>
+            <span class="art-star" data-star="yellow" style="right:12%;top:20%;width:58px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="right:6%;top:46%;width:32px" aria-hidden="true"></span>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <nav class="fine intro" aria-label="Breadcrumb" style="--d:.05s;margin-bottom:20px"><a class="wavy" href="/">Home</a> <span aria-hidden="true">/</span> Cookies</nav>
+                    <span class="kicker intro" style="--d:.1s">The Fine Print</span>
+                    <h1 class="has-hl intro" id="page-title" style="--d:.25s">Cookie <span class="hl">policy.</span></h1>
+                    <p class="lede intro" style="--d:.7s">What gets stored in your browser, and how to control it.</p>
+                    <p class="type intro" style="--d:.85s;margin-top:22px">Last updated: June 5, 2026</p>
                 </div>
             </div>
         </section>
 
+        <section class="sec" style="padding-top:clamp(16px,3vw,40px)">
+            <div class="wrap wrap--narrow">
+                <article class="card card--pad legal-doc reveal">
+                    <div class="prose">
+                        <p>This Cookie Policy explains how <strong>jakethewizard.com</strong> (the &ldquo;Site&rdquo;), operated by Jake Tlapek, uses cookies and similar technologies. It should be read together with the <a href="/privacy">Privacy Policy</a>.</p>
+
+                        <h2>What are cookies?</h2>
+                        <p>Cookies are small text files that a website (or a third-party service it uses) stores in your browser. They&rsquo;re widely used to make sites work, to remember preferences, and to understand how a site is used. &ldquo;Similar technologies&rdquo; include things like <em>localStorage</em>, which I use to remember that you&rsquo;ve seen the cookie notice.</p>
+
+                        <h2>The cookies this Site uses</h2>
+                        <p>The Site itself is intentionally light. The main categories are:</p>
+                        <div class="table-wrap">
+                        <table class="table" style="border:0;min-width:540px">
+                            <thead>
+                                <tr><th>Category</th><th>Purpose</th><th>Set by</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Essential</td>
+                                    <td>Remember your cookie-notice choice and keep the Site secure and functioning. The Site can&rsquo;t work properly without these.</td>
+                                    <td>This Site (first-party)</td>
+                                </tr>
+                                <tr>
+                                    <td>Embedded media</td>
+                                    <td>When a page embeds a video or social post, the provider may set cookies to deliver content and measure engagement.</td>
+                                    <td>YouTube, TikTok</td>
+                                </tr>
+                                <tr>
+                                    <td>Scheduling</td>
+                                    <td>If you book a call, the scheduling provider may set cookies to run the booking flow.</td>
+                                    <td>Calendly</td>
+                                </tr>
+                                <tr>
+                                    <td>Analytics</td>
+                                    <td>Understand how the Site is used &mdash; pages viewed, traffic sources, and which actions convert &mdash; so I can improve it. Governed by your consent and Google&rsquo;s Consent Mode.</td>
+                                    <td>Google Analytics 4, Google Tag Manager</td>
+                                </tr>
+                                <tr>
+                                    <td>Advertising &amp; measurement</td>
+                                    <td>Measure how my advertising performs and reach relevant audiences on Facebook and Instagram. The Meta Pixel and Conversions API record key actions (such as form submissions and bookings) and match them to Meta accounts using hashed identifiers. Active by default outside the EEA/UK; off until you Accept inside the EEA/UK; and switched off anywhere if you Decline.</td>
+                                    <td>Meta (Facebook) Pixel &amp; Conversions API</td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery &amp; fonts</td>
+                                    <td>Serving fonts, icons, and scripts efficiently via a content-delivery network.</td>
+                                    <td>Google Fonts, CDN</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <p>Third-party cookies are governed by the providers that set them. I don&rsquo;t control their cookies and recommend reviewing their policies for specifics.</p>
+
+                        <h2>Advertising &amp; measurement</h2>
+                        <p>I use the <strong>Meta (Facebook) Pixel</strong> and Meta&rsquo;s <strong>Conversions API</strong> to measure how my advertising performs and to reach relevant audiences on Facebook and Instagram. When you take a key action &mdash; such as submitting a form or starting a booking &mdash; that event is shared with Meta together with hashed identifiers (for example, a hashed version of your email) used only to match the action to a Meta account. I do <strong>not</strong> sell your personal information. Outside the EEA and UK these tools are on by default; you can switch them off at any time by choosing <strong>Decline</strong> on the cookie notice. Inside the EEA and UK they stay off until you choose <strong>Accept</strong>.</p>
+
+                        <h2>How to control cookies</h2>
+                        <p>You&rsquo;re in control. You can:</p>
+                        <ul>
+                            <li>Use the <strong>Decline</strong> option on the cookie notice to record that preference.</li>
+                            <li>Adjust your browser settings to block or delete cookies. Most browsers let you do this per-site or globally &mdash; see the help pages for Chrome, Safari, Firefox, or Edge.</li>
+                            <li>Block third-party content (such as embedded video) using your browser&rsquo;s privacy controls or an extension. Note that blocking some cookies may affect how parts of the Site work.</li>
+                        </ul>
+
+                        <h2>Changes to this policy</h2>
+                        <p>I may update this Cookie Policy as the Site&rsquo;s tools change. When I do, I&rsquo;ll revise the &ldquo;Last updated&rdquo; date above.</p>
+
+                        <h2>Contact</h2>
+                        <p>Questions about cookies? Email <a href="mailto:jake@jakethewizard.com">jake@jakethewizard.com</a>.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
     <script defer src="script.js?v=7.7"></script>
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

@@ -156,58 +156,60 @@ function readPosts(contentDir) {
     return posts;
 }
 
-/* ─── shared chrome ─────────────────────────────────────────── */
+/* ─── shared chrome (mirrors index.html; the schoolhouse kit) ─ */
+
 
 function navHtml() {
-    return `    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="/dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+    return `    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/grimoire" aria-current="page">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>`;
+    </header>`;
 }
 
 function footerHtml() {
-    const link = (href, label) =>
-        `<a href="${href}" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">${label}</a>`;
-    return `    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                ${link('/', 'Home')}
-                ${link('/consulting', 'Consulting')}
-                ${link('/mastermind', 'Mastermind')}
-                ${link('/eight-dominoes', 'Eight Dominoes')}
-                ${link('/podcast-guest', 'Podcast')}
-                ${link('/tools', 'Tools')}
-                ${link('/grimoire', 'Grimoire')}
-                ${link('/projects', 'Projects')}
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    return `    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/">Home</a><a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>`;
 }
 
 function scriptsHtml() {
     return `    <script defer src="/script.js?v=7.7"></script>
+    <script defer src="/schoolhouse.js?v=1"></script>
     <script defer src="/cookie-consent.js?v=2"></script>
     <script defer src="/grimoire.js?v=1"></script>`;
 }
+
+const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap';
+const FA_URL = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css';
+const FA_SRI = 'sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a';
 
 function headHtml({ title, ogTitle, description, canonical, ogType, image, imageW, imageH, imageAlt, articleMeta, jsonLd }) {
     const img = absUrl(image || SITE.defaultImage);
@@ -221,11 +223,12 @@ function headHtml({ title, ogTitle, description, canonical, ogType, image, image
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#181412">
+    <meta name="theme-color" content="#FFF1D6">
+    <meta name="color-scheme" content="light">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${esc(canonical)}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/rss+xml" title="The Grimoire — Jake Tlapek" href="/grimoire/feed.xml">
 
@@ -245,17 +248,17 @@ ${articleMeta || ''}
     <meta property="twitter:image" content="${esc(img)}">
     <meta property="twitter:image:alt" content="${altText}">
 
-    <link rel="stylesheet" href="/styles.css?v=8.8">
-    <link rel="stylesheet" href="/grimoire.css?v=3">
+    <link rel="stylesheet" href="/schoolhouse.css?v=1">
+    <link rel="stylesheet" href="/grimoire.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-          integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="${FONTS_URL}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="${FA_URL}" integrity="${FA_SRI}" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="${FONTS_URL}">
+        <link rel="stylesheet" href="${FA_URL}" integrity="${FA_SRI}" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 
     ${jsonLd || ''}
 </head>`;
@@ -263,8 +266,7 @@ ${articleMeta || ''}
 
 function page({ head, main }) {
     return `${head}
-<body class="parchment-theme">
-
+<body>
 ${navHtml()}
 
 ${main}
@@ -280,15 +282,15 @@ ${scriptsHtml()}
 /* ─── reusable fragments ────────────────────────────────────── */
 
 function ctaHtml() {
-    return `<aside class="grimoire-cta" aria-label="Subscribe to Jake's weekly email">
-    <p class="grimoire-cta-kicker">The Weekly Truth</p>
+    return `<aside class="grimoire-cta card card--index" aria-label="Subscribe to Jake's weekly email">
+    <p class="grimoire-cta-kicker"><span class="kicker">The Weekly Truth</span></p>
     <h2 class="grimoire-cta-title">One marketing truth a week. No fluff.</h2>
     <p class="grimoire-cta-sub">The psychology, not the noise. Unsubscribe anytime.</p>
-    <form class="grimoire-cta-form" action="${SITE.formspree}" method="POST">
+    <form class="grimoire-cta-form inline-form" action="${SITE.formspree}" method="POST">
         <input type="hidden" name="_form_type" value="grimoire">
         <input type="hidden" name="_subject" value="The Grimoire — Newsletter Signup">
         <input type="email" name="email" required autocomplete="email" placeholder="Your best email" aria-label="Your email address">
-        <button type="submit" class="btn btn-primary">Send Me the Truth</button>
+        <button type="submit" class="btn btn-red">Send Me the Truth</button>
     </form>
 </aside>`;
 }
@@ -304,7 +306,7 @@ function videoFacadeHtml(id, title) {
 
 function typeTag(post) {
     return post.youtube
-        ? `<span class="grimoire-type"><i class="fas fa-play" aria-hidden="true"></i> Watch + Read</span>`
+        ? `<span class="grimoire-type"><i class="fa-solid fa-play" aria-hidden="true"></i> Watch + Read</span>`
         : `<span class="grimoire-type">Essay</span>`;
 }
 
@@ -420,15 +422,21 @@ function renderPost(post, allPosts) {
 
     const others = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
     const more = others.length
-        ? `    <section class="grimoire-more">
-        <h2 class="grimoire-more-title">More from the Grimoire</h2>
-        <div class="grimoire-grid">
-            ${others.map((p) => cardHtml(p)).join('\n            ')}
+        ? `    <div class="stripes stripes--thin" aria-hidden="true"></div>
+    <section class="sec grimoire-more" aria-labelledby="grimoire-more-title">
+        <div class="wrap">
+            <div class="head">
+                <span class="kicker">Keep reading</span>
+                <h2 id="grimoire-more-title" class="grimoire-more-title">More from the Grimoire.</h2>
+            </div>
+            <div class="grimoire-grid">
+                ${others.map((p) => cardHtml(p)).join('\n                ')}
+            </div>
         </div>
     </section>`
         : '';
 
-    const faqSection = (post.faq && post.faq.length) ? `            <section class="grimoire-faq" aria-labelledby="grimoire-faq-title">
+    const faqSection = (post.faq && post.faq.length) ? `            <section class="grimoire-faq faq" aria-labelledby="grimoire-faq-title">
                 <h2 id="grimoire-faq-title" class="grimoire-faq-title">Straight Answers</h2>
                 ${post.faq.map((f) => `<details class="grimoire-faq-item">
                     <summary>${esc(f.q)}</summary>
@@ -437,18 +445,19 @@ function renderPost(post, allPosts) {
             </section>
 ` : '';
 
-    const main = `    <main class="grimoire-main">
+    const main = `    <main id="main" class="grimoire-main">
         <article class="grimoire-article">
-            <a href="/grimoire" class="grimoire-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> The Grimoire</a>
             <header class="grimoire-article-header">
-                <span class="grimoire-cat">${esc(post.category)}</span>
-                <h1 class="grimoire-title">${esc(post.title)}</h1>
-                <div class="grimoire-meta">
+                <a href="/grimoire" class="grimoire-back intro" style="--d:.05s"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> The Grimoire</a>
+                <div class="grimoire-card-meta intro" style="--d:.1s"><span class="grimoire-cat">${esc(post.category)}</span>${typeTag(post)}</div>
+                <h1 class="grimoire-title intro" style="--d:.2s">${esc(post.title)}</h1>
+                <div class="grimoire-meta intro" style="--d:.4s">
                     <a class="grimoire-byline" href="/"><img class="grimoire-byline-avatar" src="/dev_assets/jake-avatar-2026-96.webp" alt="" width="28" height="28" loading="lazy" decoding="async"> By Jake the Wizard</a>
                     <span class="dot">&middot;</span><span>${prettyDate(post.date)}</span><span class="dot">&middot;</span><span>${post.readMinutes} min read</span>
                 </div>
             </header>
-${cover}${video}${lead}            <div class="grimoire-body">
+            <div class="stripes stripes--thin grimoire-rule" aria-hidden="true"></div>
+${cover}${video}${lead}            <div class="grimoire-body prose">
 ${body}
             </div>
 ${faqSection}            ${ctaHtml()}
@@ -508,13 +517,21 @@ function renderHub(posts, hubOg) {
         feed = featured + '\n' + grid;
     }
 
-    const main = `    <main class="grimoire-main">
-        <div class="grimoire-wrap">
-            <header class="grimoire-hub-header">
-                <span class="eyebrow">Field notes from the trenches</span>
-                <h1 class="grimoire-hub-title">The Grimoire</h1>
-                <p class="grimoire-hub-standfirst">${esc(SITE.standfirst)}</p>
-            </header>
+    const main = `    <main id="main" class="grimoire-main grimoire-main--hub">
+        <section class="hero hero--flip grimoire-hub-header" aria-labelledby="grimoire-hub-title">
+            <div class="hero-art" aria-hidden="true"></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="kicker intro" style="--d:.1s">Field notes from the trenches</span>
+                    <h1 class="grimoire-hub-title intro" id="grimoire-hub-title" style="--d:.25s">The <span class="pop rainbow">Grimoire.</span></h1>
+                    <p class="lede grimoire-hub-standfirst intro" style="--d:.7s">${esc(SITE.standfirst)}</p>
+                </div>
+                <div class="hero-photo">
+                    <img class="hero-illo" src="/dev_assets/brand/spellbook-480.webp" srcset="/dev_assets/brand/spellbook-480.webp 480w, /dev_assets/brand/spellbook-960.webp 960w" sizes="(min-width: 860px) 420px, 80vw" width="960" height="868" fetchpriority="high" decoding="async" alt="An open spellbook with a rainbow and sparkles rising from its pages">
+                </div>
+            </div>
+        </section>
+        <div class="grimoire-wrap wrap">
 ${feed}
             ${ctaHtml()}
         </div>

@@ -6,11 +6,11 @@
     <title>Book Jake Tlapek for Your Podcast — The Wizard of Marketing</title>
     <meta name="description" content="Book Jake Tlapek as a podcast guest. Raw marketing truths, no fluff, no theory. Jake brings $100M in client results and 13 years in the trenches to every conversation.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#FFF1D6">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/podcast-guest" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
@@ -27,12 +27,14 @@
     <meta property="twitter:description" content="Raw marketing truths, no theory. Bio, topics, steal-ready questions, and booking — everything a host needs on one page.">
     <meta property="twitter:image" content="https://www.jakethewizard.com/dev_assets/jake-og-card-2026.jpg">
 
-    <link rel="stylesheet" href="styles.css?v=8.8">
+
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
@@ -40,9 +42,15 @@
           referrerpolicy="no-referrer"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
+    <style>
+        /* Podcast only: the "steal these questions" list is a kit .steps list with no h3,
+           so each question sits level with its number coin and reads as a display line. */
+        .pg-qs li{align-items:center}
+        .pg-qs p{font-family:var(--disp);font-weight:900;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144;font-size:clamp(1.2rem,2vw,1.45rem);line-height:1.22}
+    </style>
 
     <script type="application/ld+json">
     {
@@ -55,293 +63,251 @@
     }
     </script>
 </head>
-<body class="parchment-theme">
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <main class="content-wrapper">
+    <main id="main">
 
-        <!-- Page Hero -->
-        <section class="page-hero page-hero--photo dark-theme-section">
-            <div class="hero-parallax-bg">
-                <img src="dev_assets/castel 3.webp" class="floating-artifact a1" alt="" aria-hidden="true">
-                <img src="dev_assets/Bat.png" class="floating-artifact a4" alt="" aria-hidden="true">
-            </div>
-            <div class="container page-hero-content">
-                <div class="page-hero-copy">
-                    <div class="breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Podcast</div>
-                    <span class="eyebrow">For Podcast Hosts</span>
-                    <h1 class="massive-section-title">BOOK<br>THE WIZARD.</h1>
-                    <p class="hero-role text-night">Raw marketing truths. No theory. No fluff. Your audience will thank you.</p>
-                    <div class="hero-ctas" style="margin-top:2rem;">
-                        <a href="#pitch-jake" class="btn btn-primary">Invite Jake to Your Show</a>
-                        <a href="#what-jake-brings" class="btn btn-ghost-light">What Jake Brings</a>
+        <!-- HERO · flipped: rainbow bend on the right, TV-framed photo -->
+        <section class="hero hero--flip" id="hero" aria-labelledby="hero-h1">
+            <div class="hero-art" aria-hidden="true"></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <nav class="fine intro" aria-label="Breadcrumb" style="--d:0s;margin-bottom:18px"><a href="/">Home</a> <span aria-hidden="true">/</span> Podcast</nav>
+                    <span class="kicker intro" style="--d:.1s">For Podcast Hosts</span>
+                    <h1 class="intro" id="hero-h1" style="--d:.25s">Book<br>the <span class="pop rainbow">wizard.</span></h1>
+                    <p class="lede intro" style="--d:.7s">Raw marketing truths. No theory. No fluff. Your audience will thank you.</p>
+                    <div class="cta-row intro" style="--d:.85s">
+                        <a class="btn" href="#pitch-jake">Invite Jake to Your Show</a>
+                        <a class="btn btn-ghost" href="#what-jake-brings">What Jake Brings</a>
                     </div>
                 </div>
-                <figure class="photo-print hero-photo">
-                    <img src="dev_assets/photos/jake-podcast-hero-5631-600.webp"
-                         srcset="dev_assets/photos/jake-podcast-hero-5631-600.webp 600w, dev_assets/photos/jake-podcast-hero-5631-1200.webp 1200w"
-                         sizes="(min-width: 900px) 340px, 78vw"
-                         alt="Jake Tlapek laughing on a red couch in a pinball arcade" width="600" height="750" fetchpriority="high" decoding="async">
-                </figure>
+                <div class="hero-photo">
+                    <a class="sticker" href="#steal-these" data-burst="pink" aria-label="Steal these questions">
+                        <span><small>Steal</small><b>These<br>Questions</b></span>
+                    </a>
+                    <div class="tv">
+                        <img src="dev_assets/photos/jake-rainbow-wall-5681-800.webp"
+                             srcset="dev_assets/photos/jake-rainbow-wall-5681-800.webp 800w, dev_assets/photos/jake-rainbow-wall-5681-1600.webp 1600w"
+                             sizes="(min-width: 860px) 450px, 80vw" width="800" height="533" fetchpriority="high" decoding="async"
+                             alt="Jake Tlapek in sunglasses pointing both hands at the camera in front of a rainbow-striped brick mural" style="object-position:47% 50%">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- For your booker -->
-        <section class="proof-strip" aria-label="Numbers podcast hosts ask about">
-            <div class="proof-strip-inner">
-                <div class="proof-item">
-                    <span class="proof-number">110K+</span>
-                    <span class="proof-label">TikTok followers, built posting twice a day on camera</span>
+        <!-- For your booker · starburst seals -->
+        <section class="proof" aria-label="Numbers podcast hosts ask about">
+            <div class="wrap proof-grid">
+                <div class="proof-item reveal" style="--i:0">
+                    <div class="seal" data-fill="pink" data-burst="sky" data-rot="0"><b>110K+</b></div>
+                    <p>TikTok followers, built posting twice a day on camera</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">13</span>
-                    <span class="proof-label">Years in marketing. Every take comes from the trenches.</span>
+                <div class="proof-item reveal" style="--i:1">
+                    <div class="seal" data-fill="mint" data-burst="yellow" data-rot="7" data-spin="rev"><b style="font-size:22cqi">13</b></div>
+                    <p>Years in marketing. Every take comes from the trenches.</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">5 days</span>
-                    <span class="proof-label">Max reply time. Jake reviews every inquiry personally.</span>
+                <div class="proof-item reveal" style="--i:2">
+                    <div class="seal" data-fill="navy" data-burst="salmon" data-rot="14"><b style="color:var(--cream)">5 days</b></div>
+                    <p>Max reply time. Jake reviews every inquiry personally.</p>
                 </div>
             </div>
         </section>
 
         <!-- The Pitch -->
-        <section id="what-jake-brings" class="section padding-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">WHY<br>YOUR<br>AUDIENCE<br>WINS.</h2>
-                    </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p>Jake doesn't show up to podcasts to repeat the same advice every other marketing guest recycled from a Twitter thread. He brings war stories, real numbers, and the kind of honest takes that make listeners stop what they're doing and replay a segment.</p>
-                            <p>He has generated over <strong>$100 million in measurable revenue</strong> for clients. He's made <strong>two exits</strong>: Brio Studio and Wizard Marketing, an SEO and web shop he built over seven years and then sold. He wrote <em>Eight Dominoes</em>, co-designed the card game <em>Grifters</em>, and grew a TikTok following past 110K by telling the truth when everyone else was pitching.</p>
-                            <p>What makes him different as a guest: he's not optimizing for soundbites. He's optimizing for the moment your listener pulls their car over and takes notes.</p>
-                        </div>
-                    </div>
+        <section class="sec" id="what-jake-brings" aria-labelledby="wins-h" style="padding-top:clamp(24px,4vw,56px)">
+            <div class="wrap split" style="align-items:start">
+                <div class="head head--left reveal" style="margin-bottom:0">
+                    <span class="kicker">What Jake brings</span>
+                    <h2 class="has-hl" id="wins-h">Why your audience <span class="hl">wins.</span></h2>
+                </div>
+                <div class="prose reveal" style="--i:1;font-size:1.15rem">
+                    <p>Jake doesn't show up to podcasts to repeat the same advice every other marketing guest recycled from a Twitter thread. He brings war stories, real numbers, and the kind of honest takes that make listeners stop what they're doing and replay a segment.</p>
+                    <p>He has generated over <strong>$100 million in measurable revenue</strong> for clients. He's made <strong>two exits</strong>: Brio Studio and Wizard Marketing, an SEO and web shop he built over seven years and then sold. He wrote <em>Eight Dominoes</em>, co-designed the card game <em>Grifters</em>, and grew a TikTok following past 110K by telling the truth when everyone else was pitching.</p>
+                    <p>What makes him different as a guest: he's not optimizing for soundbites. He's optimizing for the moment your listener pulls their car over and takes notes.</p>
                 </div>
             </div>
         </section>
 
         <!-- Topics -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Topics Jake Covers</h2>
-                <p class="description center-text">Every topic comes with real data, real examples, and zero filler.</p>
-                <div class="topics-grid">
-                    <div class="topic-item scroll-reveal">
-                        <span class="topic-num">01</span>
-                        <div>
-                            <h3>People Buy Dreams</h3>
-                            <p>Why great products fail silently. Buyers decide with emotion and justify with logic, and most businesses only ever talk to the logic. The eight-domino framework that fixes the message without changing the product.</p>
-                        </div>
+        <section class="sec sec--sky" aria-labelledby="topics-h">
+            <span class="art-star" data-star="yellow" style="left:5%;top:8%;width:48px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="right:6%;top:14%;width:34px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">Real data, real examples</span>
+                    <h2 id="topics-h">Topics Jake covers.</h2>
+                    <p>Every topic comes with real data, real examples, and zero filler.</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card card--pad reveal" style="--i:0">
+                        <span class="num" style="--c:var(--red);color:var(--cream)">01</span>
+                        <h3 style="margin-top:20px">People Buy Dreams</h3>
+                        <p>Why great products fail silently. Buyers decide with emotion and justify with logic, and most businesses only ever talk to the logic. The eight-domino framework that fixes the message without changing the product.</p>
                     </div>
-                    <div class="topic-item scroll-reveal" style="transition-delay:100ms;">
-                        <span class="topic-num">02</span>
-                        <div>
-                            <h3>Share of Brand Voice</h3>
-                            <p>The one metric most businesses ignore that predicts market dominance better than any vanity KPI. <a href="https://roundpeg.podbean.com/e/1162-the-one-metric-most-business-owners-overlook-jake-tlapek/" target="_blank" rel="noopener noreferrer" style="font-style:italic;">Hear it on MTAFW #1162 &rarr;</a></p>
-                        </div>
+                    <div class="card card--pad reveal" style="--i:1">
+                        <span class="num" style="--c:var(--yellow)">02</span>
+                        <h3 style="margin-top:20px">Share of Brand Voice</h3>
+                        <p>The one metric most businesses ignore that predicts market dominance better than any vanity KPI. <a class="wavy" href="https://roundpeg.podbean.com/e/1162-the-one-metric-most-business-owners-overlook-jake-tlapek/" target="_blank" rel="noopener noreferrer">Hear it on MTAFW #1162 &rarr;</a></p>
                     </div>
-                    <div class="topic-item scroll-reveal" style="transition-delay:200ms;">
-                        <span class="topic-num">03</span>
-                        <div>
-                            <h3>Two Exits, Two Lessons</h3>
-                            <p>How Jake built and sold two businesses, Brio Studio and Wizard Marketing, and the specific decisions that made both acquirable.</p>
-                        </div>
+                    <div class="card card--pad reveal" style="--i:2">
+                        <span class="num" style="--c:var(--mint)">03</span>
+                        <h3 style="margin-top:20px">Two Exits, Two Lessons</h3>
+                        <p>How Jake built and sold two businesses, Brio Studio and Wizard Marketing, and the specific decisions that made both acquirable.</p>
                     </div>
-                    <div class="topic-item scroll-reveal" style="transition-delay:300ms;">
-                        <span class="topic-num">04</span>
-                        <div>
-                            <h3>Demand Generation Without Ads</h3>
-                            <p>Organic demand generation that compounds over time. Most businesses are buying attention they should be earning.</p>
-                        </div>
+                    <div class="card card--pad reveal" style="--i:0">
+                        <span class="num" style="--c:var(--pink)">04</span>
+                        <h3 style="margin-top:20px">Demand Generation Without Ads</h3>
+                        <p>Organic demand generation that compounds over time. Most businesses are buying attention they should be earning.</p>
                     </div>
-                    <div class="topic-item scroll-reveal" style="transition-delay:400ms;">
-                        <span class="topic-num">05</span>
-                        <div>
-                            <h3>Marketing for Founders</h3>
-                            <p>What founders get wrong about marketing, and the simple shifts that unlock revenue without adding headcount.</p>
-                        </div>
+                    <div class="card card--pad reveal" style="--i:1">
+                        <span class="num" style="--c:var(--teal)">05</span>
+                        <h3 style="margin-top:20px">Marketing for Founders</h3>
+                        <p>What founders get wrong about marketing, and the simple shifts that unlock revenue without adding headcount.</p>
                     </div>
-                    <div class="topic-item scroll-reveal" style="transition-delay:500ms;">
-                        <span class="topic-num">06</span>
-                        <div>
-                            <h3>Conversion Architecture</h3>
-                            <p>The hidden structure behind high-converting funnels. What most marketers skip and why it costs them the deal at the last step. <a href="https://frederickdudek.com/performance-marketing-mastery-jake-tlapek-on-dsps-tiktok-seo-conversions-ep-163/" target="_blank" rel="noopener noreferrer" style="font-style:italic;">Hear it on SPE #162 &rarr;</a></p>
-                        </div>
+                    <div class="card card--pad reveal" style="--i:2">
+                        <span class="num" style="--c:var(--salmon)">06</span>
+                        <h3 style="margin-top:20px">Conversion Architecture</h3>
+                        <p>The hidden structure behind high-converting funnels. What most marketers skip and why it costs them the deal at the last step. <a class="wavy" href="https://frederickdudek.com/performance-marketing-mastery-jake-tlapek-on-dsps-tiktok-seo-conversions-ep-163/" target="_blank" rel="noopener noreferrer">Hear it on SPE #162 &rarr;</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Suggested Questions -->
-        <section id="steal-these" class="section padding-section">
-            <div class="container" style="max-width:760px;">
-                <h2 class="section-title ink-stamp">Steal These Questions</h2>
-                <p class="description center-text">Prep done for you. Lift any of these word-for-word &mdash; Jake has a story, and a number, for each one.</p>
-                <ol class="ink-text" style="list-style:none; margin:2.5rem 0 0; padding:0; counter-reset: q;">
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">01</span><span>You say people don't buy features, they buy dreams. What does that actually mean for a small business?</span></li>
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">02</span><span>What is Share of Brand Voice, and why do you call it the one metric most business owners overlook?</span></li>
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">03</span><span>You sat at 400 TikTok followers after a month of posting. Then 10,000 showed up almost overnight. What happened?</span></li>
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">04</span><span>Tell me about the page that went from 1.2% to 6.5% conversion. What was the tweak?</span></li>
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">05</span><span>You co-designed a published card game, <em>Grifters</em>. What did board games teach you about marketing?</span></li>
-                    <li class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">06</span><span>What marketing "best practice" should most founders ignore completely?</span></li>
-                    <li class="scroll-reveal" style="padding:1rem 0; display:flex; gap:1rem;"><span style="font-family:'Playfair Display', serif; font-weight:700; color:var(--wax-red);">07</span><span>You're an AI skeptic in the middle of an AI gold rush. Make your case.</span></li>
+        <section class="sec" id="steal-these" aria-labelledby="steal-h">
+            <div class="wrap wrap--narrow">
+                <div class="head">
+                    <span class="kicker">Word-for-word</span>
+                    <h2 id="steal-h">Steal these questions.</h2>
+                    <p>Prep done for you. Lift any of these word-for-word &mdash; Jake has a story, and a number, for each one.</p>
+                </div>
+                <ol class="steps pg-qs">
+                    <li class="reveal" style="--i:0"><span class="num" style="--c:var(--red);color:var(--cream)">01</span><p>You say people don't buy features, they buy dreams. What does that actually mean for a small business?</p></li>
+                    <li class="reveal" style="--i:1"><span class="num" style="--c:var(--sky)">02</span><p>What is Share of Brand Voice, and why do you call it the one metric most business owners overlook?</p></li>
+                    <li class="reveal" style="--i:2"><span class="num" style="--c:var(--yellow)">03</span><p>You sat at 400 TikTok followers after a month of posting. Then 10,000 showed up almost overnight. What happened?</p></li>
+                    <li class="reveal" style="--i:3"><span class="num" style="--c:var(--mint)">04</span><p>Tell me about the page that went from 1.2% to 6.5% conversion. What was the tweak?</p></li>
+                    <li class="reveal" style="--i:4"><span class="num" style="--c:var(--pink)">05</span><p>You co-designed a published card game, <em>Grifters</em>. What did board games teach you about marketing?</p></li>
+                    <li class="reveal" style="--i:5"><span class="num" style="--c:var(--teal)">06</span><p>What marketing "best practice" should most founders ignore completely?</p></li>
+                    <li class="reveal" style="--i:6"><span class="num" style="--c:var(--salmon)">07</span><p>You're an AI skeptic in the middle of an AI gold rush. Make your case.</p></li>
                 </ol>
             </div>
         </section>
 
         <!-- Bio for Podcast Hosts -->
-        <section class="section padding-section dark-theme-section">
-            <div class="container">
-                <h2 class="section-title ink-stamp text-night">Jake's Bio</h2>
-                <p class="description center-text text-night" style="max-width:700px; margin:0.75rem auto var(--space-xl);">Copy and paste this for your show notes, episode page, or wherever you introduce your guests.</p>
-                <div id="jake-bio" style="max-width:760px; margin:0 auto; padding:var(--space-xl) clamp(1.5rem, 4vw, 3rem); border:1px solid rgba(244,238,224,0.2); border-radius:var(--radius-md); background:rgba(255,255,255,0.04);">
-                    <p class="ink-text text-night" style="font-size:1.1rem; line-height:1.75; opacity:1;">Jake Tlapek, known as <strong>The Wizard of Marketing</strong>, has spent 13 years fixing what quietly kills growth: messaging that sells the product instead of the future the buyer wants. He has generated over <strong>$100 million in measurable revenue</strong> for clients and made <strong>two exits</strong>: Brio Studio and Wizard Marketing, an SEO and web shop he built over seven years and then sold. Today he runs an independent consulting practice and The Eight Dominoes Mastermind.</p>
-                    <p class="ink-text text-night" style="font-size:1.1rem; line-height:1.75; opacity:1; margin-top:1.25rem;">He is the author of <em>Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients</em> (2026), the book on the psychology of buying behind his biggest client results. He co-designed the card game <em>Grifters</em> (Indie Boards &amp; Cards) and built a 110K+ TikTok following through one approach: telling the truth about marketing when everyone else was pitching.</p>
+        <section class="sec sec--pink" aria-labelledby="bio-h">
+            <span class="art-star" data-star="yellow" style="left:6%;top:14%;width:52px" aria-hidden="true"></span>
+            <span class="art-star" data-star="paper" style="right:7%;top:20%;width:36px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">For your show notes</span>
+                    <h2 id="bio-h">Jake's bio.</h2>
+                    <p>Copy and paste this for your show notes, episode page, or wherever you introduce your guests.</p>
                 </div>
-                <div style="text-align:center; margin-top:var(--space-lg);">
-                    <button type="button" class="btn btn-ghost-light" onclick="navigator.clipboard.writeText(document.getElementById('jake-bio').innerText).then(() => { this.textContent = 'Copied'; setTimeout(() => { this.textContent = 'Copy Bio'; }, 2000); })">Copy Bio</button>
-                    <a href="press/jake-tlapek-headshot-2026.jpg" download class="btn btn-ghost-light" style="margin-left:0.75rem;">Download Headshot</a>
+                <div id="jake-bio" class="card card--pad reveal" style="max-width:820px;margin:0 auto;padding:clamp(26px,4vw,44px) clamp(22px,4vw,52px);font-size:1.1rem;line-height:1.75">
+                    <p>Jake Tlapek, known as <strong>The Wizard of Marketing</strong>, has spent 13 years fixing what quietly kills growth: messaging that sells the product instead of the future the buyer wants. He has generated over <strong>$100 million in measurable revenue</strong> for clients and made <strong>two exits</strong>: Brio Studio and Wizard Marketing, an SEO and web shop he built over seven years and then sold. Today he runs an independent consulting practice and The Eight Dominoes Mastermind.</p>
+                    <p style="margin-top:1.25rem">He is the author of <em>Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients</em> (2026), the book on the psychology of buying behind his biggest client results. He co-designed the card game <em>Grifters</em> (Indie Boards &amp; Cards) and built a 110K+ TikTok following through one approach: telling the truth about marketing when everyone else was pitching.</p>
+                </div>
+                <div class="cta-row center reveal" style="margin-top:44px">
+                    <button type="button" class="btn" onclick="navigator.clipboard.writeText(document.getElementById('jake-bio').innerText).then(() => { this.textContent = 'Copied'; setTimeout(() => { this.textContent = 'Copy Bio'; }, 2000); })">Copy Bio</button>
+                    <a href="press/jake-tlapek-headshot-2026.jpg" download class="btn btn-ghost">Download Headshot</a>
                 </div>
             </div>
         </section>
 
-        <!-- Past Appearances -->
-        <section class="section padding-section">
-            <div class="container">
-                <h2 class="section-title ink-stamp">Past Appearances</h2>
-                <div class="featured-grid">
-                    <a href="https://videosocials.net/the-wizard-of-marketing-with-jake-tlapek/" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal">
-                        <div class="featured-art-wrap">
-                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
-                            <i class="fas fa-podcast featured-icon-overlay" aria-hidden="true"></i>
-                        </div>
-                        <h3>Inspiring Business Podcast</h3>
-                        <p>"The Wizard of Marketing"</p>
-                        <span class="featured-host">with Mark Bullock</span>
+        <!-- Past Appearances · mixtapes -->
+        <section class="sec" aria-labelledby="past-h">
+            <div class="wrap">
+                <div class="head">
+                    <h2 id="past-h">Past appearances.</h2>
+                </div>
+                <div class="grid grid-3 tapes">
+                    <a class="tape-link reveal" style="--c:var(--red);--i:0" href="https://videosocials.net/the-wizard-of-marketing-with-jake-tlapek/" target="_blank" rel="noopener noreferrer">
+                        <div class="tape" aria-hidden="true"><div class="tape-label"><strong>Inspiring Business</strong><span class="tape-side">A</span><div class="tape-window"><span class="reel"></span><span class="reel"></span></div></div><div class="tape-foot"></div></div>
+                        <div class="tape-meta"><h3>Inspiring Business Podcast</h3><p>"The Wizard of Marketing"</p><p class="muted">with Mark Bullock</p></div>
                     </a>
-                    <a href="https://roundpeg.podbean.com/e/1162-the-one-metric-most-business-owners-overlook-jake-tlapek/" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay:100ms;">
-                        <div class="featured-art-wrap">
-                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
-                            <i class="fas fa-microphone featured-icon-overlay" aria-hidden="true"></i>
-                        </div>
-                        <h3>More Than a Few Words</h3>
-                        <p>"The One Metric Most Business Owners Overlook" &mdash; #1162</p>
-                        <span class="featured-host">Share of Brand Voice</span>
+                    <a class="tape-link reveal" style="--c:var(--sky);--i:1" href="https://roundpeg.podbean.com/e/1162-the-one-metric-most-business-owners-overlook-jake-tlapek/" target="_blank" rel="noopener noreferrer">
+                        <div class="tape" aria-hidden="true"><div class="tape-label"><strong>More Than a Few Words</strong><span class="tape-side">B</span><div class="tape-window"><span class="reel"></span><span class="reel"></span></div></div><div class="tape-foot"></div></div>
+                        <div class="tape-meta"><h3>More Than a Few Words</h3><p>"The One Metric Most Business Owners Overlook" &mdash; #1162</p><p class="muted">Share of Brand Voice</p></div>
                     </a>
-                    <a href="https://frederickdudek.com/performance-marketing-mastery-jake-tlapek-on-dsps-tiktok-seo-conversions-ep-163/" target="_blank" rel="noopener noreferrer" class="featured-card scroll-reveal" style="transition-delay:200ms;">
-                        <div class="featured-art-wrap">
-                            <i class="fas fa-wave-square featured-art-icon" aria-hidden="true"></i>
-                            <i class="fas fa-chart-line featured-icon-overlay" aria-hidden="true"></i>
-                        </div>
-                        <h3>The Service Providers Edge</h3>
-                        <p>"Performance Marketing Mastery: DSPs, TikTok SEO &amp; Conversions" &mdash; #162</p>
-                        <span class="featured-host">with Frederick Dudek</span>
+                    <a class="tape-link reveal" style="--c:var(--mint);--i:2" href="https://frederickdudek.com/performance-marketing-mastery-jake-tlapek-on-dsps-tiktok-seo-conversions-ep-163/" target="_blank" rel="noopener noreferrer">
+                        <div class="tape" aria-hidden="true"><div class="tape-label"><strong>Service Providers Edge</strong><span class="tape-side">A</span><div class="tape-window"><span class="reel"></span><span class="reel"></span></div></div><div class="tape-foot"></div></div>
+                        <div class="tape-meta"><h3>The Service Providers Edge</h3><p>"Performance Marketing Mastery: DSPs, TikTok SEO &amp; Conversions" &mdash; #162</p><p class="muted">with Frederick Dudek</p></div>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Pitch Form -->
-        <section id="pitch-jake" class="section padding-section dark-theme-section">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">INVITE<br>JAKE.</h2>
-                        <p class="ink-text text-night" style="margin-top:1.5rem;">Jake reviews every inquiry personally. If it's a fit, he'll confirm within 5 business days. He does his homework, shows up on time, and doesn't waste your audience's time.</p>
-                        <div class="social-links-large" style="margin-top:2rem;">
-                            <a href="https://www.tiktok.com/@itsjakethewizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-                            <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            <a href="https://www.youtube.com/@itsjakethewizard" class="text-night dark-border" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        </div>
+        <div class="stripes" aria-hidden="true"></div>
+
+        <!-- Pitch Form · ribbon banner + the brief card -->
+        <section class="sec" id="pitch-jake" aria-labelledby="invite-h">
+            <div class="wrap split" style="align-items:start">
+                <div class="reveal">
+                    <div class="ribbon"><h2 id="invite-h">Invite Jake.</h2></div>
+                    <p style="margin-top:44px;font-size:1.22rem;max-width:40ch">Jake reviews every inquiry personally. If it's a fit, he'll confirm within 5 business days. He does his homework, shows up on time, and doesn't waste your audience's time.</p>
+                    <div class="socials" style="justify-content:flex-start">
+                        <a href="https://www.tiktok.com/@itsjakethewizard" style="--c:var(--pink)" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/jacob-tlapek-10b55962/" style="--c:var(--sky)" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/@itsjakethewizard" style="--c:var(--red)" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                     </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <form action="https://formspree.io/f/mqerlgpe" method="POST" class="magic-form intake-form">
-                            <input type="hidden" name="_form_type" value="podcast_inquiry">
-                            <input type="hidden" name="_subject" value="Podcast Guest Inquiry — Jake the Wizard">
-                            <div class="form-group">
-                                <label for="p-name" class="text-night">Your name</label>
-                                <input type="text" id="p-name" name="name" class="text-night dark-input" autocomplete="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="p-email" class="text-night">Your email</label>
-                                <input type="email" id="p-email" name="email" class="text-night dark-input" autocomplete="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="p-show" class="text-night">Podcast name and link</label>
-                                <input type="text" id="p-show" name="podcast_name_and_link" class="text-night dark-input" required placeholder="e.g. The Marketing Truth Podcast — marketingtruth.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="p-audience" class="text-night">Tell me about your audience</label>
-                                <textarea id="p-audience" name="audience_description" rows="3" class="text-night dark-input" required placeholder="Who listens? Size, niche, what they're trying to solve."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="p-topic" class="text-night">What topic do you want to cover?</label>
-                                <textarea id="p-topic" name="topic" rows="3" class="text-night dark-input" required placeholder="A specific topic from the list above, or pitch your own angle."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Send the Invitation</button>
-                        </form>
-                        <p class="contact-sla text-night" style="margin-top:1rem;">Jake reads every inquiry. Expect a response within 5 business days.</p>
-                    </div>
+                </div>
+                <div class="brief card reveal" style="--c:var(--yellow);--i:1">
+                    <div class="brief-head">The invitation <span>To: Jake</span></div>
+                    <form action="https://formspree.io/f/mqerlgpe" method="POST">
+                        <input type="hidden" name="_form_type" value="podcast_inquiry">
+                        <input type="hidden" name="_subject" value="Podcast Guest Inquiry — Jake the Wizard">
+                        <label class="field" for="p-name"><span>Your name</span><input type="text" id="p-name" name="name" autocomplete="name" required></label>
+                        <label class="field" for="p-email"><span>Your email</span><input type="email" id="p-email" name="email" autocomplete="email" required></label>
+                        <label class="field" for="p-show"><span>Podcast name and link</span><input type="text" id="p-show" name="podcast_name_and_link" required placeholder="e.g. The Marketing Truth Podcast — marketingtruth.com"></label>
+                        <label class="field" for="p-audience"><span>Tell me about your audience</span><textarea id="p-audience" name="audience_description" rows="3" required placeholder="Who listens? Size, niche, what they're trying to solve."></textarea></label>
+                        <label class="field" for="p-topic"><span>What topic do you want to cover?</span><textarea id="p-topic" name="topic" rows="3" required placeholder="A specific topic from the list above, or pitch your own angle."></textarea></label>
+                        <button type="submit" class="btn btn-red">Send the Invitation</button>
+                    </form>
+                    <p class="contact-sla fine-print" style="padding:0 clamp(20px,3vw,28px) 26px">Jake reads every inquiry. Expect a response within 5 business days.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-            integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-            integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.7"></script>
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

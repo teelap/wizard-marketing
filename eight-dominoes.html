@@ -6,11 +6,11 @@
     <title>Eight Dominoes — Jake Tlapek's Book on Marketing Messaging. Out Now.</title>
     <meta name="description" content="People don't buy features. They buy dreams. Eight Dominoes is Jake Tlapek's book on the psychology of why people buy, and how to write messaging that reaches it. Out now in paperback and Kindle.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#FFF1D6">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/eight-dominoes" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
@@ -121,12 +121,13 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=8.8">
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
@@ -134,340 +135,373 @@
           referrerpolicy="no-referrer"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
+    <!-- Page-only styles for the book page (candidates for schoolhouse.css). Kit tokens only. -->
+    <style>
+        .ed-crumb{margin-bottom:18px}
+        .ed-crumb a{text-decoration:underline wavy var(--red) 2px;text-underline-offset:4px}
+        .ed-crumb span{margin:0 .45em}
+        .ed-formats{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin-top:26px}
+        .ed-formats .pill{border-radius:18px;line-height:1.3}
+        .ed-formats .ed-pending{background:transparent;border-style:dashed}
+        .ed-tiles{list-style:none}
+        .ed-tiles .tile-body p + p{margin-top:14px}
+        .ed-ex{padding-top:12px;border-top:3px dashed var(--dash);font-size:.92rem;color:var(--muted)}
+        .ed-specs th{width:36%;border-right:3px solid var(--ink)}
+        .ed-specs th,.ed-specs td{vertical-align:middle}
+        .ed-order h3{height:auto;min-height:62px;line-height:1.1}
+        @media (max-width:600px){.ed-order::before{display:none}}
+    </style>
 </head>
-<body class="parchment-theme">
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes" aria-current="page">Eight Dominoes</a></li>
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes" aria-current="page">Eight Dominoes</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <main class="content-wrapper">
+    <main id="main">
 
-        <!-- Page Hero -->
-        <section class="page-hero dark-theme-section page-hero--landing">
-            <div class="hero-parallax-bg">
-                <img src="dev_assets/castel 2.webp" class="floating-artifact a1" alt="" aria-hidden="true">
-                <img src="dev_assets/wizard.webp" class="floating-artifact a2" alt="" aria-hidden="true">
-                <img src="dev_assets/broom.png" class="floating-artifact a3" alt="" aria-hidden="true">
-            </div>
-            <div class="container page-hero-content">
-                <div class="breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Eight Dominoes</div>
-
-                <div class="book-buy-panel">
-                    <img src="dev_assets/eight-dominoes-cover.webp"
-                         alt="Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients, by Jake &quot;The Wizard&quot; Tlapek"
-                         class="book-cover-hero" width="800" height="1192" fetchpriority="high" decoding="async">
-
-                    <div class="book-buy-col">
-                        <span class="eyebrow">Out Now &bull; Jake Tlapek</span>
-                        <h1 class="massive-section-title">EIGHT<br>DOMINOES.</h1>
-                        <p class="hero-role text-night">A messaging framework that compounds into awesome clients.</p>
-
-                        <ul class="book-formats text-night">
-                            <li>Paperback</li>
-                            <li>Kindle</li>
-                            <li>Free on Kindle Unlimited</li>
-                            <li class="is-pending">Hardcover &amp; audiobook on the way</li>
-                        </ul>
-
-                        <div class="book-buy-actions">
-                            <a href="https://www.amazon.com/dp/B0HD48KJGD" class="btn btn-primary"
-                               target="_blank" rel="noopener"
-                               data-cta="book-buy" data-cta-location="hero">Buy it on Amazon</a>
-                            <a href="#the-framework" class="btn btn-ghost-light">See the framework</a>
-                        </div>
-                        <p class="book-price text-night">$17.99 paperback &middot; $9.99 Kindle &middot; 223 pages</p>
+        <!-- HERO · the book itself sits where other pages put the TV photo -->
+        <section class="hero" id="hero" aria-labelledby="hero-h1">
+            <div class="hero-art" aria-hidden="true"></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <nav class="fine ed-crumb intro" style="--d:.05s" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Eight Dominoes</nav>
+                    <span class="kicker intro" style="--d:.1s">Out Now &bull; Jake Tlapek</span>
+                    <h1 class="intro" style="--d:.25s" id="hero-h1">Eight <span class="pop rainbow">Dominoes.</span></h1>
+                    <p class="lede intro" style="--d:.7s">A messaging framework that compounds into awesome clients.</p>
+                    <ul class="ed-formats intro" style="--d:.78s">
+                        <li class="pill" style="--c:var(--yellow)">Paperback</li>
+                        <li class="pill" style="--c:var(--sky)">Kindle</li>
+                        <li class="pill" style="--c:var(--pink)">Free on Kindle Unlimited</li>
+                        <li class="pill ed-pending">Hardcover &amp; audiobook on the way</li>
+                    </ul>
+                    <div class="cta-row intro" style="--d:.85s">
+                        <a href="https://www.amazon.com/dp/B0HD48KJGD" class="btn btn-red"
+                           target="_blank" rel="noopener"
+                           data-cta="book-buy" data-cta-location="hero">Buy it on Amazon</a>
+                        <a href="#the-framework" class="btn btn-ghost">See the framework</a>
+                    </div>
+                    <p class="fine intro" style="--d:.95s;margin-top:20px">$17.99 paperback &middot; $9.99 Kindle &middot; 223 pages</p>
+                </div>
+                <div class="hero-photo">
+                    <div class="book" style="margin-inline:auto">
+                        <img src="dev_assets/eight-dominoes-cover.webp"
+                             alt="Eight Dominoes: A Messaging Framework That Compounds Into Awesome Clients, by Jake &quot;The Wizard&quot; Tlapek"
+                             width="800" height="1192" fetchpriority="high" decoding="async">
+                        <span class="sticker" data-burst="pink" aria-hidden="true" style="left:auto;top:auto"><span><small>Free on</small><b>Kindle<br>Unlimited</b></span></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Endorsement -->
-        <section class="section" style="padding:var(--space-lg) 0 0;">
-            <div class="container">
-                <div class="book-endorsement scroll-reveal">
-                    <blockquote>&ldquo;I wish I&rsquo;d written this book.&rdquo;</blockquote>
-                    <cite>
-                        <strong>Marty Marion</strong>
-                        Thirty years positioning Fortune 100 brands &middot; wrote the foreword
-                    </cite>
-                </div>
+        <!-- Endorsement · vinyl record + italic quote -->
+        <section class="sec sec--tight">
+            <div class="wrap">
+                <figure class="quote reveal">
+                    <div class="rec" data-art="record" aria-hidden="true"></div>
+                    <div>
+                        <span class="mark" aria-hidden="true">&ldquo;</span>
+                        <blockquote>I wish I&rsquo;d written this book.&rdquo;</blockquote>
+                        <cite>
+                            <strong style="display:block">Marty Marion</strong>
+                            Thirty years positioning Fortune 100 brands &middot; wrote the foreword
+                        </cite>
+                    </div>
+                </figure>
             </div>
         </section>
 
         <!-- The Hook -->
-        <section class="section padding-section">
-            <div class="container">
-                <div class="dominoes-hook scroll-reveal">
-                    <p class="dominoes-lead">The best product doesn't win. The best-understood product does.</p>
-                    <p class="dominoes-body">You've watched it happen: a competitor with a weaker offer and a higher price eats your lunch. They didn't outspend you. They out-<em>meant</em> you. The distance between how good your work is and how good the market believes it is may be the most expensive gap in your business.</p>
-                    <p class="dominoes-body" style="margin-top:1.5rem;">Most marketing advice sells you parts &mdash; a better hook, a sharper headline, a slicker funnel. All of it aimed at the logical brain. But people don't buy features. They buy dreams. Emotion makes the decision, and logic shows up afterward to justify it. <em>Eight Dominoes</em> teaches you to write to the part of the brain that actually decides: eight dominoes, each one making the next land harder, until a stranger chooses you.</p>
-                    <p class="dominoes-body" style="margin-top:1.5rem;">In 1983, physicist Lorne Whitehead proved in the <em>American Journal of Physics</em> that a domino can topple another one and a half times its size. He started a chain with a domino under ten millimetres tall and tipped it with a wisp of cotton. Twenty-nine dominoes later, that flick fells one the height of the Empire State Building.</p>
-                    <p class="dominoes-body" style="margin-top:1.5rem;">Messaging compounds the same way. If your work is better than your sales reflect, the problem isn't your product. It's what your customer feels when they hear about it.</p>
+        <section class="sec" style="padding-top:clamp(48px,6vw,80px)">
+            <div class="wrap split" style="align-items:start">
+                <p class="disp reveal" style="font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.02">The best product doesn't win. The best-understood product does.</p>
+                <div class="prose reveal" style="--i:1">
+                    <p>You've watched it happen: a competitor with a weaker offer and a higher price eats your lunch. They didn't outspend you. They out-<em>meant</em> you. The distance between how good your work is and how good the market believes it is may be the most expensive gap in your business.</p>
+                    <p>Most marketing advice sells you parts &mdash; a better hook, a sharper headline, a slicker funnel. All of it aimed at the logical brain. But people don't buy features. They buy dreams. Emotion makes the decision, and logic shows up afterward to justify it. <em>Eight Dominoes</em> teaches you to write to the part of the brain that actually decides: eight dominoes, each one making the next land harder, until a stranger chooses you.</p>
+                    <p>In 1983, physicist Lorne Whitehead proved in the <em>American Journal of Physics</em> that a domino can topple another one and a half times its size. He started a chain with a domino under ten millimetres tall and tipped it with a wisp of cotton. Twenty-nine dominoes later, that flick fells one the height of the Empire State Building.</p>
+                    <p>Messaging compounds the same way. If your work is better than your sales reflect, the problem isn't your product. It's what your customer feels when they hear about it.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Author proof -->
-        <section class="proof-strip" aria-label="Why Jake can write this book">
-            <div class="proof-strip-inner">
-                <div class="proof-item">
-                    <span class="proof-number">$100M+</span>
-                    <span class="proof-label">Client results behind the framework</span>
+        <!-- Author proof · starburst seals -->
+        <section class="proof" aria-label="Why Jake can write this book">
+            <div class="wrap proof-grid">
+                <div class="proof-item reveal" style="--i:0">
+                    <div class="seal" data-fill="sky" data-burst="pink" data-rot="0"><b>$100M+</b></div>
+                    <p>Client results behind the framework</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">2 Exits</span>
-                    <span class="proof-label">He ran the eight dominoes on his own business, then sold it</span>
+                <div class="proof-item reveal" style="--i:1">
+                    <div class="seal" data-fill="yellow" data-burst="mint" data-rot="7" data-spin="rev"><b>2 Exits</b></div>
+                    <p>He ran the eight dominoes on his own business, then sold it</p>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <span class="proof-number">110K+</span>
-                    <span class="proof-label">Followers earned by telling the truth, twice a day</span>
+                <div class="proof-item reveal" style="--i:2">
+                    <div class="seal" data-fill="red" data-burst="orange" data-rot="14"><b style="color:var(--cream)">110K+</b></div>
+                    <p>Followers earned by telling the truth, twice a day</p>
                 </div>
             </div>
         </section>
 
-        <!-- Jake's Story Behind It -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container">
-                <div class="asymmetric-grid">
-                    <div class="asymmetric-left scroll-reveal">
-                        <h2 class="massive-section-title">WHY<br>THIS<br>BOOK.</h2>
-                        <img src="dev_assets/photos/jake-book-why-5732-600.webp" srcset="dev_assets/photos/jake-book-why-5732-600.webp 600w, dev_assets/photos/jake-book-why-5732-1200.webp 1200w" sizes="(min-width: 900px) 350px, 90vw" alt="Jake Tlapek smiling down at a copy of Eight Dominoes in front of a striped mural" class="jake-bio-photo" width="600" height="750" loading="lazy" decoding="async">
+        <!-- Jake's story behind it · TV photo over a rainbow arch -->
+        <section class="sec" aria-labelledby="why-h" style="padding-top:clamp(24px,4vw,48px)">
+            <div class="wrap about-grid">
+                <div class="about-art reveal">
+                    <div class="arc" data-art="arc" aria-hidden="true"></div>
+                    <div class="tv">
+                        <img src="dev_assets/photos/jake-rainbow-wall-5675-800.webp"
+                             srcset="dev_assets/photos/jake-rainbow-wall-5675-800.webp 800w, dev_assets/photos/jake-rainbow-wall-5675-1600.webp 1600w"
+                             sizes="(min-width: 860px) 440px, 80vw" width="800" height="533" loading="lazy" decoding="async"
+                             alt="Jake Tlapek in sunglasses, standing relaxed in front of a rainbow-striped brick mural" style="object-position:37% 40%">
                     </div>
-                    <div class="asymmetric-right scroll-reveal" style="transition-delay:200ms;">
-                        <div class="ink-text body-copy-large">
-                            <p>Most marketing books I've read taught me tactics. Few of them taught me why people actually buy. That's the gap <em>Eight Dominoes</em> fills.</p>
-                            <p>I spent seven years building The Wizard Marketing, an SEO and web shop, on an audience I started from zero on TikTok &mdash; talking plainly about the mistakes I kept watching small-business owners make. Then I sold it. I ran the eight dominoes on myself before I ran them on a single client. That's the credential this book rests on: I built something with the framework, then sold the thing I built with it.</p>
-                            <p>Across thirteen years and every industry I've touched, the failure mode was always the same: a company with a real product, a real team, and real potential, losing to a competitor who sold the dream while they sold the specs. It wasn't the budget. It wasn't the brand. It was the dream.</p>
-                            <p>I didn't learn this in a classroom. I learned it in the trenches. <em>Eight Dominoes</em> is not a theory book &mdash; it's a field manual. Every chapter is a move you can make in your own business the same week you read it. Read it, line up your dominoes, and tip the first one.</p>
-                            <p style="font-family:'Playfair Display', serif; font-style:italic; font-size:1.1rem;">&mdash; Jake</p>
-                        </div>
-                    </div>
+                </div>
+                <div class="about-copy reveal" style="--i:1">
+                    <span class="kicker">Jake Tlapek</span>
+                    <h2 class="has-hl" id="why-h">Why this <span class="hl">book.</span></h2>
+                    <p class="lead-in">Most marketing books I've read taught me tactics. Few of them taught me why people actually buy. That's the gap <em>Eight Dominoes</em> fills.</p>
+                    <p>I spent seven years building The Wizard Marketing, an SEO and web shop, on an audience I started from zero on TikTok &mdash; talking plainly about the mistakes I kept watching small-business owners make. Then I sold it. I ran the eight dominoes on myself before I ran them on a single client. That's the credential this book rests on: I built something with the framework, then sold the thing I built with it.</p>
+                    <p>Across thirteen years and every industry I've touched, the failure mode was always the same: a company with a real product, a real team, and real potential, losing to a competitor who sold the dream while they sold the specs. It wasn't the budget. It wasn't the brand. It was the dream.</p>
+                    <p>I didn't learn this in a classroom. I learned it in the trenches. <em>Eight Dominoes</em> is not a theory book &mdash; it's a field manual. Every chapter is a move you can make in your own business the same week you read it. Read it, line up your dominoes, and tip the first one.</p>
+                    <p class="marker" style="font-size:1.7rem;margin-top:22px">&mdash; Jake</p>
                 </div>
             </div>
         </section>
 
-        <!-- The Eight Dominoes -->
-        <section id="the-framework" class="section padding-section dominoes-section">
-            <div class="container">
-                <header class="dominoes-header scroll-reveal">
-                    <div class="dominoes-header-text">
-                        <span class="eyebrow">The Full Framework</span>
-                        <h2 class="massive-section-title">THE EIGHT<br>DOMINOES.</h2>
-                        <p class="dominoes-tagline">Emotion first. Logic second. Every time.</p>
+        <div class="stripes" aria-hidden="true"></div>
+
+        <!-- The Eight Dominoes · the book's own yellow + ink -->
+        <section id="the-framework" class="sec sec--yellow" aria-labelledby="fw-h">
+            <span class="art-star" data-star="paper" style="left:4%;top:5%;width:44px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="right:5%;top:34%;width:34px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="dom-head" style="margin-bottom:clamp(64px,8vw,104px)">
+                    <div class="reveal">
+                        <span class="kicker">The Full Framework</span>
+                        <h2 id="fw-h">The eight dominoes.</h2>
+                        <p class="dom-lead">Emotion first. Logic second. Every time.</p>
                     </div>
-                    <div class="dominoes-book-visual">
+                    <div class="book reveal" style="--i:1">
                         <a href="https://www.amazon.com/dp/B0HD48KJGD" target="_blank" rel="noopener"
                            data-cta="book-buy" data-cta-location="framework">
                             <img src="dev_assets/eight-dominoes-cover-sm.webp"
                                  alt="Eight Dominoes book cover — buy on Amazon"
-                                 class="book-mockup" width="400" height="596" loading="lazy" decoding="async">
+                                 width="400" height="596" loading="lazy" decoding="async">
                         </a>
                     </div>
-                </header>
+                </div>
 
-                <ol class="dominoes-list">
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">01</span>
-                        <div class="domino-content">
+                <figure class="domino-chain reveal" aria-hidden="true"><img src="/dev_assets/brand/domino-chain-900.webp" srcset="/dev_assets/brand/domino-chain-900.webp 900w, /dev_assets/brand/domino-chain-1600.webp 1600w" sizes="(min-width: 1240px) 1100px, 92vw" width="1600" height="605" alt="" loading="lazy" decoding="async"></figure>
+
+                <ol class="grid grid-2 ed-tiles">
+                    <li class="tile topple" style="--c:var(--red);--i:0">
+                        <div class="tile-top"><b class="pop">01</b></div>
+                        <div class="tile-body">
                             <h3>Core Attraction</h3>
                             <p>The emotion your customer is actually buying. Not the feature you're selling. Most businesses market what they built instead of why their customer shows up. This is domino one.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: neuroscientist Antonio Damasio studied patients whose emotional circuits were damaged. Logic intact &mdash; and they couldn't make the simplest decision. Emotion isn't decoration. It's the engine.</p>
+                            <p class="ed-ex">In the wild: neuroscientist Antonio Damasio studied patients whose emotional circuits were damaged. Logic intact &mdash; and they couldn't make the simplest decision. Emotion isn't decoration. It's the engine.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">02</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--sky);--i:1">
+                        <div class="tile-top"><b class="pop">02</b></div>
+                        <div class="tile-body">
                             <h3>Attention Catalyst</h3>
                             <p>The hook that earns the first three seconds. Without this, nothing after it gets seen. This is the one most businesses get backwards. They lead with features instead of friction.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: Obama's 2008 team tested one button word &mdash; "Learn More" beat "Sign Up" by 18.6%. The winning page was worth roughly $60 million in donations. Hooks are won in inches.</p>
+                            <p class="ed-ex">In the wild: Obama's 2008 team tested one button word &mdash; "Learn More" beat "Sign Up" by 18.6%. The winning page was worth roughly $60 million in donations. Hooks are won in inches.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">03</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--mint);--i:2">
+                        <div class="tile-top"><b class="pop">03</b></div>
+                        <div class="tile-body">
                             <h3>Value Proposition</h3>
                             <p>The promise that earns the next sixty seconds. Not a tagline. Not a mission statement. The one specific outcome your customer is willing to pay for, stated plainly.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: Apple didn't launch a "5GB MP3 player." It launched "1,000 songs in your pocket." Same device. Different promise. Different decade of dominance.</p>
+                            <p class="ed-ex">In the wild: Apple didn't launch a "5GB MP3 player." It launched "1,000 songs in your pocket." Same device. Different promise. Different decade of dominance.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">04</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--pink);--i:3">
+                        <div class="tile-top"><b class="pop">04</b></div>
+                        <div class="tile-body">
                             <h3>Impact Chain</h3>
                             <p>The stakes that make inaction feel unbearable. This is where you connect your product to the real cost of not having it. In their words, not yours.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: Kahneman and Tversky measured it &mdash; losing $100 hurts about twice as much as winning $100 feels good. The cost of doing nothing sells harder than any upside.</p>
+                            <p class="ed-ex">In the wild: Kahneman and Tversky measured it &mdash; losing $100 hurts about twice as much as winning $100 feels good. The cost of doing nothing sells harder than any upside.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">05</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--teal);--i:4">
+                        <div class="tile-top"><b class="pop">05</b></div>
+                        <div class="tile-body">
                             <h3>Your Mechanism</h3>
                             <p>The named system that makes you unreplicable. Not just what you do, but how you do it, and why that how matters. This is how you stop competing on price.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: Domino's never claimed better pizza. "30 minutes or it's free" <em>was</em> the brand. Name the mechanism, own the category. (Yes, a domino made the list.)</p>
+                            <p class="ed-ex">In the wild: Domino's never claimed better pizza. "30 minutes or it's free" <em>was</em> the brand. Name the mechanism, own the category. (Yes, a domino made the list.)</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">06</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--salmon);--i:5">
+                        <div class="tile-top"><b class="pop">06</b></div>
+                        <div class="tile-body">
                             <h3>Barrier Breakdown</h3>
                             <p>The objections that kill deals. Prospects don't raise them. They go quiet and leave. This domino surfaces them and neutralizes them before that happens.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: one major retailer swapped a forced "Register" for "Continue as Guest." Purchases rose 45% &mdash; an extra $300 million in the first year (Jared Spool's famous audit). The objection was one button.</p>
+                            <p class="ed-ex">In the wild: one major retailer swapped a forced "Register" for "Continue as Guest." Purchases rose 45% &mdash; an extra $300 million in the first year (Jared Spool's famous audit). The objection was one button.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">07</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--navy);--i:6">
+                        <div class="tile-top"><b class="pop">07</b></div>
+                        <div class="tile-body">
                             <h3>Embracing Limitations</h3>
                             <p>Turning your weakness into proof. The things you can't do, won't do, or don't do, stated clearly and used strategically, are often your strongest signal of quality.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: Domino's went on television and said its own pizza was bad &mdash; and engineered one of the great comebacks in fast food. Buckley's sold a national brand of cough syrup by bragging about the taste. Stated weakness reads as truth, and truth converts.</p>
+                            <p class="ed-ex">In the wild: Domino's went on television and said its own pizza was bad &mdash; and engineered one of the great comebacks in fast food. Buckley's sold a national brand of cough syrup by bragging about the taste. Stated weakness reads as truth, and truth converts.</p>
                         </div>
                     </li>
-                    <li class="domino scroll-reveal">
-                        <span class="domino-num">08</span>
-                        <div class="domino-content">
+                    <li class="tile topple" style="--c:var(--maroon);--i:7">
+                        <div class="tile-top"><b class="pop">08</b></div>
+                        <div class="tile-body">
                             <h3>The New Opportunity</h3>
                             <p>Replacing the category instead of competing in it. The final domino turns customers into evangelists by giving them a new way to see the world, one where your product is the obvious answer.</p>
-                            <p class="domino-example" style="margin-top:0.6rem; font-size:0.88rem; font-style:italic; opacity:0.8;">In the wild: a $4,500 video let Dollar Shave Club take share from a $30-billion incumbent. What beat Gillette wasn't production value. It was the order the argument was made in.</p>
+                            <p class="ed-ex">In the wild: a $4,500 video let Dollar Shave Club take share from a $30-billion incumbent. What beat Gillette wasn't production value. It was the order the argument was made in.</p>
                         </div>
                     </li>
                 </ol>
             </div>
         </section>
 
+        <div class="stripes" aria-hidden="true"></div>
+
         <!-- What's inside / spec sheet -->
-        <section class="section padding-section" style="border-top:1px solid var(--edge-burn);">
-            <div class="container" style="max-width:860px;">
-                <span class="eyebrow">What's Inside</span>
-                <h2 class="massive-section-title">A FIELD<br>MANUAL.</h2>
-                <div class="ink-text body-copy-large" style="margin-top:var(--space-md);">
-                    <p>Every chapter pairs a real turnaround with a workbook that turns the lesson into your words: how Domino's admitted its pizza was bad and engineered one of the great comebacks in fast food, how a $4,500 video let Dollar Shave Club topple a $30-billion giant, how Buckley's sold the worst-tasting medicine in the country by bragging about the taste.</p>
-                    <p>Appendix A maps all eight dominoes across 30 real brands &mdash; Patagonia, YETI, Liquid Death, Trader Joe's, Chick-fil-A, Airbnb and more &mdash; so you can study the chain in the wild before you build your own.</p>
+        <section class="sec" aria-labelledby="fm-h">
+            <div class="wrap">
+                <div class="split">
+                    <div class="reveal">
+                        <div class="head head--left" style="margin-bottom:30px">
+                            <span class="kicker">What's Inside</span>
+                            <h2 class="has-hl" id="fm-h">A field <span class="hl">manual.</span></h2>
+                        </div>
+                        <div class="prose">
+                            <p>Every chapter pairs a real turnaround with a workbook that turns the lesson into your words: how Domino's admitted its pizza was bad and engineered one of the great comebacks in fast food, how a $4,500 video let Dollar Shave Club topple a $30-billion giant, how Buckley's sold the worst-tasting medicine in the country by bragging about the taste.</p>
+                            <p>Appendix A maps all eight dominoes across 30 real brands &mdash; Patagonia, YETI, Liquid Death, Trader Joe's, Chick-fil-A, Airbnb and more &mdash; so you can study the chain in the wild before you build your own.</p>
+                        </div>
+                    </div>
+                    <div class="reveal" style="--i:1;width:100%;max-width:420px;justify-self:center">
+                        <div class="tv tv--tilt-r">
+                            <img src="dev_assets/photos/jake-book-why-5732-600.webp"
+                                 srcset="dev_assets/photos/jake-book-why-5732-600.webp 600w, dev_assets/photos/jake-book-why-5732-1200.webp 1200w"
+                                 sizes="(min-width: 860px) 420px, 80vw"
+                                 alt="Jake Tlapek smiling down at a copy of Eight Dominoes in front of a striped mural"
+                                 width="600" height="750" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
 
-                <dl class="book-specs">
-                    <div><dt>Author</dt><dd>Jake &ldquo;The Wizard&rdquo; Tlapek</dd></div>
-                    <div><dt>Foreword</dt><dd>Marty Marion</dd></div>
-                    <div><dt>Published</dt><dd>August 3, 2026</dd></div>
-                    <div><dt>Pages</dt><dd>223</dd></div>
-                    <div><dt>Formats</dt><dd>Paperback &middot; Kindle</dd></div>
-                    <div><dt>Trim size</dt><dd>6 &times; 9 in</dd></div>
-                    <div><dt>ISBN-13</dt><dd>979-8190593976</dd></div>
-                    <div><dt>Category</dt><dd>Marketing &amp; Sales &rsaquo; Advertising</dd></div>
-                </dl>
+                <div class="table-wrap reveal" style="max-width:760px;margin:clamp(64px,8vw,96px) auto 0">
+                    <table class="table ed-specs">
+                        <tbody>
+                            <tr><th scope="row">Author</th><td>Jake &ldquo;The Wizard&rdquo; Tlapek</td></tr>
+                            <tr><th scope="row">Foreword</th><td>Marty Marion</td></tr>
+                            <tr><th scope="row">Published</th><td>August 3, 2026</td></tr>
+                            <tr><th scope="row">Pages</th><td>223</td></tr>
+                            <tr><th scope="row">Formats</th><td>Paperback &middot; Kindle</td></tr>
+                            <tr><th scope="row">Trim size</th><td>6 &times; 9 in</td></tr>
+                            <tr><th scope="row">ISBN-13</th><td>979-8190593976</td></tr>
+                            <tr><th scope="row">Category</th><td>Marketing &amp; Sales &rsaquo; Advertising</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                <div class="book-buy-actions" style="margin-top:var(--space-lg); justify-content:center;">
-                    <a href="https://www.amazon.com/dp/B0HD48KJGD" class="btn btn-primary"
+                <div class="cta-row center reveal" style="margin-top:clamp(44px,6vw,64px)">
+                    <a href="https://www.amazon.com/dp/B0HD48KJGD" class="btn btn-red"
                        target="_blank" rel="noopener"
                        data-cta="book-buy" data-cta-location="specs">Buy it on Amazon</a>
-                    <a href="/media-kit" class="btn btn-ghost-light">Press &amp; media kit</a>
+                    <a href="/media-kit" class="btn btn-ghost">Press &amp; media kit</a>
                 </div>
             </div>
         </section>
 
         <!-- Book FAQ -->
-        <section id="book-faq" class="section padding-section">
-            <div class="container" style="max-width:760px;">
-                <h2 class="section-title ink-stamp">Before You Ask</h2>
-                <div class="ink-text" style="margin-top:2rem;">
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Which format should I buy?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Paperback is $17.99, Kindle is $9.99, and it's free to read on Kindle Unlimited. There's a workbook at the end of every chapter, so most people who intend to actually do the work buy the paperback and write in it.</p>
+        <section id="book-faq" class="sec" aria-labelledby="faq-h" style="padding-top:clamp(24px,4vw,48px)">
+            <div class="wrap">
+                <div class="head">
+                    <h2 id="faq-h">Before you ask.</h2>
+                </div>
+                <div class="faq">
+                    <details class="reveal">
+                        <summary>Which format should I buy?</summary>
+                        <p>Paperback is $17.99, Kindle is $9.99, and it's free to read on Kindle Unlimited. There's a workbook at the end of every chapter, so most people who intend to actually do the work buy the paperback and write in it.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Is there an audiobook?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">In production, narrated by me. A hardcover edition is on the way as well. Get on the list below and you'll hear when each one lands.</p>
+                    <details class="reveal">
+                        <summary>Is there an audiobook?</summary>
+                        <p>In production, narrated by me. A hardcover edition is on the way as well. Get on the list below and you'll hear when each one lands.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Do I need a marketing background?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">No. It's written for the founder doing their own marketing as much as for the CMO. Plain language, one move per chapter, applied the same week you read it.</p>
+                    <details class="reveal">
+                        <summary>Do I need a marketing background?</summary>
+                        <p>No. It's written for the founder doing their own marketing as much as for the CMO. Plain language, one move per chapter, applied the same week you read it.</p>
                     </details>
-                    <details class="scroll-reveal" style="border-bottom:1px solid var(--edge-burn); padding:1.1rem 0;">
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">Is it theory, or is there work in it?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Every chapter pairs a documented brand turnaround with a workbook that converts the lesson into your own words. Appendix A maps all eight moves across 30 recognisable brands. You finish the book holding your own chain, not a highlighted paperback.</p>
+                    <details class="reveal">
+                        <summary>Is it theory, or is there work in it?</summary>
+                        <p>Every chapter pairs a documented brand turnaround with a workbook that converts the lesson into your own words. Appendix A maps all eight moves across 30 recognisable brands. You finish the book holding your own chain, not a highlighted paperback.</p>
                     </details>
-                    <details class="scroll-reveal" style="padding:1.1rem 0;" open>
-                        <summary style="cursor:pointer; font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700;">I&rsquo;ve read it. Can I get help applying it?</summary>
-                        <p style="margin:0.75rem 0 0; opacity:0.9;">Yes. In the Eight Dominoes Mastermind I run group consulting calls twice a week, Tuesdays and Thursdays at 11am Arizona. You bring your own offer and we work the chain on it live. It&rsquo;s $500 a month or $5,000 a year, with a seven-day free trial first.</p>
-                        <p style="margin:1rem 0 0;"><a href="https://community.8dominoes.com/checkout/eight-dominoes-membership" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-cta="membership_trial" data-cta-location="book-faq">Start the 7-day trial</a> <a href="/mastermind" style="margin-left:1rem; text-decoration:underline;">See what&rsquo;s included</a></p>
+                    <details class="reveal" open>
+                        <summary>I&rsquo;ve read it. Can I get help applying it?</summary>
+                        <p>Yes. In the Eight Dominoes Mastermind I run group consulting calls twice a week, Tuesdays and Thursdays at 11am Arizona. You bring your own offer and we work the chain on it live. It&rsquo;s $500 a month or $5,000 a year, with a seven-day free trial first.</p>
+                        <p class="cta-row" style="margin-top:4px;align-items:center"><a href="https://community.8dominoes.com/checkout/eight-dominoes-membership" class="btn btn-red" target="_blank" rel="noopener noreferrer" data-cta="membership_trial" data-cta-location="book-faq">Start the 7-day trial</a> <a href="/mastermind" class="wavy">See what&rsquo;s included</a></p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <!-- Newsletter -->
-        <section id="first-access" class="section padding-section dark-theme-section">
-            <div class="container">
-                <div class="dominoes-capture scroll-reveal" style="color:var(--text-night);">
-                    <h3 class="ink-stamp text-night">One marketing truth a week</h3>
-                    <p class="dominoes-capture-copy text-night">A real example, a number, and what to do with it &mdash; plus first word when the hardcover and the audiobook land.<br>No drip. No filler.</p>
-                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="dominoes-form">
+        <!-- Newsletter · index-card sign-up -->
+        <section id="first-access" class="sec sec--pink" aria-labelledby="fa-h">
+            <span class="art-star" data-star="yellow" style="left:7%;top:18%;width:48px" aria-hidden="true"></span>
+            <span class="art-star" data-star="paper" style="right:8%;top:58%;width:34px" aria-hidden="true"></span>
+            <div class="wrap">
+                <div class="order ed-order card card--index reveal">
+                    <h3 id="fa-h">One marketing truth a week</h3>
+                    <p>A real example, a number, and what to do with it &mdash; plus first word when the hardcover and the audiobook land.<br>No drip. No filler.</p>
+                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="inline-form">
                         <label for="book-email" class="visually-hidden">Your email address</label>
-                        <input id="book-email" type="email" name="email" placeholder="Your best email" autocomplete="email" required style="border-bottom-color:rgba(244,238,224,0.5); color:var(--text-night);">
+                        <input id="book-email" type="email" name="email" placeholder="Your best email" autocomplete="email" required>
                         <input type="hidden" name="_subject" value="Newsletter Signup — Eight Dominoes page">
                         <input type="hidden" name="_form_type" value="eight_dominoes">
-                        <button type="submit" class="btn btn-primary">Send it to me</button>
+                        <button type="submit" class="btn btn-red">Send it to me</button>
                     </form>
-                    <p class="fine-print" style="color:var(--parchment-dark);">No spam. One email a week. Unsubscribe anytime.</p>
+                    <p class="fine-print">No spam. One email a week. Unsubscribe anytime.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/media-kit" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Media Kit</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-            integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-            integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
     <script defer src="script.js?v=7.7"></script>
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>
 </html>

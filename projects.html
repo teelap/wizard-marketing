@@ -6,11 +6,11 @@
     <title>The Experiment Journal: Projects by Jake Tlapek</title>
     <meta name="description" content="Jake Tlapek's wizard journal of experiments: a trivia dungeon crawl, a D&amp;D encounter builder, kids' business books, a pinball table and more. Every entry dated, every page turnable.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
+    <meta name="theme-color" content="#FFF1D6">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jakethewizard.com/projects" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dev_assets/jake-icon-2026-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="dev_assets/jake-icon-2026-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
@@ -30,14 +30,13 @@
     <!-- Hide the stacked no-JS pages until the book takes over, with a timeout so a failed script never blanks the page. -->
     <script>document.documentElement.classList.add('js-tome');setTimeout(function(){var t=document.querySelector('[data-tome]');if(!t||!t.classList.contains('is-live')){document.documentElement.classList.remove('js-tome');}},4000);</script>
 
-    <link rel="stylesheet" href="styles.css?v=8.8">
-    <link rel="stylesheet" href="projects.css?v=1">
-    <link rel="preload" as="image" href="dev_assets/tome/cover.webp">
+    <link rel="stylesheet" href="schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
@@ -45,9 +44,10 @@
           referrerpolicy="no-referrer"
           media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
+    <link rel="stylesheet" href="projects.css?v=2">
 
     <script type="application/ld+json">
     {
@@ -82,36 +82,40 @@
     }
     </script>
 </head>
-<body class="parchment-theme">
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
+                <li><a href="/grimoire">Grimoire</a></li>
+                <li><a href="/projects" aria-current="page">Projects</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
+            </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        </div>
+    </header>
 <!--
 THESIS: The projects page is a book you open, not a grid you scan. A leather tome whose pages turn under your finger, one spread per project. It refuses the portfolio card grid.
-OWN-WORLD: The site's parchment, ink, wax red and gold, rendered as book materials: oxblood leather boards with gold tooling, parchment leaves with a gutter shadow, marbled endpapers, wax seals, drop caps, quill-and-ink sketches drawn straight onto the page. Playfair Display titles, IM Fell English running heads and folios.
+OWN-WORLD: The Schoolhouse kit (2026-10 redesign) rendered as book materials: a red board with an ink outline and offset shadow, paper leaves with a gutter shadow, rainbow-striped endpapers, a rainbow-arch cover, marker grade stamps, drop caps, quill-and-ink sketches drawn straight onto the page. Fraunces titles, Nunito running heads, typewriter journal entries.
 STORY: A visitor who knows Jake as a marketer sees he builds real things, turns through eight of them, then follows a live link or books a call.
-FIRST VIEWPORT: The closed journal lying on a candlelit desk. A tap wakes it: it rises into dark space as gold motes swirl and music swells, then opens itself to the contents. Return visits and deep links skip straight to the book.
+FIRST VIEWPORT: The closed journal lying on the desk of a teal stage. A tap wakes it: it rises into dark space as gold motes swirl and music swells, then opens itself to the contents. Return visits and deep links skip straight to the book.
 FORM: Interactive codex with a draggable paper fold. User-pinned direction, overriding roll 0c9c4496.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
-                <li><a href="/grimoire">Grimoire</a></li>
-                <li><a href="/projects" aria-current="page">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
-            </ul>
-        </div>
-    </nav>
+    <main id="main">
 
-    <main class="content-wrapper">
-
-        <section class="tome-stage" data-tome-stage aria-label="The Experiment Journal, a wizard's journal of Jake's projects">
+        <section class="sec sec--teal tome-stage" data-tome-stage aria-label="The Experiment Journal, a wizard's journal of Jake's projects">
+            <span class="art-star" data-star="yellow" style="left:5%;top:9%;width:52px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="left:11%;top:22%;width:30px" aria-hidden="true"></span>
+            <span class="art-star" data-star="yellow" style="right:6%;top:14%;width:40px" aria-hidden="true"></span>
+            <span class="art-star" data-star="paper" style="right:9%;top:70%;width:34px" aria-hidden="true"></span>
             <!-- The desk the journal rests on, the shadow it leaves, and the motes that swirl as it wakes. -->
             <div class="tome-desk" aria-hidden="true"></div>
             <div class="tome-shadow" data-tome-shadow aria-hidden="true"></div>
@@ -122,6 +126,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
                         <!-- 0 · Front cover -->
                         <section class="tome-page tome-page--cover tome-page--recto" data-page id="cover" data-title="Cover">
+                            <div class="tome-cover-arc" data-art="arc" aria-hidden="true"></div>
+                            <span class="tome-cover-star" data-star="yellow" aria-hidden="true"></span>
                             <p class="tome-cover-author">Jake Tlapek</p>
                             <h1 class="tome-cover-title">Experiments</h1>
                             <p class="tome-cover-sub">A wizard's journal</p>
@@ -393,7 +399,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
                             <h2 class="tome-heading" id="marketing-title" tabindex="-1">Here for the marketing?</h2>
                             <p class="tome-intro">That's still the work. Pick your door.</p>
                             <div class="tome-doors">
-                                <a class="btn btn-primary" href="/consulting#book-session">Book the call</a>
+                                <a class="btn btn-red" href="/consulting#book-session">Book the call</a>
                                 <a class="tome-door" href="https://www.amazon.com/dp/B0HD48KJGD" target="_blank" rel="noopener noreferrer">Buy the book <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                                 <a class="tome-door" href="/mastermind">Join the Mastermind free</a>
                             </div>
@@ -428,49 +434,49 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         </section>
 
         <!-- The short version -->
-        <section class="section padding-section tome-index-section" aria-labelledby="index-title">
-            <div class="container">
-                <h2 class="section-title ink-stamp" id="index-title">The Short Version</h2>
-                <p class="description center-text">Rather skim than turn pages? Every experiment, one line each.</p>
-                <ol class="tome-index">
-                    <li><a href="#quizards" data-tome-goto="quizards">Quizards</a><span class="tome-index-what">A co-op trivia dungeon crawl for up to ten friends.</span><span class="tome-index-status">Live</span></li>
-                    <li><a href="#alice" data-tome-goto="alice">Alice</a><span class="tome-index-what">The AI assistant I'm building to run my office.</span><span class="tome-index-status">Testing</span></li>
-                    <li><a href="#foeforge" data-tome-goto="foeforge">Foeforge</a><span class="tome-index-what">A D&amp;D encounter builder rated against your real party.</span><span class="tome-index-status">Live</span></li>
-                    <li><a href="#big-ideas" data-tome-goto="big-ideas">Big Ideas</a><span class="tome-index-what">Five business storybooks for kids ages 6 to 9.</span><span class="tome-index-status">Typeset</span></li>
-                    <li><a href="#nautilus" data-tome-goto="nautilus">NAUTILUS</a><span class="tome-index-what">A Jules Verne pinball table built in Visual Pinball.</span><span class="tome-index-status">Tuning</span></li>
-                    <li><a href="#dictation" data-tome-goto="dictation">Local Dictation</a><span class="tome-index-what">Offline voice typing that never leaves my machine.</span><span class="tome-index-status">Private</span></li>
-                    <li><a href="#office" data-tome-goto="office">Another Day at the Office</a><span class="tome-index-what">A D&amp;D adventure where office workers fight up their own tower.</span><span class="tome-index-status">Draft</span></li>
-                    <li><a href="#plot-twist" data-tome-goto="plot-twist">Plot Twist Goods</a><span class="tome-index-what">Mugs, shirts, and totes for LitRPG readers.</span><span class="tome-index-status">Live</span></li>
+        <section class="sec tome-index-section" aria-labelledby="index-title">
+            <div class="wrap">
+                <div class="head">
+                    <span class="kicker">Every experiment</span>
+                    <h2 id="index-title">The short version.</h2>
+                    <p>Rather skim than turn pages? Every experiment, one line each.</p>
+                </div>
+                <ol class="tome-index card reveal">
+                    <li><a href="#quizards" data-tome-goto="quizards">Quizards</a><span class="tome-index-what">A co-op trivia dungeon crawl for up to ten friends.</span><span class="tome-index-status pill" style="--c:var(--mint)">Live</span></li>
+                    <li><a href="#alice" data-tome-goto="alice">Alice</a><span class="tome-index-what">The AI assistant I'm building to run my office.</span><span class="tome-index-status pill" style="--c:var(--sky)">Testing</span></li>
+                    <li><a href="#foeforge" data-tome-goto="foeforge">Foeforge</a><span class="tome-index-what">A D&amp;D encounter builder rated against your real party.</span><span class="tome-index-status pill" style="--c:var(--mint)">Live</span></li>
+                    <li><a href="#big-ideas" data-tome-goto="big-ideas">Big Ideas</a><span class="tome-index-what">Five business storybooks for kids ages 6 to 9.</span><span class="tome-index-status pill" style="--c:var(--yellow)">Typeset</span></li>
+                    <li><a href="#nautilus" data-tome-goto="nautilus">NAUTILUS</a><span class="tome-index-what">A Jules Verne pinball table built in Visual Pinball.</span><span class="tome-index-status pill" style="--c:var(--salmon)">Tuning</span></li>
+                    <li><a href="#dictation" data-tome-goto="dictation">Local Dictation</a><span class="tome-index-what">Offline voice typing that never leaves my machine.</span><span class="tome-index-status pill" style="--c:var(--pink)">Private</span></li>
+                    <li><a href="#office" data-tome-goto="office">Another Day at the Office</a><span class="tome-index-what">A D&amp;D adventure where office workers fight up their own tower.</span><span class="tome-index-status pill" style="--c:var(--paper)">Draft</span></li>
+                    <li><a href="#plot-twist" data-tome-goto="plot-twist">Plot Twist Goods</a><span class="tome-index-what">Mugs, shirts, and totes for LitRPG readers.</span><span class="tome-index-status pill" style="--c:var(--mint)">Live</span></li>
                 </ol>
             </div>
         </section>
 
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
     <script defer src="script.js?v=7.7"></script>
+    <script defer src="schoolhouse.js?v=1"></script>
     <script defer src="tome.js?v=1"></script>
     <script defer src="cookie-consent.js?v=2"></script>
 </body>

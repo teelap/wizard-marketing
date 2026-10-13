@@ -60,6 +60,13 @@ const PUBLIC_FILES = [
     'alice-video-privacy.html',
     'alice-video-terms.html',
     '404.html',
+    // The schoolhouse kit (2026-10 redesign): the design system every page loads,
+    // plus the art/motion script that draws the rainbow bends, bursts and arches.
+    'schoolhouse.css',
+    'schoolhouse.js',
+    // styles.css, eight-dominoes.css and parchment-bg-v4.jpg are no longer referenced by any
+    // deployed page. They ship for one more release so a visitor holding a cached pre-redesign
+    // page still gets its styles; drop all three from this list after that.
     'styles.css',
     // /projects: the page-turning tome. tome.js is compiled from src/tome/*.ts
     // by `npm run build:tome` and committed, so a deploy never depends on a
@@ -72,8 +79,8 @@ const PUBLIC_FILES = [
     'script.js',
     'cookie-consent.js',
     'analytics.js',
-    'scene.css',
-    'scene.js',
+    // scene.css/scene.js (the Lo-Fi study hero) were retired in the 2026-10
+    // redesign: kept in the repo, no longer deployed.
     'workshop.css',
     'workshop.js',
     'grimoire.css',

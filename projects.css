@@ -1,24 +1,22 @@
 /* ==========================================================================
-   /projects: Side Quests, the interactive tome.
-   Book materials in the site palette: oxblood leather, parchment leaves,
-   ink, wax red, gold. Page typography scales with the page (container units)
-   so the book reads like print at every size.
+   /projects: The Experiment Journal, the interactive tome.
+   Book materials from the Schoolhouse kit (schoolhouse.css tokens only):
+   a teal stage, a red board with an ink outline and offset shadow, paper
+   leaves, a rainbow-arch cover, rainbow endpapers, marker grade stamps and
+   typewriter journal entries. Page typography scales with the page
+   (container units) so the book reads like print at every size.
    ========================================================================== */
 
 .tome-stage {
-    --leather: #4e1d15;
-    --leather-deep: #2e0f0a;
-    --foil: #d6b263;
-    --foil-dim: #b8934a;
-    --leaf: #f0e5cc;
+    --board: var(--red);
+    --leaf: var(--paper);
     position: relative;
-    padding: clamp(5.75rem, 12vh, 7rem) var(--edge-pad) var(--space-lg);
-    background:
-        radial-gradient(60% 55% at 50% 42%, rgba(255, 196, 120, 0.16), rgba(255, 196, 120, 0) 70%),
-        radial-gradient(120% 90% at 50% 40%, #35251a 0%, #1f1610 48%, #110c08 100%);
-    color: var(--text-night);
+    padding: clamp(36px, 5vh, 56px) var(--gutter) clamp(44px, 6vh, 68px);
+    color: var(--ink);
     overflow: hidden;
 }
+/* The sticky nav already draws the top rule. */
+.tome-stage.sec--teal { border-top: 0; }
 
 .tome {
     position: relative;
@@ -44,7 +42,7 @@ html.js-tome .tome:not(.is-live) {
     position: absolute;
     top: 5px;
     bottom: 5px;
-    background: repeating-linear-gradient(to right, #efe3c8 0 1px, #c8b690 1px 2px);
+    background: repeating-linear-gradient(to right, var(--paper) 0 1px, var(--dash) 1px 2px);
     pointer-events: none;
 }
 .tome.is-live .tome-inner::before {
@@ -58,23 +56,19 @@ html.js-tome .tome:not(.is-live) {
     border-radius: 0 3px 3px 0;
 }
 
-/* Leather boards showing around an open book. */
+/* The board showing around an open book: red, ink outline, offset shadow. */
 .tome-board {
     position: absolute;
-    inset: -11px calc(-11px - var(--edge-right, 0px)) -11px calc(-11px - var(--edge-left, 0px));
-    border-radius: 7px;
-    background:
-        radial-gradient(80% 70% at 30% 20%, rgba(255, 200, 150, 0.08), rgba(0, 0, 0, 0) 60%),
-        linear-gradient(135deg, var(--leather), var(--leather-deep));
-    box-shadow:
-        0 40px 70px -24px rgba(0, 0, 0, 0.75),
-        0 12px 24px rgba(0, 0, 0, 0.35),
-        inset 0 0 0 1px rgba(214, 178, 99, 0.18);
+    inset: -14px calc(-14px - var(--edge-right, 0px)) -14px calc(-14px - var(--edge-left, 0px));
+    border: 4px solid var(--ink);
+    border-radius: 16px;
+    background: var(--board);
+    box-shadow: 12px 12px 0 var(--ink);
     pointer-events: none;
 }
 /* While a cover swings, only the half of the book that has pages gets a board. */
-.tome[data-board="right"] .tome-board { left: calc(50% - 11px); }
-.tome[data-board="left"] .tome-board { right: calc(50% - 11px); }
+.tome[data-board="right"] .tome-board { left: calc(50% - 14px); }
+.tome[data-board="left"] .tome-board { right: calc(50% - 14px); }
 
 .tome-pages {
     position: relative;
@@ -94,16 +88,16 @@ html.js-tome .tome:not(.is-live) {
     transform-origin: 0 0;
     display: flex;
     flex-direction: column;
+    /* Deep links (#quizards) land below the sticky nav. */
+    scroll-margin-top: 104px;
     /* The page is its own size container, so its children use cqw; the page's
        own box can't query itself and scales from --page-w instead. */
     --pw: var(--page-w, 440px);
     padding: calc(var(--pw) * 0.08) calc(var(--pw) * 0.1) calc(var(--pw) * 0.12);
-    background-color: var(--leaf);
-    background-image: url('parchment-bg-v4.jpg');
-    background-size: cover;
-    background-position: center;
-    color: var(--ink-dark);
-    font-family: var(--font-body);
+    background: var(--leaf);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 600;
     font-size: clamp(12.5px, calc(var(--pw) * 0.0315), 17px);
     line-height: 1.5;
 }
@@ -118,18 +112,19 @@ html.js-tome .tome:not(.is-live) {
 }
 .tome-page--recto::before,
 .tome[data-mode="single"] .tome-page::before {
-    background: linear-gradient(to right, rgba(58, 34, 14, 0.34), rgba(58, 34, 14, 0.1) 5%, rgba(58, 34, 14, 0) 13%);
+    background: linear-gradient(to right, rgba(27, 26, 23, 0.3), rgba(27, 26, 23, 0.08) 5%, rgba(27, 26, 23, 0) 13%);
 }
 .tome[data-mode="spread"] .tome-page--verso::before {
-    background: linear-gradient(to left, rgba(58, 34, 14, 0.34), rgba(58, 34, 14, 0.1) 5%, rgba(58, 34, 14, 0) 13%);
+    background: linear-gradient(to left, rgba(27, 26, 23, 0.3), rgba(27, 26, 23, 0.08) 5%, rgba(27, 26, 23, 0) 13%);
 }
-.tome-page--cover::before,
-.tome-page--back-cover::before,
-.tome-page--endpaper::before {
+/* (Selectors match the specificity of the gutter rules above so covers and endpapers stay flat.) */
+.tome[data-mode] .tome-page--cover::before,
+.tome[data-mode] .tome-page--back-cover::before,
+.tome[data-mode] .tome-page--endpaper::before {
     background: none;
 }
 
-.tome-page ::selection { background: rgba(195, 43, 57, 0.22); }
+.tome-page ::selection { background: var(--yellow); }
 
 /* Lighting bands laid along the fold while a page turns. */
 .tome-fx {
@@ -156,51 +151,60 @@ html.js-tome .tome:not(.is-live) {
 
 .tome-page--blank {
     display: none;
-    background-color: #e9dcbf;
+    background: var(--cream);
 }
 
 /* ------------------------------------------------------------ typography */
 
 .tome-running {
     margin: 0 0 4.5cqw;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 0.82em;
-    letter-spacing: 0.06em;
-    color: var(--ink-muted);
+    font-family: var(--body);
+    font-weight: 900;
+    font-size: 0.68em;
+    line-height: 1.3;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
     text-align: center;
 }
 
+/* Folio: a little numbered coin at the foot of the page. */
 .tome-folio {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 5cqw;
-    margin: 0;
-    text-align: center;
-    font-family: var(--font-accent);
-    font-size: 0.9em;
-    color: var(--ink-muted);
-    font-variant-numeric: oldstyle-nums;
+    bottom: 3cqw;
+    width: 2.15em;
+    height: 2.15em;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--yellow);
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 0.76em;
+    line-height: 1;
 }
 
 .tome-heading {
     margin: 0 0 3.5cqw;
-    font-family: var(--font-heading);
+    font-family: var(--disp);
     font-weight: 900;
-    font-size: clamp(20px, 7.4cqw, 40px);
-    line-height: 1.02;
-    letter-spacing: -0.01em;
+    font-size: clamp(22px, 8cqw, 44px);
+    line-height: 1;
+    letter-spacing: -0.012em;
     text-wrap: balance;
-    color: var(--ink-dark);
+    color: var(--ink);
 }
 
 .tome-intro {
     margin: 0 0 4cqw;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.08em;
-    color: var(--ink-light);
+    font-weight: 800;
+    font-size: 1.04em;
+    line-height: 1.4;
+    color: var(--muted);
 }
 
 .tome-copy p {
@@ -208,21 +212,28 @@ html.js-tome .tome:not(.is-live) {
     text-wrap: pretty;
 }
 /* Contain the drop cap so a one-line lede never indents the next paragraph. */
-.tome-lede { display: flow-root; }
+.tome-lede {
+    display: flow-root;
+    font-weight: 800;
+}
 .tome-lede::first-letter {
     float: left;
-    margin: 0.06em 0.1em 0 0;
-    font-family: var(--font-accent);
+    margin: 0.04em 0.1em 0 0;
+    font-family: var(--disp);
+    font-weight: 900;
     font-size: 3.35em;
-    line-height: 0.78;
-    color: var(--wax-red);
+    line-height: 0.8;
+    color: var(--red);
+    text-shadow: 0.045em 0.045em 0 var(--ink);
 }
 
 .tome-aside {
     margin: 3cqw 0 0;
-    font-family: var(--font-accent);
-    font-style: italic;
-    color: var(--ink-muted);
+    font-family: var(--marker);
+    font-weight: 400;
+    font-size: 1.05em;
+    line-height: 1.3;
+    color: var(--red);
 }
 
 /* ------------------------------------------------------------- art pages */
@@ -230,50 +241,58 @@ html.js-tome .tome:not(.is-live) {
 .tome-page--art {
     align-items: center;
 }
+/* A coloured disc behind each sketch; the multiply blend drops the sketch's
+   white paper so only its ink lands on the colour. */
 .tome-plate {
+    --c: var(--yellow);
     margin: 0;
     width: 92%;
     aspect-ratio: 1;
     flex-shrink: 0;
+    background: radial-gradient(closest-side, var(--c) 0 91%, var(--ink) 91.5% 94%, transparent 94.5%);
 }
+[data-chapter="alice"] .tome-plate { --c: var(--sky); }
+[data-chapter="foeforge"] .tome-plate { --c: var(--salmon); }
+[data-chapter="big-ideas"] .tome-plate { --c: var(--mint); }
+[data-chapter="nautilus"] .tome-plate { --c: var(--teal); }
+[data-chapter="dictation"] .tome-plate { --c: var(--pink); }
+[data-chapter="office"] .tome-plate { --c: var(--orange); }
+[data-chapter="plot-twist"] .tome-plate { --c: var(--yellow); }
 .tome-plate img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* White paper drops out; only the ink lands on the parchment. */
     mix-blend-mode: multiply;
     filter: contrast(1.08);
 }
 .tome-chapter {
     margin: 3cqw 0 1.5cqw;
-    font-family: var(--font-heading);
+    font-family: var(--disp);
     font-weight: 900;
-    font-size: clamp(24px, 10cqw, 54px);
+    font-size: clamp(26px, 11cqw, 58px);
     line-height: 0.95;
-    letter-spacing: -0.005em;
-    text-transform: uppercase;
+    letter-spacing: -0.012em;
     text-align: center;
     text-wrap: balance;
-    color: var(--ink-dark);
+    color: var(--ink);
 }
 .tome-chapter--long {
-    font-size: clamp(18px, 6.6cqw, 36px);
+    font-size: clamp(20px, 7.4cqw, 40px);
 }
 .tome-sub {
     margin: 0;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.14em;
+    font-weight: 800;
+    font-size: 1.08em;
+    line-height: 1.35;
     text-align: center;
-    color: var(--ink-light);
+    color: var(--muted);
 }
 .tome-chapter:focus-visible,
 .tome-heading:focus-visible {
     outline: none;
-    text-decoration: underline;
-    text-decoration-color: var(--gold);
-    text-underline-offset: 0.12em;
+    text-decoration: underline wavy var(--red) 3px;
+    text-underline-offset: 0.14em;
 }
 
 /* ------------------------------------------------------------ text pages */
@@ -282,39 +301,29 @@ html.js-tome .tome:not(.is-live) {
     padding-right: 2cqw;
 }
 
+/* Status as the deck's report-card grade: a red marker ring, stamped on. */
 .tome-seal {
     position: absolute;
-    top: 2.2cqw;
-    right: 3.4cqw;
-    width: 16cqw;
-    height: 16cqw;
+    top: 1.8cqw;
+    right: 2.4cqw;
+    width: 17cqw;
+    height: 17cqw;
     margin: 0;
     display: grid;
     place-items: center;
-    transform: rotate(-11deg);
-    border-radius: 48% 52% 50% 50% / 53% 47% 53% 47%;
-    background: radial-gradient(circle at 36% 30%, #de5a63 0%, #c32b39 36%, #8c1b26 100%);
-    box-shadow:
-        0 2px 6px rgba(70, 12, 18, 0.38),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.28),
-        inset 0 2px 3px rgba(255, 200, 200, 0.28);
-    color: #f7ebdc;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(7.5px, 2.2cqw, 12px);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    rotate: -11deg;
+    border: max(3px, 0.9cqw) solid var(--red);
+    border-radius: 50%;
+    color: var(--red);
+    font-family: var(--marker);
+    font-weight: 400;
+    font-size: clamp(10px, 3.5cqw, 18px);
+    line-height: 1;
+    text-align: center;
     z-index: 1;
 }
-.tome-seal::before {
-    content: '';
-    position: absolute;
-    inset: 13%;
-    border-radius: 50%;
-    border: 1px dashed rgba(255, 232, 220, 0.5);
-}
 
-/* Current Status: a dated journal entry on ruled lines. */
+/* Current Status: a dated, typewritten entry on ruled lines. */
 .tome-journal {
     flex: 1 1 auto;
     display: flex;
@@ -322,45 +331,46 @@ html.js-tome .tome:not(.is-live) {
     min-height: 0;
     margin: 0.4em 0 0.9em;
     padding-top: 2.4cqw;
-    border-top: 1px solid rgba(24, 20, 18, 0.18);
+    border-top: 3px dashed var(--dash);
 }
 .tome-journal-title {
     margin: 0;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.74em;
+    font-family: var(--body);
+    font-weight: 900;
+    font-size: 0.72em;
+    line-height: 1.3;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--ink-dark);
+    color: var(--ink);
 }
 .tome-journal-date {
-    margin: 0.2em 0 0.3em;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 0.95em;
-    color: var(--wax-red);
+    margin: 0.25em 0 0.35em;
+    font-family: var(--type);
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--red);
 }
 .tome-journal-entry {
     flex: 1 1 auto;
     margin: 0;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.06em;
-    line-height: 1.5;
-    color: var(--ink-light);
+    font-family: var(--type);
+    font-weight: 700;
+    font-size: 0.96em;
+    line-height: 1.55;
+    color: var(--ink);
     background-image: repeating-linear-gradient(
         to bottom,
         transparent 0,
-        transparent calc(1.5em - 1px),
-        rgba(24, 20, 18, 0.13) calc(1.5em - 1px),
-        rgba(24, 20, 18, 0.13) 1.5em
+        transparent calc(1.55em - 2px),
+        var(--rule) calc(1.55em - 2px),
+        var(--rule) 1.55em
     );
 }
 
 .tome-notes {
     margin: auto 0 0;
     padding-top: 2.6cqw;
-    border-top: 1px solid rgba(24, 20, 18, 0.22);
+    border-top: 3px solid var(--ink);
     font-size: 0.88em;
 }
 .tome-notes div {
@@ -374,22 +384,21 @@ html.js-tome .tome:not(.is-live) {
     content: '';
     grid-column: 2;
     grid-row: 1;
-    border-bottom: 1px dotted rgba(24, 20, 18, 0.35);
+    border-bottom: 2px dotted var(--dash);
     transform: translateY(-0.3em);
 }
 .tome-notes dt {
     grid-column: 1;
     grid-row: 1;
-    font-family: var(--font-accent);
-    font-style: italic;
-    color: var(--ink-muted);
+    font-weight: 700;
+    color: var(--muted);
 }
 .tome-notes dd {
     grid-column: 3;
     grid-row: 1;
     margin: 0;
     text-align: right;
-    font-weight: 600;
+    font-weight: 900;
 }
 
 .tome-link {
@@ -398,20 +407,17 @@ html.js-tome .tome:not(.is-live) {
     align-items: center;
     gap: 0.45em;
     margin-top: 3.2cqw;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.12em;
-    color: var(--wax-red);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.22em;
-    transition: color 0.2s ease;
+    font-weight: 900;
+    font-size: 1.04em;
+    color: var(--ink);
+    text-decoration: underline wavy var(--red) 2px;
+    text-underline-offset: 0.3em;
 }
 .tome-link i { font-size: 0.7em; }
-.tome-link:hover { color: var(--wax-red-hover); }
+.tome-link:hover { background: var(--yellow); }
 .tome-page a:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
+    outline: 3px dashed var(--red);
+    outline-offset: 2px;
     border-radius: 2px;
 }
 
@@ -421,7 +427,6 @@ html.js-tome .tome:not(.is-live) {
     list-style: none;
     margin: 0;
     padding: 0;
-    counter-reset: none;
 }
 .tome-toc li { margin: 0; }
 .tome-toc a {
@@ -430,34 +435,32 @@ html.js-tome .tome:not(.is-live) {
     align-items: baseline;
     gap: 0.5em;
     padding: 0.2em 0;
-    color: var(--ink-dark);
+    color: var(--ink);
     text-decoration: none;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.94em;
-    line-height: 1.3;
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 1em;
+    line-height: 1.25;
 }
 .tome-toc a::after {
     content: '';
     grid-column: 2;
     grid-row: 1;
-    border-bottom: 1px dotted rgba(24, 20, 18, 0.4);
+    border-bottom: 2px dotted var(--dash);
     transform: translateY(-0.3em);
 }
 .tome-toc a > span:first-child { grid-column: 1; grid-row: 1; }
 .tome-toc-page {
     grid-column: 3;
     grid-row: 1;
-    font-family: var(--font-accent);
-    font-weight: 400;
-    font-variant-numeric: oldstyle-nums;
-    color: var(--ink-muted);
+    font-family: var(--type);
+    font-weight: 700;
+    color: var(--muted);
 }
-.tome-toc a:hover > span:first-child { color: var(--wax-red); }
+.tome-toc a:hover > span:first-child { color: var(--red); }
 .tome-toc-back a {
-    font-family: var(--font-accent);
-    font-weight: 400;
-    font-style: italic;
+    font-family: var(--body);
+    font-weight: 800;
 }
 .tome-toc li.tome-toc-back:nth-last-child(2) { margin-top: 0.45em; }
 
@@ -466,139 +469,181 @@ html.js-tome .tome:not(.is-live) {
 .tome-page--cover,
 .tome-page--back-cover {
     padding: 0;
-    background-color: var(--leather);
-    background-image: url('dev_assets/tome/cover.webp');
-    background-size: cover;
-    background-position: center;
-    color: var(--foil);
+    background: var(--board);
+    border: 4px solid var(--ink);
+    color: var(--cream);
     text-align: center;
 }
-.tome-page--back-cover {
-    background-image: none;
+.tome-page--cover { border-radius: 4px 18px 18px 4px; }
+.tome-page--back-cover { border-radius: 18px 4px 4px 18px; }
+/* The closed book (no board under it yet) gets the kit's offset shadow. */
+.tome[data-mode="spread"][data-at-start="true"] .tome-page--cover,
+.tome[data-mode="spread"][data-at-end="true"] .tome-page--back-cover {
+    box-shadow: 12px 12px 0 var(--ink);
 }
-.tome-page--back-cover::after {
-    content: '';
+
+/* Front cover art: a rainbow arch (drawn by schoolhouse.js) with a star rising inside it. */
+.tome-cover-arc {
     position: absolute;
-    inset: 0;
-    background: url('dev_assets/tome/cover.webp') center / cover;
-    transform: scaleX(-1);
-    filter: saturate(0.9) brightness(0.92);
+    left: 7%;
+    top: 14%;
+    width: 86%;
 }
-.tome-page--back-cover > * { position: relative; z-index: 1; }
+.tome-cover-arc svg { display: block; width: 100%; height: auto; }
+.tome-cover-star {
+    position: absolute;
+    left: 50%;
+    top: calc(14% + 50cqw);
+    width: 26cqw;
+    translate: -50% -50%;
+}
+.tome-cover-star svg { display: block; width: 100%; height: auto; }
 
 .tome-cover-author,
 .tome-cover-title,
 .tome-cover-sub {
     position: absolute;
-    left: 8%;
-    right: 8%;
     margin: 0;
-    text-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.7),
-        0 -1px 0 rgba(255, 228, 170, 0.22),
-        0 4px 10px rgba(0, 0, 0, 0.45);
 }
 .tome-cover-author {
-    top: 13%;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(10px, 3.6cqw, 18px);
-    letter-spacing: 0.32em;
+    top: 6%;
+    left: 50%;
+    translate: -50% 0;
+    padding: 0.7em 1.2em 0.6em;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--body);
+    font-weight: 900;
+    font-size: clamp(9px, 2.9cqw, 14px);
+    line-height: 1;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--foil-dim);
+    white-space: nowrap;
 }
 .tome-cover-title {
-    top: 68.5%;
-    font-family: var(--font-heading);
+    left: 4%;
+    right: 4%;
+    top: 69%;
+    font-family: var(--disp);
     font-weight: 900;
-    font-size: clamp(20px, 9.4cqw, 50px);
+    font-size: clamp(22px, 12.4cqw, 66px);
     line-height: 1;
-    letter-spacing: 0.04em;
+    letter-spacing: -0.01em;
     white-space: nowrap;
-    text-transform: uppercase;
-    color: var(--foil);
+    color: var(--yellow);
+    /* the kit's .pop ink outline + drop shadow */
+    text-shadow: -.028em -.028em 0 var(--ink), .028em -.028em 0 var(--ink), -.028em .028em 0 var(--ink), .028em .028em 0 var(--ink), 0 .036em 0 var(--ink), .036em 0 0 var(--ink), -.036em 0 0 var(--ink), 0 -.036em 0 var(--ink), .075em .075em 0 var(--ink);
 }
 .tome-cover-sub {
-    top: 78.5%;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: clamp(12px, 4.6cqw, 24px);
-    color: var(--foil-dim);
+    left: 8%;
+    right: 8%;
+    top: 84%;
+    font-family: var(--marker);
+    font-weight: 400;
+    font-size: clamp(13px, 5.4cqw, 28px);
+    line-height: 1.1;
+    color: var(--cream);
 }
 
+/* Back cover: a rainbow band, the sign-off and a way back to the front. */
+.tome-page--back-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tome-page--back-cover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    height: 17%;
+    background: var(--rainbow);
+    border-block: 4px solid var(--ink);
+}
+.tome-page--back-cover > * { position: relative; z-index: 1; }
 .tome-back-line,
 .tome-back-url {
     margin: 0;
-    font-family: var(--font-accent);
-    font-style: italic;
-    color: var(--foil-dim);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
 }
 .tome-back-line {
-    margin-top: 70%;
-    padding: 0 16%;
-    font-size: clamp(12px, 4.2cqw, 20px);
+    margin-top: 47cqh;
+    padding: 0 12cqw;
+    text-wrap: balance;
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: clamp(15px, 6.4cqw, 32px);
+    line-height: 1.1;
+    color: var(--cream);
+    text-shadow: 0.06em 0.06em 0 var(--ink);
 }
 .tome-back-url {
     margin-top: 4cqw;
-    font-family: var(--font-heading);
-    font-style: normal;
-    font-weight: 700;
+    font-family: var(--body);
+    font-weight: 900;
     font-size: clamp(9px, 2.8cqw, 14px);
-    letter-spacing: 0.24em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
 }
 
 /* ------------------------------------------------------------ endpapers */
 
 .tome-page--endpaper {
-    background-image: url('dev_assets/tome/endpaper.webp');
+    background: var(--rainbow);
     align-items: center;
     justify-content: center;
 }
 .tome-bookplate {
-    width: 58%;
-    padding: 7cqw 5cqw;
+    width: 62%;
+    padding: 6cqw 5cqw;
     text-align: center;
-    background: var(--leaf) url('parchment-bg-v4.jpg') center / cover;
-    border: 1px solid rgba(24, 20, 18, 0.55);
-    outline: 1px solid rgba(24, 20, 18, 0.35);
-    outline-offset: -2.2cqw;
-    box-shadow: 0 6px 16px rgba(20, 10, 4, 0.35);
+    background: var(--paper);
+    border: 4px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 8px 8px 0 var(--ink);
+    rotate: -2deg;
 }
 .tome-bookplate p { margin: 0; }
-.tome-bookplate-kicker {
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 0.95em;
-    color: var(--ink-muted);
-}
-.tome-bookplate-name {
-    margin-top: 1.5cqw !important;
-    font-family: var(--font-heading);
+.tome-bookplate .tome-bookplate-kicker {
     font-weight: 900;
-    font-size: clamp(16px, 6cqw, 32px);
-    line-height: 1.05;
-    color: var(--ink-dark);
+    font-size: 0.68em;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
-.tome-bookplate-note {
-    margin-top: 1.5cqw !important;
-    font-family: var(--font-accent);
-    font-size: 0.9em;
-    color: var(--wax-red);
+.tome-bookplate .tome-bookplate-name {
+    margin-top: 2cqw;
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: clamp(18px, 7cqw, 36px);
+    line-height: 1;
+    color: var(--ink);
+}
+.tome-bookplate .tome-bookplate-note {
+    margin-top: 2cqw;
+    font-family: var(--marker);
+    font-weight: 400;
+    font-size: 0.95em;
+    line-height: 1.3;
+    color: var(--red);
 }
 .tome-return {
-    padding: 0.7em 1.2em;
-    background: var(--leaf) url('parchment-bg-v4.jpg') center / cover;
-    border: 1px solid rgba(24, 20, 18, 0.5);
-    box-shadow: 0 6px 16px rgba(20, 10, 4, 0.35);
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.1em;
-    color: var(--ink-dark);
+    margin-top: 6cqw;
+    padding: 0.6em 1.2em 0.65em;
+    background: var(--yellow);
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--ink);
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 1.05em;
+    line-height: 1;
+    color: var(--ink);
     text-decoration: none;
 }
-.tome-return:hover { color: var(--wax-red); }
+.tome-return:hover { background: var(--paper); }
 
 /* ------------------------------------------------------------ the close */
 
@@ -606,18 +651,23 @@ html.js-tome .tome:not(.is-live) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 3cqw;
+    gap: 3.6cqw;
 }
-.tome-doors .btn { font-size: clamp(12px, 3.2cqw, 16px); }
+.tome-doors .btn {
+    font-size: clamp(13px, 3.6cqw, 19px);
+    padding: 0.75em 1.3em 0.8em;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--ink);
+}
 .tome-door {
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.12em;
-    color: var(--wax-red);
-    text-decoration: underline;
-    text-underline-offset: 0.22em;
+    font-weight: 900;
+    font-size: 1.04em;
+    color: var(--ink);
+    text-decoration: underline wavy var(--red) 2px;
+    text-underline-offset: 0.3em;
 }
 .tome-door i { font-size: 0.7em; }
+.tome-door:hover { background: var(--yellow); }
 
 
 /* ----------------------------------------------------------- the waking */
@@ -627,25 +677,22 @@ html.js-tome .tome:not(.is-live) {
     perspective: 1800px;
     perspective-origin: 50% 18%;
 }
+/* The desk: a halftone tabletop that drops away as the journal rises. */
 .tome-desk {
     position: absolute;
-    inset: -2%;
+    inset: 0;
     z-index: 0;
-    background: #120c08 url('dev_assets/tome/desk.webp') center / cover no-repeat;
-    opacity: 0.26;
-    filter: blur(9px) saturate(0.85);
+    background: radial-gradient(rgba(27, 26, 23, 0.16) 24%, transparent 26%) 0 0 / 22px 22px;
+    opacity: 0;
     pointer-events: none;
-    transition: opacity 2.8s ease, filter 2.8s ease;
+    transition: opacity 2.8s ease;
 }
-.tome-stage.intro-rest .tome-desk {
-    opacity: 1;
-    filter: none;
-}
+.tome-stage.intro-rest .tome-desk { opacity: 1; }
 .tome-shadow {
     position: absolute;
     z-index: 1;
     border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: radial-gradient(closest-side, rgba(27, 26, 23, 0.6), rgba(27, 26, 23, 0));
     transform: translate(-50%, -38%) scale(0.72, 0.5);
     opacity: 0;
     pointer-events: none;
@@ -668,13 +715,13 @@ html.js-tome .tome:not(.is-live) {
     transform-origin: 50% 55%;
     transition: transform 2.8s cubic-bezier(0.45, 0.05, 0.2, 1);
 }
-/* Glow that gathers under the journal as it lifts. */
+/* Sunny glow that gathers under the journal as it lifts. */
 .tome::before {
     content: '';
     position: absolute;
     inset: -14% -6%;
     z-index: -1;
-    background: radial-gradient(closest-side, rgba(255, 196, 110, 0.42), rgba(255, 196, 110, 0));
+    background: radial-gradient(closest-side, rgba(255, 201, 40, 0.6), rgba(255, 201, 40, 0));
     opacity: 0;
     pointer-events: none;
     transition: opacity 1.6s ease;
@@ -720,38 +767,38 @@ html.js-tome .tome:not(.is-live) {
 .tome-wake-bar > * { pointer-events: auto; }
 .tome-wake {
     appearance: none;
-    min-height: 46px;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid rgba(214, 178, 99, 0.55);
-    border-radius: var(--radius-pill);
-    background: rgba(20, 12, 6, 0.55);
-    color: #efd9a4;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.1rem;
+    min-height: 48px;
+    padding: 12px 24px 13px;
+    border: 4px solid var(--ink);
+    border-radius: 999px;
+    background: var(--yellow);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: var(--ink);
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 1.15rem;
+    line-height: 1;
     cursor: pointer;
     animation: tome-beckon 2.6s ease-in-out infinite;
 }
-.tome-wake:hover { background: rgba(40, 24, 10, 0.75); border-color: rgba(214, 178, 99, 0.85); }
-.tome-wake:focus-visible { outline: 2px solid #d6b263; outline-offset: 3px; }
+.tome-wake:hover { background: var(--paper); }
 .tome-skip {
     appearance: none;
     min-height: 44px;
     padding: 0 0.4rem;
     border: 0;
     background: none;
-    color: rgba(244, 238, 224, 0.7);
-    font-family: var(--font-body);
-    font-size: 0.82rem;
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 900;
+    font-size: 0.95rem;
     text-decoration: underline;
     text-underline-offset: 0.2em;
     cursor: pointer;
 }
-.tome-skip:hover { color: #f4eee0; }
-.tome-skip:focus-visible { outline: 2px solid #d6b263; outline-offset: 3px; }
 @keyframes tome-beckon {
-    0%, 100% { box-shadow: 0 0 0 rgba(255, 196, 110, 0); }
-    50% { box-shadow: 0 0 22px rgba(255, 196, 110, 0.35); }
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -766,47 +813,56 @@ html.js-tome .tome:not(.is-live) {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.75rem 1rem;
-    margin-top: 2.4rem;
+    gap: 14px 18px;
+    margin-top: 2.6rem;
 }
 .tome-btn {
     appearance: none;
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    min-height: 44px;
-    padding: 0.6rem 1.15rem;
-    border: 1px solid rgba(244, 238, 224, 0.28);
-    border-radius: var(--radius-pill);
-    background: rgba(244, 238, 224, 0.06);
-    color: var(--text-night);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    min-height: 48px;
+    padding: 10px 18px 11px;
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--ink);
+    color: var(--ink);
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 1rem;
+    line-height: 1;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
 }
-.tome-btn:hover { background: rgba(244, 238, 224, 0.14); border-color: rgba(244, 238, 224, 0.5); }
-.tome-btn:focus-visible { outline: 2px solid var(--foil, #d6b263); outline-offset: 3px; }
-.tome-btn:disabled { opacity: 0.35; cursor: default; background: transparent; }
-.tome-btn--icon { width: 44px; justify-content: center; padding: 0; }
-.tome-btn[aria-pressed="false"] { color: rgba(244, 238, 224, 0.55); }
+.tome-btn[data-tome-next] { background: var(--yellow); }
+.tome-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.tome-btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.tome-btn:disabled { opacity: 0.5; cursor: default; transform: none; background: var(--paper); box-shadow: 4px 4px 0 var(--ink); }
+.tome-btn--icon { width: 48px; justify-content: center; padding: 0; border-radius: 50%; }
+.tome-btn[aria-pressed="false"] { background: var(--cream); color: var(--muted); }
 
 .tome-status {
     min-width: 13ch;
     margin: 0;
+    padding: 10px 16px 9px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--cream);
     text-align: center;
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 1.05rem;
-    color: #e9ddc3;
+    font-family: var(--body);
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 .tome-hint {
-    margin: 0.8rem 0 0;
+    margin: 18px 0 0;
     text-align: center;
-    font-size: 0.8rem;
-    color: rgba(244, 238, 224, 0.62);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--ink);
 }
 
 .tome.is-dragging,
@@ -814,43 +870,39 @@ html.js-tome .tome:not(.is-live) {
 
 /* ------------------------------------------------ the short version list */
 
+.tome-index-section .head p { text-wrap: balance; }
 .tome-index {
     list-style: none;
-    max-width: 880px;
-    margin: var(--space-lg) auto 0;
-    padding: 0;
-    border-top: 1px solid var(--edge-burn);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 6px clamp(20px, 4vw, 40px);
 }
 .tome-index li {
     display: grid;
-    grid-template-columns: minmax(11rem, 15rem) 1fr auto;
+    grid-template-columns: minmax(11rem, 16rem) 1fr auto;
     gap: 0.4rem 1.5rem;
-    align-items: baseline;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--edge-burn);
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 3px dashed var(--dash);
 }
+.tome-index li:last-child { border-bottom: 0; }
 .tome-index a {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--ink-dark);
+    font-family: var(--disp);
+    font-weight: 900;
+    font-size: 1.45rem;
+    line-height: 1.1;
+    color: var(--ink);
     text-decoration: none;
 }
-.tome-index a:hover { color: var(--wax-red); }
-.tome-index a:focus-visible { outline: 2px solid var(--wax-red); outline-offset: 3px; }
-.tome-index-what { color: var(--ink-light); }
-.tome-index-status {
-    font-family: var(--font-accent);
-    font-style: italic;
-    color: var(--wax-red);
-    white-space: nowrap;
-}
+.tome-index a:hover { text-decoration: underline wavy var(--red) 3px; text-underline-offset: 6px; }
+.tome-index-what { font-weight: 700; }
+.tome-index-status { justify-self: end; white-space: nowrap; }
 
 /* ---------------------------------------------- no-JS: stacked sheets */
 
 .tome:not(.is-live) .tome-pages {
     display: grid;
-    gap: 1.5rem;
+    gap: 28px;
     justify-items: center;
 }
 .tome:not(.is-live) .tome-page {
@@ -858,14 +910,15 @@ html.js-tome .tome:not(.is-live) {
     width: min(480px, 100%);
     height: auto;
     aspect-ratio: 3 / 4;
-    box-shadow: 0 16px 30px -12px rgba(0, 0, 0, 0.6);
+    border: 4px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
 }
 .tome:not(.is-live) .tome-page::before { background: none; }
 
 @media (max-width: 719px) {
-    .tome-stage { padding-top: calc(var(--space-xl) + 3.5rem); }
-    .tome-index li { grid-template-columns: 1fr auto; }
+    .tome-index li { grid-template-columns: 1fr auto; padding: 18px 0; }
+    .tome-index a { font-size: 1.3rem; }
     .tome-index-what { grid-column: 1 / -1; grid-row: 2; }
-    .tome-btn { padding: 0.55rem 0.9rem; }
-    .tome-status { order: -1; flex-basis: 100%; }
+    .tome-btn { padding: 9px 14px 10px; font-size: 0.95rem; }
+    .tome-status { order: -1; flex-basis: 100%; padding: 0; background: none; color: var(--ink); font-family: var(--disp); font-size: 1.25rem; letter-spacing: 0; text-transform: none; }
 }

@@ -6,116 +6,183 @@
     <title>Page Not Found (404) — Jake Tlapek, The Wizard of Marketing</title>
     <meta name="description" content="This page wandered off the map. Find your way back to jakethewizard.com.">
     <meta name="author" content="Jake Tlapek">
-    <meta name="theme-color" content="#1a0f1f">
-    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#FFF1D6">
+    <meta name="color-scheme" content="light">
     <!-- A 404 must never be indexed, but let crawlers follow the links back out. -->
     <meta name="robots" content="noindex, follow">
 
     <!-- Absolute paths only: the 404 is served for ANY unmatched URL (e.g. /a/b/c),
          so relative paths would resolve against the wrong directory and break. -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/jake-icon-2026-32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
     <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/jake-icon-2026-180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dev_assets/brand/apple-touch-180.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="stylesheet" href="/styles.css?v=8.8">
+    <link rel="stylesheet" href="/schoolhouse.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Fonts load async (media=print swap) so they never block first paint; <noscript> keeps them for no-JS.
+         Fraunces is pinned to the deck's single style (Black, SOFT 100, WONK 1) to keep it ~37KB. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
-</head>
-<body class="parchment-theme">
+          referrerpolicy="no-referrer"
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 
-    <nav id="navbar" class="pill-nav">
-        <div class="nav-content">
-            <a href="/" class="logo"><img src="/dev_assets/jake-icon-2026-180.png" alt="Jake Tlapek" class="nav-logo-icon"> THE WIZARD</a>
-            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="primary-nav" class="nav-links">
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/mastermind">Mastermind</a></li>
-                <li><a href="/eight-dominoes">Eight Dominoes</a></li>
+    <!-- Page-specific styling (kit tokens only): compact "door" cards and the newsletter card -->
+    <style>
+        .lost-doors .svc-top{height:64px}
+        .lost-doors .svc-icon{left:20px;bottom:-30px;width:60px;height:60px;font-size:22px}
+        .lost-doors .svc-body{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:46px 22px 24px}
+        .lost-doors .svc-name{font-family:var(--disp);font-weight:900;font-size:1.55rem;line-height:1.05}
+        .lost-doors .svc-body > i{flex:none;font-size:1.15rem}
+        .lost-order{padding:34px clamp(22px,5vw,48px) 38px}
+        .lost-order h2{font-size:clamp(2rem,4vw,2.9rem);line-height:1.02}
+        .lost-order > p{margin-top:18px;font-size:1.12rem}
+        .lost-order form{margin-top:26px}
+        @media (max-width:600px){
+            .lost-doors{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}
+            .lost-doors .svc-icon{left:14px;width:52px;height:52px;bottom:-26px;font-size:19px}
+            .lost-doors .svc-body{padding:40px 14px 18px}
+            .lost-doors .svc-name{font-size:1.15rem}
+            .lost-doors .svc-body > i{display:none}
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="navbar">
+        <div class="nav-in">
+            <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="46" height="46" alt="">The Wizard</a>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="/consulting" data-dest="consulting">Consulting</a></li>
+                <li><a href="/mastermind" data-dest="mastermind">Mastermind</a></li>
+                <li><a href="/eight-dominoes" data-dest="eight-dominoes">Eight Dominoes</a></li>
                 <li><a href="/grimoire">Grimoire</a></li>
                 <li><a href="/projects">Projects</a></li>
-                <li><a href="/#contact">Speak</a></li>
+                <li><a href="/#contact" data-dest="contact">Speak</a></li>
             </ul>
+            <a class="btn btn-sm nav-cta" href="/consulting">Work with Jake</a>
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <main class="content-wrapper">
+    <main id="main">
 
-        <section class="page-hero dark-theme-section">
-            <div class="container page-hero-content">
-                <span class="eyebrow">Error 404</span>
-                <h1 class="massive-section-title">THIS SPELL<br>FIZZLED.</h1>
-                <p class="hero-role text-night" id="fizzle-line">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all.</p>
-                <p class="text-night" style="margin-top:0.5rem; opacity:0.85;">Let's get you back on the path.</p>
-                <p class="text-night" id="wiz-guess" style="display:none; margin-top:1rem; font-style:italic;">The wizard's best guess: you were looking for <a id="wiz-guess-link" href="/" class="text-night" style="text-decoration:underline;"></a></p>
-                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-                    <a href="/" class="btn btn-primary">Back to the homepage</a>
-                    <a href="/eight-dominoes" class="btn btn-ghost-light">See the Framework</a>
+        <!-- Hero · Jake walking off along the wall: this page wandered off the map -->
+        <section class="hero" id="hero" aria-labelledby="page-title">
+            <div class="hero-art" aria-hidden="true"></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="kicker intro" style="--d:.1s">Error 404</span>
+                    <h1 class="intro" id="page-title" style="--d:.25s">This spell <span class="pop rainbow">fizzled.</span></h1>
+                    <p class="lede intro" id="fizzle-line" style="--d:.7s">The page you're looking for vanished into the void &mdash; moved, renamed, or never conjured at all.</p>
+                    <p class="intro" style="--d:.75s;margin-top:14px">Let's get you back on the path.</p>
+                    <p id="wiz-guess" style="display:none;margin-top:14px;font-style:italic">The wizard's best guess: you were looking for <a id="wiz-guess-link" href="/" class="wavy"></a></p>
+                    <div class="cta-row intro" style="--d:.85s">
+                        <a class="btn" href="/">Back to the homepage</a>
+                        <a class="btn btn-ghost" href="/eight-dominoes">See the Framework</a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <span class="sticker" data-burst="pink" aria-hidden="true"><span><small>Error</small><b style="font-size:clamp(34px,3.6vw,46px)">404</b></span></span>
+                    <div class="tv">
+                        <img src="/dev_assets/photos/jake-rainbow-wall-5661-800.webp"
+                             srcset="/dev_assets/photos/jake-rainbow-wall-5661-800.webp 533w, /dev_assets/photos/jake-rainbow-wall-5661-1600.webp 1067w"
+                             sizes="(min-width: 860px) 450px, 80vw" width="533" height="800" fetchpriority="high" decoding="async"
+                             alt="Jake Tlapek in sunglasses, standing alone at the end of a long rainbow-striped wall" style="object-position:50% 78%">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section padding-section">
-            <div class="container center-text">
-                <span class="eyebrow">Or try one of these</span>
-                <nav aria-label="Popular pages" style="margin-top:1.25rem; display:flex; gap:0.75rem 1.5rem; flex-wrap:wrap; justify-content:center;">
-                    <a href="/consulting">Consulting</a>
-                    <a href="/mastermind">The Mastermind</a>
-                    <a href="/eight-dominoes">Eight Dominoes</a>
-                    <a href="/podcast-guest">Book Jake on your podcast</a>
-                    <a href="/tools">Free tools</a>
-                    <a href="/#contact">Get in touch</a>
+        <!-- Ways back: the popular pages as little doors -->
+        <section class="sec" aria-label="Or try one of these" style="padding-top:clamp(16px,3vw,40px)">
+            <div class="wrap">
+                <div class="head" style="margin-bottom:clamp(40px,5vw,60px)">
+                    <span class="kicker">Or try one of these</span>
+                </div>
+                <nav class="svc-grid lost-doors" aria-label="Popular pages">
+                    <a class="svc card reveal" href="/consulting" style="--c:var(--red);--i:0">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-consulting.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">Consulting</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
+                    <a class="svc card reveal" href="/mastermind" style="--c:var(--teal);--i:1">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-mastermind.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">The Mastermind</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
+                    <a class="svc card reveal" href="/eight-dominoes" style="--c:var(--yellow);--i:2">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-dominoes.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">Eight Dominoes</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
+                    <a class="svc card reveal" href="/podcast-guest" style="--c:var(--pink);--i:0">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-podcast.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">Book Jake on your podcast</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
+                    <a class="svc card reveal" href="/tools" style="--c:var(--mint);--i:1">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-tools.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">Free tools</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
+                    <a class="svc card reveal" href="/#contact" style="--c:var(--sky);--i:2">
+                        <div class="svc-top"><span class="svc-icon svc-icon--art"><img src="/dev_assets/brand/icon-contact.webp" width="88" height="88" alt="" loading="lazy" decoding="async"></span></div>
+                        <div class="svc-body"><span class="svc-name">Get in touch</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                    </a>
                 </nav>
+            </div>
+        </section>
 
-                <div style="max-width:480px; margin:3.5rem auto 0;">
-                    <h2 class="ink-stamp" style="font-size:1.3rem;">The page is gone. The weekly truths aren't.</h2>
-                    <p class="ink-text" style="margin-top:0.5rem; font-size:0.95rem; opacity:0.85;">One marketing truth a week. And if you came looking for the book, <a href="/eight-dominoes"><em>Eight Dominoes</em> is out now</a>. No spam, unsubscribe anytime.</p>
-                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="dominoes-form" style="margin-top:1.25rem;">
+        <div class="stripes" aria-hidden="true"></div>
+
+        <!-- The weekly truths · the book's yellow -->
+        <section class="sec sec--yellow" aria-labelledby="truths-h">
+            <span class="art-star" data-star="paper" style="left:6%;top:3%;width:44px" aria-hidden="true"></span>
+            <span class="art-star" data-star="pink" style="right:7%;top:80%;width:34px" aria-hidden="true"></span>
+            <div class="wrap wrap--narrow">
+                <div class="card lost-order reveal">
+                    <h2 id="truths-h">The page is gone. The weekly truths aren't.</h2>
+                    <p>One marketing truth a week. And if you came looking for the book, <a class="wavy" href="/eight-dominoes"><em>Eight Dominoes</em> is out now</a>. No spam, unsubscribe anytime.</p>
+                    <form action="https://formspree.io/f/xzdjjjlo" method="POST" class="inline-form">
                         <label for="lost-email" class="visually-hidden">Your email address</label>
                         <input id="lost-email" type="email" name="email" placeholder="Your best email" autocomplete="email" required>
                         <input type="hidden" name="_subject" value="Newsletter Signup — 404 page">
                         <input type="hidden" name="_form_type" value="eight_dominoes">
-                        <button type="submit" class="btn btn-primary">Send it to me</button>
+                        <button type="submit" class="btn btn-red">Send it to me</button>
                     </form>
                 </div>
 
-                <p class="ink-text" style="margin-top:2.5rem; font-size:0.9rem;">Followed a link here from somewhere? <a href="/#contact">Tell Jake what you were looking for</a> &mdash; broken links kill trust, and he fixes them fast.</p>
+                <p class="center reveal" style="margin-top:clamp(44px,6vw,64px);font-size:1.12rem">Followed a link here from somewhere? <a class="wavy" href="/#contact">Tell Jake what you were looking for</a> &mdash; broken links kill trust, and he fixes them fast.</p>
 
-                <p class="ink-text" style="margin-top:2.5rem; font-size:0.85rem; font-style:italic; opacity:0.7;">Why "404"? In HTTP's status codes, 4xx means the request &mdash; not the server &mdash; misfired. The legend that it honors "Room 404" at CERN is, fittingly for this page, a myth.</p>
+                <div class="card card--sticky card--pad reveal" style="max-width:540px;margin:clamp(40px,5vw,56px) auto 0">
+                    <p>Why "404"? In HTTP's status codes, 4xx means the request &mdash; not the server &mdash; misfired. The legend that it honors "Room 404" at CERN is, fittingly for this page, a myth.</p>
+                </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="dark-theme-section">
-        <div class="container center-text">
-            <div class="footer-logo ink-stamp text-night">The Wizard</div>
-            <p class="text-night">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
-            <nav aria-label="Footer navigation" style="margin-top:1rem;">
-                <a href="/" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Home</a>
-                <a href="/consulting" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Consulting</a>
-                <a href="/mastermind" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Mastermind</a>
-                <a href="/eight-dominoes" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Eight Dominoes</a>
-                <a href="/podcast-guest" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Podcast</a>
-                <a href="/tools" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Tools</a>
-                <a href="/grimoire" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Grimoire</a>
-                <a href="/projects" class="text-night" style="margin:0 0.75rem; font-size:0.8rem;">Projects</a>
-            </nav>
-            <nav class="footer-legal" aria-label="Legal links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms &amp; Conditions</a>
-                <a href="/cookies">Cookie Policy</a>
-                <a href="/ai-information">AI Information</a>
-            </nav>
+    <footer class="foot">
+        <a class="foot-brand disp" href="/"><img class="brand-mark" src="/dev_assets/brand/wizard-badge-96.webp" srcset="/dev_assets/brand/wizard-badge-96.webp 1x, /dev_assets/brand/wizard-badge-192.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async">The Wizard</a>
+        <nav class="foot-nav" aria-label="Footer navigation">
+            <a href="/consulting">Consulting</a><a href="/mastermind">Mastermind</a><a href="/eight-dominoes">Eight Dominoes</a>
+            <a href="/podcast-guest">Podcast</a><a href="/tools">Tools</a><a href="/grimoire">Grimoire</a><a href="/projects">Projects</a>
+        </nav>
+        <nav class="legal" aria-label="Legal links">
+            <a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a><a href="/cookies">Cookie Policy</a><a href="/ai-information">AI Information</a>
+        </nav>
+        <div class="arch">
+            <div data-art="arch" aria-hidden="true"></div>
+            <span class="note" aria-hidden="true" style="left:4%;top:38%;font-size:clamp(40px,7vw,86px);rotate:-12deg">♪</span>
+            <span class="note" aria-hidden="true" style="right:5%;top:30%;font-size:clamp(44px,8vw,96px);rotate:10deg">♫</span>
+            <span class="note" aria-hidden="true" style="left:33%;top:70%;font-size:clamp(22px,3.4vw,44px);rotate:8deg">♫</span>
+            <span class="note" aria-hidden="true" style="right:33%;top:68%;font-size:clamp(22px,3.6vw,48px);rotate:-10deg">♪</span>
+            <p class="inside">&copy; <span id="footer-year">2026</span> Jake Tlapek. All rights reserved. Built with scars.</p>
         </div>
     </footer>
 
@@ -164,6 +231,7 @@
     })();
     </script>
     <script defer src="/script.js?v=7.7"></script>
+    <script defer src="/schoolhouse.js?v=1"></script>
     <script defer src="/cookie-consent.js?v=2"></script>
 </body>
 </html>
