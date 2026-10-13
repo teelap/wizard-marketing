@@ -54,7 +54,7 @@ Ladder each post back to the offer that fits it — consulting, the blog, or the
 1. **Diagnose before you sell.** Two-beat sentences: short claim, shorter twist. ("People don't buy features. They buy dreams.")
 2. **Fragments as percussion.** Periods where commas would go. One idea per sentence. Average sentence under 12 words.
 3. **Numbers are the adjectives.** When a line feels weak, add a real number from the stat bank — not an adverb.
-4. **Wizard imagery decorates the room; it NEVER explains results.** Fantasy nouns name the containers (The Order, "Summon the Wizard," "this spell fizzled"). Results are always explained by sequence/work, never by magic. Note: product names are now plain — Eight Dominoes is the house brand for book, courses and mastermind alike.
+4. **Wizard imagery decorates the room; it NEVER explains results.** Fantasy nouns name the containers (The Order, "Summon the Wizard," "this spell fizzled"). Results are always explained by psychology and work, never by magic. Note: product names are now plain — Eight Dominoes is the house brand for book, courses and mastermind alike.
 5. **Truth-teller against the industry.** Call out bad habits plainly. Tell the truth even when it costs the sale.
 6. **Scars, not blog posts.** Authority comes from the trenches: "earned through bruises, not theory."
 7. **Second person, plain-spoken, mild deadpan.** Teacher energy. On TikTok-style captions, lowercase is on-brand.

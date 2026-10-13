@@ -78,7 +78,7 @@ function welcomeHtml(firstName) {
   return [
     '<div style="font-family:-apple-system,Segoe UI,system-ui,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1410;line-height:1.6;">',
     '<p>' + hi + ',</p>',
-    "<p>You're on the list. Every week I send one email on the marketing that actually moves revenue — the sequence, not the noise.</p>",
+    "<p>You're on the list. Every week I send one email on the marketing that actually moves revenue — the psychology, not the noise.</p>",
     '<p>No fluff. Unsubscribe anytime (link at the bottom of every email).</p>',
     '<p>— Jake</p>',
     '<p style="font-size:12px;color:#9a8a7e;margin-top:24px;">Jake Tlapek · The Wizard of Marketing · <a href="https://www.jakethewizard.com" style="color:#9a8a7e;">jakethewizard.com</a></p>',

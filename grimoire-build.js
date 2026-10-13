@@ -42,7 +42,7 @@ const SITE = {
     // SERP titles concise and keyword-first). ~18 chars.
     titleSuffix: ' | Jake the Wizard',
     standfirst:
-        'Marketing truths, teardowns, and the occasional spell. The thinking behind the sequence, written down. No fluff.',
+        'Marketing truths, teardowns, and the occasional spell. Why people buy, written down. No fluff.',
     formspree: 'https://formspree.io/f/xzdjjjlo',
     defaultImage: '/dev_assets/jake-headshot-2026.png',
     includeDrafts: process.env.GRIMOIRE_DRAFTS === '1',
@@ -283,7 +283,7 @@ function ctaHtml() {
     return `<aside class="grimoire-cta" aria-label="Subscribe to Jake's weekly email">
     <p class="grimoire-cta-kicker">The Weekly Truth</p>
     <h2 class="grimoire-cta-title">One marketing truth a week. No fluff.</h2>
-    <p class="grimoire-cta-sub">The sequence, not the noise. Unsubscribe anytime.</p>
+    <p class="grimoire-cta-sub">The psychology, not the noise. Unsubscribe anytime.</p>
     <form class="grimoire-cta-form" action="${SITE.formspree}" method="POST">
         <input type="hidden" name="_form_type" value="grimoire">
         <input type="hidden" name="_subject" value="The Grimoire — Newsletter Signup">
