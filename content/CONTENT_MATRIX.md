@@ -17,7 +17,7 @@ One voice + one angle = a broken record. Every Domino delivered as "here's what 
 
 ```
         CORE  ─────────────────────────────────────────────────────
-        Jake's worldview: there is no magic, only sequence and work.
+        Jake's worldview: there is no magic, only psychology and work. People buy dreams.
         (Too broad to post directly — like saying "digital marketing.")
                               │
         SUBTOPICS ────────────┼───────────────────────────────────── the WHAT
@@ -37,7 +37,7 @@ One voice + one angle = a broken record. Every Domino delivered as "here's what 
 
 These already live in [CONTENT_GUIDE §4](CONTENT_GUIDE.md). Each is a category Jake can talk about for days:
 
-- The **Eight Dominoes**, one at a time (01 Core Attraction → 08 New Opportunity) — the messaging *sequence*
+- The **Eight Dominoes**, one at a time (01 Core Attraction → 08 New Opportunity) — the psychology of why people buy
 - **Share of Brand Voice** — the metric most owners overlook
 - **TikTok SEO** / short-video demand gen
 - **DSP / omnichannel ads** vs. siloed PPC

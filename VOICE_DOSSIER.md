@@ -100,18 +100,19 @@ interviews, podcast appearances), and primary-source marketing research.
 ## 2. VOICE GUIDE — 15 traits with receipts
 
 1. **Diagnosis-first, two-beat sentences.** Short claim, shorter twist.
-   Signature: *"Your product isn't the problem. Your sequence is."* Also:
-   *"Sequence is the problem."* Copy should diagnose before it sells.
+   Signature: *"People don't buy features. They buy dreams."* (2026-10-12:
+   replaced the old "sequence" line, which Jake never liked.) Copy should
+   diagnose before it sells.
 2. **Fragments as percussion.** Periods where commas would be. *"No fluff.
    No drip sequence."* / *"Real strategies, real numbers."* / *"In sequence.
    Every time. No skipping ahead."* Never let a sentence carry three clauses.
-3. **Tricolon with a kicker.** *"Find the bottleneck, fix the sequence,
+3. **Tricolon with a kicker.** *"Find the bottleneck, fix the message,
    compound the results."* / *"He showed up, told the truth, and left
    something worth using."* Three verbs, escalating, concrete.
 4. **The wizard skin wraps anti-magic substance.** Fantasy nouns name the
    *containers* (The Order, "Summon the Wizard," "This spell
    fizzled," "See the arsenal," castle/owl/candle scene) — but the *message*
-   is always "there is no magic, only sequence/work/scars." Never use magic
+   is always "there is no magic, only psychology/work/scars." Never use magic
    to explain results; use it to decorate the room. His agency-era channel
    bio: *"Forged in the fires of Mt. Doom, a marketing agency like never
    before."* [YouTube channel description]
@@ -663,7 +664,7 @@ Mapped to Jake's themes; every item carries its primary source. Items marked
 
 ## Appendix: current site copy inventory (for diff-checking future edits)
 
-- Headline bank: "Your product isn't the problem. Your sequence is." ·
+- Headline bank: "People don't buy features. They buy dreams." ·
   "THE BRUTAL TRUTH." · "WORK WITH THE WIZARD." · "SUMMON THE WIZARD." ·
   "THIS SPELL FIZZLED." · "WHY THIS BOOK." · "THIS IS NOT FOR EVERYONE." ·
   "Scars from the Trenches" · "The Verdict" · "Heard the Wizard On" ·
