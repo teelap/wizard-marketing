@@ -109,6 +109,7 @@ Each item below is **one post = one subject** dealt in §2. Different carousels 
 - `instagramData:{type:"POST"|"REEL", showReelOnFeed:true}` — carousel needs ≥1 image; Reel needs a video.
 - `linkedinData:{documentTitle, publishImagesAsPDF:true, previewIncluded:true, type:"post"}` — document = the 8 slide PNGs as a PDF; link in `firstCommentText`.
 - `threadsData:{allowedCountryCodes:[]}` · `youtubeData:{title, type:"short", privacy:"public", madeForKids:false}` · `tiktokData:{privacyOption:"PUBLIC_TO_EVERYONE", photoCoverIndex:0, title}`.
+- **TikTok photo posts take WebP or JPEG only, never PNG.** Metricool accepts a PNG when you schedule it, then the post fails at publish time with "image/png type is not allowed". Push a `.webp` copy of each slide next to the PNG and use it only in the TikTok payload. Videos are fine.
 - **Spine reels:** one `createScheduledPost` per reel with the **hosted clip** in `media:[url]` (a Reel/Short needs the video, not an image) — `instagramData:{type:"REEL", showReelOnFeed:true}`, `youtubeData:{type:"short", …}`, or `tiktokData`. A Facebook cross-post is a second create off the same URL. After each confirms, run `content/video/mark-posted.js`.
 - Verify the whole set with `getScheduledPosts`.
 
