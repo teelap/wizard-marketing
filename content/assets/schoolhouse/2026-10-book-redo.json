@@ -1,0 +1,594 @@
+{
+ "updated": "2026-10-13",
+ "note": "48 scheduled Metricool posts moved to the 70s images from 2026-10-book-redo.html. Captions, times and links unchanged. Media on side branch assets/book-redo-2026-10 (commit f932682).",
+ "posts": [
+  {
+   "card": "q1",
+   "photo": "graffiti 5577",
+   "when": "2026-10-14T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259098",
+   "newId": "395506152",
+   "uuid": "2537047613848177879",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q1.png"
+  },
+  {
+   "card": "q1",
+   "photo": "graffiti 5577",
+   "when": "2026-10-14T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259057",
+   "newId": "395506222",
+   "uuid": "-6637158288087826129",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q1.png"
+  },
+  {
+   "card": "q1",
+   "photo": "graffiti 5577",
+   "when": "2026-10-14T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395259140",
+   "newId": "395506233",
+   "uuid": "-8211893153566340805",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q1.png"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T13:15:00",
+   "networks": [
+    "tiktok"
+   ],
+   "oldId": "395260098",
+   "newId": "395506319",
+   "uuid": "-918005324994097942",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.webp"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T13:25:00",
+   "networks": [
+    "twitter"
+   ],
+   "oldId": "395260123",
+   "newId": "395506343",
+   "uuid": "45992872691451988",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.png"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T13:35:00",
+   "networks": [
+    "facebook"
+   ],
+   "oldId": "395260051",
+   "newId": "395506368",
+   "uuid": "5832808170139174167",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.png"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T15:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259985",
+   "newId": "395506390",
+   "uuid": "-2441187180427654813",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.png"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T15:50:00",
+   "networks": [
+    "instagram"
+   ],
+   "oldId": "395260017",
+   "newId": "395506416",
+   "uuid": "-6745863801426918438",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.png"
+  },
+  {
+   "card": "q2",
+   "photo": "blazer 5807",
+   "when": "2026-10-15T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259228",
+   "newId": "395506479",
+   "uuid": "-3555121137942445724",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q2.png"
+  },
+  {
+   "card": "q2",
+   "photo": "blazer 5807",
+   "when": "2026-10-15T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259172",
+   "newId": "395506507",
+   "uuid": "7143334979379874573",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q2.png"
+  },
+  {
+   "card": "q2",
+   "photo": "blazer 5807",
+   "when": "2026-10-15T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395259272",
+   "newId": "395506527",
+   "uuid": "6852186141872638052",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q2.png"
+  },
+  {
+   "card": "b1",
+   "photo": "book-mural 5742",
+   "when": "2026-10-15T19:45:00",
+   "networks": [
+    "threads"
+   ],
+   "oldId": "395260153",
+   "newId": "395506435",
+   "uuid": "6792918388568443951",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b1.png"
+  },
+  {
+   "card": "q3",
+   "photo": "street 5961",
+   "when": "2026-10-16T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259372",
+   "newId": "395506554",
+   "uuid": "-4462521486320645471",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q3.png"
+  },
+  {
+   "card": "q3",
+   "photo": "street 5961",
+   "when": "2026-10-16T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259318",
+   "newId": "395506572",
+   "uuid": "-5568165974768598649",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q3.png"
+  },
+  {
+   "card": "q3",
+   "photo": "street 5961",
+   "when": "2026-10-16T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395259402",
+   "newId": "395506589",
+   "uuid": "-4136593147089304751",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q3.png"
+  },
+  {
+   "card": "q4",
+   "photo": "butterfly 5844",
+   "when": "2026-10-17T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259505",
+   "newId": "395506660",
+   "uuid": "3986067720511176821",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q4.png"
+  },
+  {
+   "card": "q4",
+   "photo": "butterfly 5844",
+   "when": "2026-10-17T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259448",
+   "newId": "395506697",
+   "uuid": "-341050895601676665",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q4.png"
+  },
+  {
+   "card": "q4",
+   "photo": "butterfly 5844",
+   "when": "2026-10-17T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395259538",
+   "newId": "395506710",
+   "uuid": "8815907204839654400",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q4.png"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T13:15:00",
+   "networks": [
+    "tiktok"
+   ],
+   "oldId": "395260312",
+   "newId": "395506731",
+   "uuid": "-1401297303508597317",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.webp"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T13:25:00",
+   "networks": [
+    "twitter"
+   ],
+   "oldId": "395260375",
+   "newId": "395506757",
+   "uuid": "-1019945750901341515",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.png"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T13:35:00",
+   "networks": [
+    "facebook"
+   ],
+   "oldId": "395260267",
+   "newId": "395506773",
+   "uuid": "1818896805700125597",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.png"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T15:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395260206",
+   "newId": "395506807",
+   "uuid": "1521241891341681337",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.png"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T15:50:00",
+   "networks": [
+    "instagram"
+   ],
+   "oldId": "395260224",
+   "newId": "395506829",
+   "uuid": "-6617949456101850207",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.png"
+  },
+  {
+   "card": "q5",
+   "photo": "cloak-alley 5926",
+   "when": "2026-10-18T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259623",
+   "newId": "395506845",
+   "uuid": "3355285446275714723",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q5.png"
+  },
+  {
+   "card": "q5",
+   "photo": "cloak-alley 5926",
+   "when": "2026-10-18T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259582",
+   "newId": "395506867",
+   "uuid": "3625549767556943868",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q5.png"
+  },
+  {
+   "card": "q5",
+   "photo": "cloak-alley 5926",
+   "when": "2026-10-18T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395259674",
+   "newId": "395506881",
+   "uuid": "7843834956985417790",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q5.png"
+  },
+  {
+   "card": "b2",
+   "photo": "book-mural 5732",
+   "when": "2026-10-18T19:45:00",
+   "networks": [
+    "threads"
+   ],
+   "oldId": "395260414",
+   "newId": "395506902",
+   "uuid": "-4779286240721678922",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b2.png"
+  },
+  {
+   "card": "q6",
+   "photo": "cloak-butterfly 5905",
+   "when": "2026-10-19T17:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395259781",
+   "newId": "395506943",
+   "uuid": "-7497002485852844606",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q6.png"
+  },
+  {
+   "card": "q6",
+   "photo": "cloak-butterfly 5905",
+   "when": "2026-10-19T17:30:00",
+   "networks": [
+    "facebook",
+    "instagram"
+   ],
+   "oldId": "395259737",
+   "newId": "395506958",
+   "uuid": "-6487851471173104078",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q6.png"
+  },
+  {
+   "card": "q6",
+   "photo": "cloak-butterfly 5905",
+   "when": "2026-10-19T17:35:00",
+   "networks": [
+    "twitter",
+    "threads"
+   ],
+   "oldId": "395258845",
+   "newId": "395506988",
+   "uuid": "-4957865069265399828",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/q6.png"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T13:15:00",
+   "networks": [
+    "tiktok"
+   ],
+   "oldId": "395260545",
+   "newId": "395507034",
+   "uuid": "-8345351679122259408",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.webp"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T13:25:00",
+   "networks": [
+    "twitter"
+   ],
+   "oldId": "395260567",
+   "newId": "395507045",
+   "uuid": "2036760021134232178",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.png"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T13:35:00",
+   "networks": [
+    "facebook"
+   ],
+   "oldId": "395260511",
+   "newId": "395507067",
+   "uuid": "-5686054786530523192",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.png"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T15:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395260452",
+   "newId": "395507091",
+   "uuid": "4276152892611775055",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.png"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T15:50:00",
+   "networks": [
+    "instagram"
+   ],
+   "oldId": "395260479",
+   "newId": "395507105",
+   "uuid": "-119274579990198917",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.png"
+  },
+  {
+   "card": "b3",
+   "photo": "book-mural 5719",
+   "when": "2026-10-26T19:45:00",
+   "networks": [
+    "threads"
+   ],
+   "oldId": "395260591",
+   "newId": "395507129",
+   "uuid": "5759930703469822848",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b3.png"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T13:15:00",
+   "networks": [
+    "tiktok"
+   ],
+   "oldId": "395260740",
+   "newId": "395507160",
+   "uuid": "-2613428358291831449",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.webp"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T13:25:00",
+   "networks": [
+    "twitter"
+   ],
+   "oldId": "395260772",
+   "newId": "395507196",
+   "uuid": "-7608128212827026558",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.png"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T13:35:00",
+   "networks": [
+    "facebook"
+   ],
+   "oldId": "395260695",
+   "newId": "395507212",
+   "uuid": "300255187449301510",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.png"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T15:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395260616",
+   "newId": "395507235",
+   "uuid": "5104561467829143523",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.png"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T15:50:00",
+   "networks": [
+    "instagram"
+   ],
+   "oldId": "395260645",
+   "newId": "395507263",
+   "uuid": "3365676914055073617",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.png"
+  },
+  {
+   "card": "b4",
+   "photo": "book-mural 5728",
+   "when": "2026-10-28T19:45:00",
+   "networks": [
+    "threads"
+   ],
+   "oldId": "395260828",
+   "newId": "395507288",
+   "uuid": "-6723781770459135554",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b4.png"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T13:15:00",
+   "networks": [
+    "tiktok"
+   ],
+   "oldId": "395260999",
+   "newId": "395507329",
+   "uuid": "-4947909448085716846",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.webp"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T13:25:00",
+   "networks": [
+    "twitter"
+   ],
+   "oldId": "395261036",
+   "newId": "395507349",
+   "uuid": "3334322878107240617",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.png"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T13:35:00",
+   "networks": [
+    "facebook"
+   ],
+   "oldId": "395260962",
+   "newId": "395507366",
+   "uuid": "4714905735540263760",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.png"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T15:05:00",
+   "networks": [
+    "linkedin"
+   ],
+   "oldId": "395260896",
+   "newId": "395507381",
+   "uuid": "3100770418851202501",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.png"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T15:50:00",
+   "networks": [
+    "instagram"
+   ],
+   "oldId": "395260927",
+   "newId": "395507391",
+   "uuid": "-3646920989938528906",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.png"
+  },
+  {
+   "card": "b5",
+   "photo": "book-mural 5754",
+   "when": "2026-10-30T19:45:00",
+   "networks": [
+    "threads"
+   ],
+   "oldId": "395261061",
+   "newId": "395507406",
+   "uuid": "2250441792057985337",
+   "media": "https://raw.githubusercontent.com/teelap/wizard-marketing/f932682d50b4253a46cf66f537f9f170c7b442d0/s/b5.png"
+  }
+ ]
+}
