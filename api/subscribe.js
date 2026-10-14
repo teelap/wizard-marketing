@@ -75,14 +75,32 @@ function welcomeHtml(firstName) {
   const safeFirst = String(firstName || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const hi = safeFirst ? 'Hey ' + safeFirst : 'Hey';
+  // The site's 70s schoolhouse look in email-safe markup: tables, inline styles, PNG art, system font fallbacks.
+  const INK = '#1B1A17';
+  const rainbow = ['#12A4A4', '#F6A8CB', '#E5322B', '#FF9473', '#FFC928', '#17271F', '#91DE87', '#8B1D3D', '#5DB6EC']
+    .map((c) => '<tr><td style="height:4px;line-height:4px;font-size:0;background:' + c + ';">&nbsp;</td></tr>').join('');
+  const display = "font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:900;";
+  const body = "font-family:'Nunito',-apple-system,'Segoe UI',system-ui,Arial,sans-serif;";
+  const p = '<p style="margin:0 0 16px;' + body + 'font-size:17px;line-height:1.6;font-weight:700;color:' + INK + ';">';
   return [
-    '<div style="font-family:-apple-system,Segoe UI,system-ui,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1410;line-height:1.6;">',
-    '<p>' + hi + ',</p>',
-    "<p>You're on the list. Every week I send one email on the marketing that actually moves revenue — the psychology, not the noise.</p>",
-    '<p>No fluff. Unsubscribe anytime (link at the bottom of every email).</p>',
-    '<p>— Jake</p>',
-    '<p style="font-size:12px;color:#9a8a7e;margin-top:24px;">Jake Tlapek · The Wizard of Marketing · <a href="https://www.jakethewizard.com" style="color:#9a8a7e;">jakethewizard.com</a></p>',
-    '</div>',
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFF1D6;"><tr><td align="center" style="padding:32px 16px;">',
+    '<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#FFFAF0;border:4px solid ' + INK + ';border-radius:18px;box-shadow:8px 8px 0 ' + INK + ';border-collapse:separate;overflow:hidden;">',
+    '<tr><td><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:4px solid ' + INK + ';">' + rainbow + '</table></td></tr>',
+    '<tr><td style="padding:28px 32px 8px;">',
+    '<img src="https://www.jakethewizard.com/dev_assets/brand/icon-192.png" width="72" height="72" alt="The Wizard" style="display:block;border:0;margin:0 0 16px;">',
+    '<h1 style="margin:0 0 18px;' + display + 'font-size:34px;line-height:1.05;color:' + INK + ';">You\'re on the list.</h1>',
+    p + hi + ',</p>',
+    p + 'Every week I send one email on the marketing that actually moves revenue. The psychology, not the noise.</p>',
+    p + 'No fluff. Unsubscribe anytime (link at the bottom of every email).</p>',
+    '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:8px 0 22px;"><tr><td style="background:#FFC928;border:3px solid ' + INK + ';border-radius:999px;">',
+    '<a href="https://www.jakethewizard.com/grimoire" style="display:inline-block;padding:12px 26px;' + display + 'font-size:18px;color:' + INK + ';text-decoration:none;">Read the Grimoire</a>',
+    '</td></tr></table>',
+    p + 'Jake</p>',
+    '</td></tr>',
+    '<tr><td style="padding:14px 32px 22px;border-top:3px dashed #CFC3AA;' + body + 'font-size:12px;font-weight:700;color:#5E5648;">',
+    'Jake Tlapek · The Wizard of Marketing · <a href="https://www.jakethewizard.com" style="color:#5E5648;">jakethewizard.com</a>',
+    '</td></tr></table>',
+    '</td></tr></table>',
   ].join('');
 }
 
