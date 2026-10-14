@@ -28,3 +28,6 @@ design-system/dist/
 design-system/.design-sync/.cache/
 design-system/.design-sync/learnings/
 design-system/.design-sync/node_modules
+
+# rendered social images (host on a side branch, never master)
+content/assets/schoolhouse/*-slides/

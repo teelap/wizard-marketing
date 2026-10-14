@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Single-card templates · Jake the Wizard</title>
+<!-- Jake the Wizard single-image templates, 1080x1080 (LinkedIn Static Card, Instagram Quiet Card, X/Threads/Facebook image).
+     Clone NEXT TO this file, keep the one card you need, swap the copy, then:
+       node content/assets/schoolhouse/render.js content/assets/schoolhouse/<file>.html <prefix>
+     Cards: static (the post's hook line) · quiet (one Jake aphorism, verbatim) · stat (one approved number) · photo (Jake + one line).
+     Rules: the image text must make sense to a stranger; one emphasised word; no emoji, no exclamation marks. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="../../../schoolhouse.css">
+<link rel="stylesheet" href="social.css">
+</head>
+<body>
+<main class="deck">
+
+  <!-- STATIC CARD: kicker + the post's hook line, framed by the bend -->
+  <section class="slide f-square hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in" style="justify-content:center">
+      <span class="kicker s-kicker">Messaging</span>
+      <h2 class="s-title has-hl" style="--ts:104px">People don’t buy features. They buy <span class="hl">dreams.</span></h2>
+      <p class="s-sub">Sell the life on the other side of the purchase.</p>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><img src="../../../assets/brand/masters/wizard-hat.webp" alt="" style="width:92px"></footer>
+  </section>
+
+  <!-- QUIET CARD: one aphorism, verbatim, under the arch -->
+  <section class="slide f-square on-paper">
+    <div class="s-arch" data-art="arch" aria-hidden="true" style="width:1180px;bottom:-250px"></div>
+    <div class="s-in center" style="inset:90px 90px 330px">
+      <span class="s-mark" aria-hidden="true">“</span>
+      <p class="s-quote" style="--ts:88px">Content that doesn’t convert is noise.”</p>
+      <span class="s-cite">Jake Tlapek · @itsjakethewizard</span>
+    </div>
+  </section>
+
+  <!-- STAT CARD: one approved number in a seal, on yellow -->
+  <section class="slide f-square on-yellow">
+    <div class="s-stripes" aria-hidden="true"></div>
+    <div class="s-in center" style="inset:70px 90px 150px;gap:26px">
+      <h2 class="s-title" style="--ts:80px">Built without a pitch.</h2>
+      <div class="seal s-seal-sm" data-fill="red" data-burst="orange" data-rot="10" style="width:420px"><b style="color:var(--cream)">110K+</b></div>
+      <p class="s-body" style="max-width:24ch">followers on TikTok, earned by telling the truth.</p>
+    </div>
+  </section>
+
+  <!-- PHOTO CARD: Jake in the TV with one short line -->
+  <section class="slide f-square hero hero--flip">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in" style="flex-direction:row;align-items:center;gap:40px">
+      <div class="s-photo" style="--pw:400px;align-self:center;margin:0;flex:none">
+        <div class="tv tv--tilt-l"><img src="../../../../knowledgebase/photos/processed/social/portrait-4x5/jake-tlapek-butterfly-5879-portrait.jpg" alt=""></div>
+      </div>
+      <h2 class="s-title has-hl" style="--ts:76px">Tell the truth, even when it costs the <span class="hl">sale.</span></h2>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span></footer>
+  </section>
+
+</main>
+<script defer src="../../../schoolhouse.js"></script>
+</body>
+</html>

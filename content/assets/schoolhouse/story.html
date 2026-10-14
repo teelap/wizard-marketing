@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Story and cover templates · Jake the Wizard</title>
+<!-- Jake the Wizard vertical templates, 1080x1920 (Instagram/Facebook Story, Reel and TikTok cover, YouTube Short cover).
+     Clone NEXT TO this file, swap the copy, then: node content/assets/schoolhouse/render.js <file> <prefix>
+     Keep text out of the top 220px and bottom 380px: the apps put their buttons there (the frames below already do). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="../../../schoolhouse.css">
+<link rel="stylesheet" href="social.css">
+<style>
+  .f-story .s-in{top:230px;bottom:calc(var(--band,0px) + 330px)}
+  .f-story .s-foot{bottom:calc(var(--band,0px) + 250px)}
+</style>
+</head>
+<body>
+<main class="deck">
+
+  <!-- COVER: the reel's promise as a headline, Jake's photo, a sticker -->
+  <section class="slide f-story hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in" style="gap:34px">
+      <span class="kicker s-kicker">60-second lesson</span>
+      <h1 class="s-title" style="--ts:120px">Your buyer is paying for a <span class="pop rainbow">feeling.</span></h1>
+      <div class="s-photo" style="--pw:560px">
+        <div class="sticker" data-burst="pink"><span><small>Watch</small><b>before you<br>write copy</b></span></div>
+        <div class="tv"><img src="../../../../knowledgebase/photos/processed/social/portrait-4x5/jake-tlapek-graffiti-5594-portrait.jpg" alt=""></div>
+      </div>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span></footer>
+  </section>
+
+  <!-- PROMO: one offer, one order, one place -->
+  <section class="slide f-story on-yellow">
+    <div class="s-stripes" aria-hidden="true" style="height:120px"></div>
+    <div class="s-in center" style="inset:240px 90px 420px;gap:44px">
+      <img class="s-badge" src="../../../assets/brand/masters/wizard-badge.webp" alt="" style="width:240px">
+      <h2 class="s-title has-hl" style="--ts:112px">Bring your hardest <span class="hl" style="background:var(--paper)">problem.</span></h2>
+      <p class="s-sub" style="max-width:20ch">30-minute Strategy Session. $400. Leave with the message that fixes it.</p>
+      <a class="btn btn-ink s-btn">Book the call</a>
+      <span class="s-url">jakethewizard.com/consulting</span>
+    </div>
+  </section>
+
+</main>
+<script defer src="../../../schoolhouse.js"></script>
+</body>
+</html>

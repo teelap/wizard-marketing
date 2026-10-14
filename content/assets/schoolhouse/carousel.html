@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Carousel template · Jake the Wizard</title>
+<!-- Jake the Wizard carousel template, 1080x1350 (Instagram, LinkedIn document, TikTok photo).
+     Clone this file NEXT TO IT (content/assets/schoolhouse/<week>-<slug>.html) so the relative paths hold,
+     keep the slide types you need, swap the copy, then:  node content/assets/schoolhouse/render.js <file> <prefix>
+     Slide types: cover · point · list · stat · quote · photo · cta. Alternate .hero--flip on consecutive bend slides.
+     Rules: one idea per carousel; one emphasised word per title (.hl, or .pop.rainbow); approved numbers only;
+     no emoji, no exclamation marks; Jake only as a real photo. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="../../../schoolhouse.css">
+<link rel="stylesheet" href="social.css">
+</head>
+<body>
+<main class="deck">
+
+  <!-- 1 · COVER: kicker, the idea as a plain statement, one rainbow word, Jake's photo + sticker -->
+  <section class="slide f-portrait hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in" style="gap:28px">
+      <span class="kicker s-kicker">Sales psychology</span>
+      <h1 class="s-title" style="--ts:96px">The objection is never the <span class="pop rainbow">objection.</span></h1>
+      <p class="s-sub" style="max-width:30ch">When a buyer says “too expensive,” price is rarely the problem.</p>
+      <div class="s-photo" style="--pw:420px">
+        <div class="sticker" data-burst="yellow"><span><small>Save for</small><b>your next<br>call</b></span></div>
+        <div class="tv"><img src="../../../../knowledgebase/photos/processed/social/portrait-4x5/jake-tlapek-cloak-butterfly-5907-portrait.jpg" alt=""></div>
+      </div>
+    </div>
+    <footer class="s-foot"><span class="s-swipe">Swipe <i class="fa-solid fa-arrow-right"></i></span><span class="s-page">1/7</span></footer>
+  </section>
+
+  <!-- 2 · POINT: number coin, one claim, one line of proof (flip alternates the bend) -->
+  <section class="slide f-portrait hero hero--flip">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in">
+      <span class="num s-num" style="--c:var(--sky)">1</span>
+      <h2 class="s-title has-hl" style="--ts:96px">“Too expensive” means they don’t believe it <span class="hl">works.</span></h2>
+      <p class="s-body">A discount doesn’t fix doubt. Proof of the outcome does.</p>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><span class="s-page">2/7</span></footer>
+  </section>
+
+  <!-- 3 · LIST: a title and three ticked lines on the legal-pad checklist -->
+  <section class="slide f-portrait hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in">
+      <span class="kicker s-kicker">What breaks it</span>
+      <h2 class="s-title has-hl" style="--ts:92px">Answer the belief, not the <span class="hl">sentence.</span></h2>
+      <ul class="checks">
+        <li>Show proof of the outcome<small>not a discount</small></li>
+        <li>Remove the personal risk of choosing</li>
+        <li>Hand them the argument in their own words</li>
+      </ul>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><span class="s-page">3/7</span></footer>
+  </section>
+
+  <!-- 4 · STAT: one approved number in a seal, on the yellow band -->
+  <section class="slide f-portrait hero hero--flip on-yellow">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in center">
+      <h2 class="s-title" style="--ts:84px">One button change.</h2>
+      <div class="seal s-seal" data-fill="sky" data-burst="pink" data-rot="8"><b>6.5%</b></div>
+      <p class="s-body" style="max-width:22ch">A client’s conversion, up from 1.2%, after we fixed what buyers believed.</p>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><span class="s-page">4/7</span></footer>
+  </section>
+
+  <!-- 5 · QUOTE: Jake's line, verbatim, beside the spinning record -->
+  <section class="slide f-portrait hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in">
+      <div class="rec s-rec" data-art="record" aria-hidden="true"></div>
+      <span class="s-mark" aria-hidden="true">“</span>
+      <p class="s-quote">People browse intellectually and buy emotionally.”</p>
+      <span class="s-cite">Jake Tlapek</span>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><span class="s-page">5/7</span></footer>
+  </section>
+
+  <!-- 6 · PHOTO: Jake in the TV with one short line in a speech bubble -->
+  <section class="slide f-portrait hero hero--flip">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="s-in">
+      <div class="s-photo" style="--pw:560px;align-self:flex-start;margin-top:0">
+        <div class="tv tv--tilt-l"><img src="../../../../knowledgebase/photos/processed/social/portrait-4x5/jake-tlapek-arcade-5641-portrait.jpg" alt=""></div>
+      </div>
+      <p class="bubble card s-bubble">“The hardest system to debug is people.”</p>
+    </div>
+    <footer class="s-foot"><span class="s-handle">@itsjakethewizard</span><span class="s-page">6/7</span></footer>
+  </section>
+
+  <!-- 7 · CTA: badge, the order, the place; the footer arch closes the deck -->
+  <section class="slide f-portrait">
+    <div class="s-arch" data-art="arch" aria-hidden="true"></div>
+    <div class="s-in center" style="justify-content:flex-start;padding-top:40px">
+      <img class="s-badge" src="../../../assets/brand/masters/wizard-badge.webp" alt="">
+      <h2 class="s-title" style="--ts:104px">Fix the message, not the <span class="pop rainbow">price.</span></h2>
+      <a class="btn s-btn">Book the call</a>
+      <span class="s-url">jakethewizard.com/consulting</span>
+    </div>
+    <footer class="s-foot" style="justify-content:center;bottom:84px"><span class="s-page">7/7</span></footer>
+  </section>
+
+</main>
+<script defer src="../../../schoolhouse.js"></script>
+</body>
+</html>

@@ -92,7 +92,7 @@
 ### The Quiet Card — Tier C
 - **What:** a single still or 2-slide micro-carousel carrying one Jake aphorism, no explainer.
 - **Why it works here:** restraint reads as confidence (the Vassallo device, VOICE_DOSSIER §4), and a flat-stated truth is high-save, high-screenshot-share — both ranked signals. It's the format that says he doesn't need the swipe. Experimental because static is IG's lowest-reach format (instagram.md) — it earns its slot on saves, not reach.
-- **Skeleton:** slide 1 = the aphorism, verbatim from CONTENT_GUIDE §7, set on parchment · optional slide 2 = the one-line gloss + CTA. Keyword worked into caption line 1 (the image text is the aphorism, not the keyword).
+- **Skeleton:** slide 1 = the aphorism, verbatim from CONTENT_GUIDE §7, set as the "quiet" card in `content/assets/schoolhouse/cards.html` · optional slide 2 = the one-line gloss + CTA. Keyword worked into caption line 1 (the image text is the aphorism, not the keyword).
 - **Hooks that fit:** the aphorism, the reframe.
 - **Example (Jake's voice):** slide 1: "content that doesn't convert is noise." caption first line: "every post should move one number. if it can't, cut it. save this where you'll see it."
 - **Don't:** explain the aphorism to death or stack three. One line. Let it sit.

@@ -11,7 +11,7 @@ The recurring workflows are packaged as **skills** so they can run unattended:
 All three are **registered as local scheduled-tasks** (via `mcp__scheduled-tasks`; manage them in the **Scheduled** sidebar). They must run locally because they depend on things that only exist **on this machine**:
 - the **Metricool MCP** (interactive auth — absent in headless/cloud runs),
 - the local clip library (`G:\My Drive\TikTok\Old`, cataloged at `content/video/catalog.json`) — the **video spine** deals 2 back-catalog reels/day from it,
-- the render tooling (`content/video/`, `content/assets/render-carousel.js`, headless Chrome),
+- the render tooling (`content/video/`, `content/assets/schoolhouse/render.js`, headless Chrome),
 - and **git** (for transient media hosting + the review's local commits).
 
 A cloud routine (`/schedule`) wouldn't have the Metricool connector, so it couldn't push drafts. The registered schedule (America/Phoenix):

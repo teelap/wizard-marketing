@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stat reel template · Jake the Wizard</title>
+<!-- Jake the Wizard stat-reveal reel, 1080x1920, deterministic: render.js calls window.seek(t) per frame.
+     Clone NEXT TO this file (content/video/<slug>-reel.html), swap the copy, number and photo, then:
+       node content/video/render.js <slug>-reel.html <slug>-reel.mp4 9 30
+     Beats: 1 rainbow paints on + number counts up in a seal · 2 headline with hopping rainbow word ·
+     3 Jake's photo switches on like an old TV + one line · 4 the order and the place.
+     Numbers: approved bank only. Photos: any from the shoot library (content/assets/schoolhouse/photos.json), rotate. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../schoolhouse.css">
+<link rel="stylesheet" href="../assets/schoolhouse/social.css">
+<style>
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
+  body::after{animation:none}
+  #stage{margin:0}
+  .beat{position:absolute;inset:230px calc(var(--band,150px) + 70px) calc(var(--band,150px) + 360px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:40px;opacity:0}
+  .beat .s-title{--ts:120px}
+  .count{font-variant-numeric:tabular-nums}
+  #b3 .tv{width:620px;aspect-ratio:4/5;border-width:8px;border-radius:44px;box-shadow:18px 18px 0 var(--ink)}
+  #b3 .tv img{transform-origin:50% 50%}
+  .reel-foot{position:absolute;left:0;right:0;bottom:calc(var(--band,150px) + 250px);display:flex;justify-content:center}
+</style>
+</head>
+<body>
+<section id="stage" class="slide f-story hero">
+  <div class="hero-art" aria-hidden="true"></div>
+
+  <div class="beat" id="b1">
+    <span class="kicker s-kicker">One button change</span>
+    <div class="seal s-seal" data-fill="sky" data-burst="pink" data-rot="8" style="width:620px"><b><span><span class="count" id="count">1.2</span>%</span></b></div>
+    <p class="s-sub" style="max-width:20ch">A client’s conversion rate, before and after.</p>
+  </div>
+
+  <div class="beat" id="b2">
+    <h2 class="s-title">They didn’t need more <span class="pop rainbow">traffic.</span></h2>
+    <p class="s-sub" style="max-width:22ch">They needed buyers to believe the button.</p>
+  </div>
+
+  <div class="beat" id="b3">
+    <div class="tv tv--tilt-r"><img src="../../../knowledgebase/photos/processed/social/portrait-4x5/jake-tlapek-cloak-alley-5949-portrait.jpg" alt=""></div>
+    <p class="bubble card s-bubble" style="margin-top:20px">“Fix the message before you buy more clicks.”</p>
+  </div>
+
+  <div class="beat" id="b4">
+    <img class="s-badge" src="../../assets/brand/masters/wizard-badge.webp" alt="" style="width:240px">
+    <h2 class="s-title has-hl" style="--ts:104px">Bring your hardest <span class="hl">problem.</span></h2>
+    <a class="btn s-btn">Book the call</a>
+    <span class="s-url">jakethewizard.com/consulting</span>
+  </div>
+
+  <div class="reel-foot"><span class="s-handle">@itsjakethewizard</span></div>
+</section>
+
+<script src="../../schoolhouse.js"></script>
+<script>
+  /* Every frame is a pure function of t, so the render is identical every time. */
+  const ease = x => 1 - Math.pow(1 - x, 3);
+  const back = x => 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2);   // overshoot, ends at 1
+  const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+  const p = (t, s, d) => clamp((t - s) / d);
+  const env = (t, s, e, f) => (t <= s || t >= e) ? 0 : Math.min(ease(p(t, s, f)), ease(clamp((e - t) / f)));
+
+  let bendPaths = null, letters = null;
+  function init() {
+    bendPaths = [...document.querySelectorAll('.hero-art path')].map(el => ({ el, L: el.getTotalLength() }));
+    letters = [...document.querySelectorAll('#b2 .rainbow-letters > span')];
+  }
+
+  function seek(t) {
+    if (!bendPaths) init();
+    // the rainbow paints on in the first 1.6s, colour leading, ink casing last
+    bendPaths.forEach(({ el, L }, i) => {
+      const k = ease(p(t, 0.05 + (i === 0 ? 0.25 : (i - 1) * 0.03), 1.4));
+      el.style.strokeDasharray = `${L} ${L + 1}`;
+      el.style.strokeDashoffset = String(L * (1 - k));
+    });
+
+    // beat 1: seal slaps in and spins to rest, number counts 1.2 -> 6.5
+    const b1 = document.getElementById('b1');
+    b1.style.opacity = env(t, 0.3, 3.0, 0.35);
+    const seal = b1.querySelector('.seal');
+    const sp = p(t, 0.45, 0.7);
+    seal.style.transform = `scale(${0.3 + 0.7 * back(sp)}) rotate(${-120 * (1 - ease(sp))}deg)`;
+    document.getElementById('count').textContent = (1.2 + 5.3 * ease(p(t, 1.0, 1.3))).toFixed(1);
+
+    // beat 2: headline rises, rainbow letters hop in one by one
+    const b2 = document.getElementById('b2');
+    b2.style.opacity = env(t, 3.0, 5.2, 0.3);
+    b2.style.transform = `translateY(${(1 - ease(p(t, 3.0, 0.5))) * 40}px)`;
+    letters.forEach((el, i) => {
+      const q = p(t, 3.35 + i * 0.06, 0.45);
+      el.style.display = 'inline-block';
+      el.style.transform = `translateY(${(1 - back(q)) * 0.5}em) scale(${0.35 + 0.65 * back(q)})`;
+    });
+
+    // beat 3: the TV switches on (a bright line opens into the picture), then the bubble pops
+    const b3 = document.getElementById('b3');
+    b3.style.opacity = env(t, 5.2, 7.0, 0.25);
+    const img = b3.querySelector('img'), tv = p(t, 5.3, 0.7);
+    const sy = tv < 0.3 ? 0.006 : 0.006 + 0.994 * ease((tv - 0.3) / 0.7);
+    const sx = tv < 0.3 ? 0.4 + 0.6 * ease(tv / 0.3) : 1;
+    img.style.transform = `scale(${sx}, ${sy})`;
+    img.style.filter = `brightness(${1 + 5 * (1 - ease(tv))}) saturate(${ease(tv)})`;
+    const bub = b3.querySelector('.bubble'), bp = p(t, 6.0, 0.4);
+    bub.style.opacity = bp > 0 ? 1 : 0;
+    bub.style.transform = `scale(${0.6 + 0.4 * back(bp)})`;
+
+    // beat 4: the order
+    const b4 = document.getElementById('b4');
+    b4.style.opacity = ease(p(t, 7.0, 0.35));
+    b4.style.transform = `translateY(${(1 - ease(p(t, 7.0, 0.5))) * 40}px)`;
+    const btn = b4.querySelector('.btn'), q4 = p(t, 7.4, 0.5);
+    btn.style.transform = `scale(${0.5 + 0.5 * back(q4)})`;
+  }
+  window.seek = seek;
+  window.__ready = true;
+</script>
+</body>
+</html>

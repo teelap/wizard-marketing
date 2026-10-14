@@ -1,6 +1,6 @@
 # Jake the Wizard — Content & Voice Guide
 
-The working spec for writing Jake's content on any platform. This is what the **voice pass** of the QA gate checks against (see `README.md` → QA GATE). For deeper research and receipts, see `../VOICE_DOSSIER.md`; for visuals, `../JtW-BRAND-ASSET-SYSTEM.md`.
+The working spec for writing Jake's content on any platform. This is what the **voice pass** of the QA gate checks against (see `README.md` → QA GATE). For deeper research and receipts, see `../VOICE_DOSSIER.md`; for visuals, the brand book in `../design-system/docs/guides/` and the templates in `assets/schoolhouse/`.
 
 Treat every rule here as non-negotiable. When in doubt, sound more like the verbatim examples in §9 and less like a generic marketing bot.
 

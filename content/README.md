@@ -4,7 +4,7 @@
 **What this is:** the operating system for Jake's owned content — how we plan it, create it, schedule it, and measure it. Self-contained under `content/`.
 
 > Replaces the abandoned Blotato pipeline. Blotato was removed 2026-06-11 ("it was bad").
-> Brand voice lives in `../VOICE_DOSSIER.md`; visual canon in `../JtW-BRAND-ASSET-SYSTEM.md`. Those two stay at repo root because the website copy uses them too.
+> Brand voice lives in `../VOICE_DOSSIER.md` (repo root, shared with the website). **Visual canon (since 2026-10-13): the 70s schoolhouse brand** — the brand book in `../design-system/docs/guides/`, the Claude Design project "Jake the Wizard Design System", and the social templates in `assets/schoolhouse/` (read its README). The old parchment canon (`JtW-BRAND-ASSET-SYSTEM.md`) is retired.
 
 ---
 
