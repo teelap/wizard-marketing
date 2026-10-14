@@ -1,6 +1,6 @@
 /* Jake the Wizard · schoolhouse kit. Load dist/schoolhouse.css (the site's own stylesheet) alongside these. */
 export { COLORS, RAINBOW, RAINBOW_WORD, type Hue } from './art';
-export { PHOTOS, type PhotoName, type JakePhoto } from './photos';
+export { PHOTOS, type PhotoName, type JakePhoto, type Scene } from './photos';
 
 export { Logo, type LogoProps } from './components/Logo';
 export { Icon, type IconProps, type IconName } from './components/Icon';

@@ -16,7 +16,7 @@
 Any `h1`, `h2`, `h3` gets the display face automatically. Every coloured fill keeps an ink outline. Colour props on components take a `Hue` name (`'yellow'`, `'sky'`...), not a hex.
 
 **Brand rules a design must keep.**
-- Jake appears only as a real photo in a `TVFrame` (`photo="castingSpell"` etc., see `PHOTOS`). Never draw, generate or cartoon him.
+- Jake appears only as a real photo in a `TVFrame` (`photo="wizardReach"` etc.: 36 shots in `PHOTOS`, each with a `scene`; the cloak shots suit brand posts, the book-mural shots suit book posts; rotate them). Never draw, generate or cartoon him.
 - One emphasised word per headline (`Highlight`, `RainbowWord` or `Pop`); headlines end with a full stop.
 - One yellow main `Button` per view, labelled as an order ("Book the call", "Join free", "Get the book"). No emoji, no exclamation marks.
 - Only approved numbers: 13 years, $100M+ generated for clients, 2 exits, 110K+ followers. Prices: Strategy Session $400 (30 min) / $750 (60 min), Marketing Audit $2,000, Fractional CMO from $2,500/mo, Mastermind free or $500/mo.

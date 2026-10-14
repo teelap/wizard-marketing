@@ -2,10 +2,14 @@
 
 ## Photos of Jake
 
-- Use only the rainbow-wall photo set (`PHOTOS` in the kit: castingSpell, armsWide, pointing, handsOnHips, relaxed, leaningIn, headTilt, endOfWall, walkingStripes, walkingArcs, adjustingGlasses, strolling). They are hosted at https://www.jakethewizard.com/dev_assets/photos/.
+- Use only photos from the October 2026 shoot (`PHOTOS` in the kit: 36 photos across 11 scenes, each tagged with its `scene`), hosted at https://www.jakethewizard.com/dev_assets/photos/. Rotate through the scenes; never lean on the same few shots.
 - Never draw, generate, cartoon or caricature Jake, and never put him in an AI image. Real photos only.
 - Every photo of Jake sits in a `TVFrame`: thick ink bezel, round corners, hard shadow, a slight tilt. One `Starburst` sticker on its corner is allowed.
-- Match the pose to the message: castingSpell for the main pitch, pointing or armsWide for invitations, handsOnHips for consulting, headTilt and leaningIn for personal or about content.
+- Match the scene to the message:
+  - the green wizard cloak (`wizardReach`, `wizardCloak`, `cloakGrin`, `cloakStein`...) for brand and wizard-voice content
+  - the book mural (`bookHeldUp`, `bookLaugh`, `bookReading`) for anything about Eight Dominoes
+  - the arcade, graffiti, eye mural, butterfly mural and rainbow wall for energetic hooks and invitations
+  - the blazer headshots (`headshot`, `armsCrossed`, `thinking`), white wall, street and patio for consulting, B2B, quotes and serious posts
 
 ## Logo
 

@@ -17,6 +17,6 @@
 ## Re-sync risks
 
 - `src/art.ts` can drift from `../schoolhouse.js`; diff the helpers when the site's art changes.
-- `PHOTOS` URLs and alt text mirror the site's `dev_assets/photos/`; renaming or removing a photo there breaks TVFrame/Hero previews.
+- `PHOTOS` URLs and alt text mirror the site's `dev_assets/photos/` (12 rainbow-wall originals + 24 face-centred 4:5 shoot crops `jake-tlapek-<scene>-<id>-portrait.webp`, added 2026-10-13); renaming or removing a photo there breaks TVFrame/Hero previews. The full 179-photo library lives in the knowledgebase repo; to add more, export the crop to dev_assets/photos, deploy, then add a `shot(...)` line.
 - Approved numbers and prices live in `docs/guides/voice-and-copy.md`, `docs/*.md` and `.design-sync/conventions.md`; when CONTENT_GUIDE.md §2/§3 changes, update all three.
 - Footer review capture crops the arch at the viewport; the live card is fine.

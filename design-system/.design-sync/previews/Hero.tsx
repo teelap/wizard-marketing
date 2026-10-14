@@ -18,7 +18,7 @@ export const Flipped = () => (
     <Hero flip kicker="Private & hourly" title={<>Work with the <RainbowWord>wizard.</RainbowWord></>}
       lede="Bring your hardest problem. Leave with the message that fixes it."
       actions={<><Button href="#">Book a Session</Button><Button variant="ghost" href="#">Read the Diagnosis First</Button></>}
-      photo="handsOnHips" sticker={{ label: 'From', title: '$400' }} />
+      photo="armsCrossed" sticker={{ label: 'From', title: '$400' }} />
   </div>
 );
 export const TextOnly = () => (
