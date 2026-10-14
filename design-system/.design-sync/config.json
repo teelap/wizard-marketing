@@ -1,0 +1,79 @@
+{
+  "pkg": "jtw-schoolhouse",
+  "globalName": "JtW",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/schoolhouse.css",
+  "docsDir": "docs",
+  "componentSrcMap": {
+    "ButtonRow": "src/components/Button.tsx",
+    "ProofSeals": "src/components/Seal.tsx",
+    "DominoTiles": "src/components/DominoTile.tsx",
+    "CheckField": "src/components/Field.tsx",
+    "SectionHead": "src/components/Section.tsx"
+  },
+  "overrides": {
+    "Hero": {
+      "cardMode": "column"
+    },
+    "NavBar": {
+      "cardMode": "column"
+    },
+    "Footer": {
+      "cardMode": "column"
+    },
+    "Section": {
+      "cardMode": "column"
+    },
+    "SectionHead": {
+      "cardMode": "column"
+    },
+    "Timeline": {
+      "cardMode": "column"
+    },
+    "ProofSeals": {
+      "cardMode": "column"
+    },
+    "DominoTiles": {
+      "cardMode": "column"
+    },
+    "QuoteBlock": {
+      "cardMode": "column"
+    },
+    "DataTable": {
+      "cardMode": "column"
+    },
+    "Prose": {
+      "cardMode": "column"
+    },
+    "RainbowBend": {
+      "cardMode": "column"
+    },
+    "RainbowArch": {
+      "cardMode": "column"
+    },
+    "FaqList": {
+      "cardMode": "column"
+    },
+    "BriefForm": {
+      "cardMode": "column"
+    },
+    "Logo": {
+      "cardMode": "column"
+    },
+    "Display": {
+      "cardMode": "column"
+    },
+    "Kicker": {
+      "cardMode": "column"
+    },
+    "RainbowWord": {
+      "cardMode": "column"
+    }
+  },
+  "guidelinesGlob": [
+    "docs/guides/**/*.md"
+  ],
+  "readmeHeader": ".design-sync/conventions.md",
+  "projectId": "c91da00a-1455-4106-aad4-1a0c3c15cfb5"
+}

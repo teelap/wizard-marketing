@@ -1,0 +1,30 @@
+{
+  "name": "jtw-schoolhouse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jake the Wizard's 70s schoolhouse brand kit as React components. The look comes from the site's own ../schoolhouse.css; the art uses the same geometry as ../schoolhouse.js.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/schoolhouse.css"
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "esbuild": "0.25.12",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.9.3"
+  }
+}
