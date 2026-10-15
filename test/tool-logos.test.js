@@ -25,7 +25,8 @@ test('every logo the page links to has a mark and a file', () => {
 
 test('the committed SVGs match what build.js draws', () => {
   for (const mark of MARKS) {
-    const built = fs.readFileSync(path.join(OUT_DIR, `${mark.slug}.svg`), 'utf8');
+    // git on Windows may check the files out with CRLF line endings.
+    const built = fs.readFileSync(path.join(OUT_DIR, `${mark.slug}.svg`), 'utf8').replace(/\r\n/g, '\n');
     assert.equal(built, renderMark(mark), `${mark.slug}.svg is stale; run node content/assets/tool-logos/build.js`);
   }
 });
