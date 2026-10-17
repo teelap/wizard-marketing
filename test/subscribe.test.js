@@ -15,9 +15,11 @@ function response(status, data) {
 
 function endpoint(replies = [], extraEnv = {}) {
   const calls = [];
+  const logs = [];
   const context = {
     module: { exports: {} },
     require,
+    console: { error: (...args) => logs.push(args) },
     process: { env: {
       RESEND_API_KEY: 'test-key-only',
       RESEND_AUDIENCE_ID: 'test-audience',
@@ -34,10 +36,11 @@ function endpoint(replies = [], extraEnv = {}) {
   vm.runInNewContext(source, context, { filename: 'api/subscribe.js' });
   return {
     calls,
-    async submit(body, method = 'POST') {
+    logs,
+    async submit(body, method = 'POST', headers = {}) {
       const res = { headers: {}, setHeader(key, value) { this.headers[key] = value; },
         end(value) { this.body = JSON.parse(value); } };
-      await context.module.exports({ method, body }, res);
+      await context.module.exports({ method, body, headers }, res);
       return res;
     },
   };
@@ -114,6 +117,15 @@ test('creation failures do not send a welcome', async () => {
   assert.equal(api.calls.length, 2);
 });
 
+test('creation failures log the Resend reason server-side without the address', async () => {
+  const api = endpoint([response(404, {}), response(422, { name: 'validation_error', message: "Email 'new+reader@example.com' is invalid" })]);
+  await api.submit(signup);
+  assert.equal(api.logs.length, 1);
+  const line = api.logs[0].join(' ');
+  assert.match(line, /422 validation_error Email '<email>' is invalid/);
+  assert.doesNotMatch(line, /example.com/);
+});
+
 test('malformed JSON and invalid email fail without provider requests', async () => {
   for (const body of ['{broken', 'null', [], { email: 'invalid', newsletter_optin: true }]) {
     const api = endpoint();
@@ -128,4 +140,93 @@ test('unsupported methods and an unconfigured deployment make no provider reques
   const unconfigured = endpoint([], { RESEND_API_KEY: '' });
   assert.equal((await unconfigured.submit(signup)).body.skipped, 'not_configured');
   assert.equal(api.calls.length + unconfigured.calls.length, 0);
+});
+
+// The X player card (/x) puts this endpoint in front of anyone who sees the
+// tweet, bots included, so it rate-limits by IP, drops honeypot fills and only
+// stores well-formed tags.
+const existing = () => response(200, { id: 'existing', unsubscribed: false });
+
+const LIMIT = 20;
+
+test('rate-limits repeat signups from one IP without contacting Resend', async () => {
+  const api = endpoint(Array.from({ length: LIMIT }, existing));
+  const ip = { 'x-forwarded-for': '203.0.113.9, 10.0.0.1' };
+  for (let i = 0; i < LIMIT; i++) assert.deepEqual((await api.submit(signup, 'POST', ip)).body, { ok: true });
+  const blocked = await api.submit(signup, 'POST', ip);
+  assert.equal(blocked.statusCode, 429);
+  assert.equal(blocked.body.error, 'rate_limited');
+  assert.equal(api.calls.length, LIMIT);
+});
+
+test('the rate limit is per IP', async () => {
+  const api = endpoint(Array.from({ length: LIMIT + 1 }, existing));
+  for (let i = 0; i < LIMIT; i++) await api.submit(signup, 'POST', { 'x-real-ip': '203.0.113.9' });
+  assert.deepEqual((await api.submit(signup, 'POST', { 'x-real-ip': '198.51.100.4' })).body, { ok: true });
+});
+
+test('requests rejected for consent or a bad email do not use up the rate limit', async () => {
+  const api = endpoint([existing()]);
+  const ip = { 'x-real-ip': '203.0.113.9' };
+  for (let i = 0; i < LIMIT; i++) await api.submit({ email: 'reader@example.com' }, 'POST', ip);
+  for (let i = 0; i < LIMIT; i++) await api.submit({ email: 'nope', newsletter_optin: true }, 'POST', ip);
+  assert.deepEqual((await api.submit(signup, 'POST', ip)).body, { ok: true });
+});
+
+test('a JSON body sent as text/plain is accepted (X may sandbox the card without same-origin)', async () => {
+  const api = endpoint([existing()]);
+  assert.deepEqual((await api.submit(JSON.stringify(signup))).body, { ok: true });
+});
+
+test('a filled honeypot looks like success but never reaches Resend', async () => {
+  const api = endpoint();
+  const result = await api.submit({ ...signup, website: 'http://spam.example' });
+  assert.deepEqual(result.body, { ok: true });
+  assert.equal(api.calls.length, 0);
+});
+
+test('an over-long email is rejected without provider requests', async () => {
+  const api = endpoint();
+  const result = await api.submit({ email: 'a'.repeat(250) + '@example.com', newsletter_optin: true });
+  assert.equal(result.statusCode, 400);
+  assert.equal(api.calls.length, 0);
+});
+
+test('stores clean source tags and drops malformed ones', async () => {
+  const good = endpoint([response(404, {}), response(200, { id: 'new' })]);
+  await good.submit({ ...signup, first_name: ' Ada\u0000 ', source: 'x_card_brief_it_sample', signup_page: '/x' });
+  const payload = JSON.parse(good.calls[1].body);
+  assert.equal(payload.first_name, 'Ada');
+  assert.deepEqual({ ...payload.properties }, { source: 'x_card_brief_it_sample', signup_page: '/x' });
+
+  const bad = endpoint([response(404, {}), response(200, { id: 'new' })]);
+  await bad.submit({ ...signup, source: '<script>', signup_page: 'https://evil.example/x' });
+  assert.equal(JSON.parse(bad.calls[1].body).properties, undefined);
+
+  const protocolRelative = endpoint([response(404, {}), response(200, { id: 'new' })]);
+  await protocolRelative.submit({ ...signup, signup_page: '//evil.example/x' });
+  assert.equal(JSON.parse(protocolRelative.calls[1].body).properties, undefined);
+});
+
+// Resend rejects the whole contact when a custom property isn't set up in the
+// account ("One or more properties do not exist"). Never lose the signup over a tag.
+test('a missing Resend property retries the add without properties', async () => {
+  const api = endpoint([
+    response(404, {}),
+    response(422, { name: 'validation_error', message: 'One or more properties do not exist' }),
+    response(200, { id: 'new' }),
+  ]);
+  const result = await api.submit({ ...signup, source: 'x_card_brief_it_sample', signup_page: '/x' });
+  assert.deepEqual(result.body, { ok: true });
+  assert.equal(api.calls.length, 3);
+  const retry = JSON.parse(api.calls[2].body);
+  assert.equal(retry.email, 'new+reader@example.com');
+  assert.equal(retry.properties, undefined);
+  assert.equal(Object.hasOwn(retry, 'unsubscribed'), false);
+});
+
+test('other validation failures are not retried', async () => {
+  const api = endpoint([response(404, {}), response(422, { name: 'validation_error', message: 'Invalid email' })]);
+  assert.equal((await api.submit({ ...signup, source: 'grimoire' })).statusCode, 502);
+  assert.equal(api.calls.length, 2);
 });

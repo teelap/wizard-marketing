@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- /x?embed=1 is the X player card: the same page cut down to the 640x480 card.
+         Set the class before first paint so the iframe never flashes the full page. -->
+    <script>if (/[?&]embed=1(?:&|$)/.test(location.search)) document.documentElement.classList.add('embed');</script>
+    <title>Brief It: 6 free AI marketing prompts | Jake the Wizard</title>
+    <meta name="description" content="6 free prompts from Brief It: the Standing Brief plus 5 more. Paste them into Claude, ChatGPT or Gemini and get marketing that sounds like your business.">
+    <link rel="canonical" href="https://www.jakethewizard.com/x">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dev_assets/brand/favicon-32.png">
+
+    <!-- X player card: the tweet shows the poster, a click loads ?embed=1 in a 640x480 iframe.
+         These tags must stay in the HTML the crawler gets. Absolute URLs only. -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@JakeTtheWizard">
+    <meta name="twitter:title" content="Brief It: 6 free AI marketing prompts that sound like you">
+    <meta name="twitter:description" content="The Standing Brief plus 5 prompts from Brief It. Enter your email and download the PDF.">
+    <meta name="twitter:image" content="https://www.jakethewizard.com/dev_assets/x/brief-it-card-poster-v1.png">
+    <meta name="twitter:image:alt" content="Brief It free sample: an email signup for 6 AI marketing prompts.">
+    <meta name="twitter:player" content="https://www.jakethewizard.com/x?embed=1">
+    <meta name="twitter:player:width" content="640">
+    <meta name="twitter:player:height" content="480">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jakethewizard.com/x">
+    <meta property="og:title" content="Brief It: 6 free AI marketing prompts that sound like you">
+    <meta property="og:description" content="The Standing Brief plus 5 prompts from Brief It. Enter your email and download the PDF.">
+    <meta property="og:image" content="https://www.jakethewizard.com/dev_assets/x/brief-it-card-poster-v1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="900">
+
+    <meta name="theme-color" content="#FFF1D6">
+    <link rel="stylesheet" href="/schoolhouse.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Render-blocking on purpose: the card is the whole page and must not reflow inside the tweet. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,144,900,100,1;1,144,900,100,1&family=Nunito:wght@600..900&family=Permanent+Marker&display=swap">
+
+    <!-- The card on the Schoolhouse kit. Everything else comes from schoolhouse.css. -->
+    <style>
+        /* ---------- full page ---------- */
+        .x-top{display:flex;justify-content:center;padding:10px var(--gutter);border-bottom:4px solid var(--ink)}
+        .x-top .brand-mark{width:40px;height:40px}
+        .x-page{max-width:720px;margin:0 auto;padding:32px 16px 0}
+        .x-info{margin-top:56px}
+        .x-info h2{font-size:clamp(2rem,6vw,2.8rem)}
+        .x-info > p{margin-top:14px}
+        .x-list{list-style:none;display:grid;gap:14px;margin-top:22px}
+        .x-list li{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);padding:14px 18px}
+        .x-list b{display:block;font-family:var(--disp);font-size:1.15rem;line-height:1.15;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144}
+        .x-list span{display:block;margin-top:4px;font-size:.95rem}
+        .x-more{margin-top:40px;padding:22px 22px 26px;background:var(--yellow);border:4px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink)}
+        .x-more h2{font-size:clamp(1.7rem,5vw,2.2rem)}
+        .x-more p{margin:10px 0 20px}
+        .x-foot{margin-top:64px;padding:22px 16px 30px;border-top:4px solid var(--ink);text-align:center;font-size:.88rem}
+        .x-foot a{margin:0 8px}
+
+        /* ---------- the card (both modes) ---------- */
+        .xcard{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 188px;grid-template-rows:auto 1fr;column-gap:18px;
+            width:100%;max-width:640px;margin:0 auto;background:var(--cream);border:4px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink);
+            padding:24px 22px 30px 26px}
+        .xcard::before{content:"";position:absolute;inset:0 0 auto;height:12px;background:var(--rainbow);border-bottom:3px solid var(--ink)}
+        .xcard-main{grid-column:1;grid-row:1 / span 2;padding-top:8px}
+        .xcard .kicker{font-size:11px;padding:7px 12px 6px}
+        .xcard h1{font-size:62px;line-height:1.1;margin-top:10px}
+        .xcard h1 .hl{padding:0 .1em}
+        .xcard-sub{font-family:var(--disp);font-weight:900;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144;font-size:22px;line-height:1.15;margin-top:14px;text-wrap:balance}
+
+        .xform{margin-top:14px}
+        .xrow{display:flex;gap:12px}
+        .xfield{display:block;min-width:0}
+        .xfield--name{flex:0 0 36%}
+        .xfield--email{flex:1 1 auto}
+        .xfield > span{display:block;font:900 11px/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase}
+                .xfield input{width:100%;margin-top:5px;font:800 16px/1.2 var(--body);color:var(--ink);padding:10px 14px;border:3px solid var(--ink);border-radius:12px;background:var(--paper);box-shadow:inset 2px 2px 0 rgba(27,26,23,.1)}
+        .xfield input:focus{outline:4px dashed var(--red);outline-offset:2px}
+        .xform .check-field{margin-top:10px;gap:10px;font-size:.84rem;line-height:1.3;align-items:center}
+        .xform .check-field input{width:24px;height:24px;border-width:3px;margin:0}
+        .xform .check-field input:checked::after{font-size:26px;translate:2px -5px}
+        .xform .check-field a{text-decoration:underline}
+        .xform .btn{width:100%;margin-top:12px;font-size:1.2rem;padding:13px 20px 14px;box-shadow:5px 5px 0 var(--ink)}
+        .xerror{margin-top:8px;font-weight:900;font-size:.88rem;line-height:1.3;color:var(--red-ink)}
+        .xerror::before{content:"✗ ";font-family:var(--marker)}
+        .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+        .xdone{margin-top:14px}
+        .xdone h2{font-size:34px;outline:none}
+        .xdone p{margin-top:6px;font-size:.98rem;line-height:1.4}
+        .xdone-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:14px}
+        .xdone .btn{font-size:1.1rem;padding:12px 20px 13px;box-shadow:5px 5px 0 var(--ink)}
+        .xupsell{font-family:var(--disp);font-weight:900;font-size:1.05rem;text-decoration:underline wavy var(--red) 2px;text-underline-offset:6px}
+        .xdone .fine{margin-top:12px;color:var(--muted);font-size:.8rem}
+
+        .xcard-art{grid-column:2;grid-row:1;position:relative;margin-top:16px}
+        .xcard-art .tv{aspect-ratio:4/5;border-width:5px;border-radius:26px;box-shadow:8px 8px 0 var(--ink);rotate:2deg}
+        .xstar{position:absolute;left:-34px;bottom:-40px;width:104px;aspect-ratio:1;display:grid;place-items:center;rotate:-12deg;z-index:2}
+        .xstar svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+        .xstar span{position:relative;font-family:var(--disp);font-weight:900;font-size:24px;line-height:.9;text-align:center}
+        .xstar small{display:block;font:900 10px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+
+        /* "help it spread": arrows down at X's own repost (~175px) and like (~320px) buttons */
+        .xspread{display:none}
+
+        /* ---------- embed: exactly the 640x480 card, nothing else ---------- */
+        html.embed .x-chrome{display:none!important}
+        html.embed .x-page{max-width:none;margin:0;padding:0}
+        html.embed .xcard{max-width:none;width:100vw;height:100vh;padding-bottom:0;border:0;border-radius:0;box-shadow:none}
+        @media (min-width:600px){
+            html.embed,html.embed body{height:100%;overflow:hidden}
+            html.embed .xspread{display:block;position:absolute;left:0;right:0;bottom:0;height:62px;pointer-events:none}
+        }
+        .xspread-lead{position:absolute;left:26px;bottom:14px;font-family:var(--marker);font-size:15px;line-height:1.1;width:120px}
+        .xspread-tag{position:absolute;bottom:22px;font:900 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:6px 10px 5px;border:3px solid var(--ink);border-radius:999px}
+        .xspread-tag svg{position:absolute;top:100%;width:34px;height:26px;margin-top:-2px}
+        .xspread-repost{left:157px;background:var(--mint)}
+        .xspread-repost svg{left:4px}
+        .xspread-like{left:304px;background:var(--pink)}
+        .xspread-like svg{left:2px}
+
+        /* ---------- phones: the X app's panel covers the bottom ~30%, so the form sits high ---------- */
+        @media (max-width:599px){
+            .x-page{padding-top:20px}
+            .xcard{grid-template-columns:minmax(0,1fr);min-height:0;padding:22px 16px 20px}
+            .xcard-art{display:none}
+            .xcard h1{font-size:42px;margin-top:8px}
+            .xcard-sub{font-size:18px}
+            .xform{margin-top:12px}
+            .xfield--name{flex-basis:38%}
+            .xfield input{padding:9px 11px}
+            .xform .btn{margin-top:12px}
+        }
+        @media (prefers-reduced-motion:reduce){.btn{transition:none}}
+    </style>
+</head>
+<body>
+    <a class="skip-link x-chrome" href="#xform">Skip to the form</a>
+    <header class="x-top x-chrome">
+        <a class="brand disp" href="/" aria-label="The Wizard, home"><img class="brand-mark" src="/dev_assets/brand/wizard-hat-96.webp" srcset="/dev_assets/brand/wizard-hat-96.webp 1x, /dev_assets/brand/wizard-hat-192.webp 2x" width="40" height="40" alt="">The Wizard</a>
+    </header>
+
+    <main class="x-page">
+        <section class="xcard" aria-labelledby="xcard-title">
+            <div class="xcard-main">
+                <span class="kicker">Jake the Wizard</span>
+                <h1 id="xcard-title" class="has-hl"><span class="hl">Brief</span> It.</h1>
+                <p class="xcard-sub">6 AI marketing prompts that sound like you.</p>
+
+                <form id="xform" class="xform" action="https://formspree.io/f/xzdjjjlo" method="POST" novalidate>
+                    <div class="xrow">
+                        <label class="xfield xfield--name"><span>First name</span>
+                            <input type="text" name="first_name" autocomplete="given-name" maxlength="60" placeholder="Optional"></label>
+                        <label class="xfield xfield--email"><span>Email</span>
+                            <input type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@business.com"></label>
+                    </div>
+                    <label class="check-field"><input type="checkbox" name="newsletter_optin" value="yes" required>
+                        <span>Put me on Jake's email list. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy</a></span></label>
+                    <input type="hidden" name="_subject" value="Brief It sample signup (X card)">
+                    <input type="hidden" name="_form_type" value="x_card_brief_it_sample">
+                    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                    <button type="submit" class="btn btn-red">Get the free prompts</button>
+                    <p class="xerror" role="alert" hidden></p>
+                </form>
+
+                <div class="xdone" id="xdone" role="status" aria-live="polite" hidden>
+                    <h2 tabindex="-1">It's yours.</h2>
+                    <p>Copy a prompt and fill in the brackets. Then paste it into Claude, ChatGPT or Gemini.</p>
+                    <div class="xdone-row">
+                        <a class="btn" href="/downloads/Brief-It-Free-Sample.pdf" target="_blank" rel="noopener">Download the PDF</a>
+                        <a class="xupsell" href="https://itsjakethewizard.gumroad.com/l/brief-it" target="_blank" rel="noopener">Get all 50 for $49</a>
+                    </div>
+                    <p class="fine">You're on Jake's email list. Unsubscribe anytime.</p>
+                </div>
+            </div>
+
+            <div class="xcard-art" aria-hidden="true">
+                <div class="tv"><img src="/dev_assets/photos/jake-tlapek-blazer-5800-portrait.webp" width="400" height="500" alt=""></div>
+                <div class="xstar"><svg viewBox="0 0 200 200"><polygon points="105,7 120.2,28.5 142.5,14.5 148.3,40.1 174.3,35.7 169.9,61.7 195.5,67.5 181.5,89.8 203,105 181.5,120.2 195.5,142.5 169.9,148.3 174.3,174.3 148.3,169.9 142.5,195.5 120.2,181.5 105,203 89.8,181.5 67.5,195.5 61.7,169.9 35.7,174.3 40.1,148.3 14.5,142.5 28.5,120.2 7,105 28.5,89.8 14.5,67.5 40.1,61.7 35.7,35.7 61.7,40.1 67.5,14.5 89.8,28.5" fill="#1B1A17"/><polygon points="100.0,2.0 115.2,23.5 137.5,9.5 143.3,35.1 169.3,30.7 164.9,56.7 190.5,62.5 176.5,84.8 198.0,100.0 176.5,115.2 190.5,137.5 164.9,143.3 169.3,169.3 143.3,164.9 137.5,190.5 115.2,176.5 100.0,198.0 84.8,176.5 62.5,190.5 56.7,164.9 30.7,169.3 35.1,143.3 9.5,137.5 23.5,115.2 2.0,100.0 23.5,84.8 9.5,62.5 35.1,56.7 30.7,30.7 56.7,35.1 62.5,9.5 84.8,23.5" fill="#FFC928" stroke="#1B1A17" stroke-width="6" stroke-linejoin="round"/></svg><span>Free<small>PDF</small></span></div>
+            </div>
+
+            <div class="xspread" aria-hidden="true">
+                <p class="xspread-lead">Like it? Pass it on. 1 tap each</p>
+                <span class="xspread-tag xspread-repost">Repost<svg viewBox="0 0 34 26"><path d="M8 2 C 6 10, 9 16, 14 23 M14 23 L 7 19 M14 23 L 17 15" fill="none" stroke="#1B1A17" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+                <span class="xspread-tag xspread-like">Like<svg viewBox="0 0 34 26"><path d="M10 2 C 13 9, 12 15, 14 23 M14 23 L 8 18 M14 23 L 19 17" fill="none" stroke="#1B1A17" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+            </div>
+        </section>
+
+        <section class="x-info x-chrome" aria-labelledby="inside-title">
+            <h2 id="inside-title">What's in the sample.</h2>
+            <p>6 prompts from Brief It, with the same pages as the full pack. Each one tells AI what to make and which facts it can't invent.</p>
+            <ol class="x-list">
+                <li><b>The Vision Brief interview</b><span>AI asks the questions. You end up with the brief everything else reads from.</span></li>
+                <li><b>The Standing Brief</b><span>Paste it into your AI project once. Every chat starts with your facts and your voice.</span></li>
+                <li><b>Short video script from a voice memo</b><span>You know what you want to say but freeze on camera.</span></li>
+                <li><b>Follow up after a call</b><span>You had a good call and want to keep it moving.</span></li>
+                <li><b>Reply to a review</b><span>A review comes in on Google, Yelp or anywhere else, good or bad.</span></li>
+                <li><b>The four marks</b><span>Check any draft against your Vision Brief, line by line. Comes with a real example.</span></li>
+            </ol>
+            <div class="x-more">
+                <h2>Want all 50?</h2>
+                <p>The full pack covers social posts, email, your website, ads, offers and the checks. $49 on Gumroad.</p>
+                <a class="btn btn-ink" href="https://itsjakethewizard.gumroad.com/l/brief-it" target="_blank" rel="noopener">Get all 50 for $49</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="x-foot x-chrome">
+        <a href="/">jakethewizard.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+    </footer>
+
+    <script>
+    (function () {
+        'use strict';
+        var form = document.getElementById('xform');
+        var done = document.getElementById('xdone');
+        var error = form.querySelector('.xerror');
+        var button = form.querySelector('button[type="submit"]');
+        var label = button.textContent;
+        var EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+        // The full page gets the site's cookie notice. The tweet's iframe does not.
+        if (!document.documentElement.classList.contains('embed')) {
+            var cc = document.createElement('script');
+            cc.src = '/cookie-consent.js?v=2';
+            cc.defer = true;
+            document.body.appendChild(cc);
+        }
+
+        function fail(message, field) {
+            error.textContent = message;
+            error.hidden = false;
+            if (field) field.focus();
+        }
+
+        function track(email, firstName) {
+            try {
+                if (window.WizAnalytics && typeof window.WizAnalytics.conversion === 'function') {
+                    window.WizAnalytics.conversion({
+                        meta_event: 'CompleteRegistration', content_name: 'Brief It Sample', content_category: 'newsletter',
+                        status: 'x_card_brief_it_sample', currency: 'USD', value: 0, email: email, first_name: firstName, last_name: ''
+                    });
+                }
+            } catch (e) { /* tracking must never block the download */ }
+        }
+
+        function showDone(listed) {
+            form.hidden = true;
+            done.hidden = false;
+            // Only say they're on the list when Resend confirmed it.
+            done.querySelector('.fine').hidden = !listed;
+            done.querySelector('h2').focus();
+        }
+
+        // A stalled request must never leave the button stuck.
+        function post(url, options) {
+            if (window.AbortSignal && typeof AbortSignal.timeout === 'function') options.signal = AbortSignal.timeout(10000);
+            return fetch(url, options);
+        }
+
+        // X loads the card in a sandboxed iframe: no page navigation, no alert().
+        // Formspree emails Jake; /api/subscribe adds the contact to Resend. Both run
+        // at once, and either one saving the signup is enough to hand over the PDF.
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            error.hidden = true;
+            var email = form.email.value.trim();
+            var firstName = form.first_name.value.trim();
+            if (!EMAIL.test(email) || email.length > 254) return fail('Enter your email address.', form.email);
+            if (!form.newsletter_optin.checked) return fail('Tick the box to get the prompts.', form.newsletter_optin);
+            if (form._gotcha.value) return showDone(true);
+
+            button.disabled = true;
+            button.textContent = 'Sealing the scroll…';
+            var results = await Promise.allSettled([
+                post(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+                    .then(function (r) { return r.ok; }),
+                // text/plain keeps this a simple request: no CORS preflight even if X's
+                // sandbox gives the card an opaque origin. The endpoint parses JSON either way.
+                post('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({
+                        email: email, first_name: firstName, newsletter_optin: true,
+                        source: 'x_card_brief_it_sample', signup_page: '/x'
+                    })
+                }).then(function (r) { return r.json(); }).then(function (j) { return j.ok === true; })
+            ]);
+            var emailed = results[0].status === 'fulfilled' && results[0].value;
+            var listed = results[1].status === 'fulfilled' && results[1].value;
+
+            if (emailed || listed) {
+                track(email, firstName);
+                return showDone(listed);
+            }
+            button.disabled = false;
+            button.textContent = label;
+            fail("That didn't go through. Try again in a minute.");
+        });
+    })();
+    </script>
+</body>
+</html>

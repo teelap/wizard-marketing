@@ -60,6 +60,8 @@ const PUBLIC_FILES = [
     'alice-video-privacy.html',
     'alice-video-terms.html',
     '404.html',
+    // X player card (twitter:card=player): /x is the tweeted page, /x?embed=1 the 640x480 iframe.
+    'x.html',
     // The schoolhouse kit (2026-10 redesign): the design system every page loads,
     // plus the art/motion script that draws the rainbow bends, bursts and arches.
     'schoolhouse.css',
@@ -102,7 +104,8 @@ const PUBLIC_FILES = [
 // press/ holds the full-resolution cover art, author photography and the
 // media-kit zip that /media-kit links for download. Kept out of dev_assets so
 // the originals stay untouched by the WebP/optimised pipeline.
-const PUBLIC_DIRS = ['dev_assets', 'press'];
+// downloads/ holds free files the site hands out (the Brief It sample from /x).
+const PUBLIC_DIRS = ['dev_assets', 'press', 'downloads'];
 
 const YT_CONTAINER_RE = /<div class="video-wrapper" id="youtube-feed-container">[\s\S]*?<\/div>/;
 const TT_CONTAINER_RE = /<div class="video-wrapper tiktok-wrapper" id="tiktok-feed-container">[\s\S]*?<\/div>/;

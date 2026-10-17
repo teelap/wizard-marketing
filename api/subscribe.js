@@ -33,6 +33,52 @@ const { createHash } = require('node:crypto');
 // look the audience up once.
 let cachedAudienceId = null;
 
+// Best-effort per-IP limit. The /x player card puts this endpoint in front of
+// everyone who sees the tweet, bots included. Counts live per warm instance, so
+// this slows a flood down rather than stopping a determined one.
+// 20 leaves room for an office or a phone carrier sharing one IP.
+const RATE_LIMIT = 20;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_TRACKED_IPS = 5000;
+const hits = new Map();
+
+function clientIp(req) {
+  const h = (req && req.headers) || {};
+  const raw = h['x-real-ip'] || h['x-vercel-forwarded-for'] || h['x-forwarded-for'] || '';
+  return String(raw).split(',')[0].trim();
+}
+
+function rateLimited(ip) {
+  if (!ip) return false;
+  const now = Date.now();
+  if (hits.size > MAX_TRACKED_IPS) {
+    for (const [key, times] of hits) if (now - times[times.length - 1] > RATE_WINDOW_MS) hits.delete(key);
+    // Still full of live entries means a flood: start over rather than grow without bound.
+    if (hits.size > MAX_TRACKED_IPS) hits.clear();
+  }
+  const recent = (hits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT) {
+    hits.set(ip, recent);
+    return true;
+  }
+  hits.set(ip, [...recent, now]);
+  return false;
+}
+
+// Strip control characters and cap length so a crafted field never lands in
+// Resend as junk. Tags must look like tags; anything else is dropped.
+function cleanText(value, max) {
+  return String(value || '').replace(/[\u0000-\u001f\u007f]/g, '').trim().slice(0, max);
+}
+function cleanSource(value) {
+  const s = cleanText(value, 60);
+  return /^[a-zA-Z0-9_-]+$/.test(s) ? s : '';
+}
+function cleanPath(value) {
+  const s = cleanText(value, 120);
+  return /^\/(?!\/)[a-zA-Z0-9/_.-]*$/.test(s) ? s : '';
+}
+
 function readBody(req) {
   if (req.body) {
     return Promise.resolve(typeof req.body === 'string' ? JSON.parse(req.body) : req.body);
@@ -52,7 +98,7 @@ function readBody(req) {
 }
 
 function isEmail(value) {
-  return typeof value === 'string' && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+  return typeof value === 'string' && value.length <= 254 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
 }
 
 /** Resolve the target audience id from env, cache, or the Resend API. */
@@ -132,6 +178,12 @@ module.exports = async (req, res) => {
     res.statusCode = 400;
     return res.end(JSON.stringify({ ok: false, error: 'bad_json' }));
   }
+  // Honeypot: people never see the "website" field, bots fill it. Answer like a
+  // success so the bot learns nothing, and store nothing.
+  if (body.website) {
+    res.statusCode = 200;
+    return res.end(JSON.stringify({ ok: true }));
+  }
   // A page/source tag is not consent, and truthy strings such as "false" are
   // not consent either. Old clients without this flag must safely do nothing.
   if (body.newsletter_optin !== true) {
@@ -144,14 +196,20 @@ module.exports = async (req, res) => {
     res.statusCode = 400;
     return res.end(JSON.stringify({ ok: false, error: 'invalid_email' }));
   }
-  const firstName = String(body.first_name || '').trim();
-  const lastName = String(body.last_name || '').trim();
+  // Only well-formed, opted-in signups count toward the limit.
+  if (rateLimited(clientIp(req))) {
+    res.statusCode = 429;
+    res.setHeader('Retry-After', String(RATE_WINDOW_MS / 1000));
+    return res.end(JSON.stringify({ ok: false, error: 'rate_limited' }));
+  }
+  const firstName = cleanText(body.first_name, 60);
+  const lastName = cleanText(body.last_name, 60);
   // Optional origin tag — which form/page the signup came from (e.g. "eight_dominoes").
   // Stored as Resend contact properties so the audience can be segmented by source
   // later, and as a tag on the welcome email. Best-effort: never required for the add.
-  const source = String(body.source || '').trim().slice(0, 60);
-  const signupPage = String(body.signup_page || '').trim().slice(0, 120);
-  const sourceTag = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 50);
+  const source = cleanSource(body.source);
+  const signupPage = cleanPath(body.signup_page);
+  const sourceTag = source.slice(0, 50);
 
   // Resend's current contact model stores unsubscribe status globally, across
   // audiences/segments. Look up the email globally before any contact write.
@@ -193,7 +251,11 @@ module.exports = async (req, res) => {
 
   // Create only after confirming the email is new. Do not supply unsubscribed:
   // an overlapping signup must never reset a preference already stored by Resend.
-  try {
+  // These properties must already be configured in the Resend account.
+  const properties = (source || signupPage)
+    ? { source: source || undefined, signup_page: signupPage || undefined }
+    : undefined;
+  const addContact = async (props) => {
     const r = await fetch(RESEND_API + '/audiences/' + audienceId + '/contacts', {
       method: 'POST',
       headers: { Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json' },
@@ -201,19 +263,28 @@ module.exports = async (req, res) => {
         email: email,
         first_name: firstName || undefined,
         last_name: lastName || undefined,
-        // These properties must already be configured in the Resend account.
-        properties: (source || signupPage)
-          ? { source: source || undefined, signup_page: signupPage || undefined }
-          : undefined,
+        properties: props,
       }),
     });
-    const j = await r.json().catch(() => ({}));
+    return { r, j: await r.json().catch(() => ({})) };
+  };
+  try {
+    let { r, j } = await addContact(properties);
+    // Resend rejects the whole contact when a property isn't set up in the account.
+    // The tag is nice to have; the signup is not. Retry once without it.
+    if (properties && r.status === 422 && /propert/i.test(j.message || '')) {
+      console.error('[subscribe] resend properties missing; added without source tags:', String(j.message).slice(0, 200));
+      ({ r, j } = await addContact(undefined));
+    }
     const duplicate = r.status === 409 && /already|exists/i.test(j.message || '');
     if (duplicate) {
       res.statusCode = 200;
       return res.end(JSON.stringify({ ok: true }));
     }
     if (!r.ok || !j.id) {
+      // Server-side only, and with any address masked: the client just sees resend_add_failed.
+      console.error('[subscribe] resend add failed', r.status, String(j.name || ''),
+        String(j.message || '').replace(/[^\s@'"]+@[^\s@'"]+/g, '<email>').slice(0, 200));
       res.statusCode = 502;
       return res.end(JSON.stringify({ ok: false, error: 'resend_add_failed' }));
     }
