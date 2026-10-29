@@ -4,7 +4,6 @@ metaTitle: "One Marketing Channel at a Time"
 slug: one-good-channel
 date: 2026-10-29
 category: Marketing Strategy
-draft: true
 description: "Running SEO, ads, email, and social at half effort guarantees four mediocre channels. Pick one, commit fully for a set window, get it working, then add the next."
 excerpt: "Spreading across five channels isn't diversification. It's dilution. Get one working, then add the next."
 lead: "One marketing channel that works beats five that limp. Pick the one your buyer already uses, give it everything for a fixed window, get a clean yes or no, and only then add the next. You build everywhere one good channel at a time."
