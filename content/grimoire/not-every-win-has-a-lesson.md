@@ -86,7 +86,7 @@ Two brands, six years apart, identical shape. A moment nobody planned, taken fas
 
 The readiness, and only the readiness.
 
-Speed is a real capability you can build. So is permission. So is a crew small enough that the joke does not die in round three of legal review. I have written before about [why the best brand accounts are one to three people with total carte blanche](/grimoire/a-voice-in-the-room), and this is the payoff for that structure. It does nothing most weeks. Then a moment lands and it is the only reason you can take it.
+Speed is a real capability you can build. So is permission. So is a crew small enough that the joke does not die in round three of legal review. The best brand accounts are one to three people with total carte blanche, and this is the payoff for that structure. It does nothing most weeks. Then a moment lands and it is the only reason you can take it.
 
 My own version of this is much smaller and taught me the same thing. I posted to TikTok twice a day for a month and had 400 followers to show for it. Around day 34, one video went. That took the account to 10,000, and it sits above 110,000 now, and at its peak that channel was sending my agency more than ten leads a week and pulling work in from outside the country.
 

@@ -44,7 +44,7 @@ The reflex take: the institutions are here, the escape hatch is closing, the cre
 
 No. Selling out means trading your values for money. Taking a job you actually want is not that. The judgment is the problem, not the trade.
 
-I ran an agency for five years, crossed seven figures, then folded it into a bigger company. Nothing about my audience changed in that deal. The people who followed me still followed me. That is the whole point of the exit-proof asset: they can't take the audience and the awareness away from you. What a buyout changes is who runs the machine around the asset, not the asset itself.
+I spent seven years building an agency, crossed seven figures, then sold it. Nothing about my audience changed in that deal. The people who followed me still followed me. That is the whole point of the exit-proof asset: they can't take the audience and the awareness away from you. What a buyout changes is who runs the machine around the asset, not the asset itself.
 
 So the question is never "did they sell out." It is "what did they want." A creator who wanted a floor under their income and took the check made a good decision. Calling it a betrayal only holds up if you assume everyone was playing to be an entrepreneur. Most were not.
 

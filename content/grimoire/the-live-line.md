@@ -65,7 +65,7 @@ Authenticity is the thing a creator sells, so you protect it. Efficiency is the 
 
 Go further than the rule. TikTok stopped at AI voices. I would pull the beauty filters and the teleprompter out of live too. Not because those tools are sins. Because live earns its name by being the thing you cannot retake, and every tool that dresses it up to the finish of your produced content erases the tell. The more you can fake, the less the word live means. Live should cost something.
 
-And the fence does not stop at TikTok. Presence is the product in more rooms than one. The first sales call is a live moment, and handing it to a bot gives away the [one thing a machine lives at the median of](/grimoire/dont-outsource-the-handshake). The final decision on your work is a live moment, and it belongs to [a human who can say no](/grimoire/the-last-no). It rhymes with the [Eight Dominoes](/eight-dominoes): people browse intellectually and buy emotionally, and it takes a human to connect with a human. TikTok fenced one room. Look at your own funnel and fence the rest yourself, before someone writes you a rule.
+And the fence does not stop at TikTok. Presence is the product in more rooms than one. The first sales call is a live moment, and handing it to a bot gives away the [one thing a machine lives at the median of](/grimoire/dont-outsource-the-handshake). The final decision on your work is a live moment, and it belongs to a human who can say no. It rhymes with the [Eight Dominoes](/eight-dominoes): people browse intellectually and buy emotionally, and it takes a human to connect with a human. TikTok fenced one room. Look at your own funnel and fence the rest yourself, before someone writes you a rule.
 
 ## Where does this leave you?
 
